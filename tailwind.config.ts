@@ -31,6 +31,11 @@ const config: Config = {
           "monospace",
         ],
       },
+      fontWeight: {
+        "1000": "1000",
+        "1100": "1100",
+        "1200": "1200",
+      },
     },
   },
   plugins: [],
