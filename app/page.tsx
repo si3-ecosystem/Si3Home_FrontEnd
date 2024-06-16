@@ -11,9 +11,35 @@ import SherCoActive from "@/components/SherCoActive";
 import SherLive from "@/components/SherLive";
 import Testimonials from "@/components/Testimonials";
 
-export default function Home() {
+export default async function Home() {
+  const [
+    hero,
+    sheHerLive,
+    granting,
+    sherCoActive,
+    educationalProgramming,
+    memberSpotlight,
+    ecosystemSpotlight,
+    brand,
+    mission,
+    onboard,
+    pricing,
+  ] = await Promise.all([
+    getBanner(),
+    getSherLive(),
+    getGranting(),
+    getSherCoActive(),
+    getEducationalProgramming(),
+    getMemberSpotlight(),
+    getEcosystemSpotlight(),
+    getBrand(),
+    getMission(),
+    getOnboard(),
+    getPricing(),
+  ]);
+
   return (
-    <main className="">
+    <main className="scroll-smooth">
       <Banner />
       <SherLive />
       <Granting />
