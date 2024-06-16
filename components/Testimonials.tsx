@@ -1,38 +1,12 @@
 "use client";
+import ImageUrl from "@/utils/imageUrl";
 import Image from "next/image";
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/swiper-bundle.css";
 
-const testimonials = [
-  {
-    id: 1,
-    quote: `We couldn't have asked for a better investor and board member than Bart. Blockchain Capital deeply understands the crypto ecosystem and their strategic guidance has been instrumental to our success.`,
-    name: "Aliesa Costa",
-    title: "CEO of Crypto Ventures",
-    website: "https://cryptoventures.com",
-    imageSrc: "/user2.svg",
-  },
-  {
-    id: 2,
-    quote: `Bart's insights into the crypto market have been invaluable. Their support has helped us navigate the complexities of the industry with confidence.`,
-    name: "John Doe",
-    title: "Founder of Blockchain Innovations",
-    website: "https://blockchaininnovations.com",
-    imageSrc: "/user1.svg",
-  },
-  {
-    id: 3,
-    quote: `Working with Bart and Blockchain Capital has been a game changer. Their strategic input and deep understanding of blockchain technology have propelled us forward.`,
-    name: "Jane Smith",
-    title: "CTO of Digital Assets Corp",
-    website: "https://digitalassets.com",
-    imageSrc: "/user3.svg",
-  },
-];
-
-export default function Testimonials() {
+export default function Testimonials({ testimonials }: any) {
   const swipeRef = useRef();
 
   return (
@@ -93,37 +67,6 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* <div className="space-y-16">
-            <h1 className="text-xl md:text-5xl">
-              {`“`} <br />
-              <span>
-                We couldn`&apos;`t have asked for a better investor and board
-                member than Bart. Blockchain Capital deeply understands the
-                crypto ecosystem and their strategic guidance has been
-                instrumental to our success.
-              </span>
-              {`”`}
-            </h1>
-
-            <div className="flex items-center gap-6 md:gap-36">
-              <span className="flex gap-2 items-center">
-                <Image
-                  src={"/user2.svg"}
-                  alt=""
-                  width={55}
-                  height={55}
-                  className="rounded-full"
-                />
-
-                <h4 className="font-mono text-[#999999]">Aliesa COSTA</h4>
-              </span>
-
-              <h4 className="capitalize text-[#5D5D5D]">
-                <span>TITle</span> https://yourwebsite link
-              </h4>
-            </div>
-          </div> */}
-
           <Swiper
             onSwiper={(swiper) => {
               /*
@@ -143,30 +86,27 @@ export default function Testimonials() {
               },
             }}
           >
-            {testimonials.map((item) => (
-              <SwiperSlide key={item.id} className="space-y-16">
+            {testimonials?.map((item: any, key: number) => (
+              <SwiperSlide key={key} className="space-y-16">
                 <h1 className="text-xl md:text-5xl">
                   {`“`} <br />
-                  <span>{item.quote}</span>
+                  <span>{item.description}</span>
                   {`”`}
                 </h1>
 
                 <div className="flex items-center gap-6 md:gap-36 flex-wrap">
                   <span className="flex gap-2 items-center">
-                    <Image
-                      src={"/user2.svg"}
-                      alt=""
-                      width={55}
-                      height={55}
-                      className="rounded-full"
-                    />
+                    <div className="w-14 h-14">
+                      <ImageUrl
+                        image={item?.image}
+                        className={"rounded-full w-14 h-14"}
+                      />
+                    </div>
 
                     <h4 className="font-mono text-[#999999]">{item.name}</h4>
                   </span>
 
-                  <h4 className="uppercase text-[#5D5D5D]">
-                    <span>TITle </span> {item.website}
-                  </h4>
+                  <h4 className="uppercase text-[#5D5D5D]"> {item.link}</h4>
                 </div>
               </SwiperSlide>
             ))}

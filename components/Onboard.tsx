@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react";
 import Button from "./shared/Button";
 
-export default function Onboard() {
+export default function Onboard({ onboard }: any) {
+  console.log(onboard);
   const [bgPosition, setBgPosition] = useState("center top 112px");
 
   useEffect(() => {
@@ -30,17 +31,12 @@ export default function Onboard() {
       }}
     >
       <div className="md:w-1/2 text-center space-y-3 md:space-y-[18px]">
-        <h3 className="md:text-xl font-medium">
-          EDUCATION. CONNECTION. COLLABORATION.
-        </h3>
+        <h3 className="md:text-xl font-medium">{onboard.subtitle}</h3>
         <h1 className="text-2xl md:text-[64px] md:text-primary font-1000">
-          Onboard
+          {onboard.title}
         </h1>
-        <p className="font-mono text-sm md:text-xl">
-          We have created two pathways to access our offerings. We support
-          equitable business models, with fair pricing and access.
-        </p>
-        <Button className="font-medium text-xl">Subscribe to Push Chat</Button>
+        <p className="font-mono text-sm md:text-xl">{onboard.description}</p>
+        <Button className="font-medium text-xl">{onboard.cta.text}</Button>
       </div>
     </div>
   );

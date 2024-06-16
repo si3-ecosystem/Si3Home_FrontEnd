@@ -1,35 +1,48 @@
+"use client";
+import ImageUrl from "@/utils/imageUrl";
+import urlFor from "@/utils/urlFor";
 import Image from "next/image";
 
-export default function Brand() {
+export default function Brand({ brand }: any) {
   return (
-    <div className="px-5 md:px-16 py-20 md:py-28 flex flex-col md:flex-row justify-center gap-6 md:gap-12">
+    <div className="px-5 md:px-16 py-20 md:py-28 flex flex-col md:flex-row justify-center gap-6 md:gap-12 max-w-screen-xl mx-auto">
       <div className="">
         <div className="space-y-5 mb-6 md:mb-16">
           <h1 className="text-2xl md:text-4xl text-[#44442288]">
-            Activate Your <span className="text-primary">Web3 Brand</span>
+            Activate Your <span className="text-primary">Web3 Brand </span>
           </h1>
 
           <p className="font-mono text-[#999999] text-xl">
-            Within our membership platform, our members receive their own
-            personal web3 page, livestreaming channel, database of speaking
-            outlets, educational programming, and business growth opportunities.
+            {brand.description}
           </p>
         </div>
 
-        {Array.from({ length: 4 }).map((item, index) => (
-          <div key={index} className="mt-4">
-            <div className="text-[#999999] border border-[#999999] py-2.5 px-[18px] flex items-center justify-between rounded-lg">
-              <h2 className="md:text-2xl">Decentralized Identities</h2>
-              <Image
-                src={"/up.png"}
-                width={28}
-                height={28}
-                alt="up_icon"
-                className="h-7 w-7"
-              />
+        {brand?.gallery?.length > 0 &&
+          brand.gallery.map((item: any, index: number) => (
+            <div key={index} className="mt-4">
+              <div className="text-[#999999] border border-[#999999] py-2.5 px-[18px] flex items-center justify-between rounded-lg">
+                <h2 className="md:text-2xl">{item.galleryTitle}</h2>
+
+                <div className="flex items-center gap-4">
+                  {item?.images?.map((image: any, key: number) => (
+                    <div key={key}>
+                      {image?.asset && (
+                        <Image
+                          src={urlFor(image.asset).url()}
+                          width={56}
+                          height={56}
+                          alt="up_icon"
+                          decoding="async"
+                          loading="lazy"
+                          className="h-full w-full"
+                        />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
       <Image
         src={"/videoImage.png"}

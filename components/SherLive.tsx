@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-export default function SherLive() {
+export default function SherLive({ sheHerLive }: any) {
   const [bgPosition, setBgPosition] = useState("center top 112px");
 
   useEffect(() => {
@@ -29,16 +29,12 @@ export default function SherLive() {
       }}
     >
       <div className="md:w-1/2 text-center space-y-3 md:space-y-[18px]">
-        <h3 className="md:text-xl font-medium">
-          CREATORS. BUILDERS. COMMUNITY LEADERS.
-        </h3>
+        <h3 className="md:text-xl font-medium">{sheHerLive.subtitle}</h3>
         <h1 className="text-2xl md:text-[64px]  md:text-primary font-1000">
-          SI HER LIVE
+          {sheHerLive.title}
         </h1>
-        <p className="font-mono text-sm md:text-xl">
-          Experience our live virtual events, introducing leaders in their
-          fields. We offer a selection of events for our Si Her members, and
-          free and open access events for all.
+        <p className="font-mono text-sm md:text-xl max-w-[704px] mx-auto">
+          {sheHerLive.description}
         </p>
       </div>
     </div>

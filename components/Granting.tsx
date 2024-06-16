@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Navigation, Pagination } from "swiper/modules";
 import { useRef } from "react";
+import moment from "moment";
+import ImageUrl from "@/utils/imageUrl";
 
 const slides = [
   {
@@ -42,7 +44,7 @@ const slides = [
   // Add more slide objects here as needed
 ];
 
-export default function Granting() {
+export default function Granting({ granting }: any) {
   const swipeRef = useRef();
 
   return (
@@ -52,48 +54,16 @@ export default function Granting() {
           SUBSCRIBE FOR GRANT UPDATES
         </Button>
         <h1 className="text-2xl md:text-4xl md:text-primary mt-6 font-1000">
-          Granting Access
+          {granting.title}
         </h1>
         <p className="font-mono mt-4">
           JULY 10TH 2024 - 11 am - 3 pm CST / UTC 5 (FREE & OPEN EVENT)
         </p>
 
-        <p className="font-mono my-4 md:my-6">
-          Discover grant funding opportunities from leading blockchains, <br />{" "}
-          protocols and foundations in support of women & non-binary- <br />{" "}
-          builders.
+        <p className="font-mono my-4 md:my-6 max-w-xl">
+          {granting.blockContent}
         </p>
       </div>
-
-      {/* <div className="md:w-3/4 px-5 md:px-0 md:ml-auto grid grid-cols-1 md:grid-cols-3 gap-4">
-        {slides.map((item) => (
-          <div key={item.id} className="relative ">
-            <Image
-              src={"/profile1.png"}
-              alt=""
-              width={412}
-              height={578}
-              className="w-[412px] h-[578px] object-cover object-center rounded-lg card-shaper "
-            />
-            <p className="text-sm onramp-background absolute top-3 mx font-mono text-white ml-3 p-1 rounded-lg">
-              Summit: 26-01-2024 | 03:40-05:40pm UT
-            </p>
-            <div className="absolute bottom-3 ml-3 text-white">
-              <Image
-                src={"/onramp.svg"}
-                width={150}
-                height={34}
-                alt=""
-                className="object-cover"
-              />
-              <h2 className="text-2xl font-bold">Zara Fairoz</h2>
-              <p className="capitalize font-medium">
-                smart Business Structures
-              </p>
-            </div>
-          </div>
-        ))}
-      </div> */}
 
       <div className="w-full md:w-3/4 px-5 md:px-0 md:ml-auto">
         <Swiper
@@ -124,33 +94,32 @@ export default function Granting() {
             },
           }}
         >
-          {slides.map((item) => (
-            <SwiperSlide key={item.id} className="relative rounded-lg">
-              <Image
-                src={item.src}
-                alt=""
-                width={412}
-                height={578}
-                className="h-[578px] object-cover object-center rounded-lg w-full card-shaper"
-              />
-              <p className="text-sm onramp-background absolute top-3 mx font-mono text-white ml-3 p-1 rounded-lg">
-                Summit: 26-01-2024 | 03:40-05:40pm UT
-              </p>
-              <div className="absolute bottom-3 ml-3 text-white">
-                <Image
-                  src={"/onramp.svg"}
-                  width={150}
-                  height={34}
-                  alt=""
-                  className="object-cover"
+          {granting?.builders?.length > 0 &&
+            granting.builders.map((item: any, key: number) => (
+              <SwiperSlide key={key} className="relative rounded-lg">
+                <ImageUrl
+                  image={item.image}
+                  className={
+                    "h-[578px] object-cover object-center rounded-lg w-full card-shaper"
+                  }
                 />
-                <h2 className="text-2xl font-bold">Zara Fairoz</h2>
-                <p className="capitalize font-medium">
-                  smart Business Structures
+                <p className="text-sm onramp-background absolute top-3 mx font-mono text-white ml-3 p-1 rounded-lg">
+                  Summit: {moment(item.summitDate).format("DD-MM-YYYY")} |
+                  03:40-05:40pm UT{" "}
                 </p>
-              </div>
-            </SwiperSlide>
-          ))}
+                <div className="absolute bottom-3 ml-3 text-white">
+                  <Image
+                    src={"/onramp.svg"}
+                    width={150}
+                    height={34}
+                    alt=""
+                    className="object-cover"
+                  />
+                  <h2 className="text-2xl font-bold">{item.name}</h2>
+                  <p className="capitalize font-medium">{item.position}</p>
+                </div>
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
 

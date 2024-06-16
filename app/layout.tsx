@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CustomLayout from "@/components/provider/CustomLayout";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,10 +23,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>
-        <Navbar />
-        <div className="min-h-screen">{children}</div>
-        <Footer />
+      <body className="scroll-smooth">
+        <CustomLayout>
+          <Navbar />
+          <div className="min-h-screen">{children}</div>
+          <Footer />
+        </CustomLayout>
       </body>
     </html>
   );

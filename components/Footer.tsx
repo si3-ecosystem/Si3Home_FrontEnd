@@ -3,9 +3,14 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <div className="bg-blackish px-5  md:px-16 py-8">
-      <div className="py-5 flex items-center justify-between">
+      <div className="py-5 flex flex-col md:flex-row items-center gap-5 justify-between">
         <h1 className="text-white text-4xl lg:text-5xl shrink-0">{"SI <3>"}</h1>
-
+        <iframe
+          src="https://paragraph.xyz/@currentsi/embed"
+          className="border bg-white w-full h-[300px] sm:w-[420px] sm:h-[300px] rounded-md"
+          frameBorder="0"
+          scrolling="no"
+        ></iframe>
         <div className="flex items-center gap-6 shrink-0">
           <Image
             src={"/icons/ha.svg"}
