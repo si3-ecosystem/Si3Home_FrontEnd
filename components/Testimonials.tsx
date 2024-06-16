@@ -1,79 +1,40 @@
 "use client";
 import Image from "next/image";
+import { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/swiper-bundle.css";
 
-const slides = [
+const testimonials = [
   {
     id: 1,
-    src: "/karaUser.svg",
-    title: "Smart Business Structures",
-    description:
-      "Hear from crypto innovators in India as they drive growth and adoption in DeFi. Discover how India a leader crypto exchanges and learn from our presenters this region's outlook in 2024 and beyond.",
-    presenters: [
-      {
-        id: "1",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-      {
-        id: "2",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-    ],
+    quote: `We couldn't have asked for a better investor and board member than Bart. Blockchain Capital deeply understands the crypto ecosystem and their strategic guidance has been instrumental to our success.`,
+    name: "Aliesa Costa",
+    title: "CEO of Crypto Ventures",
+    website: "https://cryptoventures.com",
+    imageSrc: "/user2.svg",
   },
-
   {
     id: 2,
-    src: "/karaUser.svg",
-    title: "Smart Business Structures",
-    description:
-      "Hear from crypto innovators in India as they drive growth and adoption in DeFi. Discover how India a leader crypto exchanges and learn from our presenters this region's outlook in 2024 and beyond.",
-    presenters: [
-      {
-        id: "1",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-      {
-        id: "2",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-    ],
+    quote: `Bart's insights into the crypto market have been invaluable. Their support has helped us navigate the complexities of the industry with confidence.`,
+    name: "John Doe",
+    title: "Founder of Blockchain Innovations",
+    website: "https://blockchaininnovations.com",
+    imageSrc: "/user1.svg",
   },
-
   {
     id: 3,
-    src: "/karaUser.svg",
-    title: "Smart Business Structures",
-    description:
-      "Hear from crypto innovators in India as they drive growth and adoption in DeFi. Discover how India a leader crypto exchanges and learn from our presenters this region's outlook in 2024 and beyond.",
-    presenters: [
-      {
-        id: "1",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-      {
-        id: "2",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-    ],
+    quote: `Working with Bart and Blockchain Capital has been a game changer. Their strategic input and deep understanding of blockchain technology have propelled us forward.`,
+    name: "Jane Smith",
+    title: "CTO of Digital Assets Corp",
+    website: "https://digitalassets.com",
+    imageSrc: "/user3.svg",
   },
-
-  // Add more slide objects here as needed
 ];
 
 export default function Testimonials() {
+  const swipeRef = useRef();
+
   return (
     <div className="">
       <div className="py-14 md:py-28 ">
@@ -91,6 +52,11 @@ export default function Testimonials() {
                 viewBox="0 0 32 32"
                 fill="none"
                 className="cursor-pointer"
+                onClick={() => {
+                  /*
+            // @ts-ignore */
+                  swipeRef.current.slidePrev();
+                }}
               >
                 <path
                   d="M20 26.5599L11.3066 17.8666C10.28 16.8399 10.28 15.1599 11.3066 14.1333L20 5.43994"
@@ -109,6 +75,11 @@ export default function Testimonials() {
                 viewBox="0 0 32 32"
                 fill="none"
                 className="cursor-pointer"
+                onClick={() => {
+                  /*
+            // @ts-ignore */
+                  swipeRef.current.slideNext();
+                }}
               >
                 <path
                   d="M11.8799 26.5599L20.5732 17.8666C21.5999 16.8399 21.5999 15.1599 20.5732 14.1333L11.8799 5.43994"
@@ -122,7 +93,7 @@ export default function Testimonials() {
             </div>
           </div>
 
-          <div className="space-y-16">
+          {/* <div className="space-y-16">
             <h1 className="text-xl md:text-5xl">
               {`“`} <br />
               <span>
@@ -151,7 +122,55 @@ export default function Testimonials() {
                 <span>TITle</span> https://yourwebsite link
               </h4>
             </div>
-          </div>
+          </div> */}
+
+          <Swiper
+            onSwiper={(swiper) => {
+              /*
+      // @ts-ignore */
+              swipeRef.current = swiper;
+            }}
+            slidesPerView={1.2}
+            spaceBetween={30}
+            breakpoints={{
+              340: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+              640: {
+                slidesPerView: 1.2,
+                spaceBetween: 30,
+              },
+            }}
+          >
+            {testimonials.map((item) => (
+              <SwiperSlide key={item.id} className="space-y-16">
+                <h1 className="text-xl md:text-5xl">
+                  {`“`} <br />
+                  <span>{item.quote}</span>
+                  {`”`}
+                </h1>
+
+                <div className="flex items-center gap-6 md:gap-36 flex-wrap">
+                  <span className="flex gap-2 items-center">
+                    <Image
+                      src={"/user2.svg"}
+                      alt=""
+                      width={55}
+                      height={55}
+                      className="rounded-full"
+                    />
+
+                    <h4 className="font-mono text-[#999999]">{item.name}</h4>
+                  </span>
+
+                  <h4 className="uppercase text-[#5D5D5D]">
+                    <span>TITle </span> {item.website}
+                  </h4>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </div>

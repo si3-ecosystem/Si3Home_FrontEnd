@@ -127,11 +127,11 @@ export default function Granting() {
           {slides.map((item) => (
             <SwiperSlide key={item.id} className="relative rounded-lg">
               <Image
-                src={"/profile1.png"}
+                src={item.src}
                 alt=""
                 width={412}
                 height={578}
-                className="h-[578px] object-cover object-center rounded-lg w-full"
+                className="h-[578px] object-cover object-center rounded-lg w-full card-shaper"
               />
               <p className="text-sm onramp-background absolute top-3 mx font-mono text-white ml-3 p-1 rounded-lg">
                 Summit: 26-01-2024 | 03:40-05:40pm UT

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Button from "./shared/Button";
 
 import "swiper/swiper-bundle.css";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const slides = [
   {
@@ -51,6 +52,90 @@ const slides = [
 
   {
     id: 3,
+    src: "/karaUser.svg",
+    title: "Smart Business Structures",
+    description:
+      "Hear from crypto innovators in India as they drive growth and adoption in DeFi. Discover how India a leader crypto exchanges and learn from our presenters this region's outlook in 2024 and beyond.",
+    presenters: [
+      {
+        id: "1",
+        name: "Juliya adward",
+        role: "CEO of chatGPT",
+        src: "/user.svg",
+      },
+      {
+        id: "2",
+        name: "Juliya adward",
+        role: "CEO of chatGPT",
+        src: "/user.svg",
+      },
+    ],
+  },
+  {
+    id: 4,
+    src: "/karaUser.svg",
+    title: "Smart Business Structures",
+    description:
+      "Hear from crypto innovators in India as they drive growth and adoption in DeFi. Discover how India a leader crypto exchanges and learn from our presenters this region's outlook in 2024 and beyond.",
+    presenters: [
+      {
+        id: "1",
+        name: "Juliya adward",
+        role: "CEO of chatGPT",
+        src: "/user.svg",
+      },
+      {
+        id: "2",
+        name: "Juliya adward",
+        role: "CEO of chatGPT",
+        src: "/user.svg",
+      },
+    ],
+  },
+  {
+    id: 5,
+    src: "/karaUser.svg",
+    title: "Smart Business Structures",
+    description:
+      "Hear from crypto innovators in India as they drive growth and adoption in DeFi. Discover how India a leader crypto exchanges and learn from our presenters this region's outlook in 2024 and beyond.",
+    presenters: [
+      {
+        id: "1",
+        name: "Juliya adward",
+        role: "CEO of chatGPT",
+        src: "/user.svg",
+      },
+      {
+        id: "2",
+        name: "Juliya adward",
+        role: "CEO of chatGPT",
+        src: "/user.svg",
+      },
+    ],
+  },
+  {
+    id: 6,
+    src: "/karaUser.svg",
+    title: "Smart Business Structures",
+    description:
+      "Hear from crypto innovators in India as they drive growth and adoption in DeFi. Discover how India a leader crypto exchanges and learn from our presenters this region's outlook in 2024 and beyond.",
+    presenters: [
+      {
+        id: "1",
+        name: "Juliya adward",
+        role: "CEO of chatGPT",
+        src: "/user.svg",
+      },
+      {
+        id: "2",
+        name: "Juliya adward",
+        role: "CEO of chatGPT",
+        src: "/user.svg",
+      },
+    ],
+  },
+  {
+    id: 7,
     src: "/karaUser.svg",
     title: "Smart Business Structures",
     description:
@@ -128,7 +213,7 @@ export default function Ecosystem() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 px-5 md:px-16 gap-4 md:gap-9">
+        {/* <div className="grid grid-cols-2 md:grid-cols-3 px-5 md:px-16 gap-4 md:gap-9">
           {Array.from({ length: 6 }).map((item, index) => (
             <div
               key={index}
@@ -155,6 +240,37 @@ export default function Ecosystem() {
               </div>
             </div>
           ))}
+        </div> */}
+
+        <div className="px-5 md:px-16">
+          <Swiper grid={{ rows: 2 }} slidesPerView={3}>
+            {slides.map((item) => (
+              <SwiperSlide
+                key={item.id}
+                className="border border-[#989898] rounded flex items-center justify-center flex-col text-center py-6 "
+              >
+                <div className="flex items-center gap-1 justify-center">
+                  <Image
+                    src={"/horseLogo.png"}
+                    alt=""
+                    width={46}
+                    height={60}
+                    className="w-11 h-11"
+                  />
+                  <h1 className="font-1000 text-2xl md:text-4xl">Pinata</h1>
+                </div>
+
+                <p className="font-medium text-sm md:text-base pt-2 md:pt-6">
+                  Here is heading here
+                </p>
+
+                <div className="space-y-1 md:space-y-3 mt-2 md:mt-16 text-center">
+                  <p className="font-mono text-sm md:text-[32px]">Annie Lu</p>
+                  <p className="text-[#898989] text-sm">Co-founder ofAURPAY</p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </div>
