@@ -10,6 +10,77 @@ import Pricing from "@/components/Pricing";
 import SherCoActive from "@/components/SherCoActive";
 import SherLive from "@/components/SherLive";
 import Testimonials from "@/components/Testimonials";
+import { client } from "@/utils/client";
+import groq from "groq";
+
+async function getBanner() {
+  const query = groq`*[_type == 'hero']`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+
+async function getSherLive() {
+  const query = groq`*[_type == 'about']`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+async function getGranting() {
+  const query = groq`*[_type == 'grantingAccess'] {..., "builders":builders[]->{...}}`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+async function getSherCoActive() {
+  const query = groq`*[_type == 'sihercoactive']`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+async function getEducationalProgramming() {
+  const query = groq`*[_type == 'educationalProgramming'] {...,"Events":Events[]->{...}}`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+async function getMemberSpotlight() {
+  const query = groq`*[_type == 'memberSpotlight'] {...,"teammembers":teammembers[]->{...}}`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+async function getEcosystemSpotlight() {
+  const query = groq`*[_type == 'ecosystemSpotlight'] {...,"teamMember":teamMember->{...}}`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+
+async function getBrand() {
+  const query = groq`*[_type == 'web3brand']`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+async function getMission() {
+  const query = groq`*[_type == 'ourMission']`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+async function getOnboard() {
+  const query = groq`*[_type == 'onboard']`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+async function getPricing() {
+  const query = groq`*[_type == 'pricing']`;
+  const data = await client.fetch(query);
+
+  return data;
+}
 
 export default async function Home() {
   const [
