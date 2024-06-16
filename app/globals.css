@@ -19,3 +19,38 @@ body {
 .font-outfit {
   font-family: "Outfit", monospace;
 }
+
+.onramp-background {
+  background: rgba(125, 125, 125, 0.33);
+  backdrop-filter: blur(20.649999618530273px);
+}
+
+.card-shaper {
+  clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%);
+}
+
+.slanted-border {
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+  border-radius: 0 0 0 20px; /* Adjust this to match other corners' radius */
+}
+
+.slanted-border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 100%, 0% 100%);
+  border-radius: 0 0 20px 0; /* Adjust this to match other corners' radius */
+  background: white; /* Assuming the image is on a white background, adjust if necessary */
+  z-index: 1;
+}
+
+.border-gradient {
+  border: 1px solid;
+  border-image: linear-gradient(90deg, #3c1fef 0%, #c51fef 50%, #ef9c1f 100%);
+  border-image-slice: 1;
+  border-radius: 8px;
+}
