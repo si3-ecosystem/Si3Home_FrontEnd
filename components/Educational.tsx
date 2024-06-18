@@ -23,6 +23,7 @@ export default function Educational({ educationalProgramming }: any) {
       });
     }
   }, [isInView, controls]);
+
   return (
     <motion.div ref={ref} className="py-14 md:py-28">
       <motion.div

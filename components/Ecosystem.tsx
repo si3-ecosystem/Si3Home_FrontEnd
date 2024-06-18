@@ -2,7 +2,6 @@
 import Image from "next/image";
 
 import "swiper/swiper-bundle.css";
-import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function Ecosystem({ ecosystemSpotlight }: any) {
   return (
@@ -18,7 +17,7 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
               {ecosystemSpotlight.description}
             </p>
 
-            <div className="flex items-center gap-6 mb-3 md:mb-0">
+            {/* <div className="flex items-center gap-6 mb-3 md:mb-0">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -54,11 +53,11 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
                   stroke-linejoin="round"
                 />
               </svg>
-            </div>
+            </div> */}
           </div>
         </div>
 
-        <div className="px-5 md:px-16">
+        {/* <div className="px-5 md:px-16">
           <Swiper grid={{ rows: 2 }} slidesPerView={3}>
             {ecosystemSpotlight?.spotlightList?.length > 0 &&
               ecosystemSpotlight.spotlightList.map((item: any, key: number) => (
@@ -92,6 +91,42 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
                 </SwiperSlide>
               ))}
           </Swiper>
+        </div> */}
+
+        <div className="px-5 md:px-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4  md:gap-[38px]">
+            {ecosystemSpotlight?.spotlightList?.length > 0 &&
+              ecosystemSpotlight.spotlightList.map((item: any, key: number) => (
+                <div
+                  key={key}
+                  className="border border-[#989898] rounded flex items-center justify-center flex-col text-center py-6 "
+                >
+                  <div className="flex items-center gap-1 justify-center">
+                    <Image
+                      src={"/horseLogo.png"}
+                      alt=""
+                      width={46}
+                      height={60}
+                      className="w-11 h-11"
+                    />
+                    <h1 className="font-1000 text-2xl md:text-4xl">Pinata</h1>
+                  </div>
+
+                  <p className="font-medium text-sm md:text-base pt-2 md:pt-6">
+                    {item.title}
+                  </p>
+
+                  <div className="space-y-1 md:space-y-3 mt-2 md:mt-16 text-center">
+                    <p className="font-mono text-sm md:text-[32px]">
+                      {item.teamMember.name}
+                    </p>
+                    <p className="text-[#898989] text-sm">
+                      {item.teamMember.position}
+                    </p>
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     </div>
