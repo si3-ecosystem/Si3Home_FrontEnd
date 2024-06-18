@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
             </svg>
           </button>
         </div>
-        <div className="flex items-center space-x-4 md:space-x-36 font-medium">
+        <div className=" items-center space-x-4 md:space-x-14 xl:space-x-36 font-medium hidden lg:flex">
           <div
             className="relative flex items-center gap-2 cursor-pointer"
             onMouseEnter={() => handleDropdown("onboard")}
@@ -160,12 +160,12 @@ const Navbar: React.FC = () => {
             )}
           </div>
         </div>
-        <div className="hidden md:flex items-center justify-center">
+        <div className="hidden lg:flex items-center justify-center">
           <a href="#" className="text-white text-5xl font-bold uppercase">
             {"Si <3>"}
           </a>
         </div>
-        <div className="flex items-center space-x-4 md:space-x-36 font-medium">
+        <div className="flex items-center space-x-4 md:space-x-14 xl:space-x-36 font-medium">
           <div
             className="relative flex items-center gap-2 cursor-pointer"
             onMouseEnter={() => handleDropdown("about")}
@@ -173,7 +173,7 @@ const Navbar: React.FC = () => {
           >
             <a
               href="#"
-              className="hidden md:inline text-white relative overflow-hidden"
+              className="hidden lg:inline text-white relative overflow-hidden "
             >
               ABOUT US
               {activeDropdown === "about" && (
@@ -190,7 +190,7 @@ const Navbar: React.FC = () => {
               alt="Dropdown"
               width={24}
               height={24}
-              className="w-6 h-6 hidden md:inline"
+              className="w-6 h-6 hidden lg:inline"
             />
             {activeDropdown === "about" && (
               <motion.div
@@ -229,17 +229,70 @@ const Navbar: React.FC = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="lg:hidden px-6 py-4">
-          <a href="#" className="block text-white mb-2">
-            ONBOARD
-          </a>
-          <a href="#" className="block text-white mb-2">
-            SI HER LIVE
-          </a>
-          <a href="#" className="block text-white mb-2">
-            ABOUT US
-          </a>
-        </div>
+        <motion.div
+          whileInView={{ y: [-50, 0] }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+            staggerChildren: 0.2,
+          }}
+          className="lg:hidden px-6 py-4"
+        >
+          <motion.a
+            href="#siherCoActive"
+            className="block text-white mb-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            SI Her Co-Active
+          </motion.a>
+          <motion.a
+            href="#ecosystem"
+            className="block text-white mb-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Si3 Ecosystem
+          </motion.a>
+          <motion.a
+            href="#commonGround"
+            className="block text-white mb-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Common Ground
+          </motion.a>
+          <motion.a
+            href="#coActivator"
+            className="block text-white mb-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Metaverse
+          </motion.a>
+          <motion.a
+            href="#ourMission"
+            className="block text-white mb-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Our Mission
+          </motion.a>
+          <motion.a
+            href="#testimonials"
+            className="block text-white mb-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Testimonials
+          </motion.a>
+        </motion.div>
       )}
     </motion.nav>
   );

@@ -50,7 +50,7 @@ export default function Banner({ hero }: any) {
         </motion.div>
       </div>
       <div className="absolute inset-0" />
-      <div className="relative z-10 px-10 md:px-16 pt-24 md:pt-[286px]">
+      <div className="relative z-10 px-10 md:px-16 pt-24 md:pt-[196px]">
         <motion.h1
           className="text-white font-bold text-2xl md:text-6xl"
           initial={{ opacity: 0.7, x: 500 }}
@@ -75,7 +75,7 @@ export default function Banner({ hero }: any) {
         <motion.div
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
-          className="mt-8 md:mt-[117px] flex items-center justify-center w-full md:w-fit"
+          className="mt-8 md:mt-[80px] flex items-center justify-center w-full md:w-fit"
         >
           <ButtonCTA variant="outline">{hero.cta.text}</ButtonCTA>
         </motion.div>
@@ -87,7 +87,7 @@ export default function Banner({ hero }: any) {
 function ButtonCTA({ children, className }: any) {
   return (
     <button className={`button ${className} rounded-lg`}>
-      <span className="button-text">{children}</span>
+      <span className="button-text max-sm:text-sm">{children}</span>
     </button>
   );
 }
