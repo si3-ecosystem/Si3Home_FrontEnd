@@ -31,9 +31,9 @@ export default function Educational({ educationalProgramming }: any) {
         animate={controls}
         className="px-5 md:px-16"
       >
-        <Button className="w-full md:w-fit flex justify-center">
+        {/* <Button className="w-full md:w-fit flex justify-center">
           SUBSCRIBE FOR EVENT UPDATES
-        </Button>
+        </Button> */}
         <h1 className="text-2xl md:text-[40px] font-1000 leading-10 md:text-primary mt-6 ">
           {educationalProgramming.title}
         </h1>

@@ -53,9 +53,9 @@ export default function Granting({ granting, register }: any) {
         animate={controls}
         className="px-5 md:px-16 mb-8"
       >
-        <Button className="w-full md:w-fit flex justify-center">
+        {/* <Button className="w-full md:w-fit flex justify-center">
           SUBSCRIBE FOR GRANT UPDATES
-        </Button>
+        </Button> */}
         <h1 className="text-2xl md:text-4xl md:text-primary mt-6 font-1000">
           {granting.title}
         </h1>

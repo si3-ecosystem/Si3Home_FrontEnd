@@ -239,6 +239,15 @@ const Navbar: React.FC = () => {
           className="lg:hidden px-6 py-4"
         >
           <motion.a
+            href="#siherlive"
+            className="block text-white mb-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Si Her Live
+          </motion.a>
+          <motion.a
             href="#siherCoActive"
             className="block text-white mb-2"
             initial={{ opacity: 0, y: -20 }}
@@ -257,40 +266,13 @@ const Navbar: React.FC = () => {
             Si3 Ecosystem
           </motion.a>
           <motion.a
-            href="#commonGround"
+            href="#onboard"
             className="block text-white mb-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Common Ground
-          </motion.a>
-          <motion.a
-            href="#coActivator"
-            className="block text-white mb-2"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Metaverse
-          </motion.a>
-          <motion.a
-            href="#ourMission"
-            className="block text-white mb-2"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Our Mission
-          </motion.a>
-          <motion.a
-            href="#testimonials"
-            className="block text-white mb-2"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Testimonials
+            Onboard
           </motion.a>
         </motion.div>
       )}

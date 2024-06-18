@@ -39,8 +39,8 @@ export default function SherLive({ sheHerLive }: any) {
   return (
     <div
       ref={ref}
-      id="siherCoActive"
-      className="flex items-center justify-center flex-col px-5 md:px-0 py-16 md:py-28 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
+      id="siherlive"
+      className="flex items-center justify-center flex-col px-5 md:px-0 py-16 md:!py-28 lg:my-32 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
       style={{
         backgroundPosition: bgPosition,
       }}

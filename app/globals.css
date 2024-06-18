@@ -97,3 +97,29 @@ body {
     radial-gradient(circle at 48% 8%, rgba(25, 187, 240, 0.55), transparent 70%);
   z-index: -1;
 }
+
+.border-gradient-bottom-right {
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.border-gradient-bottom-right:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to bottom, transparent, #989898),
+    linear-gradient(to bottom right, #989898, transparent);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
