@@ -35,7 +35,9 @@ export default function Onboard({ onboard }: any) {
           {onboard.title}
         </h1>
         <p className="font-mono text-sm md:text-xl">{onboard.description}</p>
-        <Button className="font-medium text-xl">{onboard.cta.text}</Button>
+        <Button className="font-medium text-sm md:text-xl">
+          {onboard.cta.text}
+        </Button>
       </div>
     </div>
   );

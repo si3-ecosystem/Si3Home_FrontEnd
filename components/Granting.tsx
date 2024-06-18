@@ -146,9 +146,12 @@ export default function Granting({ granting }: any) {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         backgroundImage="/registration-bg.svg"
-        className="md:w-[1174px] max-h-screen md:max-h-[98vh]"
+        className="relative md:w-[1174px] max-h-screen md:max-h-[98vh] z-50"
       >
-        <div className="flex flex-col items-center text-center px-4 md:px-0 py-4 md:py-16">
+        <div className="absolute inset-0 -z-50">
+          <div className="background-gradient" />
+        </div>
+        <div className="flex flex-col items-center text-center px-4 md:px-0 py-4 md:py-16 z-10">
           <h1 className="text-2xl md:text-5xl font-bold mb-5">
             Granting Access
           </h1>

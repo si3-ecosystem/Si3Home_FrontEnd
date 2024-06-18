@@ -1,11 +1,29 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import Button from "./shared/Button";
 
 export default function Banner({ hero }: any) {
   return (
-    <div className="relative bg-[url('/bgBanner_mobile.png')] md:bg-[url('/banner.png')] w-full h-[482px] lg:h-screen bg-cover bg-center bg-no-repeat">
-      <div className="absolute inset-0" />
+    <div className="relative w-full h-[482px] lg:h-screen">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/bgBanner_mobile.png"
+          alt="Background image mobile"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="md:hidden"
+        />
+        <Image
+          src="/banner.png"
+          alt="Background image desktop"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="right center"
+          className="hidden md:block"
+        />
+      </div>
       <div className="relative z-10 px-10 md:px-16 pt-24 md:pt-[186px]">
         <h1 className="text-white font-bold text-2xl md:text-6xl">
           {hero.headingOne}
