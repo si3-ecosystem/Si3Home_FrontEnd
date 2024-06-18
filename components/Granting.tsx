@@ -16,7 +16,6 @@ export default function Granting({ granting, register }: any) {
   const swipeRef = useRef<any>();
   const controls = useAnimation();
   const sectionRef = useRef<HTMLDivElement>(null);
-  console.log("register", register);
 
   useEffect(() => {
     const handleScroll = () => {

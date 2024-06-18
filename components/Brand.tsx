@@ -19,8 +19,8 @@ export default function Brand({ brand }: any) {
 
         {brand?.gallery?.length > 0 &&
           brand.gallery.map((item: any, index: number) => (
-            <div key={index} className="mt-4">
-              <div className="text-[#999999] border border-[#999999] py-2.5 px-[18px] flex items-center justify-between rounded-lg">
+            <div key={index} className="mt-4 group">
+              <div className="text-[#999999] border group-hover:scale-[1.02] transition-all cursor-pointer duration-300 border-[#999999] py-2.5 px-[18px] flex items-center justify-between rounded-lg">
                 <h2 className="md:text-2xl">{item.galleryTitle}</h2>
 
                 <div className="flex items-center gap-4">
@@ -34,7 +34,7 @@ export default function Brand({ brand }: any) {
                           alt="up_icon"
                           decoding="async"
                           loading="lazy"
-                          className="h-full w-full"
+                          className="h-full w-full group-hover:scale-[1.03] transition-all duration-300"
                         />
                       )}
                     </div>

@@ -20,13 +20,14 @@ export default function Banner({ hero }: any) {
     }
   }, [isInView, controls]);
   return (
-    <motion.div ref={ref} className="relative  w-full h-[482px] lg:h-screen">
+    <motion.div ref={ref} className="relative w-full h-[482px] lg:h-screen">
       <div className="absolute inset-0 -z-40">
         <Image
           src="/bgBanner_mobile.png"
           alt="Background image mobile"
           layout="fill"
           objectFit="cover"
+          priority
           objectPosition="center"
           className="md:hidden"
         />
@@ -35,6 +36,7 @@ export default function Banner({ hero }: any) {
           alt="Background image desktop"
           layout="fill"
           objectFit="cover"
+          priority
           objectPosition="right center"
           className="hidden md:block"
         />

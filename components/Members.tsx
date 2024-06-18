@@ -142,13 +142,13 @@ export default function Members({ memberSpotlight }: any) {
               memberSpotlight.teammembers.map((item: any, key: number) => (
                 <SwiperSlide
                   key={key}
-                  className=" border-2 p-5 rounded-lg border-[#FAB7D0] "
+                  className=" border-2 p-5 rounded-lg border-[#FAB7D0] group"
                 >
-                  <div className="">
+                  <div className="overflow-hidden">
                     <ImageUrl
                       image={item.image}
                       className={
-                        "w-[440px] h-[340px] object-cover object-center rounded-lg"
+                        "w-[440px] h-[340px] object-cover object-center rounded-lg group-hover:scale-[1.03] transition-all duration-300 group-hover:opacity-70"
                       }
                     />
                   </div>

@@ -126,7 +126,7 @@ export default async function Home() {
   ]);
 
   return (
-    <main className="scroll-smooth">
+    <main className="scroll-smooth overflow-x-hidden">
       <Banner hero={hero} />
       <SherLive sheHerLive={sheHerLive} />
       <Granting granting={granting} register={register} />
