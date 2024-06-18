@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import Button from "./shared/Button";
 
 import { motion, useAnimation, useInView } from "framer-motion";
+import Image from "next/image";
 
 export default function Banner({ hero }: any) {
   const ref = useRef(null);
@@ -19,11 +20,25 @@ export default function Banner({ hero }: any) {
     }
   }, [isInView, controls]);
   return (
-    <motion.div
-      ref={ref}
-      id="commonGround"
-      className="relative bg-[url('/bgBanner_mobile.png')] md:bg-[url('/banner.png')] w-full h-[482px] lg:h-screen bg-cover bg-center bg-no-repeat"
-    >
+    <motion.div ref={ref} className="relative  w-full h-[482px] lg:h-screen">
+      <div className="absolute inset-0 -z-40">
+        <Image
+          src="/bgBanner_mobile.png"
+          alt="Background image mobile"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="md:hidden"
+        />
+        <Image
+          src="/banner.png"
+          alt="Background image desktop"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="right center"
+          className="hidden md:block"
+        />
+      </div>
       <div className="absolute inset-0" />
       <div className="relative z-10 px-10 md:px-16 pt-24 md:pt-[286px]">
         <motion.h1

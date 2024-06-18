@@ -93,7 +93,7 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-0 md:top-[17px] mt-2 py-2 w-40 bg-white bg-opacity-30 rounded-md shadow-lg z-10"
+                className="absolute top-0 md:top-[17px] mt-2 py-2 w-40 bg-white bg-opacity-50 rounded-md shadow-lg z-10"
               >
                 <Link
                   href="#siherCoActive"
@@ -142,7 +142,7 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-0 md:top-[17px] mt-2 py-2 w-32 bg-white bg-opacity-30 rounded-md shadow-lg z-10"
+                className="absolute top-0 md:top-[17px] mt-2 py-2 w-32 bg-white bg-opacity-50 rounded-md shadow-lg z-10"
               >
                 <Link
                   href="#commonGround"
@@ -197,7 +197,7 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 transition={{ duration: 0.2 }}
-                className="absolute mt-2 py-2 w-32 top-0 md:top-[17px] bg-white bg-opacity-30 rounded-md shadow-lg z-10"
+                className="absolute mt-2 py-2 w-32 top-0 md:top-[17px] bg-white bg-opacity-50 rounded-md shadow-lg z-10"
               >
                 <Link
                   href="#ourMission"

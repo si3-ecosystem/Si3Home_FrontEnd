@@ -59,10 +59,12 @@ const Modal: React.FC<ModalProps> = ({
                 backgroundPosition: "center",
               }}
             >
-              <XMarkIcon
-                onClick={onClose}
-                className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 w-5 h-5 cursor-pointer"
-              />
+              <div className="p-2 z-50">
+                <XMarkIcon
+                  onClick={onClose}
+                  className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 w-6 h-6 cursor-pointer"
+                />
+              </div>
               <div className="p-6 overflow-y-auto">{children}</div>
             </div>
           </motion.div>
