@@ -19,6 +19,12 @@ async function getBanner() {
 
   return data;
 }
+async function getRegister() {
+  const query = groq`*[_type == 'register'][0]`;
+  const data = await client.fetch(query);
+
+  return data;
+}
 
 async function getSherLive() {
   const query = groq`*[_type == 'about'][0]`;
@@ -102,6 +108,7 @@ export default async function Home() {
     onboard,
     pricing,
     testimonials,
+    register,
   ] = await Promise.all([
     getBanner(),
     getSherLive(),
@@ -115,13 +122,14 @@ export default async function Home() {
     getOnboard(),
     getPricing(),
     getTestimonials(),
+    getRegister(),
   ]);
 
   return (
     <main className="scroll-smooth">
       <Banner hero={hero} />
       <SherLive sheHerLive={sheHerLive} />
-      <Granting granting={granting} />
+      <Granting granting={granting} register={register} />
       <Educational educationalProgramming={educationalProgramming} />
       <SherCoActive sherCoActive={sherCoActive} />
       <Brand brand={brand} />

@@ -11,11 +11,12 @@ import Modal from "./shared/Modal";
 import InputField from "./shared/InputField";
 import { useAnimation, useInView, motion } from "framer-motion";
 
-export default function Granting({ granting }: any) {
+export default function Granting({ granting, register }: any) {
   const [isOpen, setIsOpen] = useState(false);
   const swipeRef = useRef<any>();
   const controls = useAnimation();
   const sectionRef = useRef<HTMLDivElement>(null);
+  console.log("register", register);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +40,7 @@ export default function Granting({ granting }: any) {
     <div className="bg-no-repeat bg-[url('/group.png')] bg-cover md:pb-44">
       <motion.div
         ref={sectionRef}
-        initial={{ opacity: 0, x: 300 }}
+        // initial={{ opacity: 0, x: 300 }}
         animate={controls}
         className="px-5 md:px-16 mb-8"
       >
@@ -128,22 +129,21 @@ export default function Granting({ granting }: any) {
       >
         <div className="flex flex-col items-center text-center px-4 md:px-0 py-4 md:py-16">
           <h1 className="text-2xl md:text-5xl font-bold mb-5">
-            Granting Access
+            {register.title}
           </h1>
           <div className="flex flex-col md:flex-row items-center gap-2 mb-4 md:mb-11">
             <p className="font-medium bg-[#342F52] text-white py-1 px-3 md:py-2 md:px-6 rounded-full text-xs md:text-sm">
-              JULY 10TH, 2024 11 am - 3 pm CST / UTC + 5
+              {register.date}
             </p>
 
             <p className="font-medium bg-[#342F52] text-white py-1 px-3 md:py-2 md:px-6 rounded-full text-xs md:text-sm">
-              Streaming Live from Common Ground
+              {register.stream}
             </p>
           </div>
 
           <div className="space-y-2 md:space-y-6 flex flex-col justify-center items-center">
-            <p className="text-center text-[#6D6D6D] text-sm md:text-base">
-              Register to stay up-to-date on our upcoming virtual <br />
-              gathering. See you there!
+            <p className="text-center text-[#6D6D6D] text-sm md:text-base max-w-sm">
+              {register.subtitle}
             </p>
 
             <form className=" w-full max-w-md">
@@ -165,7 +165,7 @@ export default function Granting({ granting }: any) {
               </div>
 
               <div className="py-4 md:py-10">
-                <Button className="w-full flex items-center md:py-3 justify-center text-sm md:text-lg">
+                <Button className="w-full hover:scale-[1.02] transition-all duration-300 flex items-center md:py-3 justify-center text-sm md:text-lg">
                   Register Now
                 </Button>
               </div>
@@ -174,8 +174,19 @@ export default function Granting({ granting }: any) {
           <p className="text-center text-[#6D6D6D] text-sm md:text-base">
             Choose your calendar app where to add event:
           </p>
-          <div className="flex justify-center gap-2 md:gap-4 mt-3 md:mt-6 flex-wrap">
-            <div className="bg-[#100E1C]  py-2 px-4 md:py-4 md:px-8 flex flex-col items-center justify-center rounded-lg md:rounded-xl">
+          <motion.div className="flex justify-center gap-2 md:gap-4 mt-3 md:mt-6 flex-wrap">
+            <motion.a
+              href={register.apple}
+              target="_blank"
+              whileHover={{
+                scale: 1.03,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              className="bg-[#100E1C] cursor-pointer  py-2 px-4 md:py-4 md:px-8 flex flex-col items-center justify-center rounded-lg md:rounded-xl"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="29"
@@ -199,8 +210,19 @@ export default function Granting({ granting }: any) {
                 />
               </svg>
               <p className="text-[#838383] text-xs">Apple</p>
-            </div>
-            <div className="bg-[#100E1C]  py-2 px-4 md:py-4 md:px-8 flex flex-col items-center justify-center rounded-lg md:rounded-xl">
+            </motion.a>
+            <motion.a
+              href={register.google}
+              target="_blank"
+              whileHover={{
+                scale: 1.03,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              className="bg-[#100E1C] cursor-pointer py-2 px-4 md:py-4 md:px-8 flex flex-col items-center justify-center rounded-lg md:rounded-xl"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -233,9 +255,20 @@ export default function Granting({ granting }: any) {
                   stroke-linejoin="round"
                 />
               </svg>
-              <p className="text-[#838383] text-xs">Apple</p>
-            </div>
-            <div className="bg-[#100E1C]  py-2 px-4 md:py-4 md:px-8 flex flex-col items-center justify-center rounded-lg md:rounded-xl">
+              <p className="text-[#838383] text-xs">Google</p>
+            </motion.a>
+            <motion.a
+              href={register.office}
+              target="_blank"
+              whileHover={{
+                scale: 1.03,
+              }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              className="bg-[#100E1C] cursor-pointer py-2 px-4 md:py-4 md:px-8 flex flex-col items-center justify-center rounded-lg md:rounded-xl"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -255,9 +288,9 @@ export default function Granting({ granting }: any) {
                   stroke-linejoin="round"
                 />
               </svg>
-              <p className="text-[#838383] text-xs">Apple</p>
-            </div>
-          </div>
+              <p className="text-[#838383] text-xs">Office 365</p>
+            </motion.a>
+          </motion.div>
         </div>
       </Modal>
     </div>

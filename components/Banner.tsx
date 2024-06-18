@@ -21,6 +21,7 @@ export default function Banner({ hero }: any) {
   return (
     <motion.div
       ref={ref}
+      id="commonGround"
       className="relative bg-[url('/bgBanner_mobile.png')] md:bg-[url('/banner.png')] w-full h-[482px] lg:h-screen bg-cover bg-center bg-no-repeat"
     >
       <div className="absolute inset-0" />
