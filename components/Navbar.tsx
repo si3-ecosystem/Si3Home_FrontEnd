@@ -1,11 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const controls = useAnimation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -15,8 +17,27 @@ const Navbar: React.FC = () => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        controls.start({ backgroundColor: "#f1b8c6" }); // pink color
+      } else {
+        controls.start({ backgroundColor: "rgba(255, 255, 255, 0.3)" }); // default color
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [controls]);
+
   return (
-    <nav className="fixed w-full z-50 bg-white bg-opacity-30 backdrop-filter backdrop-blur-lg shadow-lg transition-all duration-300">
+    <motion.nav
+      animate={controls}
+      initial={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }} // initial background color
+      className="fixed w-full z-50 backdrop-filter backdrop-blur-lg shadow-lg transition-all duration-100"
+    >
       <div className="flex justify-between items-center px-5 md:px-16 py-4">
         <div className="lg:hidden">
           <button
@@ -74,18 +95,18 @@ const Navbar: React.FC = () => {
                 transition={{ duration: 0.2 }}
                 className="absolute top-0 md:top-[17px] mt-2 py-2 w-40 bg-white bg-opacity-30 rounded-md shadow-lg z-10"
               >
-                <a
-                  href="#"
+                <Link
+                  href="#siherCoActive"
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 >
-                  Option 1
-                </a>
-                <a
-                  href="#"
+                  SI Her Co-Active
+                </Link>
+                <Link
+                  href="#ecosystem"
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 >
-                  Option 2
-                </a>
+                  Si3 Ecosystem
+                </Link>
               </motion.div>
             )}
           </div>
@@ -123,17 +144,17 @@ const Navbar: React.FC = () => {
                 transition={{ duration: 0.2 }}
                 className="absolute top-0 md:top-[17px] mt-2 py-2 w-32 bg-white bg-opacity-30 rounded-md shadow-lg z-10"
               >
-                <a
-                  href="#"
+                <Link
+                  href="#commonGround"
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 >
-                  Option A
-                </a>
+                  Common Ground
+                </Link>
                 <a
-                  href="#"
+                  href="#coActivator"
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 >
-                  Option B
+                  Metaverse
                 </a>
               </motion.div>
             )}
@@ -178,18 +199,18 @@ const Navbar: React.FC = () => {
                 transition={{ duration: 0.2 }}
                 className="absolute mt-2 py-2 w-32 top-0 md:top-[17px] bg-white bg-opacity-30 rounded-md shadow-lg z-10"
               >
-                <a
-                  href="#"
+                <Link
+                  href="#ourMission"
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 >
-                  Option X
-                </a>
-                <a
-                  href="#"
+                  Our Mission
+                </Link>
+                <Link
+                  href="#testimonials"
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                 >
-                  Option Y
-                </a>
+                  Testimonials
+                </Link>
               </motion.div>
             )}
           </div>
@@ -201,9 +222,9 @@ const Navbar: React.FC = () => {
               height={36}
               className="w-9 h-9"
             />
-            <a href="#" className="block text-white">
+            <Link href="#stayConnected" className="block text-white">
               STAY CONNECTED
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -220,7 +241,7 @@ const Navbar: React.FC = () => {
           </a>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 

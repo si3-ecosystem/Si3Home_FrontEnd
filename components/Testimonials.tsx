@@ -10,7 +10,7 @@ export default function Testimonials({ testimonials }: any) {
   const swipeRef = useRef();
 
   return (
-    <div className="">
+    <div id="testimonials" className="">
       <div className="py-14 md:py-28 ">
         <div className="px-5 md:px-16 ">
           <div className="flex items-center justify-between flex-wrap my-6 md:my-10">

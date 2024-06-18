@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
+import { AnimatePresence } from "framer-motion";
 
 export default function CustomLayout({
   children,
@@ -17,5 +18,5 @@ export default function CustomLayout({
     requestAnimationFrame(raf);
   }, []);
 
-  return <>{children}</>;
+  return <AnimatePresence mode="wait">{children}</AnimatePresence>;
 }

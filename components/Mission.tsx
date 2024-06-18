@@ -1,6 +1,9 @@
 export default function Mission({ mission }: any) {
   return (
-    <div className="bg-[url('/mission.png')] md:bg-[url('/mission-2.png')] bg-no-repeat px-5 md:px-16  bg-cover bg-center h-[832px] flex items-center">
+    <div
+      id="ourMission"
+      className="bg-[url('/mission.png')] md:bg-[url('/mission-2.png')] bg-no-repeat px-5 md:px-16  bg-cover bg-center h-[832px] flex items-center"
+    >
       <div className="flex flex-col md:flex-row gap-6 md:gap-44">
         <div className="text-white w-full md:w-3/4">
           <h1 className="text-2xl md:text-4xl">{mission.title}</h1>
