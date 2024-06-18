@@ -33,6 +33,7 @@ export default function Onboard({ onboard }: any) {
         duration: 0.5,
         ease: "easeInOut",
       }}
+      id="onboard"
       className="flex items-center justify-center flex-col px-5 md:px-0 py-16 md:py-28 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
       style={{
         backgroundPosition: bgPosition,
@@ -44,9 +45,9 @@ export default function Onboard({ onboard }: any) {
           {onboard.title}
         </h1>
         <p className="font-mono text-sm md:text-xl">{onboard.description}</p>
-        <Button className="font-medium text-sm md:text-xl">
+        {/* <Button className="font-medium text-sm md:text-xl">
           {onboard.cta.text}
-        </Button>
+        </Button> */}
       </div>
     </motion.div>
   );

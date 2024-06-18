@@ -6,6 +6,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 
 export default function Banner({ hero }: any) {
+  console.log("hero", hero);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
@@ -78,7 +79,9 @@ export default function Banner({ hero }: any) {
           animate={controls}
           className="mt-8 md:mt-[80px] flex items-center justify-center w-full md:w-fit"
         >
-          <ButtonCTA variant="outline">{hero.cta.text}</ButtonCTA>
+          <a href={hero.cta.link.external} target="_blank">
+            <ButtonCTA variant="outline">{hero.cta.text}</ButtonCTA>
+          </a>
         </motion.div>
       </div>
     </motion.div>
