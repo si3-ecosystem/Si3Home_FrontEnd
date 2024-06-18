@@ -1,6 +1,17 @@
+"use client";
+import { motion } from "framer-motion";
+
 export default function Mission({ mission }: any) {
   return (
-    <div
+    <motion.div
+      whileInView={{
+        y: [100, 0],
+        opacity: [0, 1],
+      }}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
       id="ourMission"
       className="bg-[url('/mission.png')] md:bg-[url('/mission-2.png')] bg-no-repeat px-5 md:px-16  bg-cover bg-center md:h-[832px] flex items-center"
     >
@@ -28,6 +39,6 @@ export default function Mission({ mission }: any) {
           </ul>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

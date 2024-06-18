@@ -7,100 +7,19 @@ import "swiper/swiper-bundle.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ImageUrl from "@/utils/imageUrl";
 
-const slides = [
-  {
-    id: 1,
-    src: "/karaUser.svg",
-    title: "Smart Business Structures",
-    description:
-      "Hear from crypto innovators in India as they drive growth and adoption in DeFi. Discover how India a leader crypto exchanges and learn from our presenters this region's outlook in 2024 and beyond.",
-    presenters: [
-      {
-        id: "1",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-      {
-        id: "2",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-    ],
-  },
-
-  {
-    id: 2,
-    src: "/karaUser.svg",
-    title: "Smart Business Structures",
-    description:
-      "Hear from crypto innovators in India as they drive growth and adoption in DeFi. Discover how India a leader crypto exchanges and learn from our presenters this region's outlook in 2024 and beyond.",
-    presenters: [
-      {
-        id: "1",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-      {
-        id: "2",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-    ],
-  },
-
-  {
-    id: 3,
-    src: "/karaUser.svg",
-    title: "Smart Business Structures",
-    description:
-      "Hear from crypto innovators in India as they drive growth and adoption in DeFi. Discover how India a leader crypto exchanges and learn from our presenters this region's outlook in 2024 and beyond.",
-    presenters: [
-      {
-        id: "1",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-      {
-        id: "2",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-    ],
-  },
-  {
-    id: 4,
-    src: "/karaUser.svg",
-    title: "Smart Business Structures",
-    description:
-      "Hear from crypto innovators in India as they drive growth and adoption in DeFi. Discover how India a leader crypto exchanges and learn from our presenters this region's outlook in 2024 and beyond.",
-    presenters: [
-      {
-        id: "1",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-      {
-        id: "2",
-        name: "Juliya adward",
-        role: "CEO of chatGPT",
-        src: "/user.svg",
-      },
-    ],
-  },
-
-  // Add more slide objects here as needed
-];
+import { motion } from "framer-motion";
 
 export default function Members({ memberSpotlight }: any) {
   return (
-    <div
+    <motion.div
+      whileInView={{
+        y: [100, 0],
+        opacity: [0, 1],
+      }}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
       id="coActivator"
       className="bg-[url('/memberbg.svg')] bg-cover bg-right"
     >
@@ -223,6 +142,6 @@ export default function Members({ memberSpotlight }: any) {
           </Swiper>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

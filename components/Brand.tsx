@@ -2,10 +2,21 @@
 import ImageUrl from "@/utils/imageUrl";
 import urlFor from "@/utils/urlFor";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Brand({ brand }: any) {
   return (
-    <div className="px-5 md:px-16 py-20 md:py-28 flex flex-col md:flex-row justify-center gap-6 md:gap-12 max-w-screen-xl mx-auto">
+    <motion.div
+      whileInView={{
+        y: [100, 0],
+        opacity: [0, 1],
+      }}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
+      className="px-5 md:px-16 py-20 md:py-28 flex flex-col md:flex-row justify-center gap-6 md:gap-12 max-w-screen-xl mx-auto"
+    >
       <div className="">
         <div className="space-y-5 mb-6 md:mb-16">
           <h1 className="text-2xl md:text-4xl text-[#44442288]">
@@ -51,6 +62,6 @@ export default function Brand({ brand }: any) {
         alt="videoImage"
         className="w-[372px] h-[578px] rounded-2xl"
       />
-    </div>
+    </motion.div>
   );
 }

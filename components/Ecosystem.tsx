@@ -1,11 +1,23 @@
 "use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import "swiper/swiper-bundle.css";
 
 export default function Ecosystem({ ecosystemSpotlight }: any) {
   return (
-    <div id="ecosystem" className="">
+    <motion.div
+      whileInView={{
+        y: [100, 0],
+        opacity: [0, 1],
+      }}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
+      id="ecosystem"
+      className=""
+    >
       <div className="py-14 md:py-28 ">
         <div className="px-5 md:px-16">
           <h1 className="text-2xl md:text-4xl md:text-primary mt-6 font-1000">
@@ -129,6 +141,6 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

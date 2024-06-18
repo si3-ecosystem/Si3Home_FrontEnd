@@ -3,14 +3,25 @@ import ImageUrl from "@/utils/imageUrl";
 import Image from "next/image";
 import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { motion } from "framer-motion";
 import "swiper/swiper-bundle.css";
 
 export default function Testimonials({ testimonials }: any) {
   const swipeRef = useRef();
 
   return (
-    <div id="testimonials" className="">
+    <motion.div
+      whileInView={{
+        y: [100, 0],
+        opacity: [0, 1],
+      }}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
+      id="testimonials"
+      className=""
+    >
       <div className="py-14 md:py-28 ">
         <div className="px-5 md:px-16 ">
           <div className="flex items-center justify-between flex-wrap my-6 md:my-10">
@@ -115,6 +126,6 @@ export default function Testimonials({ testimonials }: any) {
           </Swiper>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

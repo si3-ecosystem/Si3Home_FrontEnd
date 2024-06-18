@@ -1,9 +1,20 @@
 "use client";
+import { motion } from "framer-motion";
 import Button from "./shared/Button";
 
 export default function Pricing({ pricing }: any) {
   return (
-    <div className="px-5 py-[60px] md:px-16 md:py-28 grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-[1440px] mx-auto">
+    <motion.div
+      whileInView={{
+        y: [100, 0],
+        opacity: [0, 1],
+      }}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
+      className="px-5 py-[60px] md:px-16 md:py-28 grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-[1440px] mx-auto"
+    >
       {pricing?.map((item: any, key: number) => (
         <div
           key={key}
@@ -49,6 +60,6 @@ export default function Pricing({ pricing }: any) {
           </div>
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 }

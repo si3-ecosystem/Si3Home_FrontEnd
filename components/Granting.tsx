@@ -36,7 +36,17 @@ export default function Granting({ granting, register }: any) {
   }, [controls]);
 
   return (
-    <div className="bg-no-repeat bg-[url('/group.png')] bg-cover md:pb-44">
+    <motion.div
+      whileInView={{
+        y: [100, 0],
+        opacity: [0, 1],
+      }}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
+      className="bg-no-repeat bg-[url('/group.png')] bg-cover md:pb-44"
+    >
       <motion.div
         ref={sectionRef}
         // initial={{ opacity: 0, x: 300 }}
@@ -295,6 +305,6 @@ export default function Granting({ granting, register }: any) {
           </motion.div>
         </div>
       </Modal>
-    </div>
+    </motion.div>
   );
 }

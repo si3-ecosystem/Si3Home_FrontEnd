@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function SherCoActive({ sherCoActive }: any) {
   const [bgPosition, setBgPosition] = useState("center top 112px");
@@ -22,7 +23,15 @@ export default function SherCoActive({ sherCoActive }: any) {
   }, []);
 
   return (
-    <div
+    <motion.div
+      whileInView={{
+        y: [100, 0],
+        opacity: [0, 1],
+      }}
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
       id=""
       className="flex items-center justify-center flex-col px-5 md:px-0 py-16 md:py-28 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
       style={{
@@ -40,6 +49,6 @@ export default function SherCoActive({ sherCoActive }: any) {
           {sherCoActive.description}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }

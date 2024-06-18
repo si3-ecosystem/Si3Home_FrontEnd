@@ -31,15 +31,23 @@ export default function Banner({ hero }: any) {
           objectPosition="center"
           className="md:hidden"
         />
-        <Image
-          src="/banner.png"
-          alt="Background image desktop"
-          layout="fill"
-          objectFit="cover"
-          priority
-          objectPosition="right center"
+        <motion.div
+          initial={{ scale: 1.3, rotate: 0 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
           className="hidden md:block"
-        />
+        >
+          <Image
+            src="/banner.png"
+            alt="Background image desktop"
+            objectFit="cover"
+            width={1000}
+            height={1000}
+            priority
+            className="w-full h-full"
+            objectPosition="right center"
+          />
+        </motion.div>
       </div>
       <div className="absolute inset-0" />
       <div className="relative z-10 px-10 md:px-16 pt-24 md:pt-[286px]">
