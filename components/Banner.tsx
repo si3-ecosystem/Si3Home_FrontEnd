@@ -1,47 +1,67 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import Button from "./shared/Button";
 
-export default function Banner({ hero }: any) {
-  return (
-    <div className="relative w-full h-[482px] lg:h-screen">
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/bgBanner_mobile.png"
-          alt="Background image mobile"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="md:hidden"
-        />
-        <Image
-          src="/banner.png"
-          alt="Background image desktop"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="right center"
-          className="hidden md:block"
-        />
-      </div>
-      <div className="relative z-10 px-10 md:px-16 pt-24 md:pt-[186px]">
-        <h1 className="text-white font-bold text-2xl md:text-6xl">
-          {hero.headingOne}
-        </h1>
-        <h2 className="text-primary font-bold uppercase text-2xl md:text-6xl max-w-xs">
-          {hero.headingTwo}
-        </h2>
+import { motion, useAnimation, useInView } from "framer-motion";
 
-        <p className=" md:pt-6 text-white text-xl font-mono max-w-xs">
+export default function Banner({ hero }: any) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start({
+        opacity: 1,
+        x: 0,
+        transition: { duration: 2, ease: "easeOut" },
+      });
+    }
+  }, [isInView, controls]);
+  return (
+    <motion.div
+      ref={ref}
+      className="relative bg-[url('/bgBanner_mobile.png')] md:bg-[url('/banner.png')] w-full h-[482px] lg:h-screen bg-cover bg-center bg-no-repeat"
+    >
+      <div className="absolute inset-0" />
+      <div className="relative z-10 px-10 md:px-16 pt-24 md:pt-[286px]">
+        <motion.h1
+          className="text-white font-bold text-2xl md:text-6xl"
+          initial={{ opacity: 0.7, x: 500 }}
+          animate={controls}
+        >
+          {hero.headingOne}
+        </motion.h1>
+        <motion.h2
+          className="text-primary font-bold uppercase text-2xl md:text-6xl max-w-xs"
+          initial={{ opacity: 0.7, x: 500 }}
+          animate={controls}
+        >
+          {hero.headingTwo}
+        </motion.h2>
+        <motion.p
+          className="md:pt-6 text-white text-xl font-mono max-w-xs"
+          initial={{ opacity: 0.7, x: 500 }}
+          animate={controls}
+        >
           {hero.subHeader}
-        </p>
-        <Button
-          variant="outline"
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0.7, x: 500 }}
+          animate={controls}
           className="mt-8 md:mt-[117px] flex items-center justify-center w-full md:w-fit"
         >
-          {hero.cta.text}
-        </Button>
+          <ButtonCTA variant="outline">{hero.cta.text}</ButtonCTA>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
+  );
+}
+
+function ButtonCTA({ children, className }: any) {
+  return (
+    <button className={`button ${className} rounded-lg`}>
+      <span className="button-text">{children}</span>
+    </button>
   );
 }

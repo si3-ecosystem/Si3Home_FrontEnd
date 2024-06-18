@@ -23,6 +23,7 @@ export default function SherCoActive({ sherCoActive }: any) {
 
   return (
     <div
+      id="commonGround"
       className="flex items-center justify-center flex-col px-5 md:px-0 py-16 md:py-28 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
       style={{
         backgroundPosition: bgPosition,

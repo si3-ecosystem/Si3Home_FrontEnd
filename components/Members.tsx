@@ -100,7 +100,10 @@ const slides = [
 
 export default function Members({ memberSpotlight }: any) {
   return (
-    <div className="bg-[url('/memberbg.svg')] bg-cover bg-right">
+    <div
+      id="coActivator"
+      className="bg-[url('/memberbg.svg')] bg-cover bg-right"
+    >
       <div className="py-14 md:py-28 ">
         <div className="px-5 md:px-16">
           <h1 className="text-2xl md:text-4xl md:text-primary mt-6 font-1000">

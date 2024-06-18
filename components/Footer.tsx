@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <div className="bg-blackish px-5  md:px-16 py-8">
+    <div id="stayConnected" className="bg-blackish px-5  md:px-16 py-8">
       <div className="py-5 flex flex-col md:flex-row items-center gap-5 justify-between">
         <h1 className="text-white text-4xl lg:text-5xl shrink-0">{"SI <3>"}</h1>
         <iframe

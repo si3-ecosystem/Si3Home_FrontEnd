@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function Ecosystem({ ecosystemSpotlight }: any) {
   return (
-    <div className="">
+    <div id="ecosystem" className="">
       <div className="py-14 md:py-28 ">
         <div className="px-5 md:px-16">
           <h1 className="text-2xl md:text-4xl md:text-primary mt-6 font-1000">

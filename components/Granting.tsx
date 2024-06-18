@@ -4,19 +4,45 @@ import Button from "./shared/Button";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Navigation, Pagination } from "swiper/modules";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import moment from "moment";
 import ImageUrl from "@/utils/imageUrl";
 import Modal from "./shared/Modal";
 import InputField from "./shared/InputField";
+import { useAnimation, useInView, motion } from "framer-motion";
 
 export default function Granting({ granting }: any) {
   const [isOpen, setIsOpen] = useState(false);
-  const swipeRef = useRef();
+  const swipeRef = useRef<any>();
+  const controls = useAnimation();
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const { top } = sectionRef.current.getBoundingClientRect();
+        if (top < window.innerHeight && top > 0) {
+          controls.start({ opacity: 1, x: 0 });
+        } else {
+          controls.start({ opacity: 0, x: 0 });
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [controls]);
 
   return (
     <div className="bg-no-repeat bg-[url('/group.png')] bg-cover md:pb-44">
-      <div className="px-5 md:px-16 ">
+      <motion.div
+        ref={sectionRef}
+        initial={{ opacity: 0, x: 300 }}
+        animate={controls}
+        className="px-5 md:px-16 mb-8"
+      >
         <Button className="w-full md:w-fit flex justify-center">
           SUBSCRIBE FOR GRANT UPDATES
         </Button>
@@ -24,7 +50,6 @@ export default function Granting({ granting }: any) {
           {granting.title}
         </h1>
         <p className="font-mono mt-4">{granting.date}</p>
-
         <p className="font-mono my-4 md:my-6 max-w-xl">
           {granting.description}
         </p>
@@ -35,13 +60,11 @@ export default function Granting({ granting }: any) {
         >
           Register Now
         </Button>
-      </div>
+      </motion.div>
 
-      <div className="w-full md:w-3/4 px-5 md:px-0 md:ml-auto">
+      <div className="w-full md:w-3/4 px-5 md:px-0 md:ml-auto ">
         <Swiper
           onSwiper={(swiper) => {
-            /*
-      // @ts-ignore */
             swipeRef.current = swiper;
           }}
           slidesPerView={3}
@@ -68,11 +91,14 @@ export default function Granting({ granting }: any) {
         >
           {granting?.builders?.length > 0 &&
             granting.builders.map((item: any, key: number) => (
-              <SwiperSlide key={key} className="relative rounded-lg">
+              <SwiperSlide
+                key={key}
+                className="relative rounded-lg group overflow-hidden"
+              >
                 <ImageUrl
                   image={item.image}
                   className={
-                    "h-[578px] object-cover object-center rounded-lg w-full card-shaper"
+                    "h-[578px] object-cover object-center rounded-lg w-full card-shaper group-hover:opacity-70 transition-all duration-300 group-hover:scale-[1.07] "
                   }
                 />
                 <p className="text-sm onramp-background absolute top-3 mx font-mono text-white ml-3 p-1 rounded-lg">
@@ -92,54 +118,6 @@ export default function Granting({ granting }: any) {
               </SwiperSlide>
             ))}
         </Swiper>
-      </div>
-
-      <div className="px-5 md:px-16 flex items-center gap-6 mt-4 md:mt-0">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 32 32"
-          fill="none"
-          className="cursor-pointer"
-          onClick={() => {
-            /*
-      // @ts-ignore */
-            swipeRef.current.slidePrev();
-          }}
-        >
-          <path
-            d="M20 26.5599L11.3066 17.8666C10.28 16.8399 10.28 15.1599 11.3066 14.1333L20 5.43994"
-            stroke="#292D32"
-            stroke-width="1.5"
-            stroke-miterlimit="10"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 32 32"
-          fill="none"
-          className="cursor-pointer"
-          onClick={() => {
-            /*
-      // @ts-ignore */
-            swipeRef.current.slideNext();
-          }}
-        >
-          <path
-            d="M11.8799 26.5599L20.5732 17.8666C21.5999 16.8399 21.5999 15.1599 20.5732 14.1333L11.8799 5.43994"
-            stroke="#292D32"
-            stroke-width="1.5"
-            stroke-miterlimit="10"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
       </div>
 
       <Modal

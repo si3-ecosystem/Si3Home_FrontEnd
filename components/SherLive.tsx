@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useAnimation, useInView, motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 
 export default function SherLive({ sheHerLive }: any) {
   const [bgPosition, setBgPosition] = useState("center top 112px");
@@ -21,14 +22,34 @@ export default function SherLive({ sheHerLive }: any) {
     };
   }, []);
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start({
+        opacity: 1,
+        x: 0,
+        transition: { duration: 2, ease: "easeOut" },
+      });
+    }
+  }, [isInView, controls]);
+
   return (
     <div
+      ref={ref}
+      id="siherCoActive"
       className="flex items-center justify-center flex-col px-5 md:px-0 py-16 md:py-28 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
       style={{
         backgroundPosition: bgPosition,
       }}
     >
-      <div className="md:w-1/2 text-center space-y-3 md:space-y-[18px]">
+      <motion.div
+        initial={{ opacity: 0.7, x: 500 }}
+        animate={controls}
+        className="md:w-1/2 text-center space-y-3 md:space-y-[18px]"
+      >
         <h3 className="md:text-xl font-medium">{sheHerLive.subtitle}</h3>
         <h1 className="text-2xl md:text-[64px]  md:text-primary font-1000">
           {sheHerLive.title}
@@ -36,7 +57,7 @@ export default function SherLive({ sheHerLive }: any) {
         <p className="font-mono text-sm md:text-xl max-w-[704px] mx-auto">
           {sheHerLive.description}
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 }

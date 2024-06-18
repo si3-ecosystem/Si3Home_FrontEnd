@@ -10,6 +10,32 @@ body {
   .backdrop-filter {
     backdrop-filter: blur(10px);
   }
+  .button {
+    @apply relative overflow-hidden inline-block px-4 py-2 border-2 border-white text-white bg-transparent font-bold text-xl transition-all duration-300;
+  }
+
+  .button::before {
+    @apply absolute top-0 left-[-120%] w-full h-full bg-black transition-all duration-300;
+    content: "";
+    z-index: 1;
+    clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+  }
+
+  .button:hover::before {
+    left: 0;
+  }
+
+  .button .button-text {
+    @apply relative z-10;
+  }
+
+  .button .button-arrow {
+    @apply absolute right-4 opacity-0 transform translate-x-[-10px] transition-opacity transition-transform duration-300 z-10;
+  }
+
+  .button:hover .button-arrow {
+    @apply opacity-100 transform translate-x-0;
+  }
 }
 
 .font-mono {

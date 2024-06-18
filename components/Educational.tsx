@@ -6,11 +6,30 @@ import "swiper/swiper-bundle.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ImageUrl from "@/utils/imageUrl";
 import moment from "moment";
+import { useEffect, useRef } from "react";
+import { useAnimation, useInView, motion } from "framer-motion";
 
 export default function Educational({ educationalProgramming }: any) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start({
+        opacity: 1,
+        x: 0,
+        transition: { duration: 1.5, ease: "easeOut" },
+      });
+    }
+  }, [isInView, controls]);
   return (
-    <div className="py-14 md:py-28">
-      <div className="px-5 md:px-16">
+    <motion.div ref={ref} className="py-14 md:py-28">
+      <motion.div
+        initial={{ opacity: 0.7, x: -100 }}
+        animate={controls}
+        className="px-5 md:px-16"
+      >
         <Button className="w-full md:w-fit flex justify-center">
           SUBSCRIBE FOR EVENT UPDATES
         </Button>
@@ -20,7 +39,7 @@ export default function Educational({ educationalProgramming }: any) {
         <p className="font-mono my-4 md:my-6 max-w-xl text-lg leading-7">
           {educationalProgramming.description}
         </p>
-      </div>
+      </motion.div>
 
       <div className="w-full md:w-3/4 px-5 md:px-0 md:ml-auto">
         <Swiper
@@ -49,13 +68,13 @@ export default function Educational({ educationalProgramming }: any) {
             educationalProgramming.Events.map((item: any, key: number) => (
               <SwiperSlide
                 key={key}
-                className=" border p-6 rounded-lg border-[#FAB7D0] "
+                className=" border p-6 rounded-lg border-[#FAB7D0] group cursor-pointer"
               >
-                <div className="relative">
+                <div className="relative overflow-hidden rounded-lg">
                   <ImageUrl
                     image={item.image}
                     className={
-                      "w-[440px] h-[195px] object-cover object-center rounded-lg card-shaper"
+                      "w-[440px] h-[195px] object-cover object-center rounded-lg card-shaper  group-hover:scale-[1.03] transition-all duration-300"
                     }
                   />
                   <p className="text-xs onramp-background absolute top-0 mx font-mono text-white truncate p-1 rounded-lg ">
@@ -75,13 +94,13 @@ export default function Educational({ educationalProgramming }: any) {
                   <div>
                     <h5 className="font-bold">Presenters:</h5>
 
-                    <div className="space-y-3">
+                    <motion.div className="space-y-3">
                       {item?.presenters?.map((presenter: any, key: number) => (
-                        <div
+                        <motion.div
                           key={key}
-                          className="bg-[#F2F1F7] flex items-center justify-between py-1 px-2 rounded-lg mt-1"
+                          className="bg-[#F2F1F7] flex items-center justify-between py-1 px-2 rounded-lg mt-1 group"
                         >
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2 transition-all duration-300">
                             <div className="w-7 h-7">
                               <ImageUrl
                                 image={presenter.image}
@@ -106,15 +125,15 @@ export default function Educational({ educationalProgramming }: any) {
                             height={12}
                             className="w-[60px] h-[12px]"
                           />
-                        </div>
+                        </motion.div>
                       ))}
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </SwiperSlide>
             ))}
         </Swiper>
       </div>
-    </div>
+    </motion.div>
   );
 }
