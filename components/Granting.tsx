@@ -10,42 +10,6 @@ import ImageUrl from "@/utils/imageUrl";
 import Modal from "./shared/Modal";
 import InputField from "./shared/InputField";
 
-const slides = [
-  {
-    id: 1,
-    src: "/profile1.png",
-    summitDate: "26-01-2024",
-    summitTime: "03:40-05:40pm UT",
-    name: "Zara Fairoz",
-    description: "smart Business Structures",
-  },
-  {
-    id: 2,
-    src: "/profile2.png",
-    summitDate: "26-01-2024",
-    summitTime: "03:40-05:40pm UT",
-    name: "Zara Fairoz",
-    description: "smart Business Structures",
-  },
-  {
-    id: 3,
-    src: "/profile1.png",
-    summitDate: "26-01-2024",
-    summitTime: "03:40-05:40pm UT",
-    name: "Zara Fairoz",
-    description: "smart Business Structures",
-  },
-  {
-    id: 4,
-    src: "/profile2.png",
-    summitDate: "26-01-2024",
-    summitTime: "03:40-05:40pm UT",
-    name: "Zara Fairoz",
-    description: "smart Business Structures",
-  },
-  // Add more slide objects here as needed
-];
-
 export default function Granting({ granting }: any) {
   const [isOpen, setIsOpen] = useState(false);
   const swipeRef = useRef();
@@ -59,16 +23,14 @@ export default function Granting({ granting }: any) {
         <h1 className="text-2xl md:text-4xl md:text-primary mt-6 font-1000">
           {granting.title}
         </h1>
-        <p className="font-mono mt-4">
-          JULY 10TH 2024 - 11 am - 3 pm CST / UTC 5 (FREE & OPEN EVENT)
-        </p>
+        <p className="font-mono mt-4">{granting.date}</p>
 
         <p className="font-mono my-4 md:my-6 max-w-xl">
-          {granting.blockContent}
+          {granting.description}
         </p>
         <Button
           variant="outline"
-          className="border border-black text-black text-sm md:text-xl my-4 md:my-6 font-medium px-4 rounded-lg focus:ring-offset-0"
+          className="border !border-black !text-black text-sm md:text-xl my-4 md:my-6 !font-medium px-4 rounded-lg focus:ring-offset-0"
           onClick={() => setIsOpen(true)}
         >
           Register Now
@@ -83,7 +45,7 @@ export default function Granting({ granting }: any) {
             swipeRef.current = swiper;
           }}
           slidesPerView={3}
-          spaceBetween={10}
+          spaceBetween={30}
           modules={[Pagination]}
           breakpoints={{
             340: {
@@ -114,8 +76,7 @@ export default function Granting({ granting }: any) {
                   }
                 />
                 <p className="text-sm onramp-background absolute top-3 mx font-mono text-white ml-3 p-1 rounded-lg">
-                  Summit: {moment(item.summitDate).format("DD-MM-YYYY")} |
-                  03:40-05:40pm UT{" "}
+                  Summit: {item.summitDate}
                 </p>
                 <div className="absolute bottom-3 ml-3 text-white">
                   <Image

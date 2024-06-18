@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Button from "./shared/Button";
 
 export default function Onboard({ onboard }: any) {
-  console.log(onboard);
   const [bgPosition, setBgPosition] = useState("center top 112px");
 
   useEffect(() => {

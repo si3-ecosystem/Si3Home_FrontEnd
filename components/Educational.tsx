@@ -14,10 +14,10 @@ export default function Educational({ educationalProgramming }: any) {
         <Button className="w-full md:w-fit flex justify-center">
           SUBSCRIBE FOR EVENT UPDATES
         </Button>
-        <h1 className="text-2xl md:text-4xl md:text-primary mt-6 font-1000">
+        <h1 className="text-2xl md:text-[40px] font-1000 leading-10 md:text-primary mt-6 ">
           {educationalProgramming.title}
         </h1>
-        <p className="font-mono my-4 md:my-6 max-w-xl">
+        <p className="font-mono my-4 md:my-6 max-w-xl text-lg leading-7">
           {educationalProgramming.description}
         </p>
       </div>
@@ -65,8 +65,10 @@ export default function Educational({ educationalProgramming }: any) {
                 </div>
 
                 <div className="space-y-3 mt-6">
-                  <h3 className="text-primary text-2xl">{item.title}</h3>
-                  <p className="text-[#7B7B7D] text-justify">
+                  <h3 className="text-primary font-1000 text-2xl">
+                    {item.title}
+                  </h3>
+                  <p className="text-[#7B7B7D] text-justify max-w-[384px]">
                     {item.description}
                   </p>
 

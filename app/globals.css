@@ -26,7 +26,7 @@ body {
 }
 
 .card-shaper {
-  clip-path: polygon(0 0, 100% 0, 98% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 97% 100%, 0% 100%);
 }
 
 .slanted-border {
