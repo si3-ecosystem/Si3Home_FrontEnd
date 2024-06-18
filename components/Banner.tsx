@@ -15,13 +15,14 @@ export default function Banner({ hero }: any) {
       controls.start({
         opacity: 1,
         x: 0,
+
         transition: { duration: 2, ease: "easeOut" },
       });
     }
   }, [isInView, controls]);
   return (
     <motion.div ref={ref} className="relative w-full h-[482px] lg:h-screen">
-      <div className="absolute inset-0 -z-40">
+      <div className="absolute inset-0 -z-40 ">
         <Image
           src="/bgBanner_mobile.png"
           alt="Background image mobile"
