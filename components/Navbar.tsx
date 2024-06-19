@@ -256,7 +256,7 @@ const Navbar: React.FC = () => {
           >
             SI Her Co-Active
           </motion.a>
-          <motion.a
+          {/* <motion.a
             href="#ecosystem"
             className="block text-white mb-2"
             initial={{ opacity: 0, y: -20 }}
@@ -264,7 +264,7 @@ const Navbar: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             Si3 Ecosystem
-          </motion.a>
+          </motion.a> */}
           <motion.a
             href="#onboard"
             className="block text-white mb-2"
