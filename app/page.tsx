@@ -13,6 +13,47 @@ import Testimonials from "@/components/Testimonials";
 import { client } from "@/utils/client";
 import groq from "groq";
 
+export const revalidate = 10;
+
+async function getSeoData() {
+  const query = groq`*[_type == 'utils'][0]`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+export async function generateMetadata() {
+  const seoData = await getSeoData();
+
+  console.log("seoData", seoData);
+
+  return {
+    title: seoData.seoTitle || "si3",
+    description:
+      seoData.overview ||
+      "Creating Pathways For Diverse Voices Of the New Economy ",
+    metadataBase: new URL("https://si3home-frontend.vercel.app"),
+    icons: ["favicon.ico", "./favicon.ico"],
+    openGraph: {
+      title: seoData.seoTitle || "si3",
+      type: "website",
+      locale: "en",
+      url: "https://si3home-frontend.vercel.app",
+      siteName: "si3",
+      description:
+        seoData.overview ||
+        "Creating Pathways For Diverse Voices Of the New Economy",
+      images: [
+        {
+          url:
+            seoData.image || "https://si3home-frontend.vercel.app/favicon.ico",
+          width: 1200,
+          height: 630,
+          alt: "SI3 Home Page",
+        },
+      ],
+    },
+  };
+}
 async function getBanner() {
   const query = groq`*[_type == 'hero'][0]`;
   const data = await client.fetch(query);
