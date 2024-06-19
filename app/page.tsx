@@ -24,8 +24,6 @@ async function getSeoData() {
 export async function generateMetadata() {
   const seoData = await getSeoData();
 
-  console.log("seoData", seoData);
-
   return {
     title: seoData.seoTitle || "si3",
     description:
