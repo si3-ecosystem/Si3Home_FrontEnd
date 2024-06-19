@@ -79,7 +79,7 @@ export default function Members({ memberSpotlight }: any) {
 
                   <div className="flex flex-col justify-between gap-12">
                     <div className="space-y-3 mt-6">
-                      <h3 className=" text-3xl">{item.name}</h3>
+                      <h3 className="text-xl md:text-3xl">{item.name}</h3>
                       <div className="flex items-center gap-5">
                         <span className="flex items-center gap-2.5">
                           <svg

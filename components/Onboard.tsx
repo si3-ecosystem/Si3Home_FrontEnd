@@ -41,7 +41,7 @@ export default function Onboard({ onboard }: any) {
     >
       <div className="md:w-1/2 text-center space-y-3 md:space-y-[18px]">
         <h3 className="md:text-xl font-medium">{onboard.subtitle}</h3>
-        <h1 className="text-2xl md:text-[64px] md:text-primary font-1000">
+        <h1 className="text-4xl uppercase md:text-[64px] md:text-primary font-1000">
           {onboard.title}
         </h1>
         <p className="font-mono text-sm md:text-xl">{onboard.description}</p>
