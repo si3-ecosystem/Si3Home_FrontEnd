@@ -126,7 +126,7 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-2 md:grid-cols-3 gap-10"
+              className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10"
             >
               {getVisibleItems().map((item: any, key: number) => (
                 <motion.div
