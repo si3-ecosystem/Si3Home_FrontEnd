@@ -63,13 +63,15 @@ export default function Granting({ granting, register }: any) {
         <p className="font-mono my-4 md:my-6 max-w-xl">
           {granting.description}
         </p>
-        <Button
-          variant="outline"
-          className="border !border-black !text-black text-sm md:text-xl my-4 md:my-6 !font-medium px-4 rounded-lg focus:ring-offset-0"
+
+        <ButtonCTA
+          className="border !border-black text-black hover:text-white text-sm md:text-xl my-4 md:my-6 !font-medium px-4 rounded-lg focus:ring-offset-0"
           onClick={() => setIsOpen(true)}
+          variant="outline"
         >
+          {" "}
           Register Now
-        </Button>
+        </ButtonCTA>
       </motion.div>
 
       <div className="w-full md:w-3/4 px-5 md:px-0 md:ml-auto ">
@@ -91,11 +93,11 @@ export default function Granting({ granting, register }: any) {
               spaceBetween: 10,
             },
             768: {
-              slidesPerView: 2,
+              slidesPerView: 2.5,
               spaceBetween: 10,
             },
             1024: {
-              slidesPerView: 3,
+              slidesPerView: 2.5,
               spaceBetween: 10,
             },
           }}
@@ -307,5 +309,13 @@ export default function Granting({ granting, register }: any) {
         </div>
       </Modal>
     </motion.div>
+  );
+}
+
+function ButtonCTA({ children, className }: any) {
+  return (
+    <button className={`button ${className} rounded-lg`}>
+      <span className="button-text max-sm:text-sm max-sm:py-3">{children}</span>
+    </button>
   );
 }

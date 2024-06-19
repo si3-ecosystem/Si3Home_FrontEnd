@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
       if (window.scrollY > 10) {
         controls.start({ backgroundColor: "#f1b8c6" }); // pink color
       } else {
-        controls.start({ backgroundColor: "rgba(255, 255, 255, 0.3)" }); // default color
+        controls.start({ backgroundColor: "#d3b4c2" }); // default color
       }
     };
 
@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
   return (
     <motion.nav
       animate={controls}
-      initial={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }} // initial background color
+      initial={{ backgroundColor: "#d3b4c2" }} // initial background color
       className="fixed w-full z-50 backdrop-filter backdrop-blur-lg shadow-lg transition-all duration-100"
     >
       <div className="flex justify-between items-center px-5 md:px-16 py-4">
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
           >
             <a
               href="#"
-              className="hidden md:inline text-white relative overflow-hidden"
+              className="hidden md:inline text-white font-semibold tracking-wider relative overflow-hidden"
             >
               ONBOARD
               {activeDropdown === "onboard" && (
@@ -93,17 +93,17 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-0 md:top-[17px] mt-2 py-2 w-40 bg-white bg-opacity-50 rounded-md shadow-lg z-10"
+                className="absolute top-0 md:top-[17px] group mt-2 py-2 w-48 font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10"
               >
                 <Link
                   href="#siherCoActive"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2  hover:text-[#4428f2] text-white "
                 >
                   SI Her Co-Active
                 </Link>
                 <Link
                   href="#ecosystem"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2   hover:text-[#4428f2] text-white "
                 >
                   Si3 Ecosystem
                 </Link>
@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
           >
             <a
               href="#"
-              className="hidden md:inline text-white relative overflow-hidden"
+              className="hidden md:inline text-white relative overflow-hidden font-semibold tracking-wider"
             >
               SI HER LIVE
               {activeDropdown === "live" && (
@@ -142,17 +142,17 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-0 md:top-[17px] mt-2 py-2 w-32 bg-white bg-opacity-50 rounded-md shadow-lg z-10"
+                className="absolute top-0 md:top-[17px] mt-2 py-2 w-48 font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10"
               >
                 <Link
                   href="#commonGround"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2 text-white  whitespace-nowrap hover:text-[#4428f2]"
                 >
                   Common Ground
                 </Link>
                 <a
                   href="#coActivator"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2 text-white hover:text-[#4428f2]"
                 >
                   Metaverse
                 </a>
@@ -173,7 +173,7 @@ const Navbar: React.FC = () => {
           >
             <a
               href="#"
-              className="hidden lg:inline text-white relative overflow-hidden "
+              className="hidden lg:inline text-white relative overflow-hidden font-semibold tracking-wider "
             >
               ABOUT US
               {activeDropdown === "about" && (
@@ -197,17 +197,17 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 transition={{ duration: 0.2 }}
-                className="absolute mt-2 py-2 w-32 top-0 md:top-[17px] bg-white bg-opacity-50 rounded-md shadow-lg z-10"
+                className="absolute mt-2 py-2 w-48 top-0 md:top-[17px] font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10"
               >
                 <Link
                   href="#ourMission"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2 text-white hover:text-[#4428f2]"
                 >
                   Our Mission
                 </Link>
                 <Link
                   href="#testimonials"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2 text-white hover:text-[#4428f2]"
                 >
                   Testimonials
                 </Link>

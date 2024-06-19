@@ -31,7 +31,7 @@ export default function SherLive({ sheHerLive }: any) {
       controls.start({
         opacity: 1,
         x: 0,
-        transition: { duration: 2, ease: "easeOut" },
+        transition: { duration: 1, ease: "easeOut" },
       });
     }
   }, [isInView, controls]);
