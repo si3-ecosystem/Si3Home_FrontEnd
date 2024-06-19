@@ -56,11 +56,11 @@ export default function Members({ memberSpotlight }: any) {
                 spaceBetween: 10,
               },
               768: {
-                slidesPerView: 2,
+                slidesPerView: 2.5,
                 spaceBetween: 10,
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 2.5,
                 spaceBetween: 10,
               },
             }}

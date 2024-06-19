@@ -17,7 +17,7 @@ export default function Banner({ hero }: any) {
         opacity: 1,
         x: 0,
 
-        transition: { duration: 2, ease: "easeOut" },
+        transition: { duration: 1, ease: "easeOut" },
       });
     }
   }, [isInView, controls]);
@@ -68,8 +68,15 @@ export default function Banner({ hero }: any) {
           {hero.subHeader}
         </motion.p>
         <motion.div
-          initial={{ opacity: 0.7, x: 500 }}
-          animate={controls}
+          initial={{ opacity: 0, y: 100 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+          }}
           className="mt-8 md:mt-[80px] flex items-center justify-center w-full md:w-fit"
         >
           <a href={hero.cta.link.external} target="_blank">
