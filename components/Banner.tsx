@@ -22,7 +22,7 @@ export default function Banner({ hero }: any) {
     }
   }, [isInView, controls]);
   return (
-    <motion.div ref={ref} className="relative w-full h-[482px] lg:h-screen">
+    <motion.div ref={ref} className="relative w-full h-[482px] md:h-screen">
       <div className="absolute inset-0 -z-40 ">
         <Image
           src="/bgBanner_mobile.png"
@@ -33,26 +33,19 @@ export default function Banner({ hero }: any) {
           objectPosition="center"
           className="md:hidden"
         />
-        <motion.div
-          initial={{ scale: 1.3, rotate: 0 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="hidden md:block"
-        >
+        <motion.div className="hidden md:block">
           <Image
             src="/banner.png"
             alt="Background image desktop"
+            layout="fill"
             objectFit="cover"
-            width={1000}
-            height={1000}
             priority
-            className="w-full h-full"
             objectPosition="right center"
           />
         </motion.div>
       </div>
       <div className="absolute inset-0" />
-      <div className="relative z-10 px-10 md:px-16 pt-24 md:pt-[196px]">
+      <div className="relative z-10 px-10 md:px-16 pt-36 md:pt-[196px]">
         <motion.h1
           className="text-white font-bold text-2xl md:text-6xl"
           initial={{ opacity: 0.7, x: 500 }}
@@ -68,7 +61,7 @@ export default function Banner({ hero }: any) {
           {hero.headingTwo}
         </motion.h2>
         <motion.p
-          className="md:pt-6 text-white text-xl font-mono max-w-xs"
+          className="md:pt-6 text-white text-sm md:text-xl font-mono max-w-xs"
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
@@ -91,7 +84,7 @@ export default function Banner({ hero }: any) {
 function ButtonCTA({ children, className }: any) {
   return (
     <button className={`button ${className} rounded-lg`}>
-      <span className="button-text max-sm:text-sm">{children}</span>
+      <span className="button-text max-sm:text-sm max-sm:py-3">{children}</span>
     </button>
   );
 }
