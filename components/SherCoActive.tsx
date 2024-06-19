@@ -42,7 +42,7 @@ export default function SherCoActive({ sherCoActive }: any) {
         <h3 className="md:text-xl font-medium uppercase">
           {sherCoActive.subtitle}
         </h3>
-        <h1 className="text-2xl md:text-[64px]  md:text-primary font-1000">
+        <h1 className="text-4xl md:text-[64px]  md:text-primary font-1000">
           {sherCoActive.title}
         </h1>
         <p className="font-mono text-sm md:text-xl max-w-[704px] mx-auto">
