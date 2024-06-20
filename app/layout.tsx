@@ -42,6 +42,13 @@ export default function RootLayout({
         />
       </head>
       <body className="scroll-smooth">
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js.hs-scripts.com/45396312.js"
+        ></script>
         <CustomLayout>
           <Navbar />
           <div className="min-h-screen">{children}</div>
