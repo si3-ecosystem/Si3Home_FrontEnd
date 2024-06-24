@@ -95,8 +95,8 @@ const MemberPolicy = () => {
   return (
     <div className="w-full relative bg-white py-[4rem] overflow-hidden text-center text-gray-200 font-[Fira Mono]">
       <div className="bg-[#F5F7FA] mt-5 md:mx-[4rem] px-[2rem] flex flex-col items-center text-[4rem] text-[#383838]">
-            <div className="relative leading-[4.25rem] uppercase font-bold py-[7rem] pb-[2rem] ">
-          Si Her Co-Active Member Policy
+        <div className="relative leading-[4.25rem] uppercase font-bold py-[7rem] pb-[2rem] ">
+           member POLICY
         </div>
             <div className="flex flex-col items-start text-left text-[1.5rem]">
           {policySections.map((section, index) => (
