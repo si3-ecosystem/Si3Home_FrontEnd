@@ -8,6 +8,24 @@ import CustomLayout from "@/components/provider/CustomLayout";
 export const metadata: Metadata = {
   title: "si3",
   description: "Creating Pathways For Diverse Voices Of the New Economy",
+  metadataBase: new URL("https://si3home-frontend.vercel.app"),
+  icons: ["favicon.ico", "/favicon.ico"],
+  openGraph: {
+    title: "si3",
+    type: "website",
+    locale: "en",
+    url: "https://si3home-frontend.vercel.app",
+    siteName: "si3",
+    description: "Creating Pathways For Diverse Voices Of the New Economy",
+    images: [
+      {
+        url: "https://si3home-frontend.vercel.app/favicon.ico",
+        width: 1200,
+        height: 630,
+        alt: "SI3 Home Page",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -24,6 +42,13 @@ export default function RootLayout({
         />
       </head>
       <body className="scroll-smooth">
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js.hs-scripts.com/45396312.js"
+        ></script>
         <CustomLayout>
           <Navbar />
           <div className="min-h-screen">{children}</div>

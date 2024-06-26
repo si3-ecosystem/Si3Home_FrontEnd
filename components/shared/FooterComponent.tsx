@@ -7,12 +7,14 @@ export default function FooterComponent({ footer }: any) {
     <>
       <div id="stayConnected" className="bg-blackish px-5  md:px-16 py-8">
         <div className="py-5 flex flex-col md:flex-row items-center gap-5 justify-between">
-          <h1 className="text-white text-4xl lg:text-5xl shrink-0">
+          <h1 className="text-white text-4xl lg:text-5xl shrink-0 hidden md:block">
             {"SI <3>"}
           </h1>
+
           <iframe
-            src="https://paragraph.xyz/@currentsi/embed"
-            className="border bg-white w-full h-[300px] sm:w-[420px] sm:h-[300px] rounded-md"
+            src="https://paragraph.xyz/@currentsi/embed?minimal=true"
+            height="45"
+            className="bg-white border border-white w-[320px] sm:w-[380px]"
             frameBorder="0"
             scrolling="no"
           ></iframe>

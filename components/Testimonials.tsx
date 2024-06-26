@@ -25,10 +25,6 @@ export default function Testimonials({ testimonials }: any) {
       <div className="py-14 md:py-28 ">
         <div className="px-5 md:px-16 ">
           <div className="flex items-center justify-between flex-wrap my-6 md:my-10">
-            <h1 className="text-2xl text-[#999984] md:text-4xl md:text-primary  font-1000 ">
-              TESTIMONIALS
-            </h1>
-
             {testimonials.length > 1 && (
               <div className="flex items-center gap-6 mb-3 md:mb-0">
                 <svg
@@ -119,7 +115,14 @@ export default function Testimonials({ testimonials }: any) {
                     <h4 className="font-mono text-[#999999]">{item.name}</h4>
                   </span>
 
-                  <h4 className="uppercase text-[#5D5D5D]"> {item.link}</h4>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    className="uppercase text-[#5D5D5D]"
+                  >
+                    {" "}
+                    {item.link}
+                  </a>
                 </div>
               </SwiperSlide>
             ))}

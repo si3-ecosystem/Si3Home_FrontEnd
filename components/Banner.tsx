@@ -6,6 +6,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 
 export default function Banner({ hero }: any) {
+  console.log("hero", hero);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
@@ -15,13 +16,14 @@ export default function Banner({ hero }: any) {
       controls.start({
         opacity: 1,
         x: 0,
-        transition: { duration: 2, ease: "easeOut" },
+
+        transition: { duration: 1, ease: "easeOut" },
       });
     }
   }, [isInView, controls]);
   return (
-    <motion.div ref={ref} className="relative w-full h-[482px] lg:h-screen">
-      <div className="absolute inset-0 -z-40">
+    <motion.div ref={ref} className="relative w-full h-[482px] md:h-screen">
+      <div className="absolute inset-0 -z-40 ">
         <Image
           src="/bgBanner_mobile.png"
           alt="Background image mobile"
@@ -31,26 +33,19 @@ export default function Banner({ hero }: any) {
           objectPosition="center"
           className="md:hidden"
         />
-        <motion.div
-          initial={{ scale: 1.3, rotate: 0 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="hidden md:block"
-        >
+        <motion.div className="hidden md:block">
           <Image
             src="/banner.png"
             alt="Background image desktop"
+            layout="fill"
             objectFit="cover"
-            width={1000}
-            height={1000}
             priority
-            className="w-full h-full"
             objectPosition="right center"
           />
         </motion.div>
       </div>
       <div className="absolute inset-0" />
-      <div className="relative z-10 px-10 md:px-16 pt-24 md:pt-[286px]">
+      <div className="relative z-10 px-10 md:px-16 pt-36 md:pt-[196px]">
         <motion.h1
           className="text-white font-bold text-2xl md:text-6xl"
           initial={{ opacity: 0.7, x: 500 }}
@@ -66,18 +61,27 @@ export default function Banner({ hero }: any) {
           {hero.headingTwo}
         </motion.h2>
         <motion.p
-          className="md:pt-6 text-white text-xl font-mono max-w-xs"
+          className="md:pt-6 text-white text-sm md:text-xl font-mono max-w-xs"
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
           {hero.subHeader}
         </motion.p>
         <motion.div
-          initial={{ opacity: 0.7, x: 500 }}
-          animate={controls}
-          className="mt-8 md:mt-[117px] flex items-center justify-center w-full md:w-fit"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+          }}
+          className="mt-8 md:mt-[80px] flex items-center justify-center w-full md:w-fit"
         >
-          <ButtonCTA variant="outline">{hero.cta.text}</ButtonCTA>
+          <a href={hero.cta.link.external} target="_blank">
+            <ButtonCTA variant="outline">{hero.cta.text}</ButtonCTA>
+          </a>
         </motion.div>
       </div>
     </motion.div>
@@ -87,7 +91,7 @@ export default function Banner({ hero }: any) {
 function ButtonCTA({ children, className }: any) {
   return (
     <button className={`button ${className} rounded-lg`}>
-      <span className="button-text">{children}</span>
+      <span className="button-text max-sm:text-sm max-sm:py-3">{children}</span>
     </button>
   );
 }

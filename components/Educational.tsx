@@ -8,12 +8,14 @@ import ImageUrl from "@/utils/imageUrl";
 import moment from "moment";
 import { useEffect, useRef } from "react";
 import { useAnimation, useInView, motion } from "framer-motion";
+import { Autoplay, Pagination } from "swiper/modules";
+import urlFor from "@/utils/urlFor";
 
 export default function Educational({ educationalProgramming }: any) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
-
+  const swipeRef = useRef<any>();
   useEffect(() => {
     if (isInView) {
       controls.start({
@@ -31,9 +33,9 @@ export default function Educational({ educationalProgramming }: any) {
         animate={controls}
         className="px-5 md:px-16"
       >
-        <Button className="w-full md:w-fit flex justify-center">
+        {/* <Button className="w-full md:w-fit flex justify-center">
           SUBSCRIBE FOR EVENT UPDATES
-        </Button>
+        </Button> */}
         <h1 className="text-2xl md:text-[40px] font-1000 leading-10 md:text-primary mt-6 ">
           {educationalProgramming.title}
         </h1>
@@ -44,6 +46,11 @@ export default function Educational({ educationalProgramming }: any) {
 
       <div className="w-full md:w-3/4 px-5 md:px-0 md:ml-auto">
         <Swiper
+          onSwiper={(swiper) => {
+            swipeRef.current = swiper;
+          }}
+          modules={[Pagination, Autoplay]}
+          autoplay={{ delay: 2500 }}
           slidesPerView={3}
           spaceBetween={10}
           breakpoints={{
@@ -56,11 +63,11 @@ export default function Educational({ educationalProgramming }: any) {
               spaceBetween: 10,
             },
             768: {
-              slidesPerView: 2,
+              slidesPerView: 2.5,
               spaceBetween: 10,
             },
             1024: {
-              slidesPerView: 3,
+              slidesPerView: 2.5,
               spaceBetween: 10,
             },
           }}
@@ -120,8 +127,8 @@ export default function Educational({ educationalProgramming }: any) {
                             </div>
                           </div>
                           <Image
-                            src={"/orporatio.png"}
-                            alt=""
+                            src={urlFor(presenter?.logo).url()}
+                            alt={presenter?.alt || ""}
                             width={59}
                             height={12}
                             className="w-[60px] h-[12px]"

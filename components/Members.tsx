@@ -8,8 +8,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import ImageUrl from "@/utils/imageUrl";
 
 import { motion } from "framer-motion";
+import { useRef } from "react";
+import { Autoplay, Pagination } from "swiper/modules";
 
 export default function Members({ memberSpotlight }: any) {
+  const swipeRef = useRef<any>();
   return (
     <motion.div
       whileInView={{
@@ -36,6 +39,11 @@ export default function Members({ memberSpotlight }: any) {
 
         <div className="w-full md:w-3/4 px-5 md:px-0 md:ml-auto">
           <Swiper
+            onSwiper={(swiper) => {
+              swipeRef.current = swiper;
+            }}
+            modules={[Pagination, Autoplay]}
+            autoplay={{ delay: 2500 }}
             slidesPerView={3}
             spaceBetween={10}
             breakpoints={{
@@ -48,11 +56,11 @@ export default function Members({ memberSpotlight }: any) {
                 spaceBetween: 10,
               },
               768: {
-                slidesPerView: 2,
+                slidesPerView: 2.5,
                 spaceBetween: 10,
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 2.5,
                 spaceBetween: 10,
               },
             }}
@@ -74,7 +82,7 @@ export default function Members({ memberSpotlight }: any) {
 
                   <div className="flex flex-col justify-between gap-12">
                     <div className="space-y-3 mt-6">
-                      <h3 className=" text-3xl">{item.name}</h3>
+                      <h3 className="text-xl md:text-3xl">{item.name}</h3>
                       <div className="flex items-center gap-5">
                         <span className="flex items-center gap-2.5">
                           <svg
@@ -134,7 +142,9 @@ export default function Members({ memberSpotlight }: any) {
                     </div>
 
                     <button className="text-xl font-bold w-full flex items-center justify-center border-gradient rounded-lg p-2">
-                      {item?.email || "Not provided"}
+                      <a href={item?.link} target="_blank">
+                        {item?.email || "Not provided"}
+                      </a>
                     </button>
                   </div>
                 </SwiperSlide>

@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
       if (window.scrollY > 10) {
         controls.start({ backgroundColor: "#f1b8c6" }); // pink color
       } else {
-        controls.start({ backgroundColor: "rgba(255, 255, 255, 0.3)" }); // default color
+        controls.start({ backgroundColor: "#d3b4c2" }); // default color
       }
     };
 
@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
   return (
     <motion.nav
       animate={controls}
-      initial={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }} // initial background color
+      initial={{ backgroundColor: "#d3b4c2" }} // initial background color
       className="fixed w-full z-50 backdrop-filter backdrop-blur-lg shadow-lg transition-all duration-100"
     >
       <div className="flex justify-between items-center px-5 md:px-16 py-4">
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
             </svg>
           </button>
         </div>
-        <div className="flex items-center space-x-4 md:space-x-36 font-medium">
+        <div className=" items-center space-x-4 md:space-x-14 xl:space-x-36 font-medium hidden lg:flex">
           <div
             className="relative flex items-center gap-2 cursor-pointer"
             onMouseEnter={() => handleDropdown("onboard")}
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
           >
             <a
               href="#"
-              className="hidden md:inline text-white relative overflow-hidden"
+              className="hidden md:inline text-white font-semibold tracking-wider relative overflow-hidden"
             >
               ONBOARD
               {activeDropdown === "onboard" && (
@@ -93,17 +93,17 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-0 md:top-[17px] mt-2 py-2 w-40 bg-white bg-opacity-50 rounded-md shadow-lg z-10"
+                className="absolute top-0 md:top-[17px] group mt-2 py-2 w-48 font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10"
               >
                 <Link
                   href="#siherCoActive"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2  hover:text-[#4428f2] text-white "
                 >
                   SI Her Co-Active
                 </Link>
                 <Link
                   href="#ecosystem"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2   hover:text-[#4428f2] text-white "
                 >
                   Si3 Ecosystem
                 </Link>
@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
           >
             <a
               href="#"
-              className="hidden md:inline text-white relative overflow-hidden"
+              className="hidden md:inline text-white relative overflow-hidden font-semibold tracking-wider"
             >
               SI HER LIVE
               {activeDropdown === "live" && (
@@ -142,30 +142,33 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-0 md:top-[17px] mt-2 py-2 w-32 bg-white bg-opacity-50 rounded-md shadow-lg z-10"
+                className="absolute top-0 md:top-[17px] mt-2 py-2 w-64 font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10"
               >
                 <Link
                   href="#commonGround"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2 text-white  whitespace-nowrap hover:text-[#4428f2]"
                 >
                   Common Ground
                 </Link>
                 <a
                   href="#coActivator"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2 text-white hover:text-[#4428f2]"
                 >
-                  Metaverse
+                 Metaverse (Coming Soon)
+
+
+
                 </a>
               </motion.div>
             )}
           </div>
         </div>
-        <div className="hidden md:flex items-center justify-center">
+        <div className="hidden lg:flex items-center justify-center">
           <a href="#" className="text-white text-5xl font-bold uppercase">
             {"Si <3>"}
           </a>
         </div>
-        <div className="flex items-center space-x-4 md:space-x-36 font-medium">
+        <div className="flex items-center space-x-4 md:space-x-14 xl:space-x-36 font-medium">
           <div
             className="relative flex items-center gap-2 cursor-pointer"
             onMouseEnter={() => handleDropdown("about")}
@@ -173,7 +176,7 @@ const Navbar: React.FC = () => {
           >
             <a
               href="#"
-              className="hidden md:inline text-white relative overflow-hidden"
+              className="hidden lg:inline text-white relative overflow-hidden font-semibold tracking-wider "
             >
               ABOUT US
               {activeDropdown === "about" && (
@@ -190,24 +193,24 @@ const Navbar: React.FC = () => {
               alt="Dropdown"
               width={24}
               height={24}
-              className="w-6 h-6 hidden md:inline"
+              className="w-6 h-6 hidden lg:inline"
             />
             {activeDropdown === "about" && (
               <motion.div
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 transition={{ duration: 0.2 }}
-                className="absolute mt-2 py-2 w-32 top-0 md:top-[17px] bg-white bg-opacity-50 rounded-md shadow-lg z-10"
+                className="absolute mt-2 py-2 w-48 top-0 md:top-[17px] font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10"
               >
                 <Link
                   href="#ourMission"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2 text-white hover:text-[#4428f2]"
                 >
                   Our Mission
                 </Link>
                 <Link
                   href="#testimonials"
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                  className="block px-4 py-2 text-white hover:text-[#4428f2]"
                 >
                   Testimonials
                 </Link>
@@ -229,17 +232,79 @@ const Navbar: React.FC = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="lg:hidden px-6 py-4">
-          <a href="#" className="block text-white mb-2">
-            ONBOARD
-          </a>
-          <a href="#" className="block text-white mb-2">
-            SI HER LIVE
-          </a>
-          <a href="#" className="block text-white mb-2">
-            ABOUT US
-          </a>
-        </div>
+        <motion.div
+          initial={{ x: '-100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '-100%' }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+          }}
+        
+          className=" mobileNav fixed z-[99999999]  top-0 left-0 h-[100vh] w-2/3  px-6 py-4 flex flex-col justify-start items-center text-2xl gap-6"
+        >
+             <button
+            onClick={() => setIsOpen(false)}
+            aria-label="Close Menu"
+            className="text-white self-end  top-4  mb-4"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+         <div className="flex items-center flex-col gap-5 text-3xl justify-center h-full">
+         <motion.a
+            href="#siherlive"
+            className="block text-white mb-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            onClick={() => setIsOpen(false)}
+          >
+            Si Her Live
+          </motion.a>
+          <motion.a
+            href="#siherCoActive"
+            className="block text-white mb-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            onClick={() => setIsOpen(false)}
+          >
+            SI Her Co-Active
+          </motion.a>
+          {/* <motion.a
+            href="#ecosystem"
+            className="block text-white mb-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Si3 Ecosystem
+          </motion.a> */}
+          <motion.a
+            href="#onboard"
+            className="block text-white mb-2"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            onClick={() => setIsOpen(false)}
+            transition={{ duration: 0.5 }}
+          >
+            Onboard
+          </motion.a>
+         </div>
+        </motion.div>
       )}
     </motion.nav>
   );
