@@ -115,12 +115,16 @@ body {
   padding: 1px;
   background: linear-gradient(to bottom, transparent, #989898),
     linear-gradient(to bottom right, #989898, transparent);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
+}
+
+.mobileNav {
+  border-bottom: 1px solid #dadada;
+
+  background: rgba(203, 203, 203, 0.894);
+
+  backdrop-filter: blur(21.549999237060547px);
 }

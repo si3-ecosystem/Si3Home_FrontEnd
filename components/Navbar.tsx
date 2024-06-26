@@ -240,14 +240,37 @@ const Navbar: React.FC = () => {
             duration: 0.5,
             ease: "easeInOut",
           }}
-          className="fixed z-[99999999] top-0 left-0 h-full w-64 bg-[#d3b4c2] bg-opacity-80 px-6 py-4 flex flex-col justify-center items-center text-2xl gap-6 z-50"
+        
+          className=" mobileNav fixed z-[99999999]  top-0 left-0 h-[100vh] w-2/3  px-6 py-4 flex flex-col justify-start items-center text-2xl gap-6"
         >
-          <motion.a
+             <button
+            onClick={() => setIsOpen(false)}
+            aria-label="Close Menu"
+            className="text-white self-end  top-4  mb-4"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+         <div className="flex items-center flex-col gap-5 text-3xl justify-center h-full">
+         <motion.a
             href="#siherlive"
             className="block text-white mb-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            onClick={() => setIsOpen(false)}
           >
             Si Her Live
           </motion.a>
@@ -257,6 +280,7 @@ const Navbar: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            onClick={() => setIsOpen(false)}
           >
             SI Her Co-Active
           </motion.a>
@@ -274,10 +298,12 @@ const Navbar: React.FC = () => {
             className="block text-white mb-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
+            onClick={() => setIsOpen(false)}
             transition={{ duration: 0.5 }}
           >
             Onboard
           </motion.a>
+         </div>
         </motion.div>
       )}
     </motion.nav>
