@@ -9,6 +9,7 @@ import moment from "moment";
 import { useEffect, useRef } from "react";
 import { useAnimation, useInView, motion } from "framer-motion";
 import { Autoplay, Pagination } from "swiper/modules";
+import urlFor from "@/utils/urlFor";
 
 export default function Educational({ educationalProgramming }: any) {
   const ref = useRef(null);
@@ -126,8 +127,8 @@ export default function Educational({ educationalProgramming }: any) {
                             </div>
                           </div>
                           <Image
-                            src={"/orporatio.png"}
-                            alt=""
+                            src={urlFor(presenter?.logo).url()}
+                            alt={presenter?.alt || ""}
                             width={59}
                             height={12}
                             className="w-[60px] h-[12px]"

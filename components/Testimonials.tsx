@@ -115,7 +115,14 @@ export default function Testimonials({ testimonials }: any) {
                     <h4 className="font-mono text-[#999999]">{item.name}</h4>
                   </span>
 
-                  <h4 className="uppercase text-[#5D5D5D]"> {item.link}</h4>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    className="uppercase text-[#5D5D5D]"
+                  >
+                    {" "}
+                    {item.link}
+                  </a>
                 </div>
               </SwiperSlide>
             ))}

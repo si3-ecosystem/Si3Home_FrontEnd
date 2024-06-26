@@ -51,7 +51,7 @@ export default function Pricing({ pricing }: any) {
               </ul>
             </div>
 
-            <a href={item.cta.url}>
+            <a href={item.cta.url} target="_blank">
               <Button
                 variant="secondary"
                 className="w-full flex justify-center py-3 bg-white font-semibold text-lg md:text-xl"

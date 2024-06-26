@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import urlFor from "@/utils/urlFor";
 
 export default function Ecosystem({ ecosystemSpotlight }: any) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -136,13 +137,12 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
                 >
                   <div className="flex items-center gap-1 justify-center">
                     <Image
-                      src={"/horseLogo.png"}
-                      alt=""
-                      width={46}
+                      src={urlFor(item?.companyLogo?.asset).url()}
+                      alt={item?.companyLogo?.alt || ""}
+                      width={145}
                       height={60}
-                      className="w-11 h-11"
+                      className="w-16 md:w-44 aspect-auto object-center object-cover"
                     />
-                    <h1 className="font-1000 text-2xl md:text-4xl">Pinata</h1>
                   </div>
 
                   <p className="font-medium text-sm md:text-base pt-2 md:pt-6">

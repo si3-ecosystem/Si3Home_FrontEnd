@@ -142,7 +142,7 @@ const Navbar: React.FC = () => {
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-0 md:top-[17px] mt-2 py-2 w-48 font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10"
+                className="absolute top-0 md:top-[17px] mt-2 py-2 w-64 font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10"
               >
                 <Link
                   href="#commonGround"
@@ -154,7 +154,10 @@ const Navbar: React.FC = () => {
                   href="#coActivator"
                   className="block px-4 py-2 text-white hover:text-[#4428f2]"
                 >
-                  Metaverse
+                 Metaverse (Coming Soon)
+
+
+
                 </a>
               </motion.div>
             )}
@@ -230,13 +233,14 @@ const Navbar: React.FC = () => {
       </div>
       {isOpen && (
         <motion.div
-          whileInView={{ y: [-50, 0] }}
+          initial={{ x: '-100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '-100%' }}
           transition={{
             duration: 0.5,
             ease: "easeInOut",
-            staggerChildren: 0.2,
           }}
-          className="lg:hidden px-6 py-4"
+          className="fixed z-[99999999] top-0 left-0 h-full w-64 bg-[#d3b4c2] bg-opacity-80 px-6 py-4 flex flex-col justify-center items-center text-2xl gap-6 z-50"
         >
           <motion.a
             href="#siherlive"

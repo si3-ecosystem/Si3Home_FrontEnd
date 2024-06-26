@@ -142,7 +142,9 @@ export default function Members({ memberSpotlight }: any) {
                     </div>
 
                     <button className="text-xl font-bold w-full flex items-center justify-center border-gradient rounded-lg p-2">
-                      {item?.email || "Not provided"}
+                      <a href={item?.link} target="_blank">
+                        {item?.email || "Not provided"}
+                      </a>
                     </button>
                   </div>
                 </SwiperSlide>

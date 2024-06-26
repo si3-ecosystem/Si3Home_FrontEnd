@@ -13,6 +13,7 @@ import ImageUrl from "@/utils/imageUrl";
 import Modal from "./shared/Modal";
 import InputField from "./shared/InputField";
 import { useAnimation, motion } from "framer-motion";
+import urlFor from "@/utils/urlFor";
 // Import the custom hook
 
 export default function Granting({ granting, register }) {
@@ -135,16 +136,17 @@ export default function Granting({ granting, register }) {
                   }
                 />
                 <p className="text-sm onramp-background absolute top-3 mx font-mono text-white ml-3 p-1 rounded-lg">
-                  Summit: {item.summitDate}
+                  {item.topic || "Summit"}: {item.summitDate}
                 </p>
                 <div className="absolute bottom-3 ml-3 text-white">
                   <Image
-                    src={"/onramp.svg"}
+                    src={urlFor(item?.companyLogo?.asset).url()}
                     width={150}
                     height={34}
                     alt=""
                     className="object-cover"
                   />
+
                   <h2 className="text-2xl font-bold">{item.name}</h2>
                   <p className="capitalize font-medium">{item.position}</p>
                 </div>
@@ -157,7 +159,7 @@ export default function Granting({ granting, register }) {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         backgroundImage="/registration-bg.svg"
-        className="relative md:w-[1174px] max-h-screen md:max-h-[98vh] z-50"
+        className="relative md:w-[1174px] max-h-screen overflow-y-scroll md:max-h-[98vh] z-50"
       >
         <div className="absolute inset-0 -z-50">
           <div className="background-gradient" />
