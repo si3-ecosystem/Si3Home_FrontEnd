@@ -15,7 +15,7 @@ const ImageUrl = ({ image, className }: any) => {
       loading="lazy"
       sizes="(max-width: 800px) 100vw, 800px"
       className={className}
-      alt={image.alt}
+      alt={image?.alt}
     />
   );
 };
