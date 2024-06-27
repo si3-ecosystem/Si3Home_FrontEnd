@@ -136,13 +136,13 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
                   className="border-gradient-bottom-right rounded-lg flex items-center justify-center flex-col text-center py-6"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="flex items-center gap-1 justify-center bg-[#f1b8c6] rounded-lg px-2 py-1">
+                  <div className="flex items-center gap-1 justify-center bg-slate-100 rounded-lg px-2 py-1">
                     <Image
                       src={urlFor(item.companyLogo.asset).url()}
                       alt={item?.companyLogo?.alt || ""}
                       width={145}
                       height={60}
-                      className="w-16 md:w-44 aspect-auto object-center object-cover"
+                      className="w-16 md:w-44 h-16 aspect-auto object-center object-contain"
                     />
                   </div>
 

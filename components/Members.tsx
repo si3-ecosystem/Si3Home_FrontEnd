@@ -131,7 +131,7 @@ export default function Members({ memberSpotlight }: any) {
                               stroke-linejoin="round"
                             />
                           </svg>
-                          <p className="capitalize font-mono text-lg text-[#696969]">
+                          <p className="capitalize font-mono text-lg text-[#696969] whitespace-pre-wrap line-clamp-1">
                             {item.position}
                           </p>
                         </span>
