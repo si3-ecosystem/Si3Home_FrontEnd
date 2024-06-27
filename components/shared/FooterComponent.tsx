@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from 'next/link';
 
 export default function FooterComponent({ footer }: any) {
   const currentYear = new Date().getFullYear();
@@ -56,8 +57,9 @@ export default function FooterComponent({ footer }: any) {
             Copyright © {currentYear} Si3, Inc. All rights reserved.
           </h5>
           <div className="flex items-center gap-4 md:gap-6">
-            <p className="text-sm md:text-base">Privacy Policy</p>
-            <p className="text-sm md:text-base">Member Policy</p>
+            <p className="text-sm md:text-base"><Link href="/privacy-policy">Privacy Policy</Link></p>
+            <p className="text-sm md:text-base"><Link href="/member-policy">Member Policy</Link></p>
+           
             <p className="text-sm md:text-base">Media Kit</p>
           </div>
         </div>
