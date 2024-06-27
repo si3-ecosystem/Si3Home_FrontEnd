@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import urlFor from "@/utils/urlFor";
 
 export default function Ecosystem({ ecosystemSpotlight }: any) {
+  console.log("ecosystemSpotlight", ecosystemSpotlight);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(6); // Default to 6 for larger screens
 
@@ -135,9 +136,9 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
                   className="border-gradient-bottom-right rounded-lg flex items-center justify-center flex-col text-center py-6"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="flex items-center gap-1 justify-center">
+                  <div className="flex items-center gap-1 justify-center bg-[#f1b8c6] rounded-lg px-2 py-1">
                     <Image
-                      src={urlFor(item?.companyLogo?.asset).url()}
+                      src={urlFor(item.companyLogo.asset).url()}
                       alt={item?.companyLogo?.alt || ""}
                       width={145}
                       height={60}

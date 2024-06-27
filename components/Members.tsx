@@ -71,7 +71,7 @@ export default function Members({ memberSpotlight }: any) {
                   key={key}
                   className=" border-2 p-5 rounded-lg border-[#FAB7D0] group"
                 >
-                  <div className="overflow-hidden">
+                  <div className="overflow-hidden w-[440px] h-[340px] rounded-lg">
                     <ImageUrl
                       image={item.image}
                       className={
