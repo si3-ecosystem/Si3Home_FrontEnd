@@ -28,7 +28,7 @@ export default function Members({ memberSpotlight }: any) {
     >
       <div className="py-14 md:py-28 ">
         <div className="px-5 md:px-16">
-          <h1 className="text-2xl md:text-4xl md:text-primary mt-6 font-1000">
+          <h1 className="text-2xl md:text-4xl text-primary mt-6 font-1000">
             {memberSpotlight.title}
           </h1>
 

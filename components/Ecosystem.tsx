@@ -60,7 +60,7 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
     >
       <div className="py-14 md:py-28">
         <div className="px-5 md:px-16">
-          <h1 className="text-2xl md:text-4xl md:text-primary mt-6 font-1000">
+          <h1 className="text-2xl md:text-4xl text-primary mt-6 font-1000">
             {ecosystemSpotlight.title}
           </h1>
 
@@ -133,16 +133,16 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
               {getVisibleItems().map((item: any, key: number) => (
                 <motion.div
                   key={key}
-                  className="border-gradient-bottom-right rounded-lg flex items-center justify-center flex-col text-center py-6"
+                  className="border-gradient-bottom-right px-3 rounded-lg flex items-center justify-center flex-col text-center py-6"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="flex items-center gap-1 justify-center bg-slate-100 rounded-lg px-2 py-1">
+                  <div className="flex items-center gap-1 justify-center bg-slate-100 rounded-lg px-2 py-2">
                     <Image
                       src={urlFor(item.companyLogo.asset).url()}
                       alt={item?.companyLogo?.alt || ""}
                       width={145}
                       height={60}
-                      className="w-16 md:w-44 h-16 aspect-auto object-center object-contain"
+                      className="w-16 md:w-44 h-auto max-h-14 sm:h-16 aspect-auto object-center object-contain"
                     />
                   </div>
 
@@ -152,10 +152,10 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
 
                   <div className="space-y-1 md:space-y-3 mt-2 md:mt-16 text-center">
                     <p className="font-mono text-sm md:text-[32px]">
-                      {item.teamMember.name}
+                      {item.presenterName}
                     </p>
                     <p className="text-[#898989] text-sm">
-                      {item.teamMember.position}
+                      {item.presenterTitle}
                     </p>
                   </div>
                 </motion.div>

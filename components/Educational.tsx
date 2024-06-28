@@ -36,7 +36,7 @@ export default function Educational({ educationalProgramming }: any) {
         {/* <Button className="w-full md:w-fit flex justify-center">
           SUBSCRIBE FOR EVENT UPDATES
         </Button> */}
-        <h1 className="text-2xl md:text-[40px] font-1000 leading-10 md:text-primary mt-6 ">
+        <h1 className="text-2xl md:text-[40px] font-1000 leading-10 text-primary mt-6 ">
           {educationalProgramming.title}
         </h1>
         <p className="font-mono my-4 md:my-6 max-w-xl text-lg leading-7">
@@ -109,7 +109,7 @@ export default function Educational({ educationalProgramming }: any) {
                           className="bg-[#F2F1F7] flex items-center justify-between py-1 px-2 rounded-lg mt-1 group"
                         >
                           <div className="flex items-center gap-2 transition-all duration-300">
-                            <div className="w-7 h-7">
+                            <div className="w-7 h-7 rounded-full overflow-hidden">
                               <ImageUrl
                                 image={presenter.image}
                                 className={
