@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomLayout from "@/components/provider/CustomLayout";
+import { getSeoData } from "./page";
 
 export const metadata: Metadata = {
   title: "si3",
@@ -28,11 +29,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const utils = await getSeoData();
   return (
     <html lang="en">
       <head>
@@ -50,7 +52,7 @@ export default function RootLayout({
           src="//js.hs-scripts.com/45396312.js"
         ></script>
         <CustomLayout>
-          <Navbar />
+          <Navbar utils={utils} />
           <div className="min-h-screen">{children}</div>
           <Footer />
         </CustomLayout>

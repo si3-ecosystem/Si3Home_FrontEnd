@@ -4,7 +4,8 @@ import Image from "next/image";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = ({ utils }: any) => {
+  console.log("utils", utils);
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const controls = useAnimation();
@@ -222,7 +223,11 @@ const Navbar = () => {
               height={36}
               className="w-9 h-9"
             />
-            <Link href="#stayConnected" className="block text-white">
+            <Link
+              href={utils?.stayConnected}
+              target="_blank"
+              className="block text-white"
+            >
               STAY CONNECTED
             </Link>
           </div>
@@ -271,7 +276,8 @@ const Navbar = () => {
                 className="w-7 h-7"
               />
               <Link
-                href="#stayConnected"
+                href={utils.stayConnected}
+                target="_blank"
                 className="block text-white text-base font-medium"
               >
                 STAY CONNECTED

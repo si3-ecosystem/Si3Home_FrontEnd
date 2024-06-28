@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import urlFor from "@/utils/urlFor";
 
 export default function Ecosystem({ ecosystemSpotlight }: any) {
-  console.log("ecosystemSpotlight", ecosystemSpotlight);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(6); // Default to 6 for larger screens
 

@@ -15,7 +15,7 @@ import groq from "groq";
 
 export const revalidate = 10;
 
-async function getSeoData() {
+export async function getSeoData() {
   const query = groq`*[_type == 'utils'][0]`;
   const data = await client.fetch(query);
 

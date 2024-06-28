@@ -6,7 +6,6 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 
 export default function Banner({ hero }: any) {
-  console.log("hero", hero);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
