@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function FooterComponent({ footer }: any) {
   const currentYear = new Date().getFullYear();
@@ -12,13 +12,13 @@ export default function FooterComponent({ footer }: any) {
             {"SI <3>"}
           </h1>
 
-          <iframe
+          {/* <iframe
             src="https://paragraph.xyz/@currentsi/embed?minimal=true"
             height="45"
             className="bg-white border border-white w-[320px] sm:w-[380px]"
             frameBorder="0"
             scrolling="no"
-          ></iframe>
+          ></iframe> */}
           <div className="flex items-center gap-6 shrink-0">
             <a href={footer.other} target="_blank">
               <Image
@@ -38,7 +38,7 @@ export default function FooterComponent({ footer }: any) {
                 className="w-7 h-7"
               />
             </a>
-            <a href={footer.insta} target="_blank">
+            <a href={footer.linkedIn} target="_blank">
               <Image
                 src={"/icons/linkedIn.svg"}
                 alt="icon"
@@ -57,9 +57,13 @@ export default function FooterComponent({ footer }: any) {
             Copyright © {currentYear} Si3, Inc. All rights reserved.
           </h5>
           <div className="flex items-center gap-4 md:gap-6">
-            <p className="text-sm md:text-base"><Link href="/privacy-policy">Privacy Policy</Link></p>
-            <p className="text-sm md:text-base"><Link href="/member-policy">Member Policy</Link></p>
-           
+            <p className="text-sm md:text-base">
+              <Link href="/privacy-policy">Privacy Policy</Link>
+            </p>
+            <p className="text-sm md:text-base">
+              <Link href="/member-policy">Member Policy</Link>
+            </p>
+
             <p className="text-sm md:text-base">Media Kit</p>
           </div>
         </div>

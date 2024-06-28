@@ -161,9 +161,9 @@ const Navbar = () => {
           </div>
         </div>
         <div className="hidden lg:flex items-center justify-center">
-          <a href="#" className="text-white text-5xl font-bold uppercase">
+          <Link href="/" className="text-white text-5xl font-bold uppercase">
             {"Si <3>"}
-          </a>
+          </Link>
         </div>
         <div className="flex items-center space-x-4 md:space-x-14 xl:space-x-36 font-medium">
           <div

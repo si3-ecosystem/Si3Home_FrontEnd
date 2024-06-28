@@ -71,11 +71,11 @@ export default function Members({ memberSpotlight }: any) {
                   key={key}
                   className=" border-2 p-5 rounded-lg border-[#FAB7D0] group"
                 >
-                  <div className="overflow-hidden w-[440px] h-[340px] rounded-lg">
+                  <div className="w-full max-h-[230px] rounded-lg overflow-hidden">
                     <ImageUrl
                       image={item.image}
                       className={
-                        "w-[440px] h-[340px] object-cover object-center rounded-lg group-hover:scale-[1.03] transition-all duration-300 group-hover:opacity-70"
+                        "w-[440px] max-h-[230px] object-cover object-center rounded-lg group-hover:scale-[1.03] transition-all duration-300 group-hover:opacity-70"
                       }
                     />
                   </div>

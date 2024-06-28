@@ -128,25 +128,27 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10"
+              className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10"
             >
               {getVisibleItems().map((item: any, key: number) => (
                 <motion.div
                   key={key}
-                  className="border-gradient-bottom-right px-3 rounded-lg flex items-center justify-center flex-col text-center py-6"
+                  className="border-gradient-bottom-right px-2 sm:px-3 rounded-lg flex items-center sm:justify-center flex-col text-center py-6"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="flex items-center gap-1 justify-center bg-slate-100 rounded-lg px-2 py-2">
-                    <Image
-                      src={urlFor(item.companyLogo.asset).url()}
-                      alt={item?.companyLogo?.alt || ""}
-                      width={145}
-                      height={60}
-                      className="w-16 md:w-44 h-auto max-h-14 sm:h-16 aspect-auto object-center object-contain"
-                    />
+                  <div className="max-sm:h-14">
+                    <div className="flex items-center gap-1  justify-center bg-slate-100 rounded-lg px-2 py-2">
+                      <Image
+                        src={urlFor(item.companyLogo.asset).url()}
+                        alt={item?.companyLogo?.alt || ""}
+                        width={145}
+                        height={60}
+                        className="w-16 md:w-44 h-auto max-h-14 sm:h-16 aspect-auto object-center object-contain"
+                      />
+                    </div>
                   </div>
 
-                  <p className="font-medium text-sm md:text-base pt-2 md:pt-6">
+                  <p className="font-medium text-sm md:text-base pt-2 md:pt-6 ">
                     {item.title}
                   </p>
 

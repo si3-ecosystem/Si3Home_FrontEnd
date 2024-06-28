@@ -86,8 +86,7 @@ export default function Educational({ educationalProgramming }: any) {
                     }
                   />
                   <p className="text-xs onramp-background absolute top-0 mx font-mono text-white truncate p-1 rounded-lg ">
-                    Summit: {moment(item.date).format("DD-MM-YYYY")} |
-                    03:40-05:40pm UT
+                    {item.date}
                   </p>
                 </div>
 
