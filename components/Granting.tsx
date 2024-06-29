@@ -138,11 +138,11 @@ export default function Granting({ granting, register }) {
                 <p className="text-sm onramp-background absolute top-3 mx font-mono text-white ml-3 p-1 rounded-lg">
                   {item.summitDate}
                 </p>
-                <div className="absolute bottom-3 ml-3 text-white">
+                <div className="absolute bottom-3 ml-3 text-white flex flex-col gap-0.5">
                   <Image
                     src={urlFor(item?.companyLogo?.asset).url()}
-                    width={150}
-                    height={34}
+                    width={140}
+                    height={30}
                     alt=""
                     className="object-cover"
                   />
