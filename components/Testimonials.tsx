@@ -112,7 +112,10 @@ export default function Testimonials({ testimonials }: any) {
                       />
                     </div>
 
-                    <h4 className="font-mono text-[#999999]">{item?.name}</h4>
+                    <div className="flex flex-col ">
+                      <h4 className="font-mono text-[#999999]">{item?.name}</h4>
+                      <p className="font-mono text-[#999999]">{item?.title}</p>
+                    </div>
                   </span>
 
                   <a

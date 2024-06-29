@@ -136,7 +136,7 @@ export default function Granting({ granting, register }) {
                   }
                 />
                 <p className="text-sm onramp-background absolute top-3 mx font-mono text-white ml-3 p-1 rounded-lg">
-                  {item.topic || "Summit"}: {item.summitDate}
+                  {item.summitDate}
                 </p>
                 <div className="absolute bottom-3 ml-3 text-white">
                   <Image

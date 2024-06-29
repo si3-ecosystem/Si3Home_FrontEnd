@@ -83,7 +83,7 @@ export default function Members({ memberSpotlight }: any) {
                   <div className="flex flex-col justify-between gap-12">
                     <div className="space-y-3 mt-6">
                       <h3 className="text-xl md:text-3xl">{item.name}</h3>
-                      <div className="flex items-center gap-5">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span className="flex items-center gap-2.5">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +136,7 @@ export default function Members({ memberSpotlight }: any) {
                           </p>
                         </span>
                       </div>
-                      <p className="text-[#7B7B7D] text-justify tracking-widest">
+                      <p className="text-[#7B7B7D] text-start tracking-widest text-sm">
                         {item.hobbies.join(", ")}
                       </p>
                     </div>
