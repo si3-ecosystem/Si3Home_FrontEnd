@@ -14,6 +14,14 @@ import Modal from "./shared/Modal";
 import InputField from "./shared/InputField";
 import { useAnimation, motion } from "framer-motion";
 import urlFor from "@/utils/urlFor";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
 // Import the custom hook
 
 export default function Granting({ granting, register }) {
@@ -129,12 +137,14 @@ export default function Granting({ granting, register }) {
                 key={key}
                 className="relative rounded-lg group overflow-hidden"
               >
-                <ImageUrl
-                  image={item.image}
-                  className={
-                    "h-[578px] object-cover object-center rounded-lg w-full card-shaper group-hover:opacity-70 transition-all duration-300 group-hover:scale-[1.07]"
-                  }
-                />
+                <div className="max-sm:max-h-[678px] overflow-hidden">
+                  <ImageUrl
+                    image={item.image}
+                    className={
+                      "h-full max-h-[678px] overflow-hidden object-cover object-top rounded-lg w-full card-shaper group-hover:opacity-70 transition-all duration-300 group-hover:scale-[1.07]"
+                    }
+                  />
+                </div>
                 <p className="text-sm onramp-background absolute top-3 mx font-mono text-white ml-3 p-1 rounded-lg">
                   {item.summitDate}
                 </p>
@@ -154,73 +164,40 @@ export default function Granting({ granting, register }) {
             ))}
         </Swiper>
       </div>
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="px-4 ">
+          <DialogHeader>
+            <DialogDescription>
+              <div className="absolute inset-0 -z-50">
+                <div className="background-gradient" />
+              </div>
+              <div className="flex flex-col items-center text-center px-4 md:px-0 py-4  z-10">
+                <h1 className="text-2xl md:text-5xl font-bold mb-5">
+                  {register.title}
+                </h1>
+                <div className="flex flex-col md:flex-row items-center gap-2 mb-4">
+                  <p className="font-medium bg-[#342F52] text-white py-1 px-3 md:py-2 md:px-6 rounded-full text-xs md:text-sm">
+                    {register.date}
+                  </p>
 
-      <Modal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        backgroundImage="/registration-bg.svg"
-        className="relative  w-screen h-screen overflow-y-scroll  z-50"
-      >
-        <div className="absolute inset-0 -z-50">
-          <div className="background-gradient" />
-        </div>
-        <div className="flex flex-col items-center text-center px-4 md:px-0 py-4 md:py-16 z-10">
-          <h1 className="text-2xl md:text-5xl font-bold mb-5">
-            {register.title}
-          </h1>
-          <div className="flex flex-col md:flex-row items-center gap-2 mb-4 md:mb-11">
-            <p className="font-medium bg-[#342F52] text-white py-1 px-3 md:py-2 md:px-6 rounded-full text-xs md:text-sm">
-              {register.date}
-            </p>
+                  <p className="font-medium bg-[#342F52] text-white py-1 px-3 md:py-2 md:px-6 rounded-full text-xs md:text-sm">
+                    {register.stream}
+                  </p>
+                </div>
 
-            <p className="font-medium bg-[#342F52] text-white py-1 px-3 md:py-2 md:px-6 rounded-full text-xs md:text-sm">
-              {register.stream}
-            </p>
-          </div>
+                <div className="space-y-2 md:space-y-6 flex flex-col justify-center items-center">
+                  <p className="text-center text-[#6D6D6D] text-sm md:text-base max-w-sm">
+                    {register.subtitle}
+                  </p>
 
-          <div className="space-y-2 md:space-y-6 flex flex-col justify-center items-center">
-            <p className="text-center text-[#6D6D6D] text-sm md:text-base max-w-sm">
-              {register.subtitle}
-            </p>
-
-            {/* Add this div where the form should be rendered */}
-            <div id="hubspotForm"></div>
-          </div>
-          {/* <p className="text-center text-[#6D6D6D] text-sm md:text-base">
-            Choose your calendar app where to add event:
-          </p> */}
-          {/* <motion.div className="flex justify-center gap-2 md:gap-4 mt-3 md:mt-6 flex-wrap">
-            <motion.a
-              href={register.apple}
-              target="_blank"
-              whileHover={{ scale: 1.05 }}
-              className="bg-[#EFEFEF] w-[128px] md:w-[192px] h-[40px] md:h-[54px] rounded-lg flex justify-center items-center"
-            >
-              <Image
-                src={"/apple-icon.svg"}
-                width={22}
-                height={22}
-                alt=""
-                className="object-cover"
-              />
-            </motion.a>
-            <motion.a
-              href={register.google}
-              target="_blank"
-              whileHover={{ scale: 1.05 }}
-              className="bg-[#EFEFEF] w-[128px] md:w-[192px] h-[40px] md:h-[54px] rounded-lg flex justify-center items-center"
-            >
-              <Image
-                src={"/google-icon.svg"}
-                width={22}
-                height={22}
-                alt=""
-                className="object-cover"
-              />
-            </motion.a>
-          </motion.div> */}
-        </div>
-      </Modal>
+                  {/* Add this div where the form should be rendered */}
+                  <div id="hubspotForm"></div>
+                </div>
+              </div>
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </motion.div>
   );
 }
