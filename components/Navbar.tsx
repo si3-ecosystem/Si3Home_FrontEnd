@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import urlFor from "@/utils/urlFor";
 
 const Navbar = ({ utils }: any) => {
-  console.log("utils", utils);
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const controls = useAnimation();
@@ -163,7 +163,11 @@ const Navbar = ({ utils }: any) => {
         </div>
         <div className="hidden lg:flex items-center justify-center">
           <Link href="/" className="text-white text-5xl font-bold uppercase">
-            {"Si <3>"}
+            <img
+              src={urlFor(utils?.logo?.asset).url()}
+              alt={utils?.logo?.alt}
+              className="w-24 h-12 "
+            />
           </Link>
         </div>
         <div className="flex items-center space-x-4 md:space-x-14 xl:space-x-36 font-medium">
@@ -382,7 +386,11 @@ const Navbar = ({ utils }: any) => {
               </div>
               <div className="md:hidden">
                 <a href="#" className="text-white text-5xl font-bold uppercase">
-                  {"Si <3>"}
+                  <img
+                    src={urlFor(utils?.logo?.asset).url()}
+                    alt={utils?.logo?.alt}
+                    className="w-24 h-12 "
+                  />
                 </a>
               </div>
               <div
