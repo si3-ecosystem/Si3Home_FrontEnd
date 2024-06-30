@@ -247,7 +247,7 @@ const Navbar = ({ utils }: any) => {
               duration: 0.5,
               ease: "easeInOut",
             }}
-            className="mobileNav fixed z-[99999999] top-0 left-0 h-screen w-3/4 px-6 py-4 flex flex-col justify-start items-center text-2xl gap-6 md:hidden"
+            className="mobileNav fixed z-[99999999] backdrop-blur-md top-0 left-0 h-screen w-3/4 px-6 py-4 flex flex-col justify-start items-center text-2xl gap-6 md:hidden"
           >
             <button
               onClick={() => setIsOpen(false)}

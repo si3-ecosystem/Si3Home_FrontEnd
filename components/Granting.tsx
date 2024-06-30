@@ -159,7 +159,7 @@ export default function Granting({ granting, register }) {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         backgroundImage="/registration-bg.svg"
-        className="relative md:w-[1174px] max-h-screen overflow-y-scroll md:max-h-[98vh] z-50"
+        className="relative  w-screen h-screen overflow-y-scroll  z-50"
       >
         <div className="absolute inset-0 -z-50">
           <div className="background-gradient" />

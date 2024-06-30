@@ -46,7 +46,7 @@ export default function Banner({ hero }: any) {
         </motion.div>
       </div>
       <div className="absolute inset-0" />
-      <div className="relative z-10 px-10 md:px-16 pt-36 md:pt-[196px] ">
+      <div className="relative z-10 px-10 md:px-16 pt-36 2xl:pt-[196px] ">
         <motion.h1
           className="text-white text-2xl md:text-6xl font-[1000]"
           initial={{ opacity: 0.7, x: 500 }}
@@ -78,7 +78,7 @@ export default function Banner({ hero }: any) {
             duration: 0.5,
             ease: "easeInOut",
           }}
-          className="mt-8 md:mt-[80px] flex items-center justify-center w-full md:w-fit"
+          className="mt-8 md:mt-10 xl:mt-[80px] flex items-center justify-center w-full md:w-fit"
         >
           <a href={hero.cta.link.external} target="_blank" className="w-full">
             <ButtonCTA variant="outline">{hero.cta.text}</ButtonCTA>

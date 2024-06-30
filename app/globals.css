@@ -124,7 +124,7 @@ body {
 .mobileNav {
   border-bottom: 1px solid #dadada;
 
-  background: rgba(203, 203, 203, 0.894);
+  background: rgba(175, 175, 175, 0.97);
 
-  backdrop-filter: blur(21.549999237060547px);
+  backdrop-filter: blur(83.75px);
 }
