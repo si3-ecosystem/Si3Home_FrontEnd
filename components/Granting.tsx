@@ -141,7 +141,7 @@ export default function Granting({ granting, register }) {
                   <ImageUrl
                     image={item.image}
                     className={
-                      "h-full max-h-[678px] overflow-hidden object-cover object-top rounded-lg w-full card-shaper group-hover:opacity-70 transition-all duration-300 group-hover:scale-[1.07]"
+                      "h-full min-h-[678px] max-h-[678px] overflow-hidden object-cover object-top rounded-lg w-full card-shaper group-hover:opacity-70 transition-all duration-300 group-hover:scale-[1.07]"
                     }
                   />
                 </div>

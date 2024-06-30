@@ -130,7 +130,7 @@ export default function Educational({ educationalProgramming }: any) {
                             alt={presenter?.alt || ""}
                             width={59}
                             height={12}
-                            className="w-[60px] h-[12px]"
+                            className="w-[54px]"
                           />
                         </motion.div>
                       ))}
