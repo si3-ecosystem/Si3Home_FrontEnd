@@ -83,7 +83,7 @@ export default function Members({ memberSpotlight }: any) {
                   <div className="flex flex-col justify-between gap-12">
                     <div className="space-y-3 mt-6">
                       <h3 className="text-xl md:text-3xl">{item.name}</h3>
-                      <div className="flex flex-wrap items-center gap-2">
+                      <div className="flex flex-col items-start gap-2">
                         <span className="flex items-center gap-2.5">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@ export default function Members({ memberSpotlight }: any) {
                               stroke-width="1.5"
                             />
                           </svg>
-                          <p className="capitalize font-mono text-lg text-[#696969]">
+                          <p className="capitalize font-mono text-sm md:text-lg text-[#696969]">
                             {item.country}
                           </p>
                         </span>
@@ -111,9 +111,9 @@ export default function Members({ memberSpotlight }: any) {
                         <span className="flex items-center gap-2.5">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="21"
-                            viewBox="0 0 20 21"
+                            width="24"
+                            height="25"
+                            viewBox="0 0 24 25"
                             fill="none"
                           >
                             <path
@@ -131,7 +131,8 @@ export default function Members({ memberSpotlight }: any) {
                               stroke-linejoin="round"
                             />
                           </svg>
-                          <p className="capitalize font-mono text-lg text-[#696969] whitespace-pre-wrap line-clamp-1">
+                          <p className="capitalize font-mono text-sm md:text-lg text-[#696969] whitespace-pre-wrap line-clamp-1">
+                            {""}
                             {item.position}
                           </p>
                         </span>

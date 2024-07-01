@@ -96,8 +96,11 @@ export default function Testimonials({ testimonials }: any) {
             }}
           >
             {testimonials?.map((item: any, key: number) => (
-              <SwiperSlide key={key} className="space-y-16">
-                <h1 className="text-xl md:text-5xl">
+              <SwiperSlide
+                key={key}
+                className="flex flex-col gap-16 justify-between"
+              >
+                <h1 className="text-xl md:text-5xl h-full min-h-[220px]">
                   {`“`} <br />
                   <span>{item?.description}</span>
                   {`”`}
@@ -114,7 +117,9 @@ export default function Testimonials({ testimonials }: any) {
 
                     <div className="flex flex-col ">
                       <h4 className="font-mono text-[#999999]">{item?.name}</h4>
-                      <p className="font-mono text-[#999999]">{item?.title}</p>
+                      <p className="font-mono text-[#999999]">
+                        {item?.title},{item?.companyName}
+                      </p>
                     </div>
                   </span>
 
@@ -124,7 +129,7 @@ export default function Testimonials({ testimonials }: any) {
                     className="uppercase text-[#5D5D5D]"
                   >
                     {" "}
-                    {item?.companyName}
+                    {item?.link}
                   </a>
                 </div>
               </SwiperSlide>

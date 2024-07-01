@@ -287,11 +287,10 @@ const Navbar = ({ utils }: any) => {
                 STAY CONNECTED
               </Link>
             </div>
-            <div className="flex flex-col gap-[50px] justify-center h-full">
+            <div className="flex flex-col gap-8 justify-center h-full">
               <div
                 className="relative flex items-center gap-2 cursor-pointer"
-                onMouseEnter={() => handleDropdown("onboard")}
-                onMouseLeave={() => handleDropdown("onboard")}
+                onClick={() => handleDropdown("onboard")}
               >
                 <a
                   href="#"
@@ -303,43 +302,45 @@ const Navbar = ({ utils }: any) => {
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ duration: 0.3 }}
-                      className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-30"
+                      className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-50"
                     />
                   )}
                 </a>
                 <Image
-                  src={"/arrow-down.svg"}
+                  src={
+                    activeDropdown === "onboard"
+                      ? "/arrow-down.svg"
+                      : "/arrow-down.svg"
+                  }
                   alt="Dropdown"
                   width={24}
                   height={24}
                   className="w-6 h-6 md:hidden"
                 />
-                {activeDropdown === "onboard" && (
-                  <motion.div
-                    initial={{ opacity: 0, scaleY: 0 }}
-                    animate={{ opacity: 1, scaleY: 1 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-6 md:top-[17px] group mt-2 py-2 w-48 font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10 text-lg"
-                  >
+              </div>
+              {activeDropdown === "onboard" && (
+                <ul className="flex flex-col gap-2 transition-all duration-500 text-base -mt-6">
+                  <li>
                     <Link
                       href="#siherCoActive"
-                      className="block px-4 py-2  hover:text-[#4428f2] text-white"
+                      className="block  text-white hover:text-[#4428f2]"
                     >
                       SI Her Co-Active
                     </Link>
+                  </li>
+                  <li>
                     <Link
                       href="#ecosystem"
-                      className="block px-4 py-2   hover:text-[#4428f2] text-white "
+                      className="block  text-white hover:text-[#4428f2]"
                     >
                       Si3 Ecosystem
                     </Link>
-                  </motion.div>
-                )}
-              </div>
+                  </li>
+                </ul>
+              )}
               <div
-                className="relative flex items-center gap-2 cursor-pointer"
-                onMouseEnter={() => handleDropdown("live")}
-                onMouseLeave={() => handleDropdown("live")}
+                className="relative flex items-center gap-4 cursor-pointer"
+                onClick={() => handleDropdown("live")}
               >
                 <a
                   href="#"
@@ -351,52 +352,45 @@ const Navbar = ({ utils }: any) => {
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ duration: 0.3 }}
-                      className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-30"
+                      className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-50"
                     />
                   )}
                 </a>
                 <Image
-                  src={"/arrow-down.svg"}
+                  src={
+                    activeDropdown === "live"
+                      ? "/arrow-down.svg"
+                      : "/arrow-down.svg"
+                  }
                   alt="Dropdown"
                   width={24}
                   height={24}
                   className="w-6 h-6 md:hidden"
                 />
-                {activeDropdown === "live" && (
-                  <motion.div
-                    initial={{ opacity: 0, scaleY: 0 }}
-                    animate={{ opacity: 1, scaleY: 1 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-6 md:top-[17px] mt-2 py-2 w-64 font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10 text-lg"
-                  >
+              </div>
+              {activeDropdown === "live" && (
+                <ul className="flex flex-col gap-2 text-base -mt-6">
+                  <li>
                     <Link
                       href="#commonGround"
-                      className="block px-4 py-2 text-white  whitespace-nowrap hover:text-[#4428f2]"
+                      className="block  text-white hover:text-[#4428f2]"
                     >
                       Common Ground
                     </Link>
+                  </li>
+                  <li>
                     <a
                       href="#coActivator"
-                      className="block px-4 py-2 text-white hover:text-[#4428f2]"
+                      className="block  text-white hover:text-[#4428f2]"
                     >
                       Metaverse (Coming Soon)
                     </a>
-                  </motion.div>
-                )}
-              </div>
-              <div className="md:hidden">
-                <a href="#" className="text-white text-5xl font-bold uppercase">
-                  <img
-                    src={urlFor(utils?.logo?.asset).url()}
-                    alt={utils?.logo?.alt}
-                    className="w-24 h-12 "
-                  />
-                </a>
-              </div>
+                  </li>
+                </ul>
+              )}
               <div
-                className="relative flex items-center gap-2 cursor-pointer"
-                onMouseEnter={() => handleDropdown("about")}
-                onMouseLeave={() => handleDropdown("about")}
+                className="relative flex items-center gap-4 cursor-pointer"
+                onClick={() => handleDropdown("about")}
               >
                 <a
                   href="#"
@@ -408,39 +402,42 @@ const Navbar = ({ utils }: any) => {
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ duration: 0.3 }}
-                      className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-30"
+                      className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-50"
                     />
                   )}
                 </a>
                 <Image
-                  src={"/arrow-down.svg"}
+                  src={
+                    activeDropdown === "about"
+                      ? "/arrow-down.svg"
+                      : "/arrow-down.svg"
+                  }
                   alt="Dropdown"
                   width={24}
                   height={24}
                   className="w-6 h-6 md:hidden"
                 />
-                {activeDropdown === "about" && (
-                  <motion.div
-                    initial={{ opacity: 0, scaleY: 0 }}
-                    animate={{ opacity: 1, scaleY: 1 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute mt-2 py-2 w-48 top-6 md:top-[17px] font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md md:hidden shadow-lg z-10 text-lg"
-                  >
+              </div>
+              {activeDropdown === "about" && (
+                <ul className=" flex flex-col gap-2 text-base -mt-6">
+                  <li>
                     <Link
                       href="#ourMission"
-                      className="block px-4 py-2 text-white hover:text-[#4428f2]"
+                      className="block  text-white hover:text-[#4428f2]"
                     >
                       Our Mission
                     </Link>
+                  </li>
+                  <li>
                     <Link
                       href="#testimonials"
-                      className="block px-4 py-2 text-white hover:text-[#4428f2]"
+                      className="block  text-white hover:text-[#4428f2]"
                     >
                       Testimonials
                     </Link>
-                  </motion.div>
-                )}
-              </div>
+                  </li>
+                </ul>
+              )}
             </div>
           </motion.div>
         )}
