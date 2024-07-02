@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import urlFor from "@/utils/urlFor";
 
 export default function FooterComponent({ footer }: any) {
   const currentYear = new Date().getFullYear();
@@ -8,17 +9,14 @@ export default function FooterComponent({ footer }: any) {
     <>
       <div id="stayConnected" className="bg-blackish px-5  md:px-16 py-8">
         <div className="py-5 flex flex-col md:flex-row items-center gap-5 justify-between">
-          <h1 className="text-white text-4xl lg:text-5xl shrink-0 hidden md:block">
-            {"SI <3>"}
-          </h1>
+          <Link href="/" className="text-white text-5xl font-bold uppercase">
+            <img
+              src={urlFor(footer?.logo?.asset).url()}
+              alt={footer?.logo?.alt}
+              className="w-24 h-12 "
+            />
+          </Link>
 
-          {/* <iframe
-            src="https://paragraph.xyz/@currentsi/embed?minimal=true"
-            height="45"
-            className="bg-white border border-white w-[320px] sm:w-[380px]"
-            frameBorder="0"
-            scrolling="no"
-          ></iframe> */}
           <div className="flex items-center gap-6 shrink-0">
             <a href={footer.other} target="_blank">
               <Image
@@ -64,7 +62,13 @@ export default function FooterComponent({ footer }: any) {
               <Link href="/member-policy">Member Policy</Link>
             </p>
 
-            <p className="text-sm md:text-base">Media Kit</p>
+            <a
+              href={footer?.mediakit}
+              target="_blank"
+              className="text-sm md:text-base"
+            >
+              Media Kit
+            </a>
           </div>
         </div>
       </div>

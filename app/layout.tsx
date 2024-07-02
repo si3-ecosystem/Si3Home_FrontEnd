@@ -4,30 +4,60 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomLayout from "@/components/provider/CustomLayout";
-import { getSeoData } from "./page";
 
-export const metadata: Metadata = {
-  title: "si3",
-  description: "Creating Pathways For Diverse Voices Of the New Economy",
-  metadataBase: new URL("https://si3home-frontend.vercel.app"),
-  icons: ["favicon.ico", "/favicon.ico"],
-  openGraph: {
-    title: "si3",
-    type: "website",
-    locale: "en",
-    url: "https://si3home-frontend.vercel.app",
-    siteName: "si3",
-    description: "Creating Pathways For Diverse Voices Of the New Economy",
-    images: [
-      {
-        url: "https://si3home-frontend.vercel.app/favicon.ico",
-        width: 1200,
-        height: 630,
-        alt: "SI3 Home Page",
-      },
-    ],
-  },
-};
+import groq from "groq";
+import { client } from "@/utils/client";
+import urlFor from "@/utils/urlFor";
+
+export const revalidate = 10;
+
+export async function getSeoData() {
+  const query = groq`*[_type == 'utils'][0]`;
+  const data = await client.fetch(query);
+
+  return data;
+}
+
+async function sharedMetaData(params: any) {
+  const settings = await getSeoData();
+
+  return {
+    // enable this for resolving opengraph image
+    metadataBase: new URL("https://si3home-frontend.vercel.app"),
+    title: {
+      default: settings?.seoTitle || "si3",
+      template: "%s",
+    },
+    icons: [urlFor(settings?.seoLogo?.asset).url(), "/icons/logo.webp"],
+    description:
+      settings?.overview ||
+      "Creating Pathways For Diverse Voices Of the New Economy",
+    keywords: ["si3", "si/her", "web3"],
+    authors: [{ name: "Asraful" }],
+    canonical: "https://si3home-frontend.vercel.app",
+    openGraph: {
+      images: [
+        {
+          url: urlFor(settings?.seoLogo).url() || "/icons/logo.webp",
+          width: 800,
+          height: 600,
+        },
+      ],
+    },
+    twitter: {
+      title: settings?.seoTitle || "si3",
+      card: "Creating Pathways For Diverse Voices Of the New Economy",
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
+
+export async function generateMetadata({ params }: any) {
+  return await sharedMetaData(params);
+}
 
 export default async function RootLayout({
   children,

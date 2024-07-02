@@ -50,7 +50,7 @@ export default function Educational({ educationalProgramming }: any) {
             swipeRef.current = swiper;
           }}
           modules={[Pagination, Autoplay]}
-          autoplay={{ delay: 2500 }}
+          autoplay={{ delay: 55500 }}
           slidesPerView={3}
           spaceBetween={10}
           breakpoints={{
@@ -94,7 +94,7 @@ export default function Educational({ educationalProgramming }: any) {
                   <h3 className="text-primary font-1000 text-2xl">
                     {item.title}
                   </h3>
-                  <p className="text-[#7B7B7D] text-justify max-w-[384px]">
+                  <p className="text-[#7B7B7D] text-justify h-[180px] overflow-hidden line-clamp-6 ">
                     {item.description}
                   </p>
 
