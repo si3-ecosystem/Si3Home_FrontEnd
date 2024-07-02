@@ -28,6 +28,7 @@ async function sharedMetaData(params: any) {
       default: settings?.seoTitle || "si3",
       template: "%s",
     },
+    icon: "logo.webp",
     icons: [urlFor(settings?.seoLogo?.asset).url(), "/icons/logo.webp"],
     description:
       settings?.overview ||
