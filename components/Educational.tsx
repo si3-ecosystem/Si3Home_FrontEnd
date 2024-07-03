@@ -91,10 +91,10 @@ export default function Educational({ educationalProgramming }: any) {
                 </div>
 
                 <div className="space-y-3 mt-6">
-                  <h3 className="text-primary font-1000 text-2xl">
+                  <h3 className="text-primary font-1000 text-xl sm:text-2xl">
                     {item.title}
                   </h3>
-                  <p className="text-[#7B7B7D] text-justify h-[200px] overflow-hidden line-clamp-6 ">
+                  <p className="text-[#7B7B7D] text-justify h-[270px] lg:h-[180px] overflow-hidden ">
                     {item.description}
                   </p>
 
