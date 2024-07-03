@@ -287,7 +287,7 @@ const Navbar = ({ utils }: any) => {
                 STAY CONNECTED
               </Link>
             </div>
-            <div className="flex flex-col gap-8 justify-center h-full">
+            <div className="flex flex-col gap-8 justify-start h-full mt-8">
               <div
                 className="relative flex items-center gap-2 cursor-pointer"
                 onClick={() => handleDropdown("onboard")}

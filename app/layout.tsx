@@ -20,7 +20,9 @@ export async function getSeoData() {
 
 async function sharedMetaData(params: any) {
   const settings = await getSeoData();
-
+  const seoLogoUrl = settings?.seoLogo
+    ? urlFor(settings?.seoLogo).url()
+    : "/icons/logo.webp";
   return {
     // enable this for resolving opengraph image
     metadataBase: new URL("https://si3home-frontend.vercel.app"),
@@ -30,7 +32,7 @@ async function sharedMetaData(params: any) {
     },
 
     icons: {
-      icon: urlFor(settings?.seoLogo?.asset).url() || "/icons/logo.webp",
+      icon: urlFor(settings?.logo?.asset).url() || "/icons/favicon.ico",
     },
     description:
       settings?.overview ||
@@ -39,17 +41,27 @@ async function sharedMetaData(params: any) {
     authors: [{ name: "Asraful" }],
     canonical: "https://si3home-frontend.vercel.app",
     openGraph: {
+      type: "website",
+      url: "https://si3home-frontend.vercel.app",
+      title: settings?.seoTitle || "si3",
+      description:
+        settings?.overview ||
+        "Creating Pathways For Diverse Voices Of the New Economy",
       images: [
         {
-          url: urlFor(settings?.seoLogo).url() || "/icons/logo.webp",
+          url: seoLogoUrl,
           width: 800,
           height: 600,
         },
       ],
     },
     twitter: {
+      card: "summary_large_image",
       title: settings?.seoTitle || "si3",
-      card: "Creating Pathways For Diverse Voices Of the New Economy",
+      description:
+        settings?.overview ||
+        "Creating Pathways For Diverse Voices Of the New Economy",
+      images: [seoLogoUrl],
     },
     robots: {
       index: true,

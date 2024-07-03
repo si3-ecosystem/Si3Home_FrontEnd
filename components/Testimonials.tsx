@@ -117,9 +117,7 @@ export default function Testimonials({ testimonials }: any) {
 
                     <div className="flex flex-col ">
                       <h4 className="font-mono text-[#999999]">{item?.name}</h4>
-                      <p className="font-mono text-[#999999]">
-                        {item?.title},{item?.companyName}
-                      </p>
+                      <p className="font-mono text-[#999999]">{item?.title}</p>
                     </div>
                   </span>
 
@@ -129,7 +127,7 @@ export default function Testimonials({ testimonials }: any) {
                     className="uppercase text-[#5D5D5D]"
                   >
                     {" "}
-                    {item?.link}
+                    {item?.companyName}
                   </a>
                 </div>
               </SwiperSlide>
