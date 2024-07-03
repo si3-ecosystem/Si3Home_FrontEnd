@@ -117,18 +117,14 @@ export default function Testimonials({ testimonials }: any) {
 
                     <div className="flex flex-col ">
                       <h4 className="font-mono text-[#999999]">{item?.name}</h4>
-                      <p className="font-mono text-[#999999]">{item?.title}</p>
+                      <p className="font-mono text-[#999999]">
+                        {item?.title},{" "}
+                        <a href={item?.link} target="_blank">
+                          {item?.companyName}
+                        </a>
+                      </p>
                     </div>
                   </span>
-
-                  <a
-                    href={item?.link}
-                    target="_blank"
-                    className="uppercase text-[#5D5D5D]"
-                  >
-                    {" "}
-                    {item?.companyName}
-                  </a>
                 </div>
               </SwiperSlide>
             ))}
