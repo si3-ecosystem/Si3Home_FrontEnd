@@ -24,7 +24,7 @@ export default function Brand({ brand }: any) {
         duration: 0.5,
         ease: "easeInOut",
       }}
-      className="px-5 md:px-16 py-20 md:py-28 flex flex-col md:flex-row justify-center gap-6 md:gap-12 max-w-screen-xl mx-auto"
+      className="px-5 md:px-16 py-20 md:py-28 flex flex-col lg:flex-row justify-center gap-6 md:gap-12 max-w-screen-xl mx-auto"
     >
       <div className="">
         <div className="space-y-5 mb-6 md:mb-16">
@@ -64,15 +64,16 @@ export default function Brand({ brand }: any) {
             </div>
           ))}
       </div>
-      <div className="relative w-full h-[578px] rounded-2xl overflow-hidden">
+      <div className="relative w-full lg:max-w-[372px] h-full rounded-2xl overflow-hidden flex items-center justify-center flex-shrink-0">
         {videoUrl ? (
-          <video
-            src={videoUrl}
-            autoPlay
-            muted
-            loop
-            className="w-[372px] h-[578px] object-cover "
-          />
+          <div className="flex-shrink-0 w-full h-full">
+            <video
+              src={videoUrl}
+              autoPlay
+              controls
+              className="w-full h-full max-h-[678px] xl:h-full object-cover object-center"
+            />
+          </div>
         ) : (
           <Image
             src={"/videoImage.png"}
