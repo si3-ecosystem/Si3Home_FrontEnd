@@ -32,7 +32,26 @@ async function sharedMetaData(params: any) {
     },
 
     icons: {
-      icon: urlFor(settings?.logo?.asset).url() || "/icons/favicon.ico",
+      icon: [
+        { rel: "icon", url: "/icons/favicon-16x16.png", sizes: "16x16" },
+        { rel: "icon", url: "/icons/favicon-32x32.png", sizes: "32x32" },
+        {
+          rel: "icon",
+          url: "/icons/android-chrome-72x72.png",
+          sizes: "72x72",
+        },
+        {
+          rel: "apple-touch-icon",
+          url: "/icons/apple-touch-icon.png",
+          sizes: "180x180",
+        },
+        {
+          rel: "mask-icon",
+          url: "/icons/safari-pinned-tab.svg",
+          color: "#5bbad5",
+        },
+        { rel: "icon", url: "/icons/favicon.ico", sizes: "48x48" },
+      ],
     },
     description:
       settings?.overview ||
@@ -61,7 +80,7 @@ async function sharedMetaData(params: any) {
       description:
         settings?.overview ||
         "Creating Pathways For Diverse Voices Of the New Economy",
-      images: [seoLogoUrl],
+      images: ["https://si3home-frontend.vercel.app/logo.webp"],
     },
     robots: {
       index: true,
