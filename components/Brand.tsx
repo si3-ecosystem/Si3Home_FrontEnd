@@ -5,6 +5,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Brand({ brand }: any) {
+  // Generate video URL manually
+  const videoUrl = brand?.video?.asset?._ref
+    ? `https://cdn.sanity.io/files/${
+        process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+      }/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${brand.video.asset._ref
+        .replace("file-", "")
+        .replace("-mp4", ".mp4")}`
+    : null;
+  console.log("videoUrl", videoUrl);
   return (
     <motion.div
       whileInView={{
@@ -55,13 +64,25 @@ export default function Brand({ brand }: any) {
             </div>
           ))}
       </div>
-      <Image
-        src={"/videoImage.png"}
-        width={372}
-        height={578}
-        alt="videoImage"
-        className="w-[372px] h-[578px] rounded-2xl"
-      />
+      <div className="relative w-full h-[578px] rounded-2xl overflow-hidden">
+        {videoUrl ? (
+          <video
+            src={videoUrl}
+            autoPlay
+            muted
+            loop
+            className="w-[372px] h-[578px] object-cover "
+          />
+        ) : (
+          <Image
+            src={"/videoImage.png"}
+            width={372}
+            height={578}
+            alt="videoImage"
+            className="w-[372px] h-[578px] rounded-2xl"
+          />
+        )}
+      </div>
     </motion.div>
   );
 }
