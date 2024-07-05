@@ -39,12 +39,12 @@ export default function Educational({ educationalProgramming }: any) {
         <h1 className="text-2xl md:text-[40px] font-1000 leading-10 text-primary mt-6 ">
           {educationalProgramming.title}
         </h1>
-        <p className="font-mono my-4 md:my-6 max-w-xl text-lg leading-7">
+        <p className="font-mono my-4 md:my-6 w-full max-w-xl text-lg leading-7">
           {educationalProgramming.description}
         </p>
       </motion.div>
 
-      <div className="w-full md:w-3/4 px-5 md:px-0 md:ml-auto">
+      <div className="w-full lg:w-3/4 px-5 lg:px-0 lg:ml-auto">
         <Swiper
           onSwiper={(swiper) => {
             swipeRef.current = swiper;
@@ -82,7 +82,7 @@ export default function Educational({ educationalProgramming }: any) {
                   <ImageUrl
                     image={item.image}
                     className={
-                      "w-[440px] h-[195px] object-cover object-center rounded-lg card-shaper  group-hover:scale-[1.03] transition-all duration-300"
+                      "w-full sm:w-[440px] aspect-video sm:h-[195px] object-cover object-top rounded-lg card-shaper  group-hover:scale-[1.03] transition-all duration-300"
                     }
                   />
                   <p className="text-xs onramp-background absolute top-0 mx font-mono text-white truncate p-1 rounded-lg ">
@@ -91,10 +91,10 @@ export default function Educational({ educationalProgramming }: any) {
                 </div>
 
                 <div className="space-y-3 mt-6">
-                  <h3 className="text-primary font-1000 text-xl sm:text-2xl">
+                  <h3 className="text-primary font-1000 text-base sm:text-2xl">
                     {item.title}
                   </h3>
-                  <p className="text-[#7B7B7D] text-justify h-[270px] lg:h-[180px] overflow-hidden ">
+                  <p className="text-[#7B7B7D] text-justify min-h-[176px] text-xs sm:text-base  lg:h-[180px] overflow-hidden ">
                     {item.description}
                   </p>
 

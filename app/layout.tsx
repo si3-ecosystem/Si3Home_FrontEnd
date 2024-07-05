@@ -37,20 +37,20 @@ async function sharedMetaData(params: any) {
         { rel: "icon", url: "/icons/favicon-32x32.png", sizes: "32x32" },
         {
           rel: "icon",
-          url: "/icons/android-chrome-72x72.png",
-          sizes: "72x72",
+          url: "/icons/favicon-16x16.png",
+          sizes: "16x16",
         },
         {
           rel: "apple-touch-icon",
-          url: "/icons/apple-touch-icon.png",
-          sizes: "180x180",
+          url: "/icons/favicon-16x16.png",
+          sizes: "16x16",
         },
         {
           rel: "mask-icon",
           url: "/icons/safari-pinned-tab.svg",
           color: "#5bbad5",
         },
-        { rel: "icon", url: "/icons/favicon.ico", sizes: "48x48" },
+        { rel: "icon", url: "/icons/favicon-16x16.png", sizes: "16x16" },
       ],
     },
     description:
