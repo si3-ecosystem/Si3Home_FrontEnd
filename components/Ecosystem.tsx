@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import urlFor from "@/utils/urlFor";
+import Link from "next/link";
 
 export default function Ecosystem({ ecosystemSpotlight }: any) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -136,7 +137,11 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
                   whileHover={{ scale: 1.05 }}
                 >
                   <div className="max-sm:h-14">
-                    <div className="flex items-center gap-1  justify-center bg-slate-100 rounded-lg px-2 py-2">
+                    <Link
+                      href={item?.companyUrl || "#"}
+                      target="_blank"
+                      className="flex items-center gap-1  justify-center bg-slate-100 rounded-lg px-2 py-2"
+                    >
                       <Image
                         src={urlFor(item.companyLogo.asset).url()}
                         alt={item?.companyLogo?.alt || ""}
@@ -144,7 +149,7 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
                         height={60}
                         className="w-16 md:w-44 h-auto max-h-14 sm:h-16 aspect-auto object-center object-contain"
                       />
-                    </div>
+                    </Link>
                   </div>
 
                   <p className="font-medium text-sm md:text-base pt-2 md:pt-6 ">

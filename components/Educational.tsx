@@ -82,7 +82,7 @@ export default function Educational({ educationalProgramming }: any) {
                   <ImageUrl
                     image={item.image}
                     className={
-                      "w-full sm:w-[440px] aspect-video sm:h-[195px] object-cover object-top rounded-lg card-shaper  group-hover:scale-[1.03] transition-all duration-300"
+                      "w-full sm:w-[440px] aspect-square object-cover object-top rounded-lg card-shaper  group-hover:scale-[1.03] transition-all duration-300"
                     }
                   />
                   <p className="text-xs onramp-background absolute top-0 mx font-mono text-white truncate p-1 rounded-lg ">
@@ -94,7 +94,7 @@ export default function Educational({ educationalProgramming }: any) {
                   <h3 className="text-primary font-1000 text-base sm:text-2xl">
                     {item.title}
                   </h3>
-                  <p className="text-[#7B7B7D] text-justify min-h-[176px] text-xs sm:text-base  lg:h-[180px] overflow-hidden ">
+                  <p className="text-[#7B7B7D] text-justify h-full sm:min-h-[226px] text-xs sm:text-base  overflow-hidden ">
                     {item.description}
                   </p>
 
