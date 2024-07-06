@@ -9,7 +9,7 @@ import groq from "groq";
 import { client } from "@/utils/client";
 import urlFor from "@/utils/urlFor";
 
-export const revalidate = 10;
+export const revalidate = 3600;
 
 export async function getSeoData() {
   const query = groq`*[_type == 'utils'][0]`;

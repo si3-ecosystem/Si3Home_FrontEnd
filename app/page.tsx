@@ -13,7 +13,7 @@ import Testimonials from "@/components/Testimonials";
 import { client } from "@/utils/client";
 import groq from "groq";
 
-export const revalidate = 10;
+export const revalidate = 3600;
 
 async function getBanner() {
   const query = groq`*[_type == 'hero'][0]`;
