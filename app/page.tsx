@@ -19,69 +19,68 @@ async function getBanner() {
   const query = groq`*[_type == 'hero'][0]`;
   const data = await client.fetch(query);
 
-  return data;
+  return data || {};
 }
 async function getRegister() {
   const query = groq`*[_type == 'register'][0]`;
   const data = await client.fetch(query);
 
-  return data;
+  return data || {};
 }
 
 async function getSherLive() {
   const query = groq`*[_type == 'about'][0]`;
   const data = await client.fetch(query);
-
-  return data;
+  return data || {};
 }
 async function getGranting() {
   const query = groq`*[_type == 'grantingAccess'][0] {..., "builders":builders[]->{...}}`;
   const data = await client.fetch(query);
 
-  return data;
+  return data || {};
 }
 async function getSherCoActive() {
   const query = groq`*[_type == 'sihercoactive'][0]`;
   const data = await client.fetch(query);
 
-  return data;
+  return data || {};
 }
 async function getEducationalProgramming() {
   const query = groq`*[_type == 'educationalProgramming'][0] {...,"Events":Events[]->{...,"presenters":presenters[]->{...}}}`;
   const data = await client.fetch(query);
 
-  return data;
+  return data || {};
 }
 async function getMemberSpotlight() {
   const query = groq`*[_type == 'memberSpotlight'][0] {...,"teammembers":teammembers[]->{...}}`;
   const data = await client.fetch(query);
 
-  return data;
+  return data || {};
 }
 async function getEcosystemSpotlight() {
   const query = groq`*[_type == 'ecosystemSpotlight'][0] {...,"spotlightList":spotlightList[]->{...,"teamMember":teamMember->{...}}}`;
   const data = await client.fetch(query);
 
-  return data;
+  return data || {};
 }
 
 async function getBrand() {
   const query = groq`*[_type == 'web3brand'][0]`;
   const data = await client.fetch(query);
 
-  return data;
+  return data || {};
 }
 async function getMission() {
   const query = groq`*[_type == 'ourMission'][0]`;
   const data = await client.fetch(query);
 
-  return data;
+  return data || {};
 }
 async function getOnboard() {
   const query = groq`*[_type == 'onboard'][0]`;
   const data = await client.fetch(query);
 
-  return data;
+  return data || {};
 }
 async function getPricing() {
   const query = groq`*[_type == 'pricing']`;

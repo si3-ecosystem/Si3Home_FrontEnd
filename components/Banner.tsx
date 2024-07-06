@@ -52,21 +52,21 @@ export default function Banner({ hero }: any) {
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
-          {hero.headingOne}
+          {hero?.headingOne}
         </motion.h1>
         <motion.h2
           className="text-primary uppercase text-2xl md:text-6xl max-w-[200px] sm:max-w-xs font-[1000]"
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
-          {hero.headingTwo}
+          {hero?.headingTwo}
         </motion.h2>
         <motion.p
           className="md:pt-6 text-white text-sm md:text-xl font-mono max-w-xs max-sm:mt-4  "
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
-          {hero.subHeader}
+          {hero?.subHeader}
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 100 }}
@@ -81,7 +81,7 @@ export default function Banner({ hero }: any) {
           className="mt-8 md:mt-10 xl:mt-[80px] flex items-center justify-center w-full md:w-fit"
         >
           <a href={hero.cta.link.external} target="_blank" className="w-full">
-            <ButtonCTA variant="outline">{hero.cta.text}</ButtonCTA>
+            <ButtonCTA variant="outline">{hero?.cta?.text}</ButtonCTA>
           </a>
         </motion.div>
       </div>
