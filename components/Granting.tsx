@@ -149,13 +149,15 @@ export default function Granting({ granting, register }) {
                   {item.summitDate}
                 </p>
                 <div className="absolute bottom-3 ml-3 text-white flex flex-col gap-0.5">
-                  <Image
-                    src={urlFor(item?.companyLogo?.asset).url()}
-                    width={140}
-                    height={30}
-                    alt=""
-                    className="object-cover"
-                  />
+                  {item?.companyLogo?.asset && (
+                    <Image
+                      src={urlFor(item?.companyLogo?.asset).url()}
+                      width={140}
+                      height={30}
+                      alt=""
+                      className="object-cover"
+                    />
+                  )}
 
                   <h2 className="text-2xl font-bold">{item.name}</h2>
                   <p className="capitalize font-medium">{item.position}</p>

@@ -100,7 +100,7 @@ const Navbar = ({ utils }: any) => {
                   href="#siherCoActive"
                   className="block px-4 py-2  hover:text-[#4428f2] text-white "
                 >
-                  SI Her Co-Active
+                  Si Her Co-Active
                 </Link>
                 <Link
                   href="#ecosystem"
@@ -325,7 +325,7 @@ const Navbar = ({ utils }: any) => {
                       href="#siherCoActive"
                       className="block  text-white hover:text-[#4428f2]"
                     >
-                      SI Her Co-Active
+                      Si Her Co-Active
                     </Link>
                   </li>
                   <li>
