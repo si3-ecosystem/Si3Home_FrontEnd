@@ -68,7 +68,7 @@ async function sharedMetaData(params: any) {
         "Creating Pathways For Diverse Voices Of the New Economy",
       images: [
         {
-          url: seoLogoUrl,
+          url: "/icons/logo.webp",
           width: 800,
           height: 600,
         },
@@ -80,7 +80,7 @@ async function sharedMetaData(params: any) {
       description:
         settings?.overview ||
         "Creating Pathways For Diverse Voices Of the New Economy",
-      images: ["https://www.si3.space/logo.webp"],
+      images: ["https://www.si3.space/icons/logo.webp"],
     },
     robots: {
       index: true,
