@@ -25,7 +25,7 @@ async function sharedMetaData(params: any) {
     : "/icons/logo.webp";
   return {
     // enable this for resolving opengraph image
-    metadataBase: new URL("https://www.si3.space"),
+    metadataBase: new URL("https://www.si3.space/"),
     title: {
       default: settings?.seoTitle || "si3",
       template: "%s",
@@ -34,7 +34,6 @@ async function sharedMetaData(params: any) {
     icons: {
       icon: [
         { rel: "icon", url: "/icons/favicon-16x16.png", sizes: "16x16" },
-        { rel: "icon", url: "/icons/favicon-32x32.png", sizes: "32x32" },
         {
           rel: "icon",
           url: "/icons/favicon-16x16.png",
