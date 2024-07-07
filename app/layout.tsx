@@ -25,7 +25,7 @@ async function sharedMetaData(params: any) {
     : "/icons/logo.webp";
   return {
     // enable this for resolving opengraph image
-    metadataBase: new URL("https://si3home-frontend.vercel.app"),
+    metadataBase: new URL("https://www.si3.space"),
     title: {
       default: settings?.seoTitle || "si3",
       template: "%s",
@@ -58,10 +58,10 @@ async function sharedMetaData(params: any) {
       "Creating Pathways For Diverse Voices Of the New Economy",
     keywords: ["si3", "si/her", "web3"],
     authors: [{ name: "Asraful" }],
-    canonical: "https://si3home-frontend.vercel.app",
+    canonical: "https://www.si3.space",
     openGraph: {
       type: "website",
-      url: "https://si3home-frontend.vercel.app",
+      url: "https://www.si3.space",
       title: settings?.seoTitle || "si3",
       description:
         settings?.overview ||
@@ -80,7 +80,7 @@ async function sharedMetaData(params: any) {
       description:
         settings?.overview ||
         "Creating Pathways For Diverse Voices Of the New Economy",
-      images: ["https://si3home-frontend.vercel.app/logo.webp"],
+      images: ["https://www.si3.space/logo.webp"],
     },
     robots: {
       index: true,
