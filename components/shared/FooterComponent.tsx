@@ -52,7 +52,7 @@ export default function FooterComponent({ footer }: any) {
 
         <div className="text-white font-outfit flex flex-col md:flex-row items-center justify-between gap-3 md:gap-0">
           <h5 className="text-sm md:text-base">
-            Copyright © {currentYear} SI3 , Inc. All rights reserved.
+            Copyright © {currentYear} SI3. All rights reserved.
           </h5>
           <div className="flex items-center gap-4 md:gap-6">
             <p className="text-sm md:text-base">
