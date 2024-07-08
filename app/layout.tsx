@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomLayout from "@/components/provider/CustomLayout";
+import image from "./logo.webp";
 
 import groq from "groq";
 import { client } from "@/utils/client";
@@ -68,8 +69,9 @@ async function sharedMetaData(params: any) {
       images: [
         {
           url: "/icons/logo.webp",
-          width: 800,
-          height: 600,
+        },
+        {
+          url: image.src,
         },
       ],
     },
