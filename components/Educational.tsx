@@ -76,7 +76,7 @@ export default function Educational({ educationalProgramming }: any) {
             educationalProgramming.Events.map((item: any, key: number) => (
               <SwiperSlide
                 key={key}
-                className=" border p-6 rounded-lg border-[#FAB7D0] group cursor-pointer"
+                className=" border p-3 sm:p-6 rounded-lg border-[#FAB7D0] group cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-lg">
                   <ImageUrl
@@ -85,7 +85,7 @@ export default function Educational({ educationalProgramming }: any) {
                       "w-full sm:w-[440px] aspect-square object-cover object-top rounded-lg card-shaper  group-hover:scale-[1.03] transition-all duration-300"
                     }
                   />
-                  <p className="text-xs onramp-background absolute top-0 mx font-mono text-white truncate p-1 rounded-lg ">
+                  <p className="text-[10px] sm:text-xs onramp-background whitespace-pre-wrap absolute top-0 mx font-mono text-white truncate p-1 rounded-lg ">
                     {item.date}
                   </p>
                 </div>
