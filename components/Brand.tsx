@@ -69,7 +69,6 @@ export default function Brand({ brand }: any) {
           <div className="flex-shrink-0 w-full h-full">
             <video
               src={videoUrl}
-              autoPlay
               controls
               className="w-full h-full max-h-[678px] xl:h-full object-cover object-center"
             />
