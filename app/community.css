@@ -1,0 +1,474 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --Roundness8: 8px;
+}
+
+body {
+  font-family: "Clash Display", sans-serif;
+}
+
+/*shine btn */
+
+.btn-shine:hover {
+  
+  color: #ffffff;
+  background-image: linear-gradient(to right, #949393 0%, white 10%, #4d4d4d 20%);
+  background-size: 200%;
+  background-position: 0%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0%;
+  }
+  60% {
+    background-position: 180%;
+  }
+  100% {
+    background-position: 180%;
+  }
+}
+
+
+.glow-on-hover{
+  position: relative;
+  transition: all .35s;
+}
+.info2 {
+  display: none;
+}
+
+/* glow2 */
+.glow-on-hover2 {
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover2:before {
+  content: '';
+  background: linear-gradient(45deg, #FBBEC6, #E591C5, #B68ABD, #FBBEC6, #C8BAFD, #CFCBE3);
+
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover2:active {
+  color: #000
+}
+
+.glow-on-hover2:active:after {
+  background: transparent;
+}
+
+.glow-on-hover2:hover:before {
+  opacity: 1;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.fa-map-marker  {
+  color: rgb(206, 199, 199);
+}
+
+/* navbar */
+.navbar {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24.6px;
+  letter-spacing: 15%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  /* .custom-select select {
+    padding: 3px 2px;
+  } */
+  ::-webkit-input-placeholder{
+    text-wrap: wrap;
+  }
+  .info {
+    display: none;
+  }
+  .info2 {
+    display: block;
+  }
+}
+
+option {
+  padding: 2px;
+}
+.glow-on-hover:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-image: linear-gradient(to right, #ee81c6, #a26cff);
+  color: black;
+  transition: all .35s;
+  border-radius: 8px;
+
+}
+
+.glow-on-hover:hover{
+  color: black;
+}
+
+.glow-on-hover:hover:after{
+  border: #fff 2px  solid;
+  width: 100%;
+}
+@layer components {
+  .backdrop-filter {
+    backdrop-filter: blur(10px);
+  }
+  .button {
+    @apply relative overflow-hidden inline-block px-4 py-2 border-2 border-white text-white bg-transparent font-bold text-xl transition-all duration-300;
+  }
+
+  .button::before {
+    @apply absolute top-0 left-[-120%] w-full h-full bg-black transition-all duration-300;
+    content: "";
+    z-index: 1;
+    clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+  }
+
+  .objectFit {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+ .iconCard {
+  width: 87px;
+  height: 8auto;
+  }
+  .button:hover::before {
+    left: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .button .button-text {
+    @apply relative z-10;
+  }
+
+  .button .button-arrow {
+    @apply absolute right-4 opacity-0 transform translate-x-[-10px] transition-opacity transition-transform duration-300 z-10;
+  }
+
+  .button:hover .button-arrow {
+    @apply opacity-100 transform translate-x-0;
+  }
+}
+
+.shadaw {
+  
+    box-shadow: 0px 0px 23.07px -4.61px rgba(0, 0, 0, 0.1);
+  
+}
+.roboto-mono {
+  font-family: "Roboto Mono", monospace;
+}
+.font-mono {
+  font-family: "Fira Mono", monospace;
+}
+
+.clash {
+  font-family: "Clash Display", sans-serif;
+}
+
+.custom-border-gradient {
+  position: relative;
+  border-radius: var(--Roundness8);
+}
+
+.custom-border-gradient:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, #3C1FEF, #C51FEF, #EF9C1F);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+
+.font-outfit {
+  font-family: "Outfit", monospace;
+}
+
+.onramp-background {
+  background: rgba(125, 125, 125, 0.33);
+  backdrop-filter: blur(20.649999618530273px);
+}
+
+.card-shaper {
+  clip-path: polygon(0 0, 100% 0, 97% 100%, 0% 100%);
+}
+
+.slanted-border {
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+  border-radius: 0 0 0 20px; /* Adjust this to match other corners' radius */
+}
+
+.slanted-border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 100%, 0% 100%);
+  border-radius: 0 0 20px 0; /* Adjust this to match other corners' radius */
+  background: white; /* Assuming the image is on a white background, adjust if necessary */
+  z-index: 1;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+
+  transition: border-color 0.3s ease-in-out;
+}
+
+.card:hover {
+  border-color: #FAB7D0; /* Change border color on hover */
+  box-shadow: 0 0 10px rgba(250, 183, 208, 0.8); /* Shadow color and intensity */
+}
+.loader div{
+  background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%);
+}
+
+.loader {
+  position: absolute;
+  top: calc(50% - 32px);
+  left: calc(50% - 32px);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  perspective: 800px;
+}
+
+.inner {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;  
+}
+
+.inner.one {
+  left: 0%;
+  top: 0%;
+  animation: rotate-one 1s linear infinite;
+  border-bottom: 3px solid #EFEFFA;
+}
+
+.inner.two {
+  right: 0%;
+  top: 0%;
+  animation: rotate-two 1s linear infinite;
+  border-right: 3px solid #EFEFFA;
+}
+
+.inner.three {
+  right: 0%;
+  bottom: 0%;
+  animation: rotate-three 1s linear infinite;
+  border-top: 3px solid #EFEFFA;
+}
+
+@keyframes rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+.custom-slide {
+  width: 400px !important;
+}
+
+.background-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 77% 27%,
+      rgba(233, 80, 169, 0.55),
+      transparent 70%
+    ),
+    radial-gradient(circle at 48% 8%, rgba(25, 187, 240, 0.55), transparent 70%);
+  z-index: -1;
+}
+
+.border-gradient-bottom-right {
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.border-gradient-bottom-right:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to bottom, transparent, #989898),
+    linear-gradient(to bottom right, #989898, transparent);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+.fira-mono-regular {
+    font-family: "Fira Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .fira-mono-medium {
+    font-family: "Fira Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .fira-mono-bold {
+    font-family: "Fira Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+  }
+.mobile {
+  display: none;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 100px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side,#E591C5 94%,#0000),
+    radial-gradient(farthest-side,#FBBEC6 94%,#0000),
+    radial-gradient(farthest-side,#C8BAFD 94%,#0000),
+    radial-gradient(farthest-side,#FBBEC6 94%,#0000),
+    #ED303C;
+  background-size: 105% 105%;
+  background-repeat: no-repeat;
+  animation: l5 2s infinite; 
+}
+@keyframes l5 {
+  0%  {background-position: 50% -50px,-40px 50%, 50% calc(100% + 50px),calc(100% + 50px) 50%}
+  20%,
+  25% {background-position: 50% -50px,-50px 50%, 50% calc(100% + 50px),50% 50%}
+  45%,
+  50% {background-position: 50% -50px,-50px 50%, 50% 50%              ,50% 50%}
+  75%,
+  75% {background-position: 50% -50px, 50%  50%, 50% 50%              ,50% 50%}
+  95%,
+  100%{background-position: 50%  50% , 50%  50%, 50% 50%              ,50% 50%}
+}
+  @media (max-width: 600px) { 
+    .mobile{
+      display: block;
+    }
+    .custom-select select {
+      width: 100%;
+      max-width: 100%;
+      height: auto; /* Let the height adjust automatically */
+      min-height: 60px; /* Set a minimum height as needed */
+      padding: 10px;
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari and Chrome */
+      appearance:none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: transparent;
+      background-image: url("/arrow-down.svg");
+    background-size: 20px ;
+     background-repeat: no-repeat;
+      background-position-x: 95%;
+      background-position-y: 50%;
+   
+     
+    }
+   }
+
+   select {
+    
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url("/arrow-down.svg");
+    background-size: 20px ;
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 50%; 
+  }
+ 
+  
