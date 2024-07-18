@@ -232,7 +232,7 @@ const Navbar = ({ utils }: any) => {
               target="_blank"
               className="block text-white"
             >
-              STAY CONNECTED
+              SUBSCRIBE
             </Link>
           </div>
         </div>
