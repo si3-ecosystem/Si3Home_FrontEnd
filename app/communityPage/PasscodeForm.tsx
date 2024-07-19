@@ -1,28 +1,24 @@
 import React, { useState } from 'react';
-import "../../app/community.css"; // Import your CSS file for styles
+import "../../app/community.css";
 
 function PasscodeForm({ onAuthentication }: any) {
-  const [passcode, setPasscode] = useState(''); // State for the passcode input
-  const [isLoading, setIsLoading] = useState(false); // State for loading state
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // State for authentication status
+  const [passcode, setPasscode] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Function to handle form submission
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    setIsLoading(true); // Set loading state to true
-
-    // Simulate authentication delay
+    setIsLoading(true);
     setTimeout(() => {
-      // Replace '1234' with your actual passcode
       if (passcode.trim() === '1234') {
-        setIsAuthenticated(true); // Set authentication status to true
-        onAuthentication(); // Callback function passed as prop on successful authentication
+        setIsAuthenticated(true);
+        onAuthentication();
       } else {
         alert('Incorrect passcode. Please try again.');
-        setPasscode(''); // Clear passcode input on incorrect entry
+        setPasscode('');
       }
-      setIsLoading(false); // Set loading state back to false after authentication attempt
-    }, 3000); // Simulate a delay of 3 seconds for authentication
+      setIsLoading(false);
+    }, 3000);
   };
 
   return (
