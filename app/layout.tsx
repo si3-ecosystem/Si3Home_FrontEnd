@@ -10,6 +10,8 @@ import groq from "groq";
 import { client } from "@/utils/client";
 import urlFor from "@/utils/urlFor";
 
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 export const revalidate = 3600;
 
 export async function getSeoData() {
@@ -107,6 +109,9 @@ export default async function RootLayout({
           href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap"
           rel="stylesheet"
         />
+          <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet"></link>
+         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet"></link>
+         <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet"></link>
       </head>
       <body className="scroll-smooth">
         <script
