@@ -161,6 +161,7 @@ export default function Granting({ granting, register }) {
 
                   <h2 className="text-2xl font-bold">{item.name}</h2>
                   <p className="capitalize font-medium">{item.position}</p>
+                  <p className="capitalize font-medium">SI3</p>
                 </div>
               </SwiperSlide>
             ))}
