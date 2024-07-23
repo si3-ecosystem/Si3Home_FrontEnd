@@ -4,6 +4,7 @@ import Button from "./shared/Button";
 
 import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
+import urlFor from "@/utils/urlFor";
 
 export default function Banner({ hero }: any) {
   const ref = useRef(null);
@@ -25,18 +26,18 @@ export default function Banner({ hero }: any) {
       ref={ref}
       className="relative w-full h-[482px] md:h-screen overflow-hidden"
     >
-      <div className="absolute inset-0 -z-40 ">
+      <div className="absolute inset-0 -z-40 w-[600px] h-auto ">
         <Image
-          src="/bgBanner_mobile.png"
+          src={urlFor(hero.heroImage.asset).url()}
           alt="Background image mobile"
-          width={800}
-          height={500}
           priority
+          width={800}
+          height={800}
           className="md:hidden w-full translate-x-2 scale-[1.5]"
         />
         <motion.div className="hidden md:block">
           <Image
-            src="/banner.png"
+            src={urlFor(hero.heroImage.asset).url()}
             alt="Background image desktop"
             layout="fill"
             objectFit="cover"
