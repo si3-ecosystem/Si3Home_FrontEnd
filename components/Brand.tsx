@@ -3,6 +3,7 @@ import ImageUrl from "@/utils/imageUrl";
 import urlFor from "@/utils/urlFor";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 export default function Brand({ brand }: any) {
   // Generate video URL manually
@@ -14,16 +15,45 @@ export default function Brand({ brand }: any) {
         .replace("-mp4", ".mp4")}`
     : null;
   console.log("videoUrl", videoUrl);
+
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+  
+    const handleScroll = () => {
+      const { top, bottom } = videoElement.getBoundingClientRect();
+      const isVisible = top >= 0 && bottom <= window.innerHeight;
+      if (isVisible) {
+        videoElement.play().catch((error) => {
+          // Auto-play was prevented
+          console.error("Auto-play was prevented: ", error);
+        });
+      } else {
+        videoElement.pause();
+      }
+    };
+  
+    // Initial check when component mounts
+    handleScroll();
+  
+    // Event listener for scroll or resize
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+  
+    // Clean up event listeners
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []); // Empty dependency array ensures this effect runs only once
+  
   return (
     <motion.div
-      whileInView={{
-        y: [100, 0],
-        opacity: [0, 1],
-      }}
-      transition={{
-        duration: 0.5,
-        ease: "easeInOut",
-      }}
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
       className="px-5 md:px-16 py-20 md:py-28 flex flex-col lg:flex-row justify-center gap-6 md:gap-12 max-w-screen-xl mx-auto"
     >
       <div className="">
@@ -68,8 +98,11 @@ export default function Brand({ brand }: any) {
         {videoUrl ? (
           <div className="flex-shrink-0 w-full h-full">
             <video
+              ref={videoRef}
               src={videoUrl}
-              controls
+              autoPlay
+              loop
+              playsInline
               className="w-full h-full max-h-[678px] xl:h-full object-cover object-center"
             />
           </div>
