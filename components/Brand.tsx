@@ -24,7 +24,12 @@ export default function Brand({ brand }: any) {
   
     const handleScroll = () => {
       const { top, bottom } = videoElement.getBoundingClientRect();
-      const isVisible = top >= 0 && bottom <= window.innerHeight;
+      const windowCenter = window.innerHeight / 2;
+      const videoCenter = (top + bottom) / 2;
+    
+      // Calculate visibility based on the video being in the center of the viewport
+      const isVisible = Math.abs(videoCenter - windowCenter) < videoElement.clientHeight / 2;
+    
       if (isVisible) {
         videoElement.play().catch((error) => {
           // Auto-play was prevented
@@ -34,6 +39,7 @@ export default function Brand({ brand }: any) {
         videoElement.pause();
       }
     };
+    
   
     // Initial check when component mounts
     handleScroll();
