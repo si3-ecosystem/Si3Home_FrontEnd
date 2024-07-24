@@ -24,26 +24,26 @@ export default function Banner({ hero }: any) {
   return (
     <motion.div
       ref={ref}
-      className="relative w-full h-[482px] md:h-screen overflow-hidden"
+      className="relative w-full h-[482px] md:h-screen "
     >
       <div className="absolute inset-0 -z-40 ">
         <Image
           src={urlFor(hero.heroImage.asset).url()}
           alt="Background image mobile"
-     
           priority
-        
-          layout="fill" 
-          className="md:hidden w-full translate-x-2 scale-[1.5]"
+          objectFit="contain"
+          layout="fill"
+          className="md:hidden w-full translate-x-3 scale-[2.5]"
         />
         <motion.div className="hidden md:block">
           <Image
             src={urlFor(hero.heroImage.asset).url()}
             alt="Background image desktop"
             layout="fill"
-            objectFit="center"
+            objectFit="fill"
             priority
-            objectPosition="right center"
+            objectPosition="center"
+            className="w-screen "
           />
         </motion.div>
       </div>
