@@ -12,6 +12,6 @@ export const client2 = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID_2,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET_2,
   apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION_2 || '2023-05-03',
-  token: process.env.SANITY_API_TOKEN_2, // Token for authenticated operations
+  token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN, // Token for authenticated operations
   useCdn: false,
 });

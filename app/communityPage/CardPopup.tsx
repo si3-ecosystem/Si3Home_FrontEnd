@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
-import client from '@/client';
+import { client2 } from '@/utils/client';
 
 interface CardPopupProps {
   show: boolean;
@@ -85,7 +85,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
       setWrongImageType(false);
 
       try {
-        const response = await client.assets.upload('image', file);
+        const response = await client2.assets.upload('image', file);
         setFormData((prevData) => ({
           ...prevData,
           communityLogo: {
@@ -169,7 +169,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
     }
 
     try {
-      const token = process.env.NEXT_PUBLIC_SANITY_API_TOKEN_2;
+      const token = process.env.NEXT_PUBLIC_SANITY_API_TOKEN;
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
