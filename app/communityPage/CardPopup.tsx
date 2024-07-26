@@ -169,7 +169,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
     }
 
     try {
-      const token = process.env.NEXT_PUBLIC_SANITY_API_TOKEN;
+      const token = process.env.NEXT_PUBLIC_SANITY_API_TOKEN_2;
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,

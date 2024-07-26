@@ -1621,13 +1621,13 @@
     silver-fleece "1.1.0"
     validate-npm-package-name "^3.0.0"
 
-"@sanity/client@^5.0.0 || ^6.0.0", "@sanity/client@^6.15.11", "@sanity/client@^6.15.20", "@sanity/client@^6.19.1", "@sanity/client@^6.20.0":
-  version "6.20.0"
-  resolved "https://registry.npmjs.org/@sanity/client/-/client-6.20.0.tgz"
-  integrity sha512-p6ENOFBR1QQirKj6zVYPDeZNVHMVV+3UVo+RptZDQPuyYyfAOA/TwJzX3cE19O2G4CgWnLfkmOOg6RcFjzFMWQ==
+"@sanity/client@^5.0.0 || ^6.0.0", "@sanity/client@^6.15.11", "@sanity/client@^6.15.20", "@sanity/client@^6.19.1", "@sanity/client@^6.20.0", "@sanity/client@^6.21.1":
+  version "6.21.1"
+  resolved "https://registry.npmjs.org/@sanity/client/-/client-6.21.1.tgz"
+  integrity sha512-j6OnE6Ytso0c5imjuIviglJDKXgd3jCVyPmZO+GpqWDtPWSXPucqH/mFyHcs5+kWyfAfkY5G1R2+Er0L7Sb0hA==
   dependencies:
     "@sanity/eventsource" "^5.0.2"
-    get-it "^8.6.0"
+    get-it "^8.6.3"
     rxjs "^7.0.0"
 
 "@sanity/codegen@3.46.1":
@@ -4188,10 +4188,10 @@ get-intrinsic@^1.1.3, get-intrinsic@^1.2.1, get-intrinsic@^1.2.3, get-intrinsic@
     has-symbols "^1.0.3"
     hasown "^2.0.0"
 
-get-it@^8.4.21, get-it@^8.6.0:
-  version "8.6.0"
-  resolved "https://registry.npmjs.org/get-it/-/get-it-8.6.0.tgz"
-  integrity sha512-ZFNZc3eKkYRHI5a7p3SAc3s0eBJgLL+qqpF7wpoFbTdzbHKC/XHu+6ot9RZTe6aoYGmZqf3Mdl62XdgiWJ7/ZQ==
+get-it@^8.4.21, get-it@^8.6.0, get-it@^8.6.3:
+  version "8.6.3"
+  resolved "https://registry.npmjs.org/get-it/-/get-it-8.6.3.tgz"
+  integrity sha512-I7AKP1Xl2q2j4ucvU0yMtiM+xZKgzD1Fvyh1YcZCT66i+wNrxJAonV+H1yynB3gerZ17uA00IXg61LVLdDeiCg==
   dependencies:
     decompress-response "^7.0.0"
     follow-redirects "^1.15.6"
