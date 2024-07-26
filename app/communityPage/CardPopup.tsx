@@ -183,7 +183,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
         published: false 
       };
 
-      console.log('Submitting data to Sanity:', data);
+      // console.log('Submitting data to Sanity:', data);
 
       const response = await axios.post(
         'https://h4ttr3aq.api.sanity.io/v2021-06-07/data/mutate/production',
@@ -196,25 +196,27 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
     } catch (error: any) {
       console.error('Error submitting form', error);
       if (error.response) {
-        console.error('Response data:', error.response.data);
-        console.error('Response status:', error.response.status);
-        console.error('Response headers:', error.response.headers);
+        // console.error('Response data:', error.response.data);
+        // console.error('Response status:', error.response.status);
+        // console.error('Response headers:', error.response.headers);
       }
       alert('There was an error submitting the form.');
     }
+
+  
   };
 
   return (
     show && (
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 py-8 overflow-auto"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 py-5 overflow-auto"
         aria-labelledby="popup-title"
         role="dialog"
         aria-modal="true"
       >
-        <div className={`relative bg-white mb p-6 rounded-lg shadow-lg w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-[450px] '}`}>
+        <div className={`relative bg-white mb p-6 rounded-lg shadow-lg md:w-[400px] w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-[250px] '}`}>
           <img src="/images/circleBg.png" alt="" className="absolute inset-0 z-20 mt-10 w-full h-[70%]" />
-          <div className="flex justify-between items-center mb-4">
+          <div className="flex justify-between items-center mb-2">
             <h2
               id="popup-title"
               className={`text-2xl clash font-bold leading-6 text-[20px] ${
@@ -237,7 +239,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
-             <div className="mb-4">
+             <div className="mb-2">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Name<span className="text-[#FF99F3]">*</span>
                 </label>
@@ -251,7 +253,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                 />
               </div>
   
-              <div className="mb-4">
+              <div className="mb-2">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Leader Name<span className="text-[#FF99F3]">*</span>
                 </label>
@@ -265,7 +267,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                 />
               </div>
   
-              <div className="mb-4">
+              <div className="mb-2">
               <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
               Community Leader Email<span className="text-[#FF99F3]">*</span>
               </label>
@@ -285,7 +287,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
               </div>
 
   
-              <div className="mb-4">
+              <div className="mb-2">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">X Handle</label>
                 <input
                   type="text"
@@ -301,7 +303,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   <p className="text-red-500 text-sm mt-1">{websiteError}</p>
                   )}
               </div>
-                  <div className="mb-4">
+                  <div className="mb-2">
                   <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Warpast Handle</label>
                   <input
                   type="text"
@@ -319,7 +321,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   </div>
 
   
-                <div className="mb-4">
+                <div className="mb-2">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Website</label>
                 <input
                 type="text"
@@ -337,7 +339,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                 </div>
 
   
-              <div className="mb-4">
+              <div className="mb-2">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Location<span className="text-[#FF99F3]">*</span>
                 </label>
@@ -368,7 +370,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                 </select>
               </div>
   
-              <div className="mb-4">
+              <div className="mb-2">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Type<span className="text-[#FF99F3]">*</span>
                 </label>
@@ -396,7 +398,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                 </select>
               </div>
   
-              <div className="mb-4">
+              <div className="mb-2">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Description</label>
                 <textarea
                   name="communityDescription"
@@ -405,7 +407,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   className="w-full p-2 border border-gray-300 rounded mt-1 bg-[#f0f0f0]"
                 ></textarea>
               </div>
-              <div className="mb-4">
+              <div className="mb-2">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Logo<span className="text-[#FF99F3]">*</span>
                 </label>

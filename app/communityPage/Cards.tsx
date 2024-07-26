@@ -23,7 +23,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
     const fetchData = async () => {
       try {
         const fetchedCards = await getCards();
-        console.log('Fetched Cards:', fetchedCards); // Log the fetched data
+        // console.log('Fetched Cards:', fetchedCards); // Log the fetched data
         // Filter out cards where published is false
         const publishedCards = fetchedCards.filter(card => card.published === true);
         setCards(publishedCards);
@@ -85,9 +85,8 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
 
   return (
     <>
-         <img src='/images/rightBg.png' className="absolute inset-0 -z-10 m-0 left-40 h-[300vh] hidden md:block" />
-
     <div className="md:h-[3200px] relative md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom md:bg-[length:100vw_130vh] bg-no-repeat bg-right">
+    <img src='/images/rightBg.png' className="absolute inset-0  m-0 left-40 h-[300vh] hidden md:block" />
       <div className="relative flex justify-center ">
    
         

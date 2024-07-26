@@ -183,12 +183,12 @@ const HomePage = () => {
             </select>
           </div>
         </motion.div>
-        <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="z-50 glow-on-hover2 mt-9 py-6 bg-[#D574B633] bg-[url('/images/rectangle.png')] bg-no-repeat bg-cover bg-center bg-opacity-30 min-h-[30vh] rounded-lg flex flex-col justify-center items-center text-center p-6 w-full"
-        >
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="z-50 glow-on-hover2 mt-9 py-6 bg-[#D574B633] bg-[url('/images/rectangle.png')] bg-no-repeat bg-cover bg-center bg-opacity-30 min-h-[30vh] rounded-lg flex flex-col justify-center items-center text-center p-6 w-full shadow-lg"
+            >
           <p className="clash text-[#4428F2] text-[24px] md:text-[30px] font-medium leading-8 lg:leading-[68px] mb-4 ">JOIN OUR COMMON GROUND.</p>
           <motion.div
             className=" text-[#1C1B22] text-[14px] lg:text-[20px] leading-5 lg:leading-6 fira-mono-regular mb-5 "
