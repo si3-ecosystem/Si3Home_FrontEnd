@@ -14,6 +14,7 @@ import Modal from "./shared/Modal";
 import InputField from "./shared/InputField";
 import { useAnimation, motion } from "framer-motion";
 import urlFor from "@/utils/urlFor";
+import Link from "next/link";
 import {
   Dialog,
   DialogContent,
@@ -95,12 +96,15 @@ export default function Granting({ granting, register }) {
           {granting.description}
         </p>
 
-        <ButtonCTA
+        {/* <ButtonCTA
           variant="outline"
           className="border !border-black text-black hover:text-white text-sm md:text-xl my-4 md:my-6 !font-medium px-4 rounded-lg focus:ring-offset-0"
         >
           <div onClick={() => setIsOpen(true)}>Register Now</div>
-        </ButtonCTA>
+        </ButtonCTA> */}
+        <button className="button  border !border-black text-black hover:text-white text-sm md:text-xl my-4 md:my-6 !font-medium px-4 focus:ring-offset-0 rounded-lg">
+                 <a href="https://app.unlock-protocol.com/event/granting-access-with-si-3" className="button-text max-sm:text-sm max-sm:py-3" target="_blank">Register Now</a>
+        </button>
       </motion.div>
 
       <div className="w-full md:w-3/4 px-5 md:px-0 md:ml-auto">
@@ -205,10 +209,10 @@ export default function Granting({ granting, register }) {
   );
 }
 
-function ButtonCTA({ children, className }: any) {
-  return (
-    <button className={`button ${className} rounded-lg`}>
-      <span className="button-text max-sm:text-sm max-sm:py-3">{children}</span>
-    </button>
-  );
-}
+// function ButtonCTA({ children, className }: any) {
+//   return (
+//     <button className={`button ${className} rounded-lg`}>
+//       <span className="button-text max-sm:text-sm max-sm:py-3">{children}</span>
+//     </button>
+//   );
+// }
