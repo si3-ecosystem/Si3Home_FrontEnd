@@ -230,7 +230,7 @@ const Navbar = ({ utils }: any) => {
             <Link
               href={utils?.stayConnected}
               target="_blank"
-              className="hidden lg:inline text-white relative overflow-hidden font-semibold tracking-wider"
+              className="lg:inline text-white relative overflow-hidden font-semibold tracking-wider"
             >
               SUBSCRIBE
             </Link>
