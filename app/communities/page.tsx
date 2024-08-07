@@ -8,9 +8,7 @@ function App() {
   // Once loaded, show either HomePage or PasscodeForm based on authentication status
   return (
 
-       
           <HomePage />
-
   );
 }
 

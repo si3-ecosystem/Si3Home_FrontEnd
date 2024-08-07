@@ -51,7 +51,7 @@ const HomePage = () => {
           transition={{ duration: 1 }}
           className="relative flex flex-col lg:flex-row justify-between items-start w-full"
         >
-          <div className="z-20 font-semibold lg:text-[64px] text-[28px] lg:text-6xl leading-10 lg:leading-[79px] uppercase text-[#4428F2] clash mb-8 lg:w-[56%]">
+          <div className="font-semibold lg:text-[64px] text-[28px] lg:text-6xl leading-10 lg:leading-[79px] uppercase text-[#4428F2] clash mb-8 lg:w-[56%]">
             <h1 className="text-white">Discover The</h1>
             <h1>WOMEN & NON-BINARY WEB3 ECOSYSTEM.</h1>
           </div>
@@ -84,10 +84,10 @@ const HomePage = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="glow-on-hover text-center relative z-20 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium" 
+              className="glow-on-hover text-center relative  text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium" 
               onClick={togglePopup}
             >
-              <p className='z-30 relative cursor-pointer '>Add a community</p>
+              <p className=' relative cursor-pointer '>Add a community</p>
             </motion.div>
             <CardPopup show={showPopup} handleClose={togglePopup} />
           </div>
@@ -105,7 +105,7 @@ const HomePage = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
             >
-               <div className="z-10 justify-center hover:cursor-pointer fira-mono-bold  text-[#4428F2] text-lg flex gap-2 items-center" onClick={toggleInfoPopup}>
+               <div className="z-50 justify-center hover:cursor-pointer fira-mono-bold  text-[#4428F2] text-lg flex gap-2 items-center" onClick={toggleInfoPopup}>
                   <div className='flex  justify-center'>
                   <div>Info</div> 
                   <div>
@@ -115,8 +115,8 @@ const HomePage = () => {
               {showInfoPopup && (
               <div className="relative w-full">
          
-          <div className="info2 fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown p-10 border border-gray-300 rounded-md shadow-lg fixed inset-0 w-full flex justify-center items-center  bg-black bg-opacity-50    z-50">
-            <div className='bg-white relative  p-10 rounded-lg   w-full mt-40'>
+          <div className="info2 fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown px-10 border border-gray-300 rounded-md shadow-lg fixed inset-0 w-full flex justify-center items-center  bg-black bg-opacity-70">
+            <div className='bg-white relative  p-10 rounded-lg   w-full mt-28 position-relative '>
               <i className=" fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-4" onClick={toggleInfoPopup}></i>
               Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
             </div>
@@ -132,7 +132,7 @@ const HomePage = () => {
               className="glow-on-hover text-center relative z-20 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium"
               onClick={togglePopup}
             >
-              <p className='z-30 relative cursor-pointer '>Add a community</p>
+              <p className=' relative cursor-pointer '>Add a community</p>
             </motion.div>
             <CardPopup show={showPopup} handleClose={togglePopup} />
           </div>
@@ -144,7 +144,7 @@ const HomePage = () => {
               />
             </div>
             <input
-              className="pb-5 pt-1 md:p-0 z-20 w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-white flex justify-center align-center flex-wrap"
+              className="pb-5 pt-1 md:p-0  w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-white flex justify-center align-center flex-wrap"
               placeholder="Search By Name, Location, Description, Values."
               value={searchTerm}
               onChange={handleSearch}
@@ -156,7 +156,7 @@ const HomePage = () => {
             <select
               name="communityType"
               id="communityType"
-              className="text-wrap z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
+              className="text-wrap fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
               onChange={handleCommunityTypeChange}
               defaultValue=""
             >
@@ -170,7 +170,7 @@ const HomePage = () => {
             <select
               name="communityLocation"
               id="communityLocation"
-              className=" custom-select text-wrap z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
+              className=" custom-select text-wrap fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
               onChange={handleCommunityLocationChange}
               defaultValue=""
             >

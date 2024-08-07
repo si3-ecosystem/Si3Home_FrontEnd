@@ -5,8 +5,8 @@ export interface  Card {
   _type: 'cards';
   communityLogo: {
       asset: {
-          url: string;
-          _type: 'reference';
+        _type:'reference',
+        _ref:string
       };
   };
   communityName: string;

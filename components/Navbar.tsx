@@ -284,7 +284,7 @@ const Navbar = ({ utils }: any) => {
                 target="_blank"
                 className="block text-white text-base font-medium"
               >
-                STAY CONNECTED
+               SUBSCRIBE
               </Link>
             </div>
             <div className="flex flex-col gap-8 justify-start h-full mt-8">
