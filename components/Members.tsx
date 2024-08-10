@@ -43,7 +43,7 @@ export default function Members({ memberSpotlight }: any) {
               swipeRef.current = swiper;
             }}
             modules={[Pagination, Autoplay]}
-            autoplay={{ delay: 2500 }}
+            autoplay={{ delay: 3000 }}
             slidesPerView={3}
             spaceBetween={10}
             breakpoints={{
@@ -151,6 +151,53 @@ export default function Members({ memberSpotlight }: any) {
                 </SwiperSlide>
               ))}
           </Swiper>
+        </div>
+        <div className="px-5 md:px-16 flex items-center gap-6 mt-4 md:mt-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            className="cursor-pointer"
+            onClick={() => {
+              /*
+// @ts-ignore */
+              swipeRef.current.slidePrev();
+            }}
+          >
+            <path
+              d="M20 26.5599L11.3066 17.8666C10.28 16.8399 10.28 15.1599 11.3066 14.1333L20 5.43994"
+              stroke="#292D32"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            className="cursor-pointer"
+            onClick={() => {
+              /*
+// @ts-ignore */
+              swipeRef.current.slideNext();
+            }}
+          >
+            <path
+              d="M11.8799 26.5599L20.5732 17.8666C21.5999 16.8399 21.5999 15.1599 20.5732 14.1333L11.8799 5.43994"
+              stroke="#292D32"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
       </div>
     </motion.div>

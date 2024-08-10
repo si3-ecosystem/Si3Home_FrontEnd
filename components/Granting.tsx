@@ -26,6 +26,7 @@ import {
 // Import the custom hook
 
 export default function Granting({ granting, register }) {
+  console.log("granting", register);
   const [isOpen, setIsOpen] = useState(false);
   const swipeRef = useRef(null);
   const controls = useAnimation();
@@ -103,7 +104,13 @@ export default function Granting({ granting, register }) {
           <div onClick={() => setIsOpen(true)}>Register Now</div>
         </ButtonCTA> */}
         <button className="button  border !border-black text-black hover:text-white text-sm md:text-xl my-4 md:my-6 !font-medium px-4 focus:ring-offset-0 rounded-lg">
-                 <a href="https://app.unlock-protocol.com/event/granting-access-with-si-3" className="button-text max-sm:text-sm max-sm:py-3" target="_blank">Register Now</a>
+          <a
+            href="https://app.unlock-protocol.com/event/si-her-granting-pathways"
+            className="button-text max-sm:text-sm max-sm:py-3"
+            target="_blank"
+          >
+            Watch Now
+          </a>
         </button>
       </motion.div>
 
@@ -115,7 +122,7 @@ export default function Granting({ granting, register }) {
           slidesPerView={3}
           spaceBetween={30}
           modules={[Pagination, Autoplay]}
-          autoplay={{ delay: 2500 }}
+          autoplay={{ delay: 3000 }}
           breakpoints={{
             340: {
               slidesPerView: 1,
@@ -171,6 +178,56 @@ export default function Granting({ granting, register }) {
             ))}
         </Swiper>
       </div>
+      {granting?.builders?.length > 0 && (
+        <div className="px-5 md:px-16 flex items-center gap-6 mt-4 md:mt-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            className="cursor-pointer"
+            onClick={() => {
+              /*
+// @ts-ignore */
+              swipeRef.current.slidePrev();
+            }}
+          >
+            <path
+              d="M20 26.5599L11.3066 17.8666C10.28 16.8399 10.28 15.1599 11.3066 14.1333L20 5.43994"
+              stroke="#292D32"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            className="cursor-pointer"
+            onClick={() => {
+              /*
+// @ts-ignore */
+              swipeRef.current.slideNext();
+            }}
+          >
+            <path
+              d="M11.8799 26.5599L20.5732 17.8666C21.5999 16.8399 21.5999 15.1599 20.5732 14.1333L11.8799 5.43994"
+              stroke="#292D32"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      )}
+
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent className="px-4 ">
           <DialogHeader>
