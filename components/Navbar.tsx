@@ -232,7 +232,7 @@ const Navbar = ({ utils }: any) => {
               target="_blank"
               className="lg:inline text-white relative overflow-hidden font-semibold tracking-wider"
             >
-              SUBSCRIBE
+              {utils.stayConnectedText || "SUBSCRIBE"}
             </Link>
           </div>
         </div>
@@ -284,7 +284,7 @@ const Navbar = ({ utils }: any) => {
                 target="_blank"
                 className="block text-white text-base font-medium"
               >
-               SUBSCRIBE
+                {utils.stayConnectedText || "SUBSCRIBE"}
               </Link>
             </div>
             <div className="flex flex-col gap-8 justify-start h-full mt-8">

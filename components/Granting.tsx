@@ -105,11 +105,11 @@ export default function Granting({ granting, register }) {
         </ButtonCTA> */}
         <button className="button  border !border-black text-black hover:text-white text-sm md:text-xl my-4 md:my-6 !font-medium px-4 focus:ring-offset-0 rounded-lg">
           <a
-            href="https://app.unlock-protocol.com/event/si-her-granting-pathways"
+            href={granting?.button?.url}
             className="button-text max-sm:text-sm max-sm:py-3"
             target="_blank"
           >
-            Watch Now
+            {granting?.button?.text || "Register Now"}
           </a>
         </button>
       </motion.div>

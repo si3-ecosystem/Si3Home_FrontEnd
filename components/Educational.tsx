@@ -33,9 +33,6 @@ export default function Educational({ educationalProgramming }: any) {
         animate={controls}
         className="px-5 md:px-16"
       >
-        {/* <Button className="w-full md:w-fit flex justify-center">
-          SUBSCRIBE FOR EVENT UPDATES
-        </Button> */}
         <h1 className="text-2xl md:text-[40px] font-1000 leading-10 text-primary mt-6 ">
           {educationalProgramming.title}
         </h1>
@@ -90,7 +87,7 @@ export default function Educational({ educationalProgramming }: any) {
                   </p>
                 </div>
 
-                <div className="space-y-3 mt-6">
+                <div className="space-y-3 mt-6 ">
                   <h3 className="text-primary font-1000 text-base sm:text-2xl">
                     {item.title}
                   </h3>
@@ -142,6 +139,42 @@ export default function Educational({ educationalProgramming }: any) {
                         </motion.div>
                       ))}
                     </motion.div>
+                  </div>
+                  <div className="mt-2">
+                    <button className="bg-[#222222] text-white text-sm lg:text-xl py-3 w-full text-center flex items-center justify-center gap-2 rounded-lg ">
+                      <a href={`${item?.button?.url}`} target="_blank">
+                        {item?.button?.text || "Go to Event "}
+                      </a>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.8333 9.16671L17.6666 2.33337"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M18.3333 5.66663V1.66663H14.3333"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M9.16669 1.66663H7.50002C3.33335 1.66663 1.66669 3.33329 1.66669 7.49996V12.5C1.66669 16.6666 3.33335 18.3333 7.50002 18.3333H12.5C16.6667 18.3333 18.3334 16.6666 18.3334 12.5V10.8333"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </SwiperSlide>
