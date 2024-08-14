@@ -91,8 +91,8 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                       <div className="shadow iconCard relative bg-gradient-to-b from-[#3E21F333] to-[#A020F0] p-[1.15px] w-[87px] h-[87px] rounded-md">
                         {card.communityLogo && card.communityLogo.asset && (
                           <img
-                            src={urlFor(card.communityLogo).url()}
-                            alt=""
+                            src={card.communityLogo.asset.url}
+                            alt="ness"
                             className="object-cover w-full h-full rounded-md"
                           />
                         )}
@@ -121,7 +121,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                       {card.communityWebsite && (
                         <div className="flex items-center mb-2">
                           <div className="w-[20px] h-[20px] mr-2">
-                            <img className="w-full h-full object-cover" src={urlFor(card.communityLogo).url()} alt="" />
+                            <img className="w-full h-full object-cover" src={card.communityLogo.asset.url} alt="" />
                           </div>
                           <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.communityWebsite} target='_blank'>{card.communityWebsite}</a>
                         </div>
