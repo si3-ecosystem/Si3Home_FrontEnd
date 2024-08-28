@@ -11,16 +11,18 @@ const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
 
-  const handleSearch = (event:any) => {
-    setSearchTerm(event.target.value);
-  };
-  const handleCommunityTypeChange = (event:any) => {
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
   
-  const handleCommunityLocationChange = (event: any) => {
+  const handleCommunityTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSearchTerm(event.target.value);
   };
+  
+  const handleCommunityLocationChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSearchTerm(event.target.value);
+  };
+  
   
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -105,7 +107,7 @@ const HomePage = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
             >
-               <div className="z-50 justify-center hover:cursor-pointer fira-mono-bold  text-[#4428F2] text-lg flex gap-2 items-center" onClick={toggleInfoPopup}>
+               <div className="z-20 justify-center hover:cursor-pointer fira-mono-bold  text-[#4428F2] text-lg flex gap-2 items-center" onClick={toggleInfoPopup}>
                   <div className='flex  justify-center'>
                   <div>Info</div> 
                   <div>

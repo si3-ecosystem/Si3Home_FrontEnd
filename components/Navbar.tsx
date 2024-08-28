@@ -271,23 +271,25 @@ const Navbar = ({ utils }: any) => {
                 />
               </motion.svg>
             </button>
+          
+            <div className="flex flex-col gap-8 justify-start h-full mt-8">
             <div className="flex items-center gap-2">
               <Image
                 src={"/bell.png"}
                 alt="Bell Icon"
                 width={28}
                 height={28}
-                className="w-7 h-7"
+  
               />
               <Link
                 href={utils.stayConnected}
                 target="_blank"
-                className="block text-white text-base font-medium"
+                className="md:hidden text-white tracking-wider relative overflow-hidden text-xl font-medium"
               >
                 {utils.stayConnectedText || "SUBSCRIBE"}
               </Link>
             </div>
-            <div className="flex flex-col gap-8 justify-start h-full mt-8">
+              
               <div
                 className="relative flex items-center gap-2 cursor-pointer"
                 onClick={() => handleDropdown("onboard")}
