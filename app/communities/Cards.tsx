@@ -92,7 +92,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                         {card.communityLogo && card.communityLogo.asset && (
                           <img
                             src={card.communityLogo.asset.url}
-                            alt="ness"
+                            alt="community Logo"
                             className="object-cover w-full h-full rounded-md"
                           />
                         )}
