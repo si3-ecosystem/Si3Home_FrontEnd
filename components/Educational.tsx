@@ -98,7 +98,7 @@ export default function Educational({ educationalProgramming }: any) {
                   <div>
                     <h5 className="font-bold">Presenters:</h5>
 
-                    <motion.div className="space-y-3">
+                    <motion.div className="space-y-3 max-h-[250px] overflow-y-scroll">
                       {item?.presenters?.map((presenter: any, key: number) => (
                         <motion.div
                           whileHover={{
