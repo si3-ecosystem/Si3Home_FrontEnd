@@ -106,7 +106,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                         </p>
                         {card.communityLocation && (
                           <div className="flex items-center mt-2">
-                            <img src="/images/location-pin.png" alt="" className='w-5' />
+                            <img src="/images/location-pin.png" alt="location" className='w-5' />
                             <p className="leading-6 text-[16px] fira-mono-regular text-[#404040]">{card.communityLocation}</p>
                           </div>
                         )}
