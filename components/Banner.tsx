@@ -28,7 +28,7 @@ export default function Banner({ hero }: any) {
     >
       <div className="absolute inset-0 -z-40 ">
         <Image
-          src="/bgBanner_mobile.png"
+          src="/bgBanner_mobile.webp"
           alt="Background image mobile"
           width={800}
           height={500}
@@ -37,9 +37,10 @@ export default function Banner({ hero }: any) {
         />
         <motion.div className="hidden md:block">
           <Image
-            src="/banner.png"
+            src="/banner.webp"
             alt="Background image desktop"
             layout="fill"
+            decoding="async"
             objectFit="cover"
             priority
             objectPosition="right center"

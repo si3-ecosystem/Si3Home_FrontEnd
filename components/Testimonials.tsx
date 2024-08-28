@@ -90,7 +90,7 @@ export default function Testimonials({ testimonials }: any) {
                 spaceBetween: 10,
               },
               640: {
-                slidesPerView: 1.2,
+                slidesPerView: 2,
                 spaceBetween: 30,
               },
             }}
@@ -100,7 +100,7 @@ export default function Testimonials({ testimonials }: any) {
                 key={key}
                 className="flex flex-col gap-16 justify-between"
               >
-                <h1 className="text-xl md:text-5xl h-full min-h-[220px]">
+                <h1 className="text-base lg:text-xl h-full min-h-[220px] max-w-[600px]">
                   {`“`} <br />
                   <span>{item?.description}</span>
                   {`”`}
@@ -108,10 +108,12 @@ export default function Testimonials({ testimonials }: any) {
 
                 <div className="flex items-center gap-6 md:gap-36 flex-wrap">
                   <span className="flex gap-2 items-center">
-                    <div className="w-14 h-14">
+                    <div className="w-14 h-14 rounded-full overflow-hidden">
                       <ImageUrl
                         image={item?.image}
-                        className={"rounded-full w-14 h-14"}
+                        className={
+                          "rounded-full w-14 h-14 object-cover object-center aspect-auto"
+                        }
                       />
                     </div>
 

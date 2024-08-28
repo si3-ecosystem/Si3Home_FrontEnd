@@ -70,7 +70,7 @@ const Navbar = ({ utils }: any) => {
           >
             <a
               href="#"
-              className="hidden md:inline text-white font-semibold tracking-wider relative overflow-hidden"
+              className="hidden md:inline text-white lg:text-xl lg:leading-[3px] font-semibold tracking-wider relative"
             >
               ONBOARD
               {activeDropdown === "onboard" && (
@@ -119,7 +119,7 @@ const Navbar = ({ utils }: any) => {
           >
             <a
               href="#"
-              className="hidden md:inline text-white relative overflow-hidden font-semibold tracking-wider"
+              className="hidden md:inline text-white lg:text-xl lg:leading-[3px] relative font-semibold tracking-wider"
             >
               SI HER LIVE
               {activeDropdown === "live" && (
@@ -178,7 +178,7 @@ const Navbar = ({ utils }: any) => {
           >
             <a
               href="#"
-              className="hidden lg:inline text-white relative overflow-hidden font-semibold tracking-wider "
+              className="hidden lg:inline lg:text-xl lg:leading-[3px] text-white relative  font-semibold tracking-wider "
             >
               ABOUT US
               {activeDropdown === "about" && (
@@ -219,21 +219,23 @@ const Navbar = ({ utils }: any) => {
               </motion.div>
             )}
           </div>
-          <div className="flex items-center gap-2">
-            <Image
-              src={"/bell.png"}
-              alt="Bell Icon"
-              width={36}
-              height={36}
-              className="w-9 h-9"
-            />
-            <Link
-              href={utils?.stayConnected}
-              target="_blank"
-              className="lg:inline text-white relative overflow-hidden font-semibold tracking-wider"
-            >
-              {utils.stayConnectedText || "SUBSCRIBE"}
-            </Link>
+          <div className="group">
+            <div className="flex items-center gap-2 cursor-pointer rounded-xl py-2 px-4 bg-[#C8BAFD] group-hover:bg-[#3C1FEF] text-black group-hover:text-white">
+              <Image
+                src={"/bell.png"}
+                alt="Bell Icon"
+                width={36}
+                height={36}
+                className="w-9 h-9"
+              />
+              <Link
+                href={utils?.stayConnected}
+                target="_blank"
+                className="text-base lg:text-xl font-medium leading-[2.5px] lg:leading-[3px]"
+              >
+                {utils.stayConnectedText || "SUBSCRIBE"}
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -271,21 +273,23 @@ const Navbar = ({ utils }: any) => {
                 />
               </motion.svg>
             </button>
-            <div className="flex items-center gap-2">
-              <Image
-                src={"/bell.png"}
-                alt="Bell Icon"
-                width={28}
-                height={28}
-                className="w-7 h-7"
-              />
-              <Link
-                href={utils.stayConnected}
-                target="_blank"
-                className="block text-white text-base font-medium"
-              >
-                {utils.stayConnectedText || "SUBSCRIBE"}
-              </Link>
+            <div className="group">
+              <div className="flex items-center gap-2 cursor-pointer rounded-xl py-2 px-4 bg-[#C8BAFD] group-hover:bg-[#3C1FEF] text-black group-hover:text-white">
+                <Image
+                  src={"/bell.png"}
+                  alt="Bell Icon"
+                  width={36}
+                  height={36}
+                  className="w-9 h-9"
+                />
+                <Link
+                  href={utils?.stayConnected}
+                  target="_blank"
+                  className="text-base lg:text-xl font-medium leading-[2.5px] lg:leading-[3px]"
+                >
+                  {utils.stayConnectedText || "SUBSCRIBE"}
+                </Link>
+              </div>
             </div>
             <div className="flex flex-col gap-8 justify-start h-full mt-8">
               <div
