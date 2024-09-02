@@ -16,8 +16,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [buttonData, setButtonData] = useState<CommunityButton | null>(null);
 
-  const truncateTitle = (title: string) => title.length > 8 ? `${title.slice(0, 8)}...` : title;
-  const truncateParagraph = (para: string) => para.length > 200 ? `${para.slice(0, 200)}...` : para;
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -111,13 +110,13 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                           <img
                             src={card.communityLogo.asset.url}
                             alt="community Logo"
-                            className="object-cover w-full h-full rounded-md"
+                            className="object-contain w-full h-full rounded-md"
                           />
                         )}
                       </div>
                       <div className="ml-4">
                         <p className="clash uppercase mr-2 flex flex-wrap w-fit font-medium text-[#404040] text-[24px] sm:text-[30px] leading-[28px] sm:leading-[36px]">
-                          {isHovered ? card.communityName : truncateTitle(card.communityName)}
+                          {card.communityName}
                         </p>
                         <p className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-1 text-center w-fit roboto-mono">
                           {card.communityType}
@@ -131,31 +130,31 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                       </div>
                     </div>
                     <div>
-                      <p className="text-[#696969] max-w-fit flex flex-wrap text-wrap text-[14px] sm:text-[16px] leading-[18px] sm:leading-[20px] fira-mono-regular pt-5 md:h-[80px] h-[90px] mr-5 py-5 overflow-hidden">
-                        {truncateParagraph(card.communityDescription)}
+                      <p className="text-[#696969] max-w-fit flex flex-wrap text-wrap text-[14px] sm:text-[16px] leading-[18px] sm:leading-[20px] fira-mono-regular pt-5 h-fit mr-5 py-5 overflow-hidden">
+                        {card.communityDescription}
                       </p>
                     </div>
-                    <div className="lg:mt-36 mt-12 flex flex-col">
+                    <div className=" flex flex-col lg:mt-12">
                       {card.communityWebsite && (
                         <div className="flex items-center mb-2">
-                          <div className="w-[20px] h-[20px] mr-2">
-                            <img className="w-full h-full object-cover" src={card.communityLogo.asset.url} alt="" />
+                          <div className="w-[20px] h-[20px] mr-2 rounded-xl">
+                            <img className="w-full h-full object-contain" src={card.communityLogo.asset.url} alt="" />
                           </div>
                           <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.communityWebsite} target='_blank'>{card.communityWebsite}</a>
                         </div>
                       )}
                       {card.warpastHandle && (
                         <div className="flex items-center mb-2">
-                          <div className="w-[20px] h-[20px] mr-2">
-                            <img className="w-full h-full object-cover" src="/images/w.png" alt="" />
+                          <div className="w-[20px] h-[20px] mr-2 rounded-xl">
+                            <img className="w-full h-full object-contain" src="/images/w.png" alt="" />
                           </div>
                           <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.warpastHandle} target='_blank'>{card.warpastHandle}</a>
                         </div>
                       )}
                       {card.xHandle && (
                         <div className="flex items-center mb-2">
-                          <div className="w-[20px] h-[20px] mr-2">
-                            <img className="w-full h-full object-cover" src="/images/x.png" alt="" />
+                          <div className="w-[20px] h-[20px] mr-2 rounded-xl">
+                            <img className="w-full h-full object-contain" src="/images/x.png" alt="" />
                           </div>
                           <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.xHandle} target="_blank">{card.xHandle}</a>
                         </div>
@@ -163,7 +162,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                     </div>
                   </div>
                  
-                    <div className="m-auto bottom-2 h-fit clash font-medium text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] text-center py-[8px] custom-border-gradient w-full rounded-lg px-5">
+                    <div className="mx-auto bottom-2 h-fit clash font-medium text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] text-center py-[8px] custom-border-gradient w-full rounded-lg px-5">
                     <a href={buttonData?.cta.link} target='_blank' className='relative h-full block text-center z-50 inset-0'>
                      {buttonData?.cta.text}
                     </a>
