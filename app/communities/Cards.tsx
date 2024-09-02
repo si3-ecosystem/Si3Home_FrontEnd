@@ -163,7 +163,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                   </div>
                  
                     <div className="mx-auto bottom-2 h-fit clash font-medium text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] text-center py-[8px] custom-border-gradient w-full rounded-lg px-5">
-                    <a href={buttonData?.cta.link} target='_blank' className='relative h-full block text-center z-50 inset-0'>
+                    <a href={buttonData?.cta.link} target='_blank' className='relative h-full block text-center  inset-0'>
                      {buttonData?.cta.text}
                     </a>
                     </div>
