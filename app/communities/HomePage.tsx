@@ -131,7 +131,7 @@ const HomePage = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="glow-on-hover text-center relative z-20 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium"
+              className="glow-on-hover text-center relative  text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium"
               onClick={togglePopup}
             >
               <p className='z-20 relative cursor-pointer '>Add a community</p>
@@ -167,6 +167,7 @@ const HomePage = () => {
               <option value="Regional" className="rounded-lg text-black">Regional</option>
               <option value="NFT Collection" className="rounded-lg text-black">NFT Collections</option>
               <option value="DAOs" className="rounded-lg text-black">DAO&apos;s</option>
+              <option value="Leadership" className="rounded-lg text-black">Leadership</option>
             </select>
 
             <select
@@ -182,6 +183,7 @@ const HomePage = () => {
               <option value="LATAM" className='rounded-lg text-black'>LATAM</option>
               <option value="Europe" className='rounded-lg text-black'>Europe</option>
               <option value="Africa" className='rounded-lg text-black'>Africa</option>
+              <option value="Global" className='rounded-lg text-black'>Global</option>
             </select>
           </div>
         </motion.div>

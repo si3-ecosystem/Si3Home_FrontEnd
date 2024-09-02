@@ -4,6 +4,8 @@ import { getCards } from '@/lib/types/cards';
 import { Card } from '@/lib/types/interfaces';
 import EmptyPage from './EmptyPage';
 import { urlFor } from '@/client';
+import { getCommunityButton } from '@/lib/types/communityButton';
+import { CommunityButton } from '@/lib/types/interfaces';
 
 const Cards = ({ searchTerm }: { searchTerm: string }) => {
   const [cards, setCards] = useState<Card[]>([]);
@@ -12,6 +14,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
   const [cardsPerPage, setCardsPerPage] = useState<number>(15);
   const [loading, setLoading] = useState<boolean>(true);
   const [isHovered, setIsHovered] = useState(false);
+  const [buttonData, setButtonData] = useState<CommunityButton | null>(null);
 
   const truncateTitle = (title: string) => title.length > 8 ? `${title.slice(0, 8)}...` : title;
   const truncateParagraph = (para: string) => para.length > 200 ? `${para.slice(0, 200)}...` : para;
@@ -31,6 +34,21 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const fetchButtonData = async () => {
+      try {
+        const data = await getCommunityButton();
+        console.log(data);
+        
+        setButtonData(data);
+      } catch (error) {
+        console.error('Error fetching community button:', error);
+      }
+    };
+    fetchButtonData();
+  }, []);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -144,11 +162,13 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                       )}
                     </div>
                   </div>
-                  <div className="">
-                    <button className="m-auto bottom-2 z-10 clash font-medium text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] text-center py-[8px] custom-border-gradient w-full rounded-lg">
-                      App List’s Common Ground
-                    </button>
-                  </div>
+                 
+                    <div className="m-auto bottom-2 h-fit clash font-medium text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] text-center py-[8px] custom-border-gradient w-full rounded-lg px-5">
+                    <a href={buttonData?.cta.link} target='_blank' className='relative h-full block text-center z-50 inset-0'>
+                     {buttonData?.cta.text}
+                    </a>
+                    </div>
+                  
                 </div>
               </motion.div>
             ))}

@@ -30,3 +30,9 @@ export interface PolicyItem {
   description: string;
 }
 
+export interface CommunityButton {
+  cta: {
+    link: string;
+    text:string;
+  };
+}
