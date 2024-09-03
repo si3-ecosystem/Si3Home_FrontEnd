@@ -22,6 +22,8 @@ export interface Card {
   warpastHandle: string;
   communityWebsite: string;
   published: boolean;
+  eventDate: string;
+
 }
 
 
