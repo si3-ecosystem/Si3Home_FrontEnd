@@ -66,11 +66,15 @@ const CommunityNavbar = ({ utils }: any) => {
         
         <div className="hidden lg:flex items-center justify-center">
           <Link href="/" className="text-white text-5xl font-bold uppercase">
-            <img
-              src={urlFor(utils?.logo?.asset).url()}
-              alt={utils?.logo?.alt}
-              className="w-24 h-12 "
-            />
+            {utils?.logo?.asset ? (
+              <img
+                src={urlFor(utils.logo.asset).url()}
+                alt={utils.logo.alt || "Logo"}
+                className="w-24 h-12"
+              />
+            ) : (
+              <div>No Logo Available</div>
+            )}
           </Link>
         </div>
         <div className="flex items-center space-x-4 md:space-x-14 xl:space-x-36 font-medium">
@@ -79,7 +83,6 @@ const CommunityNavbar = ({ utils }: any) => {
             onMouseEnter={() => handleDropdown("about")}
             onMouseLeave={() => handleDropdown("about")}
           >
-          
           </div>
           <div className="group">
             <div className="flex items-center gap-2 cursor-pointer rounded-xl py-2 px-4 bg-[#C8BAFD] group-hover:bg-[#3C1FEF] text-black group-hover:text-white">
