@@ -231,14 +231,14 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
         role="dialog"
         aria-modal="true"
       >
-        <div className={`relative bg-white p-6 rounded-lg shadow-lg md:w-[400px] w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-[300px]'}`}>
-          <img src="/images/circleBg.png" alt="Background" className="absolute inset-0 z-10 hidden mt-10 w-full h-[70%]" />
-          <div className="flex justify-between items-center mb-2">
+        <div className={`relative z-30 bg-white p-6 rounded-lg shadow-lg md:w-[400px] w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-[400px]'}`}>
+          <img src="/images/circleBg.png" alt="Background" className="absolute inset-0 z-0 mt-10 w-full h-[70%]" />
+          <div className="flex justify-between items-center mb-2 relative">
             <h2
               id="popup-title"
               className={`text-2xl clash font-bold leading-6 text-[20px] ${isSubmitted ? 'hidden' : ''}`}
             >
-              Add Community
+              Add An Experience
             </h2>
             <i
               className="fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-4"
@@ -246,15 +246,15 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
             ></i>
           </div>
           {isSubmitted ? (
-            <div className="text-center relative">
+            <div className="text-center relative ">
               <img src="/images/waiting.png" alt="Waiting" />
               <p className="text-[14px] leading-5 fira-mono-regular text-center text-[#696969]">
                 Thanks for submitting! A member of our team will review it soon.
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
-              <div className="mb-2">
+            <form onSubmit={handleSubmit} className='relative z-50'>
+              <div className="mb-2 ">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Name<span className="text-[#FF99F3]">*</span>
                 </label>
