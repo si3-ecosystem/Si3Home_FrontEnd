@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import { client2 } from '@/utils/client';
+import { Card } from '@/lib/types/interfaces';
 
 interface CardPopupProps {
   show: boolean;
@@ -12,10 +13,10 @@ interface FormData {
   communityLeaderName: string;
   communityLeaderEmail: string;
   xHandle: string;
-  warpastHandle: string;
+  warpcastHandle: string;
   communityWebsite: string;
-  communityLocation: string;
-  communityType: string;
+  experienceLocation: string;
+  experienceType: string;
   communityDescription: string;
   communityLogo: {
     _type: 'image';
@@ -37,10 +38,10 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
     communityLeaderName: '',
     communityLeaderEmail: '',
     xHandle: '',
-    warpastHandle: '',
+    warpcastHandle: '',
     communityWebsite: '',
-    communityLocation: '',
-    communityType: '',
+    experienceLocation: '',
+    experienceType: '',
     communityDescription: '',
     communityLogo: {
       _type: 'image',
@@ -57,7 +58,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
   const [wrongImageSize, setWrongImageSize] = useState(false);
   const [emailError, setEmailError] = useState<string | null>(null);
   const [websiteError, setWebsiteError] = useState<string | null>(null);
-  const [warpxHandleError, setWarpxHandleError] = useState<string | null>(null);
+  const [warpcastHandleError, setWarpcastHandleError] = useState<string | null>(null);
   const [xHandleError, setXHandleError] = useState<string | null>(null);
   const [descriptionError, setDescriptionError] = useState<string | null>(null);
 
@@ -66,17 +67,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
     return emailRegex.test(email);
   };
 
-  const validateWarpxHandle = (url: string) => {
-    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-    return urlRegex.test(url);
-  };
-
-  const validateXHandle = (url: string) => {
-    const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
-    return urlRegex.test(url);
-  };
-
-  const validateWebsite = (url: string) => {
+  const validateUrl = (url: string) => {
     const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
     return urlRegex.test(url);
   };
@@ -84,7 +75,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
   const handleFileChange = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      if (file.type === 'image/png' || file.type === 'image/svg+xml' || file.type === 'image/jpeg') {
+      if (['image/png', 'image/svg+xml', 'image/jpeg'].includes(file.type)) {
         const img = new Image();
         const objectUrl = URL.createObjectURL(file);
 
@@ -112,7 +103,6 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                 },
               },
             }));
-
             console.log('Uploaded image _id:', response._id);
           } catch (uploadError) {
             console.error('Error uploading image:', uploadError);
@@ -128,9 +118,6 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
         setWrongImageType(true);
         setWrongImageSize(false);
       }
-    } else {
-      setWrongImageType(true);
-      setWrongImageSize(false);
     }
   };
 
@@ -149,38 +136,37 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
       }
     }
 
-    switch (name) {
-      case 'communityWebsite':
-        if (value.trim() !== '' && !validateWebsite(value)) {
-          setWebsiteError('Please enter a valid website URL');
-        } else {
-          setWebsiteError(null);
-        }
-        break;
-      case 'warpastHandle':
-        if (value.trim() !== '' && !validateWarpxHandle(value)) {
-          setWarpxHandleError('Please start with @ symbol');
-        } else {
-          setWarpxHandleError(null);
-        }
-        break;
-      case 'xHandle':
-        if (value.trim() !== '' && !validateXHandle(value)) {
-          setXHandleError('X Handle must be at least 3 characters long');
-        } else {
-          setXHandleError(null);
-        }
-        break;
-      case 'communityDescription':
-        const words = value.split(/\s+/).filter(Boolean);
-        if (words.length > MAX_WORD_COUNT) {
-          setDescriptionError(`Description should not exceed ${MAX_WORD_COUNT} words`);
-        } else {
-          setDescriptionError(null);
-        }
-        break;
-      default:
-        break;
+    if (name === 'communityWebsite' && value.trim() !== '') {
+      if (!validateUrl(value)) {
+        setWebsiteError('Please enter a valid website URL');
+      } else {
+        setWebsiteError(null);
+      }
+    }
+
+    if (name === 'warpcastHandle' && value.trim() !== '') {
+      if (!value.startsWith('@')) {
+        setWarpcastHandleError('Warpcast Handle must start with @');
+      } else {
+        setWarpcastHandleError(null);
+      }
+    }
+
+    if (name === 'xHandle' && value.trim() !== '') {
+      if (value.length < 3) {
+        setXHandleError('X Handle must be at least 3 characters long');
+      } else {
+        setXHandleError(null);
+      }
+    }
+
+    if (name === 'communityDescription') {
+      const words = value.split(/\s+/).filter(Boolean);
+      if (words.length > MAX_WORD_COUNT) {
+        setDescriptionError(`Description should not exceed ${MAX_WORD_COUNT} words`);
+      } else {
+        setDescriptionError(null);
+      }
     }
   };
 
@@ -191,8 +177,8 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
       'communityName',
       'communityLeaderName',
       'communityLeaderEmail',
-      'communityLocation',
-      'communityType',
+      'experienceLocation',
+      'experienceType',
       'eventDate',
     ];
 
@@ -218,9 +204,9 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
       };
 
       const data = {
-        _type: 'cards',
+        _type: 'experiencesCards',
         ...formData,
-        published: false 
+        published: false,
       };
 
       const response = await axios.post(
@@ -233,9 +219,6 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
       setIsSubmitted(true);
     } catch (error: any) {
       console.error('Error submitting form', error);
-      if (error.response) {
-        // Handle specific response errors here if needed
-      }
       alert('There was an error submitting the form.');
     }
   };
@@ -243,216 +226,175 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
   return (
     show && (
       <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 py-5 overflow-auto"
-      aria-labelledby="popup-title"
-      role="dialog"
-      aria-modal="true"
-    >
-      <div className={`relative bg-white mb p-6 rounded-lg shadow-lg md:w-[400px] w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-[300px] '}`}>
-        <img src="/images/circleBg.png" alt="" className="absolute inset-0 z-20 mt-10 w-full h-[70%]" />
-        <div className="flex justify-between items-center mb-2">
-          <h2
-            id="popup-title"
-            className={`text-2xl clash font-bold leading-6 text-[20px] ${
-              isSubmitted ? 'hidden' : ''
-            }`}
-          >
-            Add Community
-          </h2>
-          <i
-            className="fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-4"
-            onClick={handleClose}
-          ></i>
-        </div>
-        {isSubmitted ? (
-          <div className="text-center relative">
-            <img src="/images/waiting.png" alt="" />
-            <p className="text-[14px] leading-5 fira-mono-regular text-center text-[#696969] ">
-              Thanks for submitting! A member of our team will review it soon.
-            </p>
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 py-5 overflow-auto"
+        aria-labelledby="popup-title"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div className={`relative bg-white p-6 rounded-lg shadow-lg md:w-[400px] w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-[300px]'}`}>
+          <img src="/images/circleBg.png" alt="Background" className="absolute inset-0 z-10 hidden mt-10 w-full h-[70%]" />
+          <div className="flex justify-between items-center mb-2">
+            <h2
+              id="popup-title"
+              className={`text-2xl clash font-bold leading-6 text-[20px] ${isSubmitted ? 'hidden' : ''}`}
+            >
+              Add Community
+            </h2>
+            <i
+              className="fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-4"
+              onClick={handleClose}
+            ></i>
           </div>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <div className="mb-2">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
-                Community Name<span className="text-[#FF99F3]">*</span>
-              </label>
-              <input
-                type="text"
-                name="communityName"
-                value={formData.communityName}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
-                placeholder="Community Name"
-              />
+          {isSubmitted ? (
+            <div className="text-center relative">
+              <img src="/images/waiting.png" alt="Waiting" />
+              <p className="text-[14px] leading-5 fira-mono-regular text-center text-[#696969]">
+                Thanks for submitting! A member of our team will review it soon.
+              </p>
             </div>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <div className="mb-2">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
+                  Community Name<span className="text-[#FF99F3]">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="communityName"
+                  value={formData.communityName}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 bg-[#f0f0f0]"
+                  placeholder="Community Name"
+                />
+              </div>
 
-            <div className="mb-2">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
-                Community Leader Name<span className="text-[#FF99F3]">*</span>
-              </label>
-              <input
-                type="text"
-                name="communityLeaderName"
-                value={formData.communityLeaderName}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
-                placeholder="Community Leader Name"
-              />
-            </div>
+              <div className="mb-2">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
+                  Community Leader Name<span className="text-[#FF99F3]">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="communityLeaderName"
+                  value={formData.communityLeaderName}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 bg-[#f0f0f0]"
+                  placeholder="Community Leader Name"
+                />
+              </div>
 
-            <div className="mb-2">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
-                Community Leader Email<span className="text-[#FF99F3]">*</span>
-              </label>
-              <input
-                type="text"
-                name="communityLeaderEmail"
-                value={formData.communityLeaderEmail}
-                onChange={handleChange}
-                className={`w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0] ${
-                  emailError ? 'outline-red-500' : '' 
-                }`}
-                placeholder="Community Leader Email"
-              />
-              {emailError && (
-                <p className="text-red-500 text-sm mt-1">{emailError}</p>
-              )}
-            </div>
+              <div className="mb-2">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
+                  Community Leader Email<span className="text-[#FF99F3]">*</span>
+                </label>
+                <input
+                  type="email"
+                  name="communityLeaderEmail"
+                  value={formData.communityLeaderEmail}
+                  onChange={handleChange}
+                  className={`w-full p-2 border text-[#717171] rounded mt-1 bg-[#f0f0f0] ${emailError ? 'border-red-500' : ''}`}
+                  placeholder="Community Leader Email"
+                />
+                {emailError && <p className="text-red-500 text-sm mt-1">{emailError}</p>}
+              </div>
 
-            <div className="mb-2">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">X Handle</label>
-              <input
-                type="text"
-                name="xHandle"
-                value={formData.xHandle}
-                onChange={handleChange}
-                className={`w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0] ${
-                  xHandleError ? 'border-red-500' : ''
-                }`}
-                placeholder="X Handle"
-              />
-              {xHandleError && (
-                <p className="text-red-500 text-sm mt-1">{xHandleError}</p>
-              )}
-            </div>
+              <div className="mb-2">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">X Handle</label>
+                <input
+                  type="text"
+                  name="xHandle"
+                  value={formData.xHandle}
+                  onChange={handleChange}
+                  className={`w-full p-2 border text-[#717171] rounded mt-1 bg-[#f0f0f0] ${xHandleError ? 'border-red-500' : ''}`}
+                  placeholder="X Handle"
+                />
+                {xHandleError && <p className="text-red-500 text-sm mt-1">{xHandleError}</p>}
+              </div>
 
-            <div className="mb-2">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Warpast Handle</label>
-              <input
-                type="text"
-                name="warpastHandle"
-                value={formData.warpastHandle}
-                onChange={handleChange}
-                className={`w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0] ${
-                  warpxHandleError ? 'border-red-500' : ''
-                }`}
-                placeholder="Warpast Handle"
-              />
-              {warpxHandleError && (
-                <p className="text-red-500 text-sm mt-1">{warpxHandleError}</p>
-              )}
-            </div>
+              <div className="mb-2">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Warpcast Handle</label>
+                <input
+                  type="text"
+                  name="warpcastHandle"
+                  value={formData.warpcastHandle}
+                  onChange={handleChange}
+                  className={`w-full p-2 border text-[#717171] rounded mt-1 bg-[#f0f0f0] ${warpcastHandleError ? 'border-red-500' : ''}`}
+                  placeholder="Warpcast Handle"
+                />
+                {warpcastHandleError && <p className="text-red-500 text-sm mt-1">{warpcastHandleError}</p>}
+              </div>
 
-            <div className="mb-2">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Website</label>
-              <input
-                type="text"
-                name="communityWebsite"
-                value={formData.communityWebsite}
-                onChange={handleChange}
-                className={`w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0] ${
-                  websiteError ? 'outline-red-500' : '' 
-                }`}
-                placeholder="Community Website"
-              />
-              {websiteError && (
-                <p className="text-red-500 text-sm mt-1">{websiteError}</p>
-              )}
-            </div>
+              <div className="mb-2">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Website</label>
+                <input
+                  type="url"
+                  name="communityWebsite"
+                  value={formData.communityWebsite}
+                  onChange={handleChange}
+                  className={`w-full p-2 border text-[#717171] rounded mt-1 bg-[#f0f0f0] ${websiteError ? 'border-red-500' : ''}`}
+                  placeholder="Community Website"
+                />
+                {websiteError && <p className="text-red-500 text-sm mt-1">{websiteError}</p>}
+              </div>
 
-            <div className="mb-2">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
-                Community Location<span className="text-[#FF99F3]">*</span>
-              </label>
-              <select
-                name="communityLocation"
-                value={formData.communityLocation}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
-              >
-                <option value="" disabled>
-                  Community Location
-                </option>
-                <option value="Canada" className="fira-mono-regular hover:bg-pink-200 p-2 rounded-lg text-black">
-                  Canada
-                </option>
-                <option value="U.S.A" className="rounded-lg text-black">
-                  U.S.A
-                </option>
-                <option value="LATAM" className="rounded-lg text-black">
-                  LATAM
-                </option>
-                <option value="Europe" className="rounded-lg text-black">
-                  Europe
-                </option>
-                <option value="Africa" className="rounded-lg text-black">
-                  Africa
-                </option>
-              </select>
-            </div>
+              <div className="mb-2">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
+                  Experience Location<span className="text-[#FF99F3]">*</span>
+                </label>
+                <select
+                  name="experienceLocation"
+                  value={formData.experienceLocation}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 bg-[#f0f0f0]"
+                >
+                  <option value="" disabled>Select Location</option>
+                  <option value="Canada">Canada</option>
+                  <option value="U.S.A">U.S.A</option>
+                  <option value="LATAM">LATAM</option>
+                  <option value="Europe">Europe</option>
+                  <option value="Africa">Africa</option>
+                </select>
+              </div>
 
-            <div className="mb-2">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
-                Community Type<span className="text-[#FF99F3]">*</span>
-              </label>
-              <select
-                name="communityType"
-                value={formData.communityType}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
-              >
-                <option value="" disabled>
-                  Community Type
-                </option>
-                <option value="Education" className="rounded-lg text-black">
-                  Education
-                </option>
-                <option value="Regional" className="rounded-lg text-black">
-                  Regional
-                </option>
-                <option value="NFT Collection" className="rounded-lg text-black">
-                  NFT Collections
-                </option>
-                <option value="DAOs" className="rounded-lg text-black">
-                  DAO&apos;s
-                </option>
-              </select>
-            </div>
+              <div className="mb-2">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
+                  Experience Type<span className="text-[#FF99F3]">*</span>
+                </label>
+                <select
+                  name="experienceType"
+                  value={formData.experienceType}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 bg-[#f0f0f0]"
+                >
+                  <option value="" disabled>Select Type</option>
+                  <option value="Education">Education</option>
+                  <option value="Regional">Regional</option>
+                  <option value="NFT Collection">NFT Collections</option>
+                  <option value="DAOs">DAO&apos;s</option>
+                </select>
+              </div>
 
-            <div className="mb-2">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Description</label>
-              <textarea
-                name="communityDescription"
-                value={formData.communityDescription}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded mt-1 bg-[#f0f0f0]"
-              ></textarea>
-              {descriptionError && (
-                <p className="text-red-500 text-sm mt-1">{descriptionError}</p>
-              )}
-            </div>
+              <div className="mb-2">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Description</label>
+                <textarea
+                  name="communityDescription"
+                  value={formData.communityDescription}
+                  onChange={handleChange}
+                  className="w-full p-2 border border-gray-300 rounded mt-1 bg-[#f0f0f0]"
+                  rows={4}
+                />
+                {descriptionError && <p className="text-red-500 text-sm mt-1">{descriptionError}</p>}
+              </div>
 
-            <div className="mb-2">
+              <div className="mb-2">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Logo<span className="text-[#FF99F3]">*</span>
                 </label>
                 <input type="file" onChange={handleFileChange} accept="image/*" />
                 {uploadingLogo && <p>Uploading...</p>}
-                {wrongImageType && <p>Wrong image type. Please upload a PNG, SVG, or JPEG image.</p>}
-                {wrongImageSize && <p className='text-red-500'>Image must be at least 70px by 70px.</p>}
+                {wrongImageType && <p className="text-red-500">Wrong image type. Please upload a PNG, SVG, or JPEG image.</p>}
+                {wrongImageSize && <p className="text-red-500">Image must be at least 70px by 70px.</p>}
               </div>
-              
+
               <div className="mb-2">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Event Date<span className="text-[#FF99F3]">*</span>
@@ -462,11 +404,15 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   name="eventDate"
                   value={formData.eventDate}
                   onChange={handleChange}
-                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 bg-[#f0f0f0]"
                 />
               </div>
 
-              <button type="submit" disabled={uploadingLogo} className="bg-black text-white px-4 py-2 rounded focus:outline-none focus:ring-2 float-end clash font-medium text-[20px]">
+              <button
+                type="submit"
+                disabled={uploadingLogo}
+                className="bg-black text-white px-4 py-2 rounded focus:outline-none focus:ring-2 float-end clash font-medium text-[20px]"
+              >
                 Submit
               </button>
             </form>

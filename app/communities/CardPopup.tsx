@@ -12,7 +12,7 @@ interface FormData {
   communityLeaderName: string;
   communityLeaderEmail: string;
   xHandle: string;
-  warpastHandle: string;
+  warpcastHandle: string;
   communityWebsite: string;
   communityLocation: string;
   communityType: string;
@@ -36,7 +36,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
     communityLeaderName: '',
     communityLeaderEmail: '',
     xHandle: '',
-    warpastHandle: '',
+    warpcastHandle: '',
     communityWebsite: '',
     communityLocation: '',
     communityType: '',
@@ -155,7 +155,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
           setWebsiteError(null);
         }
         break;
-      case 'warpastHandle':
+      case 'warpcastHandle':
         if (value.trim() !== '' && !validateWarpxHandle(value)) {
           setWarpxHandleError('Please start with @ symbol');
         } else {
@@ -335,16 +335,16 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
               </div>
 
               <div className="mb-2">
-                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Warpast Handle</label>
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Warpcast Handle</label>
                 <input
                   type="text"
-                  name="warpastHandle"
-                  value={formData.warpastHandle}
+                  name="warpcastHandle"
+                  value={formData.warpcastHandle}
                   onChange={handleChange}
                   className={`w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0] ${
                     warpxHandleError ? 'border-red-500' : ''
                   }`}
-                  placeholder="Warpast Handle"
+                  placeholder="Warpcast Handle"
                 />
                 {warpxHandleError && (
                   <p className="text-red-500 text-sm mt-1">{warpxHandleError}</p>

@@ -75,7 +75,7 @@ const HomePage = () => {
                 <div className="info fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown p-5 border border-gray-300 rounded-md shadow-lg fixed inset-0 w-full flex items-center justify-center bg-black bg-opacity-50 px-4 py-8 overflow-auto z-50">
                   <div className='bg-white p-10 rounded-lg relative w-[25%]'>
                     <i className="fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-2" onClick={toggleInfoPopup}></i>
-                    Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
+                    Submit your experiences for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
                   </div>
                 </div>
               </div>
@@ -89,7 +89,7 @@ const HomePage = () => {
               className="glow-on-hover text-center relative  text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium" 
               onClick={togglePopup}
             >
-              <p className='z-20 relative cursor-pointer '>Add a community</p>
+              <p className='z-20 relative cursor-pointer '>Add an Experience</p>
             </motion.div>
             <CardPopup show={showPopup} handleClose={togglePopup} />
           </div>
@@ -134,7 +134,7 @@ const HomePage = () => {
               className="glow-on-hover text-center relative  text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium"
               onClick={togglePopup}
             >
-              <p className='z-20 relative cursor-pointer '>Add a community</p>
+              <p className='z-20 relative cursor-pointer '>Add an Experience</p>
             </motion.div>
             <CardPopup show={showPopup} handleClose={togglePopup} />
           </div>

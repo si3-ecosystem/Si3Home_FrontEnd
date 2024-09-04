@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { getCards } from '@/lib/types/cards';
-import { Card } from '@/lib/types/interfaces';
+
+import { getEperiencesCards } from '@/lib/types/experiencesCards';
+
+import { ExperienceCard } from '@/lib/types/interfaces';
 import EmptyPage from './EmptyPage';
 import { urlFor } from '@/client';
 import { getCommunityButton } from '@/lib/types/communityButton';
 import { CommunityButton } from '@/lib/types/interfaces';
 
 const Cards = ({ searchTerm }: { searchTerm: string }) => {
-  const [cards, setCards] = useState<Card[]>([]);
-  const [filteredCards, setFilteredCards] = useState<Card[]>([]);
+  const [cards, setCards] = useState<ExperienceCard[]>([]);
+  const [filteredCards, setFilteredCards] = useState<ExperienceCard[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [cardsPerPage, setCardsPerPage] = useState<number>(15);
   const [loading, setLoading] = useState<boolean>(true);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false); // Added type
   const [buttonData, setButtonData] = useState<CommunityButton | null>(null);
-
-
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fetchedCards = await getCards();
+        const fetchedCards = await getEperiencesCards(); // Fixed typo
         const publishedCards = fetchedCards.filter(card => card.published === true);
         setCards(publishedCards);
         setFilteredCards(publishedCards);
@@ -39,7 +39,6 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
       try {
         const data = await getCommunityButton();
         console.log(data);
-        
         setButtonData(data);
       } catch (error) {
         console.error('Error fetching community button:', error);
@@ -47,7 +46,6 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
     };
     fetchButtonData();
   }, []);
-
 
   useEffect(() => {
     const handleResize = () => {
@@ -62,8 +60,8 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
     const filtered = cards.filter(card =>
       card.communityName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       card.communityDescription.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      card.communityType.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      card.communityLocation?.toLowerCase().includes(searchTerm.toLowerCase())
+      card.experienceType.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      card.experienceLocation?.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredCards(filtered);
     setCurrentPage(1);
@@ -119,12 +117,12 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                           {card.communityName}
                         </p>
                         <p className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-1 text-center w-fit roboto-mono">
-                          {card.communityType}
+                          {card.experienceType}
                         </p>
-                        {card.communityLocation && (
+                        {card.experienceLocation && (
                           <div className="flex items-center mt-2">
                             <img src="/images/location-pin.png" alt="location" className='w-5' />
-                            <p className="leading-6 text-[16px] fira-mono-regular text-[#404040]">{card.communityLocation}</p>
+                            <p className="leading-6 text-[16px] fira-mono-regular text-[#404040]">{card.experienceLocation}</p>
                           </div>
                         )}
                       </div>
@@ -134,21 +132,21 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                         {card.communityDescription}
                       </p>
                     </div>
-                    <div className=" flex flex-col lg:mt-12">
+                    <div className="flex flex-col lg:mt-12">
                       {card.communityWebsite && (
                         <div className="flex items-center mb-2">
                           <div className="w-[20px] h-[20px] mr-2 rounded-xl">
                             <img className="w-full h-full object-contain" src={card.communityLogo.asset.url} alt="" />
                           </div>
-                          <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.communityWebsite} target='_blank'>{card.communityWebsite}</a>
+                          <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.communityWebsite} target='_blank' rel='noopener noreferrer'>{card.communityWebsite}</a>
                         </div>
                       )}
-                      {card.warpastHandle && (
+                      {card.warpcastHandle && (
                         <div className="flex items-center mb-2">
                           <div className="w-[20px] h-[20px] mr-2 rounded-xl">
                             <img className="w-full h-full object-contain" src="/images/w.png" alt="" />
                           </div>
-                          <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.warpastHandle} target='_blank'>{card.warpastHandle}</a>
+                          <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.warpcastHandle} target='_blank' rel='noopener noreferrer'>{card.warpcastHandle}</a>
                         </div>
                       )}
                       {card.xHandle && (
@@ -156,15 +154,15 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                           <div className="w-[20px] h-[20px] mr-2 rounded-xl">
                             <img className="w-full h-full object-contain" src="/images/x.png" alt="" />
                           </div>
-                          <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.xHandle} target="_blank">{card.xHandle}</a>
+                          <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.xHandle} target="_blank" rel='noopener noreferrer'>{card.xHandle}</a>
                         </div>
                       )}
                     </div>
                   </div>
                  
                     <div className="mx-auto bottom-2 h-fit clash font-medium text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] text-center py-[8px] custom-border-gradient w-full rounded-lg px-5">
-                    <a href={buttonData?.cta.link} target='_blank' className='relative h-full block text-center  inset-0'>
-                     {buttonData?.cta.text}
+                    <a href={buttonData?.cta?.link} target='_blank' rel='noopener noreferrer' className='relative h-full block text-center inset-0'>
+                     {buttonData?.cta?.text}
                     </a>
                     </div>
                   

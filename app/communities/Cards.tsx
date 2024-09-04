@@ -143,12 +143,12 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                           <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.communityWebsite} target='_blank'>{card.communityWebsite}</a>
                         </div>
                       )}
-                      {card.warpastHandle && (
+                      {card.warpcastHandle && (
                         <div className="flex items-center mb-2">
                           <div className="w-[20px] h-[20px] mr-2 rounded-xl">
                             <img className="w-full h-full object-contain" src="/images/w.png" alt="" />
                           </div>
-                          <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.warpastHandle} target='_blank'>{card.warpastHandle}</a>
+                          <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.warpcastHandle} target='_blank'>{card.warpcastHandle}</a>
                         </div>
                       )}
                       {card.xHandle && (

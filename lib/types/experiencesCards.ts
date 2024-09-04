@@ -1,26 +1,27 @@
 import groq from 'groq';
 import { client2 } from '@/utils/client';
-import { Card } from './interfaces';
+import { ExperienceCard } from './interfaces';
 
-export async function getCards(): Promise<Card[]> {
+export async function getEperiencesCards(): Promise<ExperienceCard[]> {
   const query = groq`
-    *[_type == "cards"] {
+    *[_type == "experiencesCards"] {
       _id,
       communityLogo {
         asset->{url, metadata {dimensions}}
       },
       communityName,
-      communityLocation,
-      communityType,
+      experienceLocation,
+      experienceType,
       communityDescription,
       xHandle,
       warpcastHandle,
       communityWebsite,
-      published
+      published,
+      eventDate
     }
   `;
 
   const data = await client2.fetch(query);
 
-  return data as Card[];
+  return data as ExperienceCard[];
 }

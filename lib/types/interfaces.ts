@@ -19,13 +19,37 @@ export interface Card {
   communityDescription: string;
   communityLocation: string;
   xHandle: string;
-  warpastHandle: string;
+  warpcastHandle: string;
   communityWebsite: string;
   published: boolean;
   eventDate: string;
 
 }
 
+export interface ExperienceCard {
+  _type: 'experiencesCards';
+  communityLogo: {
+    asset: {
+      url: string;
+      metadata: {
+        dimensions: {
+          width: number;
+          height: number;
+        };
+      };
+    };
+  };
+  communityName: string;
+  experienceType: string;
+  communityDescription: string;
+  experienceLocation: string;
+  xHandle: string;
+  warpcastHandle: string;
+  communityWebsite: string;
+  published: boolean;
+  eventDate: string;
+
+}
 
 export interface PolicyItem {
   title: string;
