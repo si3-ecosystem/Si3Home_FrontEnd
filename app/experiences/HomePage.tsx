@@ -75,7 +75,7 @@ const HomePage = () => {
                 <div className="info fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown p-5 border border-gray-300 rounded-md shadow-lg fixed inset-0 w-full flex items-center justify-center bg-black bg-opacity-50 px-4 py-8 overflow-auto z-50">
                   <div className='bg-white p-10 rounded-lg relative w-[25%]'>
                     <i className="fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-2" onClick={toggleInfoPopup}></i>
-                    Submit your experiences for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
+                    Submit your experiences for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your experiences to our discovery page.
                   </div>
                 </div>
               </div>
