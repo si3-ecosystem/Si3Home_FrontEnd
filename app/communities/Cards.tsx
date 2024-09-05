@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { getCards } from '@/lib/types/cards';
 import { Card } from '@/lib/types/interfaces';
 import EmptyPage from './EmptyPage';
-import { urlFor } from '@/client';
 import { getCommunityButton } from '@/lib/types/communityButton';
 import { CommunityButton } from '@/lib/types/interfaces';
 

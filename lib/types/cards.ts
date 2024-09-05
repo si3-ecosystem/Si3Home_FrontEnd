@@ -1,5 +1,5 @@
 import groq from 'groq';
-import { client2 } from '@/utils/client';
+import client from '@/client';
 import { Card } from './interfaces';
 
 export async function getCards(): Promise<Card[]> {
@@ -20,7 +20,7 @@ export async function getCards(): Promise<Card[]> {
     }
   `;
 
-  const data = await client2.fetch(query);
+  const data = await client.fetch(query);
 
   return data as Card[];
 }

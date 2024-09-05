@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
-import { client2 } from '@/utils/client';
+import { client } from '@/utils/client';
 
 interface CardPopupProps {
   show: boolean;
@@ -99,7 +99,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
           setWrongImageSize(false);
 
           try {
-            const response = await client2.assets.upload('image', file);
+            const response = await client.assets.upload('image', file);
             setFormData((prevData) => ({
               ...prevData,
               communityLogo: {
