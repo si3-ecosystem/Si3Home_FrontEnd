@@ -35,6 +35,14 @@ export default async function RootLayout({
         />
       </head>
       <body className="scroll-smooth">
+        
+      <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js.hs-scripts.com/45396312.js"
+        ></script>
         <CustomLayout>
           <CommunityNavbar utils={utils} />
           <div className="min-h-screen">{children}</div>
