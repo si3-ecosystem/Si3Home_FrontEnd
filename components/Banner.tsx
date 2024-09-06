@@ -80,7 +80,7 @@ export default function Banner({ hero }: any) {
             duration: 0.5,
             ease: "easeInOut",
           }}
-          className="mt-8 md:mt-10 xl:mt-[80px] flex items-center justify-center w-full md:w-fit"
+          className="mt-8 md:mt-10 xl:mt-[40px] flex items-center justify-center w-full md:w-fit"
         >
           <a href={hero.cta.link.external} target="_blank" className="w-full">
             <ButtonCTA variant="outline">{hero?.cta?.text}</ButtonCTA>

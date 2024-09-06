@@ -231,7 +231,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
         role="dialog"
         aria-modal="true"
       >
-        <div className={`relative z-30 bg-white p-6 rounded-lg shadow-lg md:w-[400px] w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-[400px]'}`}>
+        <div className={`relative z-50 bg-white p-6 rounded-lg shadow-lg md:w-[400px] w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-[400px]'}`}>
           <img src="/images/circleBg.png" alt="Background" className="absolute inset-0 z-0 mt-10 w-full h-[70%]" />
           <div className="flex justify-between items-center mb-2 relative">
             <h2
@@ -241,7 +241,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
               Add An Experience
             </h2>
             <i
-              className="fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-4"
+              className="fas fa-times text-gray-600 text-lg cursor-pointer absolute  right-1"
               onClick={handleClose}
             ></i>
           </div>
