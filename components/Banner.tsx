@@ -28,7 +28,7 @@ export default function Banner({ hero }: any) {
     >
       <div className="absolute inset-0 -z-40 ">
         <Image
-          src="/bgBanner_mobile.webp"
+          src="/bannerMob.jpg"
           alt="Background image mobile"
           width={800}
           height={500}
@@ -37,13 +37,14 @@ export default function Banner({ hero }: any) {
         />
         <motion.div className="hidden md:block">
           <Image
-            src="/banner.webp"
+            src="/banner.jpg"
             alt="Background image desktop"
             layout="fill"
             decoding="async"
             objectFit="cover"
             priority
             objectPosition="right center"
+         
           />
         </motion.div>
       </div>
@@ -57,7 +58,7 @@ export default function Banner({ hero }: any) {
           {hero?.headingOne}
         </motion.h1>
         <motion.h2
-          className="text-primary uppercase text-2xl md:text-6xl max-w-[200px] sm:max-w-xs font-[1000]"
+          className="text-primary uppercase text-2xl md:text-6xl w-fit md:max-w-[450px] max-w-xs font-[1000] "
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
