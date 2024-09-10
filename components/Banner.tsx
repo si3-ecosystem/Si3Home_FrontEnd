@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import Link from "next/link";
 import Button from "./shared/Button";
-
 import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 import urlFor from "@/utils/urlFor";
 
-export default function Banner({ hero }: any) {
+
+export default function Banner({ hero, utils }: any) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
@@ -50,22 +51,25 @@ export default function Banner({ hero }: any) {
       </div>
       <div className="absolute inset-0" />
       <div className="relative z-10 px-10 md:px-16 pt-36 2xl:pt-[196px] ">
+        <motion.div className="w-[70px] h-7 ">
+        <img src="/images/siherLogo.png" alt="" className="md:hidden lg:hidden object-contain" />
+        </motion.div>
         <motion.h1
-          className="text-white text-2xl md:text-6xl font-[1000]"
+          className="text-white text-2xl md:text-6xl font-[1000] hidden md:block"
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
           {hero?.headingOne}
         </motion.h1>
         <motion.h2
-          className="text-primary uppercase text-2xl md:text-6xl w-fit md:max-w-[450px] max-w-xs font-[1000] "
+          className="text-primary uppercase text-2xl md:text-6xl w-fit md:max-w-[450px] max-w-xs font-[1000] hidden md:block "
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
           {hero?.headingTwo}
         </motion.h2>
         <motion.p
-          className="md:pt-6 text-white text-sm md:text-xl font-mono max-w-xs max-sm:mt-4  "
+          className="md:pt-6 text-white text-sm md:text-xl font-mono max-w-xs max-sm:mt-4 w-[60%] lg:w-full md:w-full "
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
@@ -94,8 +98,8 @@ export default function Banner({ hero }: any) {
 
 function ButtonCTA({ children, className }: any) {
   return (
-    <button className={`button ${className} rounded-lg max-sm:w-full`}>
-      <span className="button-text max-sm:text-sm max-sm:py-3 max-sm:w-full">
+    <button className={`button ${className} rounded-lg max-sm:w-full mt-5`}>
+      <span className="button-text max-sm:text-sm font-normal max-sm:py-3 max-sm:w-full leading-5">
         {children}
       </span>
     </button>

@@ -1,5 +1,5 @@
 import groq from 'groq';
-import {client }from '../../utils/client';
+import { client2 } from '@/utils/client';
 import { ExperienceCard } from './interfaces';
 
 export async function getEperiencesCards(): Promise<ExperienceCard[]> {
@@ -21,7 +21,7 @@ export async function getEperiencesCards(): Promise<ExperienceCard[]> {
     }
   `;
 
-  const data = await client.fetch(query);
+  const data = await client2.fetch(query);
 
   return data as ExperienceCard[];
 }

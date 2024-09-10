@@ -26,7 +26,6 @@ import {
 // Import the custom hook
 
 export default function Granting({ granting, register }) {
-  console.log("granting", register);
   const [isOpen, setIsOpen] = useState(false);
   const swipeRef = useRef(null);
   const controls = useAnimation();
