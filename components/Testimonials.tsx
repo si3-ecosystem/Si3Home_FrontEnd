@@ -24,7 +24,7 @@ export default function Testimonials({ testimonials }: any) {
     >
       <div className="py-14 md:py-28 ">
         <div className="px-5 md:px-16 ">
-          <div className="flex items-center justify-between flex-wrap my-6 md:my-10">
+          <div className="flex items-center justify-center flex-wrap my-6 md:my-10">
             {testimonials?.length > 1 && (
               <div className="flex items-center gap-6 mb-3 md:mb-0">
                 <svg
