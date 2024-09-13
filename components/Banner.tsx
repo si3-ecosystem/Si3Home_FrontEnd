@@ -29,16 +29,16 @@ export default function Banner({ hero, utils }: any) {
     >
       <div className="absolute inset-0 -z-40 ">
         <Image
-          src="/bannerMob.jpg"
+          src="/banner_desk.png"
           alt="Background image mobile"
-          width={800}
-          height={500}
+          layout="fill"
+          objectFit="contain"
           priority
-          className="md:hidden w-full translate-x-2 scale-[1.5]"
+          className="md:hidden w-full  scale-[3]"
         />
         <motion.div className="hidden md:block">
           <Image
-            src="/banner.jpg"
+            src="/banner_desk.png"
             alt="Background image desktop"
             layout="fill"
             decoding="async"
