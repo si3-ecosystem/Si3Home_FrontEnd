@@ -57,12 +57,12 @@ const HomePage = () => {
             <h1 className="text-white">Discover The</h1>
             <h1>WOMEN & NON-BINARY WEB3 ECOSYSTEM.</h1>
           </div>
-          <div className="info flex flex-col lg:flex-row items-center lg:mr-28 lg:w-auto ">
+          <div className="info flex flex-col lg:flex-row items-center lg:mr-28 lg:w-auto md:mx-auto ">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
+            className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto "
           >
             <div className=" hover:cursor-pointer fira-mono-bold text-[#4428F2] text-lg flex items-center gap-2 " onClick={toggleInfoPopup}>
               <div>Info</div>
@@ -86,7 +86,7 @@ const HomePage = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="glow-on-hover text-center relative  text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium" 
+              className="glow-on-hover text-center relative  text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium md:mb-5" 
               onClick={togglePopup}
             >
               <p className='z-20 relative cursor-pointer '>Add an Experience</p>

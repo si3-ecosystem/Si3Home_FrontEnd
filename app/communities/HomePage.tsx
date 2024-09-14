@@ -57,7 +57,7 @@ const HomePage = () => {
             <h1 className="text-white">Discover The</h1>
             <h1>WOMEN & NON-BINARY WEB3 ECOSYSTEM.</h1>
           </div>
-          <div className="info flex flex-col lg:flex-row items-center lg:mr-28 lg:w-auto ">
+          <div className="info flex flex-col lg:flex-row md:flex-coloumn items-center lg:mr-28 lg:w-auto md:mb-5 md:mx-auto ">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

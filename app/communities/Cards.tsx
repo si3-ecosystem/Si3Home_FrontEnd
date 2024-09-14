@@ -100,7 +100,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2, delay: index * 0.1 }}
-                className="card mx-auto p-[25px] flex flex-col justify-between my-4 lg:w-[412px] lg:h-[549px] w-[300px] h-[446px] border-[2px] border-[#f488b0] rounded-xl"
+                className="card mx-auto p-[25px] flex flex-col justify-between my-4 lg:w-[412px] lg:h-[549px] md:h-[500px] md:w-[360px] w-[300px] h-[446px] border-[2px] border-[#f488b0] rounded-xl"
               >
                 <div className='flex flex-col h-full justify-between'>
                   <div>
