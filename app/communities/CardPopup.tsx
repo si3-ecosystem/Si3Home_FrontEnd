@@ -245,7 +245,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
         role="dialog"
         aria-modal="true"
       >
-        <div className={`relative bg-white mb p-6 rounded-lg shadow-lg md:w-[400px] w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-[300px] '}`}>
+        <div className={`relative z-50 bg-white p-6 rounded-lg shadow-lg md:w-[400px] w-full max-w-lg ${isSubmitted ? 'm-5' : 'my-[25px] pb-[60px] '} h-full m-auto overflow-y-scrol overflow-x-hidden custom-scrollbar`}>
           <img src="/images/circleBg.png" alt="" className="absolute inset-0 z-20 mt-10 w-full h-[70%]" />
           <div className="flex justify-between items-center mb-2">
             <h2
