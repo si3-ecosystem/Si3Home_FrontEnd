@@ -75,7 +75,7 @@ export default function Banner({ hero }: any) {
             objectFit="cover"
             priority
             objectPosition="center right "
-            className="ml-80  mt-20"
+            className="ml-96  mt-20"
           />
         </motion.div>
       </div>
@@ -96,7 +96,7 @@ export default function Banner({ hero }: any) {
           {hero?.headingTwo}
         </motion.h2>
         <motion.p
-          className="md:pt-6 text-[#454545] text-sm md:text-xl font-mono max-w-[182px] md:max-w-[522px] max-sm:mt-4  "
+          className="md:pt-6 text-white text-sm md:text-xl font-mono max-w-[182px] md:max-w-[522px] max-sm:mt-4  "
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
