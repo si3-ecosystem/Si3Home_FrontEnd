@@ -97,6 +97,7 @@ body {
     ),
     radial-gradient(circle at 48% 8%, rgba(25, 187, 240, 0.55), transparent 70%);
   z-index: -1;
+  border-radius: 8px;
 }
 
 .border-gradient-bottom-right {
@@ -104,7 +105,7 @@ body {
   border: 1px solid transparent;
 }
 
-.border-gradient-bottom-right:before {
+.border-gradient-bottom-right {
   content: "";
   position: absolute;
   top: 0;
@@ -119,6 +120,7 @@ body {
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
+  pointer-events: none;
 }
 
 .mobileNav {

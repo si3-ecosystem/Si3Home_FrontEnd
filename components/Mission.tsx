@@ -25,7 +25,7 @@ export default function Mission({ mission }: any) {
 
         <div className="bg-blackish px-8 py-12 w-full md:w-1/4 text-white flex flex-col gap-6 max-sm:mb-8">
           <h3 className="text-2xl font-medium leading-8 uppercase ">
-            {"Si3's Values:"}
+            {"SI<3> 's Values:"}
           </h3>
           <ul className="list-disc font-mono pl-5 flex flex-col gap-3">
             {mission?.values?.lists?.map((item: any, key: number) => (

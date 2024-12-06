@@ -4,6 +4,8 @@ import { getCards } from '@/lib/types/cards';
 import { Card } from '@/lib/types/interfaces';
 import EmptyPage from './EmptyPage';
 import { urlFor } from '@/client';
+import { getCommunityButton } from '@/lib/types/communityButton';
+import { CommunityButton } from '@/lib/types/interfaces';
 
 const Cards = ({ searchTerm }: { searchTerm: string }) => {
   const [cards, setCards] = useState<Card[]>([]);
@@ -12,9 +14,9 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
   const [cardsPerPage, setCardsPerPage] = useState<number>(15);
   const [loading, setLoading] = useState<boolean>(true);
   const [isHovered, setIsHovered] = useState(false);
+  const [buttonData, setButtonData] = useState<CommunityButton | null>(null);
 
-  const truncateTitle = (title: string) => title.length > 8 ? `${title.slice(0, 8)}...` : title;
-  const truncateParagraph = (para: string) => para.length > 200 ? `${para.slice(0, 200)}...` : para;
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +33,21 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const fetchButtonData = async () => {
+      try {
+        const data = await getCommunityButton();
+        console.log(data);
+        
+        setButtonData(data);
+      } catch (error) {
+        console.error('Error fetching community button:', error);
+      }
+    };
+    fetchButtonData();
+  }, []);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -83,7 +100,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2, delay: index * 0.1 }}
-                className="card mx-auto p-[25px] flex flex-col justify-between my-4 lg:w-[412px] lg:h-[549px] w-[300px] h-[446px] border-[2px] border-[#f488b0] rounded-xl"
+                className="card mx-auto p-[25px] flex flex-col justify-between my-4 lg:w-[412px] lg:h-[549px] md:h-[500px] md:w-[360px] w-[300px] h-[446px] border-[2px] border-[#f488b0] rounded-xl"
               >
                 <div className='flex flex-col h-full justify-between'>
                   <div>
@@ -91,64 +108,66 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                       <div className="shadow iconCard relative bg-gradient-to-b from-[#3E21F333] to-[#A020F0] p-[1.15px] w-[87px] h-[87px] rounded-md">
                         {card.communityLogo && card.communityLogo.asset && (
                           <img
-                            src={urlFor(card.communityLogo).url()}
-                            alt=""
-                            className="object-cover w-full h-full rounded-md"
+                            src={card.communityLogo.asset.url}
+                            alt="community Logo"
+                            className="object-contain w-full h-full rounded-md"
                           />
                         )}
                       </div>
                       <div className="ml-4">
                         <p className="clash uppercase mr-2 flex flex-wrap w-fit font-medium text-[#404040] text-[24px] sm:text-[30px] leading-[28px] sm:leading-[36px]">
-                          {isHovered ? card.communityName : truncateTitle(card.communityName)}
+                          {card.communityName}
                         </p>
                         <p className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-1 text-center w-fit roboto-mono">
                           {card.communityType}
                         </p>
                         {card.communityLocation && (
                           <div className="flex items-center mt-2">
-                            <img src="/images/location-pin.png" alt="" className='w-5' />
+                            <img src="/images/location-pin.png" alt="location" className='w-5' />
                             <p className="leading-6 text-[16px] fira-mono-regular text-[#404040]">{card.communityLocation}</p>
                           </div>
                         )}
                       </div>
                     </div>
                     <div>
-                      <p className="text-[#696969] max-w-fit flex flex-wrap text-wrap text-[14px] sm:text-[16px] leading-[18px] sm:leading-[20px] fira-mono-regular pt-5 md:h-[80px] h-[90px] mr-5 py-5 overflow-hidden">
-                        {truncateParagraph(card.communityDescription)}
+                      <p className="text-[#696969] max-w-fit flex flex-wrap text-wrap text-[14px] sm:text-[16px] leading-[18px] sm:leading-[20px] fira-mono-regular pt-5 h-fit mr-5 py-5 overflow-hidden">
+                        {card.communityDescription}
                       </p>
                     </div>
-                    <div className="lg:mt-36 mt-12 flex flex-col">
+                    <div className=" flex flex-col lg:mt-12">
                       {card.communityWebsite && (
                         <div className="flex items-center mb-2">
-                          <div className="w-[20px] h-[20px] mr-2">
-                            <img className="w-full h-full object-cover" src={urlFor(card.communityLogo).url()} alt="" />
+                          <div className="w-[20px] h-[20px] mr-2 rounded-xl">
+                            <img className="w-full h-full object-contain" src={card.communityLogo.asset.url} alt="" />
                           </div>
                           <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.communityWebsite} target='_blank'>{card.communityWebsite}</a>
                         </div>
                       )}
-                      {card.warpastHandle && (
+                      {card.warpcastHandle && (
                         <div className="flex items-center mb-2">
-                          <div className="w-[20px] h-[20px] mr-2">
-                            <img className="w-full h-full object-cover" src="/images/w.png" alt="" />
+                          <div className="w-[20px] h-[20px] mr-2 rounded-xl">
+                            <img className="w-full h-full object-contain" src="/images/w.png" alt="" />
                           </div>
-                          <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.warpastHandle} target='_blank'>{card.warpastHandle}</a>
+                          <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.warpcastHandle} target='_blank'>{card.warpcastHandle}</a>
                         </div>
                       )}
                       {card.xHandle && (
                         <div className="flex items-center mb-2">
-                          <div className="w-[20px] h-[20px] mr-2">
-                            <img className="w-full h-full object-cover" src="/images/x.png" alt="" />
+                          <div className="w-[20px] h-[20px] mr-2 rounded-xl">
+                            <img className="w-full h-full object-contain" src="/images/x.png" alt="" />
                           </div>
                           <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.xHandle} target="_blank">{card.xHandle}</a>
                         </div>
                       )}
                     </div>
                   </div>
-                  <div className="">
-                    <button className="m-auto bottom-2 z-10 clash font-medium text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] text-center py-[8px] custom-border-gradient w-full rounded-lg">
-                      App List’s Common Ground
-                    </button>
-                  </div>
+                 
+                    <div className="mx-auto bottom-2 h-fit clash font-medium text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] text-center py-[8px] custom-border-gradient w-full rounded-lg px-5">
+                    <a href={buttonData?.cta.link} target='_blank' className='relative h-full block text-center  inset-0'>
+                     {buttonData?.cta.text}
+                    </a>
+                    </div>
+                  
                 </div>
               </motion.div>
             ))}

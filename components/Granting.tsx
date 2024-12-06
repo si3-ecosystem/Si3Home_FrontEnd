@@ -49,28 +49,6 @@ export default function Granting({ granting, register }) {
     };
   }, [controls]);
 
-  useEffect(() => {
-    if (isOpen) {
-      // Load HubSpot forms script when the modal is open
-      const script = document.createElement("script");
-      script.src = "//js.hsforms.net/forms/embed/v2.js";
-      script.async = true;
-      script.onload = () => {
-        window.hbspt.forms.create({
-          region: "na1",
-          portalId: "45396312",
-          formId: "66a7c18e-95f2-4b85-b030-e29cbda4f05d",
-          target: "#hubspotForm",
-        });
-      };
-      document.body.appendChild(script);
-
-      return () => {
-        document.body.removeChild(script);
-      };
-    }
-  }, [isOpen]);
-
   return (
     <motion.div
       whileInView={{

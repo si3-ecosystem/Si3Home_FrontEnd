@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { client2 } from '@/utils/client';
+import {client }from '../../utils/client';
 import groq from 'groq';
 import { PolicyItem } from '@/lib/types/interfaces';
 
@@ -19,7 +19,7 @@ const MemberPolicy = () => {
     async function fetchMemberPolicy() {
       try {
         const query = groq`*[_type == 'memberPolicy'] | order(_createdAt desc)`;
-        const data = await client2.fetch(query);
+        const data = await client.fetch(query);
 
         // Sort the data by the number extracted from the title
         const sortedData = (data || []).sort((a:any, b:any) => {
@@ -44,7 +44,7 @@ const MemberPolicy = () => {
     <div className="w-full relative bg-white py-[4rem] overflow-hidden text-center text-gray-800 font-mono">
       <div className="bg-[#F5F7FA] mt-5 md:mx-[4rem] px-[2rem] flex flex-col items-center text-[4rem] text-[#383838]">
         <div className="relative leading-[4.25rem] uppercase font-bold py-[7rem] pb-[2rem]">
-          Member Policy
+        Si Her Co-Active Member Terms & Conditions
         </div>
         <div className="flex flex-col items-start text-left text-[1.5rem]">
           {memberPolicy.map((section, index) => (
