@@ -125,11 +125,11 @@ export default function Granting({ granting, register }) {
                 key={key}
                 className="relative rounded-lg group overflow-hidden"
               >
-                <div className="max-sm:max-h-[678px] overflow-hidden">
+                <div className="max-sm:max-h-[678px]  overflow-hidden">
                   <ImageUrl
                     image={item.image}
                     className={
-                      "h-full min-h-[478px] max-h-[478px] overflow-hidden object-cover object-top rounded-lg w-full card-shaper group-hover:opacity-70 transition-all duration-300 group-hover:scale-[1.07]"
+                      "h-full min-h-[478px] max-h-[478px] lg:max-h-[578px] overflow-hidden object-cover object-top rounded-lg w-full card-shaper group-hover:opacity-70 transition-all duration-300 group-hover:scale-[1.07]"
                     }
                   />
                 </div>

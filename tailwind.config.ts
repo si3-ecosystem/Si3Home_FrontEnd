@@ -13,6 +13,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "price-card": "linear-gradient(180deg, #67648a 0%, #e58fc4 100%)",
+
+        "custom-gradient":
+          "linear-gradient(90deg, #F5B6D3 -4.63%, #E5B9DA 93.89%, rgba(248, 183, 208, 0.00) 93.9%)",
       },
       colors: {
         primary: "#4428F2",
