@@ -37,370 +37,129 @@ const Navbar = ({ utils }: any) => {
     <motion.nav
       animate={controls}
       initial={{ backgroundColor: "#d3b4c2" }} // initial background color
-      className="fixed w-full z-50 backdrop-filter backdrop-blur-lg shadow-lg transition-all duration-100"
+      className="fixed w-full z-50 backdrop-filter backdrop-blur-2xl lg:backdrop-blur-lg shadow-lg transition-all duration-100"
     >
-      <div className="flex justify-between items-center px-5 md:px-16 py-4">
+      <div className="flex justify-between items-center px-5 lg:px-16 py-4 gap-10 xl:gap-12 z-40">
+        <div className=" space-x-4  font-medium flex  items-center justify-between">
+          <div className="flex items-center justify-center">
+            <Link href="/" className="text-white text-5xl font-bold uppercase ">
+              <img
+                src={urlFor(utils?.logo?.asset).url()}
+                alt={utils?.logo?.alt}
+                className="w-24 h-12 "
+              />
+            </Link>
+          </div>
+        </div>
+        <p className="text-base max-lg:hidden xl:text-lg font-medium text-white text-center ">
+          {"SI<3> LAUNCHES SEASON 1 WORKING GROUP FOR WEB3 GRANTS PROGRAMS "}
+        </p>
+        <div className="max-lg:hidden font-medium">
+          <div className=" flex items-center gap-[13px]">
+            <div className="bg-black p-2.5 rounded-lg">
+              <Image
+                src={"/bell.png"}
+                alt="Bell Icon"
+                width={36}
+                height={36}
+                className="w-[28px] h-[28px] "
+              />
+            </div>
+
+            <Link
+              href={utils?.stayConnected}
+              target="_blank"
+              className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-xl !py-2 px-4 bg-[#C8BAFD] hover:bg-[#3C1FEF] text-black hover:text-white"
+            >
+              {utils.stayConnectedText || "ONBOARD"}
+            </Link>
+          </div>
+        </div>
         <div className="lg:hidden">
           <button
             onClick={toggleMenu}
             aria-label="Open Menu"
             className="text-white"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
-        </div>
-        <div className=" items-center space-x-4 md:space-x-14 xl:space-x-36 font-medium hidden lg:flex">
-          <div
-            className="relative flex items-center gap-2 cursor-pointer"
-            onMouseEnter={() => handleDropdown("onboard")}
-            onMouseLeave={() => handleDropdown("onboard")}
-          >
-            <a
-              href="#"
-              className="hidden md:inline text-white lg:text-xl lg:leading-[3px] font-semibold tracking-wider relative"
-            >
-              ONBOARD
-              {activeDropdown === "onboard" && (
-                <motion.span
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-30"
-                />
-              )}
-            </a>
-            <Image
-              src={"/arrow-down.svg"}
-              alt="Dropdown"
-              width={24}
-              height={24}
-              className="w-6 h-6 hidden md:inline"
-            />
-            {activeDropdown === "onboard" && (
-              <motion.div
-                initial={{ opacity: 0, scaleY: 0 }}
-                animate={{ opacity: 1, scaleY: 1 }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-0 md:top-[17px] group mt-2 py-2 w-48 font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10"
-              >
-                <Link
-                  href="#siherCoActive"
-                  className="block px-4 py-2  hover:text-[#4428f2] text-white "
-                >
-                  Si Her Co-Active
-                </Link>
-                <Link
-                  href="#ecosystem"
-                  className="block px-4 py-2   hover:text-[#4428f2] text-white "
-                >
-                  Si3 Ecosystem
-                </Link>
-              </motion.div>
-            )}
-          </div>
-
-          <div
-            className="relative flex items-center gap-2 cursor-pointer"
-            onMouseEnter={() => handleDropdown("live")}
-            onMouseLeave={() => handleDropdown("live")}
-          >
-            <a
-              href="#"
-              className="hidden md:inline text-white lg:text-xl lg:leading-[3px] relative font-semibold tracking-wider"
-            >
-              SI HER LIVE
-              {activeDropdown === "live" && (
-                <motion.span
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-30"
-                />
-              )}
-            </a>
-            <Image
-              src={"/arrow-down.svg"}
-              alt="Dropdown"
-              width={24}
-              height={24}
-              className="w-6 h-6 hidden md:inline"
-            />
-            {activeDropdown === "live" && (
-              <motion.div
-                initial={{ opacity: 0, scaleY: 0 }}
-                animate={{ opacity: 1, scaleY: 1 }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-0 md:top-[17px] mt-2 py-2 w-64 font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10"
-              >
-                <Link
-                  href="#commonGround"
-                  className="block px-4 py-2 text-white  whitespace-nowrap hover:text-[#4428f2]"
-                >
-                  Common Ground
-                </Link>
-                <a
-                  href="#coActivator"
-                  className="block px-4 py-2 text-white hover:text-[#4428f2]"
-                >
-                  Metaverse (Coming Soon)
-                </a>
-              </motion.div>
-            )}
-          </div>
-        </div>
-        <div className="hidden lg:flex items-center justify-center">
-          <Link href="/" className="text-white text-5xl font-bold uppercase">
-            <img
-              src={urlFor(utils?.logo?.asset).url()}
-              alt={utils?.logo?.alt}
-              className="w-24 h-12 "
-            />
-          </Link>
-        </div>
-        <div className="flex items-center space-x-4 md:space-x-14 xl:space-x-36 font-medium">
-          <div
-            className="relative flex items-center gap-2 cursor-pointer"
-            onMouseEnter={() => handleDropdown("about")}
-            onMouseLeave={() => handleDropdown("about")}
-          >
-            <a
-              href="#"
-              className="hidden lg:inline lg:text-xl lg:leading-[3px] text-white relative  font-semibold tracking-wider "
-            >
-              ABOUT US
-              {activeDropdown === "about" && (
-                <motion.span
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-30"
-                />
-              )}
-            </a>
-            <Image
-              src={"/arrow-down.svg"}
-              alt="Dropdown"
-              width={24}
-              height={24}
-              className="w-6 h-6 hidden lg:inline"
-            />
-            {activeDropdown === "about" && (
-              <motion.div
-                initial={{ opacity: 0, scaleY: 0 }}
-                animate={{ opacity: 1, scaleY: 1 }}
-                transition={{ duration: 0.2 }}
-                className="absolute mt-2 py-2 w-48 top-0 md:top-[17px] font-semibold tracking-wider bg-[#d3b4c2] bg-opacity-60 rounded-md shadow-lg z-10 hidden md:inline"
-              >
-                <Link
-                  href="#ourMission"
-                  className="block px-4 py-2 text-white hover:text-[#4428f2]"
-                >
-                  Our Mission
-                </Link>
-                <Link
-                  href="#testimonials"
-                  className="block px-4 py-2 text-white hover:text-[#4428f2]"
-                >
-                  Testimonials
-                </Link>
-              </motion.div>
-            )}
-          </div>
-          <div className="group">
-            <div className="flex items-center gap-2 cursor-pointer rounded-xl py-2 px-4 bg-[#C8BAFD] group-hover:bg-[#3C1FEF] text-black group-hover:text-white">
-              <Image
-                src={"/bell.png"}
-                alt="Bell Icon"
-                width={36}
-                height={36}
-                className="w-9 h-9"
-              />
-              <Link
-                href={utils?.stayConnected}
-                target="_blank"
-                className="text-base lg:text-xl font-medium leading-[2.5px] lg:leading-[3px]"
-              >
-                {utils.stayConnectedText || "SUBSCRIBE"}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{
-              duration: 0.5,
-              ease: "easeInOut",
-            }}
-            className="mobileNav fixed z-[99999999] backdrop-blur-md top-0 left-0 h-screen w-3/4 px-6 py-4 flex flex-col justify-start items-center text-2xl gap-6 md:hidden"
-          >
-            <button
-              onClick={() => setIsOpen(false)}
-              aria-label="Close Menu"
-              className="text-white self-end top-4 mb-4"
-            >
-              <motion.svg
+            {!isOpen ? (
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                whileHover={{ rotate: 90 }}
-                whileTap={{ scale: 0.9 }}
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
+                  d="M4 6h16M4 12h16m-7 6h7"
                 />
-              </motion.svg>
-            </button>
-            <div className="group">
-              <div className="flex items-center gap-2 cursor-pointer rounded-xl py-2 px-4 bg-[#C8BAFD] group-hover:bg-[#3C1FEF] text-black group-hover:text-white">
-                <Image
-                  src={"/bell.png"}
-                  alt="Bell Icon"
-                  width={36}
-                  height={36}
-                  className="w-9 h-9"
-                />
-                <Link
-                  href={utils?.stayConnected}
-                  target="_blank"
-                  className="text-base lg:text-xl font-medium leading-[2.5px] lg:leading-[3px]"
-                >
-                  {utils.stayConnectedText || "SUBSCRIBE"}
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col gap-8 justify-start h-full mt-8">
-              <div
-                className="relative flex items-center gap-2 cursor-pointer"
-                onClick={() => handleDropdown("onboard")}
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="25"
+                viewBox="0 0 24 25"
+                fill="none"
               >
+                <path
+                  d="M4 20.5L20 4.5"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M20 20.5L4 4.5"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
+      </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ y: "-100%", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "-100%", opacity: 0 }}
+            transition={{
+              duration: 0.5,
+              ease: "easeInOut",
+            }}
+            className=" fixed z-30 bg-[#3C1FEF] top-20 h-fit left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 md:hidden"
+          >
+            <div className="flex flex-col gap-6 justify-start h-full mt-4">
+              <div className="relative flex items-center gap-2 cursor-pointer">
                 <a
                   href="#"
-                  className="md:hidden text-white tracking-wider relative overflow-hidden text-xl font-medium"
+                  className="md:hidden text-white tracking-wider relative overflow-hidden font-medium text-base "
                 >
-                  ONBOARD
-                  {activeDropdown === "onboard" && (
-                    <motion.span
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-50"
-                    />
-                  )}
+                  WEB3 EXPLORERS
                 </a>
-                <Image
-                  src={
-                    activeDropdown === "onboard"
-                      ? "/arrow-down.svg"
-                      : "/arrow-down.svg"
-                  }
-                  alt="Dropdown"
-                  width={24}
-                  height={24}
-                  className="w-6 h-6 md:hidden"
-                />
               </div>
-              {activeDropdown === "onboard" && (
-                <ul className="flex flex-col gap-2 transition-all duration-500 text-base -mt-6">
-                  <li>
-                    <Link
-                      href="#siherCoActive"
-                      className="block  text-white hover:text-[#4428f2]"
-                    >
-                      Si Her Co-Active
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#ecosystem"
-                      className="block  text-white hover:text-[#4428f2]"
-                    >
-                      Si3 Ecosystem
-                    </Link>
-                  </li>
-                </ul>
-              )}
-              <div
-                className="relative flex items-center gap-4 cursor-pointer"
-                onClick={() => handleDropdown("live")}
-              >
+
+              <div className="">
                 <a
                   href="#"
-                  className="md:hidden text-white relative overflow-hidden tracking-wider text-xl font-medium"
+                  className="md:hidden text-white relative overflow-hidden tracking-wider text-base max-w-[233px]  font-medium"
                 >
-                  SI HER LIVE
-                  {activeDropdown === "live" && (
-                    <motion.span
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-50"
-                    />
-                  )}
+                  WOMEN & NON-BINARY WEB3 LEADERS
                 </a>
-                <Image
-                  src={
-                    activeDropdown === "live"
-                      ? "/arrow-down.svg"
-                      : "/arrow-down.svg"
-                  }
-                  alt="Dropdown"
-                  width={24}
-                  height={24}
-                  className="w-6 h-6 md:hidden"
-                />
               </div>
-              {activeDropdown === "live" && (
-                <ul className="flex flex-col gap-2 text-base -mt-6">
-                  <li>
-                    <Link
-                      href="#commonGround"
-                      className="block  text-white hover:text-[#4428f2]"
-                    >
-                      Common Ground
-                    </Link>
-                  </li>
-                  <li>
-                    <a
-                      href="#coActivator"
-                      className="block  text-white hover:text-[#4428f2]"
-                    >
-                      Metaverse (Coming Soon)
-                    </a>
-                  </li>
-                </ul>
-              )}
-              <div
-                className="relative flex items-center gap-4 cursor-pointer"
-                onClick={() => handleDropdown("about")}
-              >
+
+              <div className="">
                 <a
                   href="#"
-                  className="md:hidden text-white relative overflow-hidden font-medium tracking-wider text-xl"
+                  className="md:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
                 >
-                  ABOUT US
+                  WEB3 ORGANIZATIONS
                   {activeDropdown === "about" && (
                     <motion.span
                       initial={{ width: 0 }}
@@ -410,38 +169,7 @@ const Navbar = ({ utils }: any) => {
                     />
                   )}
                 </a>
-                <Image
-                  src={
-                    activeDropdown === "about"
-                      ? "/arrow-down.svg"
-                      : "/arrow-down.svg"
-                  }
-                  alt="Dropdown"
-                  width={24}
-                  height={24}
-                  className="w-6 h-6 md:hidden"
-                />
               </div>
-              {activeDropdown === "about" && (
-                <ul className=" flex flex-col gap-2 text-base -mt-6">
-                  <li>
-                    <Link
-                      href="#ourMission"
-                      className="block  text-white hover:text-[#4428f2]"
-                    >
-                      Our Mission
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#testimonials"
-                      className="block  text-white hover:text-[#4428f2]"
-                    >
-                      Testimonials
-                    </Link>
-                  </li>
-                </ul>
-              )}
             </div>
           </motion.div>
         )}

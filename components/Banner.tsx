@@ -55,7 +55,7 @@ export default function Banner({ hero }: any) {
   return (
     <motion.div
       ref={ref}
-      className="relative w-full max-md:h-[460px] max-h-[860px] -z-10 md:h-screen overflow-hidden  bg-gradient-to-r from-[#F5B6D3] to-[#E5B9DA]"
+      className="relative w-full max-[390px]:h-[400px] max-md:h-[460px] max-h-[860px] -z-10 md:h-screen overflow-hidden  bg-gradient-to-r from-[#F5B6D3] to-[#E5B9DA]"
     >
       <div className="absolute inset-0 -z-40 ">
         <Image
@@ -64,7 +64,7 @@ export default function Banner({ hero }: any) {
           width={800}
           height={500}
           priority
-          className="md:hidden w-full translate-x-36 scale-[1.2] translate-y-20 object-cover"
+          className="md:hidden w-full translate-x-36 scale-[1.2] sm:scale-[1.05] lg:scale-[1.2] translate-y-20 sm:translate-y-0 lg:translate-y-20 object-cover"
         />
         <motion.div className="hidden md:block">
           <Image
@@ -102,6 +102,10 @@ export default function Banner({ hero }: any) {
         >
           {hero?.subHeader}
         </motion.p>
+
+        <button className="w-full sm:max-w-[150px] text-white text-sm font-medium leading-[140%] uppercase py-3.5 rounded-lg px-2.5 border border-white hover:text-white hover:bg-[#3C1FEF] hover:border-[#3C1FEF] lg:hidden mt-7">
+          Login
+        </button>
       </div>
       {/* banner */}
       <div className="bg-[#F0DEDE] h-[100px] w-full absolute bottom-0 z-40  hidden md:flex  items-center justify-between gap-2 px-10 md:px-16">
