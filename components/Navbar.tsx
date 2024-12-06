@@ -139,7 +139,7 @@ const Navbar = ({ utils }: any) => {
             <div className="flex flex-col gap-6 justify-start h-full mt-4">
               <div className="relative flex items-center gap-2 cursor-pointer">
                 <a
-                  href="#"
+                  href="/explorers"
                   className="md:hidden text-white tracking-wider relative overflow-hidden font-medium text-base "
                 >
                   WEB3 EXPLORERS
