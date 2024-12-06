@@ -116,8 +116,12 @@ body {
   padding: 1px;
   background: linear-gradient(to bottom, transparent, #989898),
     linear-gradient(to bottom right, #989898, transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   pointer-events: none;
@@ -129,4 +133,15 @@ body {
   background: rgba(175, 175, 175, 0.97);
 
   backdrop-filter: blur(83.75px);
+}
+
+.bannerBg {
+  border-radius: 8px;
+  background:
+    linear-gradient(
+      0deg,
+      rgba(213, 116, 182, 0.2) 0%,
+      rgba(213, 116, 182, 0.2) 100%
+    ),
+    lightgray 50% / cover no-repeat;
 }

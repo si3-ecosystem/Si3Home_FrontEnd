@@ -148,7 +148,7 @@ const Navbar = ({ utils }: any) => {
 
               <div className="">
                 <a
-                  href="#"
+                  href="/co-active"
                   className="md:hidden text-white relative overflow-hidden tracking-wider text-base max-w-[233px]  font-medium"
                 >
                   WOMEN & NON-BINARY WEB3 LEADERS

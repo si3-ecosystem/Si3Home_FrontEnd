@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/atoms/button/Button";
 import { VideoCard } from "@/components/atoms/card/video-card";
+import { MembershipBanner } from "@/components/organism/banner/membership";
 import { DropdownButton } from "@/components/organism/dropdown-button";
 import { categories, videos, web3SubCategories } from "@/lib/data";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -40,7 +41,7 @@ export function ExplorerPageTemplate() {
   });
   return (
     <div className="">
-      <div className="min-h-screen flex flex-col gap-16 relative ">
+      <div className="min-h-screen flex flex-col gap-16 relative overflow-hidden ">
         <Banner />
         <div className="max-w-[1440px]  mx-auto px-5 lg:px-16 pb-16 flex flex-col items-center justify-center">
           <Image
@@ -92,11 +93,11 @@ export function ExplorerPageTemplate() {
           </div>
 
           {/* Pagination */}
-          <div className="mt-20 flex justify-center gap-10">
+          <div className="my-20 flex justify-center gap-6 lg:gap-10">
             <button className="py-2 px-4 rounded flex items-center justify-center border border-[#E5007A] text-[#E5007A]">
               <ChevronLeft className="w-4 h-4" />
             </button>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-3 lg:gap-5">
               {[1, 2, 3].map((page) => (
                 <button
                   key={page}
@@ -115,6 +116,7 @@ export function ExplorerPageTemplate() {
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
+          <MembershipBanner />
         </div>
       </div>
     </div>
