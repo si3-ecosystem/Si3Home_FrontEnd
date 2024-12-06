@@ -75,7 +75,7 @@ export function Banner() {
       <div className="py-12 md:py-20 px-4 text-center relative">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-wider">
-            Si Her Co-active
+            Si Her CoLLABORATIVE
           </h1>
           <p className="text-sm md:text-base lg:text-lg text-white max-w-2xl mx-auto leading-relaxed">
             Co-activating growth and funding opportunities for women and
