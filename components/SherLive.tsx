@@ -48,15 +48,15 @@ export default function SherLive({ sheHerLive }: any) {
       <motion.div
         initial={{ opacity: 0.7, x: 500 }}
         animate={controls}
-        className="md:w-1/2 text-center space-y-3 md:space-y-[18px]"
+        className=" text-center space-y-3 md:space-y-[18px]"
       >
         <h3 className="text-base tracking-[2.4px] leading-[150%] lg:text-sm font-medium max-lg:max-w-[250px] max-lg:mx-auto">
           {sheHerLive.subtitle}
         </h3>
-        <h1 className="text-4xl uppercase md:text-[64px] text-primary font-1000">
+        <h1 className="text-4xl uppercase md:text-[64px] text-primary font-1000 leading-10">
           {sheHerLive.title}
         </h1>
-        <p className="font-mono text-sm md:text-xl max-w-[704px] mx-auto">
+        <p className="font-mono text-sm md:text-xl max-w-[704px] mx-auto md:w-1/2">
           {sheHerLive.description}
         </p>
       </motion.div>
