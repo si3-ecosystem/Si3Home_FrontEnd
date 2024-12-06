@@ -72,7 +72,7 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
         </div>
 
         <div className="px-5 md:px-16">
-          <div className="flex justify-end gap-4 mb-4">
+          <div className="flex justify-center gap-4 mb-5 mt-5">
             <svg
               onClick={slideLeft}
               width="32"

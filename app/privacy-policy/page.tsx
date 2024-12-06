@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { client2 } from '@/utils/client';
+import {client }from '../../utils/client';
 import groq from 'groq';
 import { PolicyItem } from '@/lib/types/interfaces';
 
@@ -16,7 +16,7 @@ const Policy = () => {
   useEffect(() => {
     async function fetchPrivacyPolicy() {
       const query = groq`*[_type == 'privacyPolicy']`;
-      const data = await client2.fetch(query);
+      const data = await client.fetch(query);
 
       // Sort the data by the number extracted from the title
       const sortedData = (data || []).sort((a:any, b:any) => {

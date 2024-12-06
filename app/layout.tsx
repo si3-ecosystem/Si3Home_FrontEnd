@@ -105,6 +105,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
+      <script defer data-domain="si3.space" src="https://plausible.io/js/script.js"></script>
         <link
           href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap"
           rel="stylesheet"

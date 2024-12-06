@@ -14,7 +14,7 @@ export async function getCards(): Promise<Card[]> {
       communityType,
       communityDescription,
       xHandle,
-      warpastHandle,
+      warpcastHandle,
       communityWebsite,
       published
     }

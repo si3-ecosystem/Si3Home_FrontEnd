@@ -11,16 +11,18 @@ const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
 
-  const handleSearch = (event:any) => {
-    setSearchTerm(event.target.value);
-  };
-  const handleCommunityTypeChange = (event:any) => {
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
   
-  const handleCommunityLocationChange = (event: any) => {
+  const handleCommunityTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSearchTerm(event.target.value);
   };
+  
+  const handleCommunityLocationChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSearchTerm(event.target.value);
+  };
+  
   
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -55,7 +57,7 @@ const HomePage = () => {
             <h1 className="text-white">Discover The</h1>
             <h1>WOMEN & NON-BINARY WEB3 ECOSYSTEM.</h1>
           </div>
-          <div className="info flex flex-col lg:flex-row items-center lg:mr-28 lg:w-auto ">
+          <div className="info flex flex-col lg:flex-row md:flex-coloumn items-center lg:mr-28 lg:w-auto md:mb-5 md:mx-auto ">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -105,7 +107,7 @@ const HomePage = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
             >
-               <div className="z-50 justify-center hover:cursor-pointer fira-mono-bold  text-[#4428F2] text-lg flex gap-2 items-center" onClick={toggleInfoPopup}>
+               <div className="z-20 justify-center hover:cursor-pointer fira-mono-bold  text-[#4428F2] text-lg flex gap-2 items-center" onClick={toggleInfoPopup}>
                   <div className='flex  justify-center'>
                   <div>Info</div> 
                   <div>
@@ -129,7 +131,7 @@ const HomePage = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="glow-on-hover text-center relative z-20 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium"
+              className="glow-on-hover text-center relative  text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium"
               onClick={togglePopup}
             >
               <p className='z-20 relative cursor-pointer '>Add a community</p>
@@ -165,6 +167,7 @@ const HomePage = () => {
               <option value="Regional" className="rounded-lg text-black">Regional</option>
               <option value="NFT Collection" className="rounded-lg text-black">NFT Collections</option>
               <option value="DAOs" className="rounded-lg text-black">DAO&apos;s</option>
+              <option value="Leadership" className="rounded-lg text-black">Leadership</option>
             </select>
 
             <select
@@ -180,6 +183,7 @@ const HomePage = () => {
               <option value="LATAM" className='rounded-lg text-black'>LATAM</option>
               <option value="Europe" className='rounded-lg text-black'>Europe</option>
               <option value="Africa" className='rounded-lg text-black'>Africa</option>
+              <option value="Global" className='rounded-lg text-black'>Global</option>
             </select>
           </div>
         </motion.div>
@@ -189,14 +193,14 @@ const HomePage = () => {
             transition={{ duration: 1 }}
             className="z-50 glow-on-hover2 mt-9 py-6 bg-[#D574B633] bg-[url('/images/rectangle.png')] bg-no-repeat bg-cover bg-center bg-opacity-30 min-h-[30vh] rounded-lg flex flex-col justify-center items-center text-center p-6 w-full shadow-lg"
             >
-          <p className="clash text-[#4428F2] text-[24px] md:text-[30px] font-medium leading-8 lg:leading-[68px] mb-4 ">JOIN OUR COMMON GROUND.</p>
+          <p className="clash text-[#4428F2] text-[24px] md:text-[30px] font-medium leading-8 lg:leading-[68px] mb-4 ">JOIN OUR ECOSYSTEM.</p>
           <motion.div
             className=" text-[#1C1B22] text-[14px] lg:text-[20px] leading-5 lg:leading-6 fira-mono-regular mb-5 "
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-          <p className=''> Stay connected to Si3’s ecosystem in the community membership platform Common Ground.</p> 
+          <p className=''> Stay connected to {'SI<3>’s'} ecosystem in the community membership platform Common Ground.</p> 
           </motion.div>
           <motion.button 
             whileHover={{ scale: 1.1 }}

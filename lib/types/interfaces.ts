@@ -1,22 +1,54 @@
 import { Url } from 'next/dist/shared/lib/router/router';
 
 
-export interface  Card {
+export interface Card {
   _type: 'cards';
   communityLogo: {
-      asset: {
-        _type:'reference',
-        _ref:string
+    asset: {
+      url: string;
+      metadata: {
+        dimensions: {
+          width: number;
+          height: number;
+        };
       };
+    };
   };
   communityName: string;
   communityType: string;
   communityDescription: string;
   communityLocation: string;
   xHandle: string;
-  warpastHandle:string;
+  warpcastHandle: string;
   communityWebsite: string;
-  published:boolean;
+  published: boolean;
+  eventDate: string;
+
+}
+
+export interface ExperienceCard {
+  _type: 'experiencesCards';
+  communityLogo: {
+    asset: {
+      url: string;
+      metadata: {
+        dimensions: {
+          width: number;
+          height: number;
+        };
+      };
+    };
+  };
+  communityName: string;
+  experienceType: string;
+  communityDescription: string;
+  experienceLocation: string;
+  xHandle: string;
+  warpcastHandle: string;
+  communityWebsite: string;
+  published: boolean;
+  eventDate: string;
+
 }
 
 export interface PolicyItem {
@@ -24,3 +56,9 @@ export interface PolicyItem {
   description: string;
 }
 
+export interface CommunityButton {
+  cta: {
+    link: string;
+    text:string;
+  };
+}
