@@ -10,7 +10,7 @@ import groq from "groq";
 import { client } from "@/utils/client";
 import urlFor from "@/utils/urlFor";
 
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export const revalidate = 3600;
 
@@ -105,14 +105,27 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-      <script defer data-domain="si3.space" src="https://plausible.io/js/script.js"></script>
+        <script
+          defer
+          data-domain="si3.space"
+          src="https://plausible.io/js/script.js"
+        ></script>
         <link
           href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap"
           rel="stylesheet"
         />
-          <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet"></link>
-         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet"></link>
-         <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet"></link>
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
+          rel="stylesheet"
+        ></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+          rel="stylesheet"
+        ></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        ></link>
       </head>
       <body className="scroll-smooth">
         <script

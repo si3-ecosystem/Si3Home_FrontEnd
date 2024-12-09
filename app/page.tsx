@@ -9,6 +9,7 @@ import Onboard from "@/components/Onboard";
 import Pricing from "@/components/Pricing";
 import SherCoActive from "@/components/SherCoActive";
 import SherLive from "@/components/SherLive";
+import Tabs from "@/components/Tabs";
 import Testimonials from "@/components/Testimonials";
 import { client } from "@/utils/client";
 import groq from "groq";
@@ -129,16 +130,35 @@ export default async function Home() {
   return (
     <main className="scroll-smooth overflow-x-hidden">
       <Banner hero={hero} />
-      <SherLive sheHerLive={sheHerLive} />
-      <Granting granting={granting} register={register} />
-      <Educational educationalProgramming={educationalProgramming} />
-      <SherCoActive sherCoActive={sherCoActive} />
+      {/* <SherLive
+        sheHerLive={sheHerLive}
+        educationalProgramming={educationalProgramming}
+        sherCoActive={sherCoActive}
+        mission={mission}
+        ecosystemSpotlight={ecosystemSpotlight}
+      /> */}
+      <Tabs
+        educationalProgramming={educationalProgramming}
+        sherCoActive={sherCoActive}
+        mission={mission}
+        ecosystemSpotlight={ecosystemSpotlight}
+        testimonials={testimonials}
+        onboard={onboard}
+        memberSpotlight={memberSpotlight}
+        sheHerLive={sheHerLive}
+        granting={granting}
+        register={register}
+      />
+
+      {/* <Granting granting={granting} register={register} /> */}
+      {/* <Educational educationalProgramming={educationalProgramming} /> */}
+      {/* <SherCoActive sherCoActive={sherCoActive} /> */}
       <Brand brand={brand} />
-      <Members memberSpotlight={memberSpotlight} />
-      <Ecosystem ecosystemSpotlight={ecosystemSpotlight} />
-      <Mission mission={mission} />
-      <Testimonials testimonials={testimonials} />
-      <Onboard onboard={onboard} />
+      {/* <Members memberSpotlight={memberSpotlight} /> */}
+      {/* <Ecosystem ecosystemSpotlight={ecosystemSpotlight} /> */}
+      {/* <Mission mission={mission} /> */}
+      {/* <Testimonials testimonials={testimonials} /> */}
+      {/* <Onboard onboard={onboard} /> */}
       <Pricing pricing={pricing} />
     </main>
   );

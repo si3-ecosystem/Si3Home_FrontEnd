@@ -52,12 +52,16 @@ const Navbar = ({ utils }: any) => {
             </Link>
           </div>
         </div>
-        <p className="text-base max-lg:hidden xl:text-lg font-medium text-white text-center ">
+        {/* <p className="text-base max-lg:hidden xl:text-lg font-medium text-white text-center ">
           {"SI<3> LAUNCHES SEASON 1 WORKING GROUP FOR WEB3 GRANTS PROGRAMS "}
-        </p>
+        </p> */}
         <div className="max-lg:hidden font-medium">
           <div className=" flex items-center gap-[13px]">
-            <div className="bg-black p-2.5 rounded-lg">
+            <Link
+              href={utils?.stayConnected}
+              target="_blank"
+              className="bg-black p-2.5 rounded-lg"
+            >
               <Image
                 src={"/bell.png"}
                 alt="Bell Icon"
@@ -65,15 +69,11 @@ const Navbar = ({ utils }: any) => {
                 height={36}
                 className="w-[28px] h-[28px] "
               />
-            </div>
-
-            <Link
-              href={utils?.stayConnected}
-              target="_blank"
-              className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-xl !py-2 px-4 bg-[#C8BAFD] hover:bg-[#3C1FEF] text-black hover:text-white"
-            >
-              {utils.stayConnectedText || "ONBOARD"}
             </Link>
+
+            <button className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-xl !py-2 px-4 bg-[#C8BAFD] hover:bg-[#3C1FEF] text-black hover:text-white">
+              {utils.stayConnectedText || "ONBOARD"}
+            </button>
           </div>
         </div>
         <div className="lg:hidden">
@@ -134,7 +134,7 @@ const Navbar = ({ utils }: any) => {
               duration: 0.5,
               ease: "easeInOut",
             }}
-            className=" fixed z-30 bg-[#3C1FEF] top-20 h-fit left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 md:hidden"
+            className=" fixed z-30 bg-[#3C1FEF] top-20 h-screen left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 md:hidden"
           >
             <div className="flex flex-col gap-6 justify-start h-full mt-4">
               <div className="relative flex items-center gap-2 cursor-pointer">

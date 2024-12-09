@@ -66,16 +66,17 @@ export default function Banner({ hero }: any) {
           priority
           className="md:hidden w-full translate-x-36 scale-[1.2] sm:scale-[1.05] lg:scale-[1.2] translate-y-20 sm:translate-y-0 lg:translate-y-20 object-cover"
         />
-        <motion.div className="hidden md:block">
+        <motion.div className="hidden md:block ">
           <Image
             src="/herobgdesktop.png"
             alt="Background image desktop"
-            layout="fill"
             decoding="async"
+            width={1100}
+            height={1100}
             objectFit="cover"
             priority
             objectPosition="center right "
-            className="ml-96  mt-20"
+            className="ml-auto -mr-[100px]  -mt-10  "
           />
         </motion.div>
       </div>
@@ -103,7 +104,7 @@ export default function Banner({ hero }: any) {
           {hero?.subHeader}
         </motion.p>
 
-        <button className="w-full sm:max-w-[150px] text-white text-sm font-medium leading-[140%] uppercase py-3.5 rounded-lg px-2.5 border border-white hover:text-white hover:bg-[#3C1FEF] hover:border-[#3C1FEF] lg:hidden mt-7">
+        <button className="w-full max-md:hidden sm:max-w-[150px] text-white text-sm font-medium leading-[140%] uppercase py-3.5 rounded-lg px-2.5 border border-white hover:text-white hover:bg-[#3C1FEF] hover:border-[#3C1FEF] lg:hidden mt-7">
           Login
         </button>
       </div>

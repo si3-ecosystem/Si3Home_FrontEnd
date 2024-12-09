@@ -80,7 +80,7 @@ export default function Granting({ granting, register }) {
         >
           <div onClick={() => setIsOpen(true)}>Register Now</div>
         </ButtonCTA> */}
-        <button className="button  border !border-black text-black hover:text-white text-sm md:text-xl my-4 md:my-6 !font-medium px-4 focus:ring-offset-0 rounded-lg">
+        {/* <button className="button  border !border-black text-black hover:text-white text-sm md:text-xl my-4 md:my-6 !font-medium px-4 focus:ring-offset-0 rounded-lg">
           <a
             href={granting?.button?.url}
             className="button-text max-sm:text-sm max-sm:py-3"
@@ -88,7 +88,7 @@ export default function Granting({ granting, register }) {
           >
             {granting?.button?.text || "Register Now"}
           </a>
-        </button>
+        </button> */}
       </motion.div>
 
       <div className="w-full md:w-3/4 px-5 md:px-0 md:ml-auto">
