@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/atoms/button/Button";
+import { PostCard } from "@/components/atoms/card/post-card";
 import { VideoCard } from "@/components/atoms/card/video-card";
 import { MembershipBanner } from "@/components/organism/banner/membership";
 import { DropdownButton } from "@/components/organism/dropdown-button";
@@ -91,7 +92,9 @@ export function ExplorerPageTemplate() {
               <VideoCard key={video.id} video={video} />
             ))}
           </div>
-
+          <div className="mt-[50px]">
+            <PostCard />
+          </div>
           {/* Pagination */}
           <div className="my-20 flex justify-center gap-6 lg:gap-10">
             <button className="py-2 px-4 rounded flex items-center justify-center border border-[#E5007A] text-[#E5007A]">

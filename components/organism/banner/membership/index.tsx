@@ -13,6 +13,7 @@ export function MembershipBanner() {
           <button className="bg-black text-white px-6 py-3 lg:py-4 rounded hover:bg-gray-800 transition-colors">
             Apply Here
           </button>
+          
         </div>
       </div>
     </div>
