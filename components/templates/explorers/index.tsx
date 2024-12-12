@@ -3,6 +3,7 @@
 import { Button } from "@/components/atoms/button/Button";
 import { PostCard } from "@/components/atoms/card/post-card";
 import { VideoCard } from "@/components/atoms/card/video-card";
+import { ExplorerBanner } from "@/components/explorer/explorerBanner";
 import { MembershipBanner } from "@/components/organism/banner/membership";
 import { DropdownButton } from "@/components/organism/dropdown-button";
 import { categories, videos, web3SubCategories } from "@/lib/data";
@@ -12,18 +13,8 @@ import { useState } from "react";
 
 export function Banner() {
   return (
-    <div className="relative min-h-[400px] lg:min-h-[525px] bg-gradient-to-r from-pink-300 via-purple-300 to-pink-300 pt-24 lg:pt-32">
-      <div className="py-12 md:py-20 px-4 text-center relative">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-wider">
-            SI HER EXPLORERS
-          </h1>
-          <p className="text-sm md:text-base lg:text-lg text-white max-w-2xl mx-auto leading-relaxed">
-            EXPLORE OUR WEB3 EDUCATION AND SI HER GROWTH NETWORK FOR WOMEN &
-            NON-BINARY EARLY WEB3 EXPLORERS
-          </p>
-        </div>
-      </div>
+    <div>
+      <ExplorerBanner />
     </div>
   );
 }
@@ -43,7 +34,7 @@ export function ExplorerPageTemplate() {
   return (
     <div className="">
       <div className="min-h-screen flex flex-col gap-16 relative overflow-hidden ">
-        <Banner />
+        <ExplorerBanner />
         <div className="max-w-[1440px]  mx-auto px-5 lg:px-16 pb-16 flex flex-col items-center justify-center">
           <Image
             src="/icons/gradientbg.svg"

@@ -63,8 +63,6 @@ export function PostCard() {
         },
         {}
       );
-      console.log(groupedComments);
-
       setComments(groupedComments);
     } catch (error) {
       console.error("Error fetching comments:", error);
@@ -112,12 +110,13 @@ export function PostCard() {
   if (loading) return <p>Loading posts...</p>;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1  gap-6">
       {posts.map((post) => (
         <div
           key={post._id}
           className="group relative bg-white rounded-xl px-3 pt-2 pb-4 shadow-sm hover:shadow-md transition-shadow border-2 border-[#FAB7D0]"
         >
+          {/* Post Image */}
           <div className="relative h-[208px]">
             <Image
               src={post.image || "/default-image.jpg"}
@@ -129,16 +128,23 @@ export function PostCard() {
               Funding
             </div>
           </div>
+          {/* Post Content */}
           <div className="mt-7">
-            <h3 className="font-semibold text-2xl uppercase">
-              {post.title || "Untitled Post"}
-            </h3>
-            <p className="text-sm">
-              {post.description || "No description available"}
-            </p>
+            <div className="flex flex-col gap-2.5">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2.5">
+                  <h3 className="font-semibold text-2xl uppercase">
+                    {post.title || "Untitled Post"}
+                  </h3>
+                  <p className="text-sm font-medium leading-5">
+                    {post.description || "No description available"}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Render Comments */}
+          {/* Comments Section */}
           <div className="mt-3">
             {comments[post._id]?.map((comment) => (
               <div key={comment._id} className="mb-4 p-2 border-b">
@@ -149,7 +155,7 @@ export function PostCard() {
               </div>
             ))}
 
-            {/* New Comment Form */}
+            {/* Add Comment Form */}
             <div className="mt-3 relative z-10">
               <input
                 type="text"
