@@ -3,7 +3,7 @@
 import { Button } from "@/components/atoms/button/Button";
 import { PostCard } from "@/components/atoms/card/post-card";
 import { VideoCard } from "@/components/atoms/card/video-card";
-import { ExplorerBanner } from "@/components/explorer/explorerBanner";
+import { ExplorerBanner } from "@/components/explorer/ExplorerBanner";
 import { MembershipBanner } from "@/components/organism/banner/membership";
 import { DropdownButton } from "@/components/organism/dropdown-button";
 import { categories, videos, web3SubCategories } from "@/lib/data";

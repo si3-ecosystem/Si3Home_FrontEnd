@@ -189,7 +189,7 @@ export function CoActiveTemplate() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
                   {latestPosts.map((post) => (
-                    <PostCard key={post.title} {...post} type="post" />
+                    <PostCard key={post.title} {...post}/>
                   ))}
                 </div>
               </section>
@@ -227,8 +227,8 @@ export function CoActiveTemplate() {
                     <PostCard
                       key={event.title}
                       {...event}
-                      type={"educational"}
-                      description="Watch the replay of this educational session."
+                      // type={"educational"}
+                      // description="Watch the replay of this educational session."
                     />
                   ))}
                 </div>
