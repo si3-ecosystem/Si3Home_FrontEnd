@@ -60,7 +60,7 @@ const Navbar = ({ utils }: any) => {
             <Link
               href={utils?.stayConnected}
               target="_blank"
-              className="bg-black p-2.5 rounded-lg"
+              className="p-2.5 rounded-lg"
             >
               <Image
                 src={"/bell.png"}

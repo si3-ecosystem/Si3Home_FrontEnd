@@ -137,6 +137,11 @@ export default async function Home() {
         mission={mission}
         ecosystemSpotlight={ecosystemSpotlight}
       /> */}
+      <div className="max-w-[704px] mt-[100px] font-medium mx-auto min-h-[180px] text-center">
+        <p className="text-[13px] tracking-[15%] text-[#000001]">CREATORS. BUILDERS. COMMUNITY LEADERS.</p>
+        <h3 className="text-[64px] my-[18px] leading-[68px] text-[#4428F2] font-ibm">{`SI<3> ECOSYSTEM`}</h3>
+        <p className="text-xl font-normal leading-[30px] tracking-tight">WOMEN & NON-BINARY WEB3 LEADERS (show SI HER CO-ACTIVE, EDUCATIONAL PROGRAMMING and CO-ACTIVATOR SPOTLIGHT)</p>
+      </div>
       <Tabs
         educationalProgramming={educationalProgramming}
         sherCoActive={sherCoActive}

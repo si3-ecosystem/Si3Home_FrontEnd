@@ -77,17 +77,17 @@ export default function Tabs({
     <div
       ref={ref}
       id="siherlive"
-      className="flex items-center justify-center flex-col px-5 md:px-0 py-16 md:!py-28 lg:my-32 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
+      className="flex items-center justify-center flex-col px-5 md:px-0 py-16 md:!py-4 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
       style={{
         backgroundPosition: bgPosition,
       }}
     >
-      <div className="w-full mx-auto p-4 mt-[120px]">
+      <div className="w-full mx-auto p-4 mt-10">
         {/* Tab Buttons */}
-        <div className="flex w-full max-w-4xl mx-auto justify-start rounded-[12px] border border-gray-300 bg-white p-1">
+        <div className="flex w-full max-w-[633px] mx-auto justify-start rounded-[12px] border border-gray-300 bg-white p-1">
           <button
             onClick={() => setActiveTab("explorers")}
-            className={`flex-1 text-center px-4 py-2 rounded-[12px] transition ${
+            className={`flex-1 text-center h-14 rounded-[12px] transition ${
               activeTab === "explorers"
                 ? "bg-black text-white"
                 : "bg-white text-black"
@@ -97,7 +97,7 @@ export default function Tabs({
           </button>
           <button
             onClick={() => setActiveTab("leaders")}
-            className={`flex-1 text-center px-4 py-2 rounded-[12px] transition ${
+            className={`flex-1 text-center h-14 px-4 py-2 rounded-[12px] transition ${
               activeTab === "leaders"
                 ? "bg-black text-white"
                 : "bg-white text-black"
@@ -107,7 +107,7 @@ export default function Tabs({
           </button>
           <button
             onClick={() => setActiveTab("brands")}
-            className={`flex-1 text-center px-4 py-2 rounded-[12px] transition ${
+            className={`flex-1 text-center h-14 px-4 py-2 rounded-[12px] transition ${
               activeTab === "brands"
                 ? "bg-black text-white"
                 : "bg-white text-black"
