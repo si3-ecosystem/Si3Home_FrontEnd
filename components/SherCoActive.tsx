@@ -38,7 +38,7 @@ export default function SherCoActive({ sherCoActive }: any) {
         backgroundPosition: bgPosition,
       }}
     >
-      <div className="md:w-1/2 text-center space-y-3 md:space-y-[18px]">
+      <div className="md:w-3/4 text-center space-y-3 md:space-y-[18px]">
         <h3 className="md:text-xl font-medium uppercase">
           {sherCoActive.subtitle}
         </h3>

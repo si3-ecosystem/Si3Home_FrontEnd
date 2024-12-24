@@ -143,6 +143,7 @@ export default async function Home() {
         <p className="text-xl font-normal leading-[30px] tracking-tight">WOMEN & NON-BINARY WEB3 LEADERS (show SI HER CO-ACTIVE, EDUCATIONAL PROGRAMMING and CO-ACTIVATOR SPOTLIGHT)</p>
       </div>
       <Tabs
+        brand={brand}
         educationalProgramming={educationalProgramming}
         sherCoActive={sherCoActive}
         mission={mission}
@@ -158,7 +159,6 @@ export default async function Home() {
       {/* <Granting granting={granting} register={register} /> */}
       {/* <Educational educationalProgramming={educationalProgramming} /> */}
       {/* <SherCoActive sherCoActive={sherCoActive} /> */}
-      <Brand brand={brand} />
       {/* <Members memberSpotlight={memberSpotlight} /> */}
       {/* <Ecosystem ecosystemSpotlight={ecosystemSpotlight} /> */}
       {/* <Mission mission={mission} /> */}

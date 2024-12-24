@@ -13,12 +13,14 @@ import SherLive from "./SherLive";
 import { MembershipBanner } from "./organism/banner/membership";
 import Brand from "./Brand";
 import Granting from "./Granting";
+import { title } from "process";
 
 type TabsProps = {
   educationalProgramming: any;
   ecosystemSpotlight: any;
   mission: any;
   testimonials: any;
+  brand:any;
   sherCoActive: any;
   onboard: any;
   memberSpotlight: any;
@@ -36,6 +38,7 @@ export default function Tabs({
   onboard,
   memberSpotlight,
   sheHerLive,
+  brand,
   granting,
   register,
 }: TabsProps) {
@@ -113,7 +116,7 @@ export default function Tabs({
                 : "bg-white text-black"
             }`}
           >
-            Brands
+            Partners
           </button>
         </div>
 
@@ -121,29 +124,31 @@ export default function Tabs({
         <div className="mt-6">
           {activeTab === "explorers" && (
             <div className="p-4 text-center">
+              <SherCoActive sherCoActive={{...sherCoActive,title:"Si Her Co-Explorers"}} />
               <Educational educationalProgramming={educationalProgramming} />
-              <Ecosystem ecosystemSpotlight={ecosystemSpotlight} />
+              {/* <Ecosystem ecosystemSpotlight={ecosystemSpotlight} /> */}
               <Mission mission={mission} />
-              <Testimonials testimonials={testimonials} />
+              {/* <Testimonials testimonials={testimonials} /> */}
             </div>
           )}
           {activeTab === "leaders" && (
             <div className="p-4 text-center">
-              <SherCoActive sherCoActive={sherCoActive} />
+              {/* <SherCoActive sherCoActive={sherCoActive} /> */}
+              <Brand brand={brand} />
               <Educational educationalProgramming={educationalProgramming} />
 
-              <Members memberSpotlight={memberSpotlight} />
-              <Mission mission={mission} />
-              <Testimonials testimonials={testimonials} />
-              <MembershipBanner />
+              {/* <Members memberSpotlight={memberSpotlight} /> */}
+              {/* <Mission mission={mission} /> */}
+              {/* <Testimonials testimonials={testimonials} /> */}
+              {/* <MembershipBanner /> */}
             </div>
           )}
           {activeTab === "brands" && (
             <div className="p-4 text-center">
-              <Granting granting={granting} register={register} />
-              <Educational educationalProgramming={educationalProgramming} />
+              {/* <Granting granting={granting} register={register} />
+              <Educational educationalProgramming={educationalProgramming} /> */}
               <Mission mission={mission} />
-              <SherLive sheHerLive={sheHerLive} />
+              {/* <SherLive sheHerLive={sheHerLive} /> */}
               <Testimonials testimonials={testimonials} />
             </div>
           )}
