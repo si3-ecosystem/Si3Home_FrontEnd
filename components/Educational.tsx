@@ -36,13 +36,13 @@ export default function Educational({ educationalProgramming }: any) {
         <h1 className="text-2xl md:text-[40px] font-1000 leading-10 text-primary mt-6 ">
           {educationalProgramming.title}
         </h1>
-        <p className="font-mono my-4 md:my-6 w-full max-w-xl text-lg leading-7">
+        <p className="font-mono my-4 md:my-6 w-full mx-auto max-w-xl text-lg leading-7">
           {educationalProgramming.description}
         </p>
       </motion.div>
     
 
-      <div className="w-full lg:w-3/4 px-5 lg:px-0 lg:ml-auto md:flex  ">
+      <div className="w-full px-5 lg:px-0 lg:ml-auto md:flex  ">
       <div className="px-5 md:px-16 flex items-center gap-6 mt-4 md:mt-0 justify-center mb-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ export default function Educational({ educationalProgramming }: any) {
             swipeRef.current = swiper;
           }}
           modules={[Pagination, Autoplay]}
-          autoplay={{ delay: 4000 }}
+          autoplay={false}
           slidesPerView={3}
           spaceBetween={10}
           breakpoints={{
@@ -193,7 +193,7 @@ export default function Educational({ educationalProgramming }: any) {
                     </motion.div>
                   </div>
                   <div className="mt-2">
-                    <button className="bg-[#222222] text-white text-sm lg:text-xl py-3 w-full text-center flex items-center justify-center gap-2 rounded-lg ">
+                    {/* <button className="bg-[#222222] text-white text-sm lg:text-xl py-3 w-full text-center flex items-center justify-center gap-2 rounded-lg ">
                       <a href={`${item?.button?.url}`} target="_blank">
                         {item?.button?.text || "Go to Event "}
                       </a>
@@ -226,7 +226,7 @@ export default function Educational({ educationalProgramming }: any) {
                           stroke-linejoin="round"
                         />
                       </svg>
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </SwiperSlide>

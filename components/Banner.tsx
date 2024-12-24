@@ -109,7 +109,7 @@ export default function Banner({ hero }: any) {
         </button>
       </div>
       {/* banner */}
-      <div className="bg-[#F0DEDE] h-[100px] w-full absolute bottom-0 z-40  hidden md:flex  items-center justify-between gap-2 px-10 md:px-16">
+      {/* <div className="bg-[#F0DEDE] h-[100px] w-full absolute bottom-0 z-40  hidden md:flex  items-center justify-between gap-2 px-10 md:px-16">
         {partners.map((item, key) => (
           <div key={key}>
             <Image
@@ -121,7 +121,7 @@ export default function Banner({ hero }: any) {
             />
           </div>
         ))}
-      </div>
+      </div> */}
     </motion.div>
   );
 }

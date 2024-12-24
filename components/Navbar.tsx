@@ -60,7 +60,7 @@ const Navbar = ({ utils }: any) => {
             <Link
               href={utils?.stayConnected}
               target="_blank"
-              className="bg-black p-2.5 rounded-lg"
+              className="p-2.5 rounded-lg"
             >
               <Image
                 src={"/bell.png"}
@@ -134,13 +134,13 @@ const Navbar = ({ utils }: any) => {
               duration: 0.5,
               ease: "easeInOut",
             }}
-            className=" fixed z-30 bg-[#3C1FEF] top-20 h-screen left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 md:hidden"
+            className=" h-[300px] z-30 bg-[#3C1FEF] top-20 left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 lg:hidden"
           >
             <div className="flex flex-col gap-6 justify-start h-full mt-4">
               <div className="relative flex items-center gap-2 cursor-pointer">
                 <a
                   href="/explorers"
-                  className="md:hidden text-white tracking-wider relative overflow-hidden font-medium text-base "
+                  className="lg:hidden text-white tracking-wider relative overflow-hidden font-medium text-base "
                 >
                   WEB3 EXPLORERS
                 </a>
@@ -149,7 +149,7 @@ const Navbar = ({ utils }: any) => {
               <div className="">
                 <a
                   href="/co-active"
-                  className="md:hidden text-white relative overflow-hidden tracking-wider text-base max-w-[233px]  font-medium"
+                  className="lg:hidden text-white relative overflow-hidden tracking-wider text-base max-w-[233px]  font-medium"
                 >
                   WOMEN & NON-BINARY WEB3 LEADERS
                 </a>
@@ -158,7 +158,7 @@ const Navbar = ({ utils }: any) => {
               <div className="">
                 <a
                   href="#"
-                  className="md:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
+                  className="lg:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
                 >
                   WEB3 ORGANIZATIONS
                   {activeDropdown === "about" && (
