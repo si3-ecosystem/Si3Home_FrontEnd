@@ -48,8 +48,6 @@ interface BannerProps{
 
 export default function Banner({ hero,partners }:BannerProps) {
 
-  console.log({partners})
-
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
@@ -121,20 +119,20 @@ export default function Banner({ hero,partners }:BannerProps) {
         </button>
       </div>
       {/* banner */}
-      <div className="bg-[#F0DEDE] h-[100px] w-full absolute bottom-0 z-40">
+      <div className="bg-[#F0DEDE] md:h-[100px] w-full absolute bottom-0 z-40">
         <div className="relative p-2 flex overflow-hidden gap-0 flex-nowrap">
-          <div className="flex-1 flex marquee justify-between">
+          <div className="flex-1 flex marquee justify-between items-center">
             {partners.map((item, key) => (
-              <div key={key} className="flex-1 min-w-[250px]">
+              <div key={key} className="md:flex-1 min-w-[100px] md:min-w-[250px]">
                 <ImageUrl
                   image={item.logo}
                 />
               </div>
             ))}
           </div> 
-          <div className="flex-1 marquee flex justify-between">
+          <div className="flex-1 marquee flex justify-between items-center">
             {partners.map((item, key) => (
-              <div key={key} className="flex-1 min-w-[250px]">
+              <div key={key} className="md:flex-1 min-w-[100px] md:min-w-[250px]">
                 <ImageUrl
                   image={item.logo}
                 />

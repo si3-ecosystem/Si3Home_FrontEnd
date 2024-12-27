@@ -60,6 +60,26 @@ class ContentProviderService{
           }
     }
 
+    async getPartnerTabContent(){
+        const header = await this.getPartnerTabHeader();
+        const programs = await this.getPartnerPrograms()
+
+        return {programs,header}
+    }
+
+    private async getPartnerTabHeader(){
+        const query = groq`*[_type == 'partnersTabHeader'][0]`;
+        const data = await client.fetch(query);
+
+        return data || {};
+    }
+    private async getPartnerPrograms(){
+        const query = groq`*[_type == 'partner_programs']`;
+        const data = await client.fetch(query);
+
+        return data || {};
+    }
+
     private async getBanner() {
         const query = groq`*[_type == 'hero'][0]`;
         const data = await client.fetch(query);

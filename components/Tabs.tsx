@@ -17,6 +17,9 @@ import { title } from "process";
 import JoinForm from "./JoinForm";
 import Pricing from "./Pricing";
 import SingleTestimonial from "./SingleTestimonial";
+import ImageUrl from "@/utils/imageUrl";
+import Link from "next/link";
+import Image from "next/image";
 
 type TabsProps = {
   educationalProgramming: any;
@@ -32,6 +35,10 @@ type TabsProps = {
   pricing:any,
   sherexplorer: any;
   register: any;
+  partnerTabData:{
+    header:any,
+    programs:any[]
+  }
 };
 
 export default function Tabs({
@@ -47,6 +54,7 @@ export default function Tabs({
   granting,
   pricing,
   sherexplorer,
+  partnerTabData,
   register,
 }: TabsProps) {
   const [bgPosition, setBgPosition] = useState("center top 112px");
@@ -131,12 +139,12 @@ export default function Tabs({
         {/* Tab Content */}
         <div className="mt-6">
           {activeTab === "explorers" && (
-            <div className="p-4 text-center">
+            <div className="p-4  mx-auto text-center">
               <SherCoActive sherCoActive={sherexplorer} />
               <Educational educationalProgramming={educationalProgramming} />
               {/* <Ecosystem ecosystemSpotlight={ecosystemSpotlight} /> */}
               <Mission mission={mission} />
-              <Pricing pricing={pricing}/>
+              {/* <Pricing pricing={pricing}/> */}
               <JoinForm/>
               {/* <Testimonials testimonials={testimonials} /> */}
             </div>
@@ -156,7 +164,7 @@ export default function Tabs({
             </div>
           )}
           {activeTab === "brands" && (
-            <div className="p-4 text-center">
+            <div className="p-4 text-center mx-auto">
               {/* <Granting granting={granting} register={register} />
               <Educational educationalProgramming={educationalProgramming} /> */}
               <Mission mission={mission} />
@@ -164,8 +172,52 @@ export default function Tabs({
               {/* <SherLive sheHerLive={sheHerLive} /> */}
               {/* <Testimonials testimonials={testimonials} /> */}
               <SingleTestimonial testimonial={testimonials[1]}/>
+              <div className="my-20 max-w-[1196px] mx-auto">
+                <p className="text-[56px] max-w-[672px] mx-auto font-mono">{partnerTabData.header.title}</p>
+                <p className="max-w-[802px] text-lg text-[#7E8492] mx-auto my-4">{partnerTabData.header.subtitle}</p>
+              </div>
+              {partnerTabData.programs.map((program,index)=>{
+                const isReversed = index % 2 !== 0;
+                
+                return ( 
+                  <div key={program.id} className={`flex max-w-[1196px] mx-auto items-center my-20 min-h-[500px] gap-[88px] ${isReversed && "flex-row-reverse"} justify-between`}>
+                    <div className="font-mono text-left flex-1">
+                      <span className="inline-block bg-[#FAB7D0] text-black py-2 px-3 text-base">{program.event}</span>
+                      <p className="text-[40px]">{program.title}</p>
+                      <p className="text-base text-[#7E8492]">{program.description}</p>
+                    </div>
+                    <div className="flex-1 min-h-[479px] bg-[#F6F6F6] rounded-3xl p-8">
+                      <ImageUrl image={program.banner}/>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           )}
+          <div className="text-center my-10">
+            <Link href={"/join"}>
+              <button className="my-10 text-lg text-white px-6 py-4 rounded-lg bg-[#1C1B22] font-mono">Join Si Her Co-Activator</button>
+            </Link>
+          </div>
+
+          <div className="h-[410px] py-20 pr-[103px] relative overflow-hidden flex mb-[105px] bg-gradient-to-r from-[#FAB7D0] to-[#87B5F4] rounded-2xl">
+             <div className="max-w-[440px] -left-20 absolute -top-16">
+              <Image
+                  src="/images/partner-footer-image.png"
+                  alt="Background image mobile"
+                  width={500}
+                  height={500}
+                  priority
+                  className="w-full translate-x-36 scale-[1.2] sm:scale-[1.05] lg:scale-[1.2] translate-y-20 sm:translate-y-0 lg:translate-y-20 object-cover"
+                />
+             </div>
+             <div className="ml-auto max-w-[500px]">
+                <p className="text-[40px] uppercase font-mono leading-[56px] tracking-normal">Start your <b className="font-mono">creative</b> <b className="font-mono">journey</b> with si her</p>
+                <Link href={"/join"}>
+                  <button className="text-white bg-[#222222] py-[14px] rounded-md text-lg font-mono mt-20 px-[30px]">{"Let’s"} join us today!</button>
+                </Link>
+             </div>
+          </div>
         </div>
       </div>
     </div>
