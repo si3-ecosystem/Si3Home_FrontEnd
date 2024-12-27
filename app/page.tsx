@@ -11,93 +11,15 @@ import SherCoActive from "@/components/SherCoActive";
 import SherLive from "@/components/SherLive";
 import Tabs from "@/components/Tabs";
 import Testimonials from "@/components/Testimonials";
-import { client } from "@/utils/client";
-import groq from "groq";
+import ContentProvider from "@/utils/ContentProvider";
 
 export const revalidate = 3600;
 
-async function getBanner() {
-  const query = groq`*[_type == 'hero'][0]`;
-  const data = await client.fetch(query);
 
-  return data || {};
-}
-async function getRegister() {
-  const query = groq`*[_type == 'register'][0]`;
-  const data = await client.fetch(query);
-
-  return data || {};
-}
-
-async function getSherLive() {
-  const query = groq`*[_type == 'about'][0]`;
-  const data = await client.fetch(query);
-  return data || {};
-}
-async function getGranting() {
-  const query = groq`*[_type == 'grantingAccess'][0] {..., "builders":builders[]->{...}}`;
-  const data = await client.fetch(query);
-
-  return data || {};
-}
-async function getSherCoActive() {
-  const query = groq`*[_type == 'sihercoactive'][0]`;
-  const data = await client.fetch(query);
-
-  return data || {};
-}
-async function getEducationalProgramming() {
-  const query = groq`*[_type == 'educationalProgramming'][0] {...,"Events":Events[]->{...,"presenters":presenters[]->{...}}}`;
-  const data = await client.fetch(query);
-
-  return data || {};
-}
-async function getMemberSpotlight() {
-  const query = groq`*[_type == 'memberSpotlight'][0] {...,"teammembers":teammembers[]->{...}}`;
-  const data = await client.fetch(query);
-
-  return data || {};
-}
-async function getEcosystemSpotlight() {
-  const query = groq`*[_type == 'ecosystemSpotlight'][0] {...,"spotlightList":spotlightList[]->{...,"teamMember":teamMember->{...}}}`;
-  const data = await client.fetch(query);
-
-  return data || {};
-}
-
-async function getBrand() {
-  const query = groq`*[_type == 'web3brand'][0]`;
-  const data = await client.fetch(query);
-
-  return data || {};
-}
-async function getMission() {
-  const query = groq`*[_type == 'ourMission'][0]`;
-  const data = await client.fetch(query);
-
-  return data || {};
-}
-async function getOnboard() {
-  const query = groq`*[_type == 'onboard'][0]`;
-  const data = await client.fetch(query);
-
-  return data || {};
-}
-async function getPricing() {
-  const query = groq`*[_type == 'pricing']`;
-  const data = await client.fetch(query);
-
-  return data;
-}
-async function getTestimonials() {
-  const query = groq`*[_type == 'testimonials']`;
-  const data = await client.fetch(query);
-
-  return data;
-}
 
 export default async function Home() {
-  const [
+  const content = await ContentProvider.getContent()
+  const {
     hero,
     sheHerLive,
     granting,
@@ -111,25 +33,15 @@ export default async function Home() {
     pricing,
     testimonials,
     register,
-  ] = await Promise.all([
-    getBanner(),
-    getSherLive(),
-    getGranting(),
-    getSherCoActive(),
-    getEducationalProgramming(),
-    getMemberSpotlight(),
-    getEcosystemSpotlight(),
-    getBrand(),
-    getMission(),
-    getOnboard(),
-    getPricing(),
-    getTestimonials(),
-    getRegister(),
-  ]);
+    sherExplorer,
+    partners,
+ } = content;
+
+
 
   return (
     <main className="scroll-smooth overflow-x-hidden">
-      <Banner hero={hero} />
+      <Banner hero={hero} partners={partners}/>
       {/* <SherLive
         sheHerLive={sheHerLive}
         educationalProgramming={educationalProgramming}
@@ -152,6 +64,7 @@ export default async function Home() {
         onboard={onboard}
         memberSpotlight={memberSpotlight}
         sheHerLive={sheHerLive}
+        sherexplorer={sherExplorer}
         granting={granting}
         register={register}
       />
