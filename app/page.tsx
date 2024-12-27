@@ -52,10 +52,14 @@ export default async function Home() {
         mission={mission}
         ecosystemSpotlight={ecosystemSpotlight}
       /> */}
-      <div className="max-w-[704px] mt-[100px] font-medium mx-auto min-h-[180px] text-center">
-        <p className="text-[10px] sm:text-[13px] tracking-[15%] text-[#000001]">CREATORS. BUILDERS. COMMUNITY LEADERS.</p>
-        <h3 className="text-2xl sm:text-5xl md:text-[64px] md:my-[18px] leading-[68px] text-[#4428F2] font-ibm">{`SI<3> ECOSYSTEM`}</h3>
-        <p className="text-xs md:text-xl font-normal md:leading-[30px] tracking-tight">WOMEN & NON-BINARY WEB3 LEADERS (show SI HER CO-ACTIVE, EDUCATIONAL PROGRAMMING and CO-ACTIVATOR SPOTLIGHT)</p>
+      <div className="max-w-[804px] mt-[50px] md:mt-[100px] font-medium mx-auto min-h-[100px] text-center bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
+      style={{
+        backgroundPosition:"center top 15px"
+      }}
+      >
+        <p className="text-[10px] sm:text-base tracking-[15%] text-[#000001]">{sheHerLive.subtitle}</p>
+        <h3 className="text-2xl sm:text-5xl md:text-[68px] md:my-[18px] leading-[68px] text-[#4428F2]">{sheHerLive.title}</h3>
+        <p className="text-xs md:text-xl font-mono md:leading-[30px] text-[#757575]">{sheHerLive.description}</p>
       </div>
       <Tabs
         brand={brand}

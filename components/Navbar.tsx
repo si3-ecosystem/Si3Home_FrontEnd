@@ -134,7 +134,7 @@ const Navbar = ({ utils }: any) => {
               duration: 0.5,
               ease: "easeInOut",
             }}
-            className=" h-[60vh] z-30 bg-[#3C1FEF] top-20 left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 lg:hidden"
+            className=" h-[270px] z-30 bg-[#3C1FEF] top-20 left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 lg:hidden"
           >
             <div className="flex flex-col gap-6 justify-start h-full mt-4">
               <div className="relative flex items-center gap-2 cursor-pointer">
