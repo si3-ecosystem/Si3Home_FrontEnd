@@ -26,6 +26,7 @@ type TabsProps = {
   memberSpotlight: any;
   sheHerLive: any;
   granting: any;
+  sherexplorer: any;
   register: any;
 };
 
@@ -40,6 +41,7 @@ export default function Tabs({
   sheHerLive,
   brand,
   granting,
+  sherexplorer,
   register,
 }: TabsProps) {
   const [bgPosition, setBgPosition] = useState("center top 112px");
@@ -75,6 +77,7 @@ export default function Tabs({
       });
     }
   }, [isInView, controls]);
+
 
   return (
     <div
@@ -124,7 +127,7 @@ export default function Tabs({
         <div className="mt-6">
           {activeTab === "explorers" && (
             <div className="p-4 text-center">
-              <SherCoActive sherCoActive={{...sherCoActive,title:"Si Her Co-Explorers"}} />
+              <SherCoActive sherCoActive={sherexplorer} />
               <Educational educationalProgramming={educationalProgramming} />
               {/* <Ecosystem ecosystemSpotlight={ecosystemSpotlight} /> */}
               <Mission mission={mission} />

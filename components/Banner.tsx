@@ -5,6 +5,7 @@ import Button from "./shared/Button";
 import { motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 import urlFor from "@/utils/urlFor";
+import ImageUrl from "@/utils/imageUrl";
 
 const partners = [
   {
@@ -37,7 +38,18 @@ const partners = [
   },
 ];
 
-export default function Banner({ hero }: any) {
+interface BannerProps{
+  hero:any,
+  partners:{
+    name:string,
+    logo:any
+  }[]
+}
+
+export default function Banner({ hero,partners }:BannerProps) {
+
+  console.log({partners})
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
@@ -109,19 +121,28 @@ export default function Banner({ hero }: any) {
         </button>
       </div>
       {/* banner */}
-      {/* <div className="bg-[#F0DEDE] h-[100px] w-full absolute bottom-0 z-40  hidden md:flex  items-center justify-between gap-2 px-10 md:px-16">
-        {partners.map((item, key) => (
-          <div key={key}>
-            <Image
-              src={item.src}
-              alt={item.title}
-              width={400}
-              height={400}
-              className="w-full h-auto aspect-auto"
-            />
+      <div className="bg-[#F0DEDE] h-[100px] w-full absolute bottom-0 z-40">
+        <div className="relative p-2 flex overflow-hidden gap-0 flex-nowrap">
+          <div className="flex-1 flex marquee justify-between">
+            {partners.map((item, key) => (
+              <div key={key} className="flex-1 min-w-[250px]">
+                <ImageUrl
+                  image={item.logo}
+                />
+              </div>
+            ))}
+          </div> 
+          <div className="flex-1 marquee flex justify-between">
+            {partners.map((item, key) => (
+              <div key={key} className="flex-1 min-w-[250px]">
+                <ImageUrl
+                  image={item.logo}
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div> */}
+        </div>
+      </div>
     </motion.div>
   );
 }
