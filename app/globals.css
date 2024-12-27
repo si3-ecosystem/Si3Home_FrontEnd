@@ -162,6 +162,15 @@ body {
   -webkit-animation: marquee 2s linear infinite;
   animation: marquee 2s linear infinite;
 }
+
+@media screen and (max-width:800px) {
+  .marquee{
+    -moz-animation: marquee 12s linear infinite;
+    -webkit-animation: marquee 12s linear infinite;
+    animation: marquee 12s linear infinite;
+  }
+}
+
 @-moz-keyframes marquee {
   0% {
     transform: translateX(0%);

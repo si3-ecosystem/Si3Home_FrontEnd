@@ -121,10 +121,10 @@ export default function Banner({ hero,partners }:BannerProps) {
       {/* banner */}
       <div className="w-full absolute bottom-0 z-40">
         <div className="relative p-2 bg-[#F0DEDE] flex overflow-hidden gap-0 flex-nowrap">
-          <div className="absolute hidden md:block bg-[#F0DEDE] z-40 h-full pt-2 left-0 px-4">
-              <Image src={"/icons/Ecosystem Partners_.svg"} width={120} height={80} alt="title"/>
+          <div className="absolute hidden md:flex bg-[#F0DEDE] z-40 h-full items-center left-0 px-4">
+              <Image src={"/icons/Ecosystem Partners_.svg"} className="-mt-3" width={120} height={50} alt="title"/>
           </div>
-          <div className="flex-1 flex marquee justify-between items-center">
+          <div className="flex-1 flex marquee justify-between items-center gap-2">
             {partners.map((item, key) => (
               <div key={key} className="md:flex-1 min-w-[100px] md:min-w-[250px]">
                 <ImageUrl
@@ -133,7 +133,7 @@ export default function Banner({ hero,partners }:BannerProps) {
               </div>
             ))}
           </div> 
-          <div className="flex-1 marquee flex justify-between items-center">
+          <div className="flex-1 marquee flex justify-between items-center gap-2">
             {partners.map((item, key) => (
               <div key={key} className="md:flex-1 min-w-[100px] md:min-w-[250px]">
                 <ImageUrl

@@ -23,6 +23,7 @@ export async function getSeoData() {
 
 async function sharedMetaData(params: any) {
   const settings = await getSeoData();
+
   const seoLogoUrl = settings?.seoLogo
     ? urlFor(settings?.seoLogo).url()
     : "/icons/logo.webp";
