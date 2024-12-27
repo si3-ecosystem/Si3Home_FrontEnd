@@ -67,6 +67,7 @@ export default async function Home() {
         sherexplorer={sherExplorer}
         granting={granting}
         register={register}
+        pricing={pricing}
       />
 
       {/* <Granting granting={granting} register={register} /> */}
@@ -77,7 +78,7 @@ export default async function Home() {
       {/* <Mission mission={mission} /> */}
       {/* <Testimonials testimonials={testimonials} /> */}
       {/* <Onboard onboard={onboard} /> */}
-      <Pricing pricing={pricing} />
+      {/* <Pricing pricing={pricing} /> */}
     </main>
   );
 }

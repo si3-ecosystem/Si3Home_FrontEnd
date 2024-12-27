@@ -14,6 +14,9 @@ import { MembershipBanner } from "./organism/banner/membership";
 import Brand from "./Brand";
 import Granting from "./Granting";
 import { title } from "process";
+import JoinForm from "./JoinForm";
+import Pricing from "./Pricing";
+import SingleTestimonial from "./SingleTestimonial";
 
 type TabsProps = {
   educationalProgramming: any;
@@ -26,6 +29,7 @@ type TabsProps = {
   memberSpotlight: any;
   sheHerLive: any;
   granting: any;
+  pricing:any,
   sherexplorer: any;
   register: any;
 };
@@ -41,6 +45,7 @@ export default function Tabs({
   sheHerLive,
   brand,
   granting,
+  pricing,
   sherexplorer,
   register,
 }: TabsProps) {
@@ -131,6 +136,8 @@ export default function Tabs({
               <Educational educationalProgramming={educationalProgramming} />
               {/* <Ecosystem ecosystemSpotlight={ecosystemSpotlight} /> */}
               <Mission mission={mission} />
+              <Pricing pricing={pricing}/>
+              <JoinForm/>
               {/* <Testimonials testimonials={testimonials} /> */}
             </div>
           )}
@@ -139,10 +146,12 @@ export default function Tabs({
               {/* <SherCoActive sherCoActive={sherCoActive} /> */}
               <Brand brand={brand} />
               <Educational educationalProgramming={educationalProgramming} />
+              <SingleTestimonial testimonial={testimonials[0]}/>
+              <JoinForm/>
 
               {/* <Members memberSpotlight={memberSpotlight} /> */}
               {/* <Mission mission={mission} /> */}
-              {/* <Testimonials testimonials={testimonials} /> */}
+              
               {/* <MembershipBanner /> */}
             </div>
           )}
@@ -151,8 +160,10 @@ export default function Tabs({
               {/* <Granting granting={granting} register={register} />
               <Educational educationalProgramming={educationalProgramming} /> */}
               <Mission mission={mission} />
+              <br />
               {/* <SherLive sheHerLive={sheHerLive} /> */}
-              <Testimonials testimonials={testimonials} />
+              {/* <Testimonials testimonials={testimonials} /> */}
+              <SingleTestimonial testimonial={testimonials[1]}/>
             </div>
           )}
         </div>
