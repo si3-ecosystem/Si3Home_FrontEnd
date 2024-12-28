@@ -138,11 +138,11 @@ export default function Tabs({
           {activeTab === "explorers" && (
             <div className="p-4  mx-auto text-center">
               <SherCoActive sherCoActive={sherexplorer} />
-              <Educational educationalProgramming={educationalProgramming} />
-              {/* <Ecosystem ecosystemSpotlight={ecosystemSpotlight} /> */}
+              {/* <Educational educationalProgramming={educationalProgramming} /> */}
+              <Ecosystem ecosystemSpotlight={ecosystemSpotlight} />
               <Mission mission={mission} />
               {/* <Pricing pricing={pricing}/> */}
-              <JoinForm/>
+              {/* <JoinForm/> */}
               {/* <Testimonials testimonials={testimonials} /> */}
             </div>
           )}
@@ -189,16 +189,16 @@ export default function Tabs({
                   </div>
                 )
               })}
+              <div className="text-center my-10">
+                <Link href={"/join"}>
+                  <button className="my-10 text-lg text-white px-6 py-4 rounded-lg bg-[#1C1B22] font-mono">Join Si Her Co-Activator</button>
+                </Link>
+              </div>
             </div>
           )}
-          <div className="text-center my-10">
-            <Link href={"/join"}>
-              <button className="my-10 text-lg text-white px-6 py-4 rounded-lg bg-[#1C1B22] font-mono">Join Si Her Co-Activator</button>
-            </Link>
-          </div>
 
-          <div className="h-[410px] py-20 pr-[103px] relative overflow-hidden flex mb-[105px] bg-gradient-to-r from-[#FAB7D0] to-[#87B5F4] rounded-2xl">
-             <div className="max-w-[440px] -left-20 absolute -top-16">
+          <div className="min-h-[210px] md:h-[410px] mt-10 md:mt-24 py-20 px-4 md:pr-[103px] relative overflow-hidden flex mb-[105px] bg-gradient-to-r from-[#FAB7D0] to-[#87B5F4] rounded-2xl">
+             <div className="max-w-[440px] -left-20 absolute hidden md:block -top-16">
               <Image
                   src="/images/partner-footer-image.png"
                   alt="Background image mobile"
@@ -208,10 +208,10 @@ export default function Tabs({
                   className="w-full translate-x-36 scale-[1.2] sm:scale-[1.05] lg:scale-[1.2] translate-y-20 sm:translate-y-0 lg:translate-y-20 object-cover"
                 />
              </div>
-             <div className="ml-auto max-w-[500px]">
-                <p className="text-[40px] uppercase font-mono leading-[56px] tracking-normal">Start your <b className="font-mono">creative</b> <b className="font-mono">journey</b> with si her</p>
+             <div className="ml-auto max-w-[500px] text-center md:text-left">
+                <p className="text-xl md:text-[40px] uppercase font-mono md:leading-[56px] tracking-normal">Start your <b className="font-mono">creative</b> <b className="font-mono">journey</b> with si her</p>
                 <Link href={"/join"}>
-                  <button className="text-white bg-[#222222] py-[14px] rounded-md text-lg font-mono mt-20 px-[30px]">{"Let’s"} join us today!</button>
+                  <button className="text-white bg-[#222222] py-[14px] rounded-md text-sm sm:text-lg font-mono mt-6 md:mt-20 px-[30px]">{"Let’s"} join us today!</button>
                 </Link>
              </div>
           </div>

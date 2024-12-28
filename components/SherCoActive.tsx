@@ -33,7 +33,7 @@ export default function SherCoActive({ sherCoActive }: any) {
         ease: "easeInOut",
       }}
       id="siherCoActive"
-      className="flex items-center justify-center flex-col px-5 md:px-0 py-16 md:py-28 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
+      className="flex items-center justify-center flex-col md:px-0 py-16 md:py-28 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
       style={{
         backgroundPosition: bgPosition,
       }}
@@ -42,7 +42,7 @@ export default function SherCoActive({ sherCoActive }: any) {
         <h3 className="md:text-xl font-medium uppercase">
           {sherCoActive.subtitle}
         </h3>
-        <h1 className="text-4xl uppercase md:text-[64px] text-primary font-1000">
+        <h1 className="text-xl sm:text-4xl uppercase md:text-[64px] text-primary font-medium">
           {sherCoActive.title}
         </h1>
         <p className="font-mono text-sm md:text-xl max-w-[704px] mx-auto">
