@@ -183,7 +183,7 @@ export default function Tabs({
                 const isReversed = index % 2 !== 0;
                 
                 return ( 
-                  <div key={program.id} className={`flex max-w-[1196px] mx-auto flex-col lg:flex-row items-center my-20 min-h-[500px] gap-[88px] ${isReversed && "flex-row-reverse"} justify-between`}>
+                  <div key={program.id} className={`flex flex-col max-w-[1196px] mx-auto items-center my-20 min-h-[500px] gap-10 lg:gap-[88px] ${isReversed?"lg:flex-row-reverse":"lg:flex-row"} justify-between`}>
                     <div className="font-mono text-left flex-1">
                       <span className="inline-block text-xs sm:text-base bg-[#FAB7D0] text-black py-2 px-3">{program.event}</span>
                       <p className="text-2xl sm:leading-[52px] my-2 sm:text-[40px]">{program.title}</p>
