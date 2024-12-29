@@ -18,15 +18,6 @@ export default function FooterComponent({ footer }: any) {
           </Link>
 
           <div className="flex items-center gap-6 shrink-0">
-            <a href={footer.other} target="_blank">
-              <Image
-                src={"/icons/ha.svg"}
-                alt="icon"
-                width={30}
-                height={30}
-                className="w-7 h-7"
-              />
-            </a>
             <a href={footer.twitter} target="_blank">
               <Image
                 src={"/icons/x.svg"}
@@ -69,7 +60,7 @@ export default function FooterComponent({ footer }: any) {
             </a>
           </div>
           <h5 className="text-sm md:text-base">
-            Copyright © {currentYear} {"SI<3>"}.
+            Copyright {2025} {"SI<3>"}.
           </h5>
         </div>
       </div>

@@ -62,13 +62,20 @@ class ContentProviderService{
 
     async getPartnerTabContent(){
         const header = await this.getPartnerTabHeader();
+        const footer = await this.getPartnerTabFooter();
         const programs = await this.getPartnerPrograms()
 
-        return {programs,header}
+        return {programs,header,footer}
     }
 
     private async getPartnerTabHeader(){
         const query = groq`*[_type == 'partnersTabHeader'][0]`;
+        const data = await client.fetch(query);
+
+        return data || {};
+    }
+    private async getPartnerTabFooter(){
+        const query = groq`*[_type == 'partnersTabFooter'][0]`;
         const data = await client.fetch(query);
 
         return data || {};

@@ -64,7 +64,7 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
             {ecosystemSpotlight.title}
           </h1>
 
-          <div className="flex items-center justify-between flex-wrap">
+          <div className="flex items-center justify-center flex-wrap">
             <p className="font-mono my-4 md:my-6 text-[#999999]">
               {ecosystemSpotlight.description}
             </p>

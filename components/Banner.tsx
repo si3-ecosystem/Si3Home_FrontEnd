@@ -107,7 +107,7 @@ export default function Banner({ hero,partners }:BannerProps) {
           {hero?.headingTwo}
         </motion.h2>
         <motion.p
-          className="md:pt-6 text-white text-sm md:text-xl font-mono max-w-[182px] md:max-w-[522px] max-sm:mt-4  "
+          className="md:pt-6 text-white text-sm md:text-3xl font-mono max-w-[182px] md:max-w-[522px] max-sm:mt-4  "
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
