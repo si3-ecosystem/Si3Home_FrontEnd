@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
 import "swiper/swiper-bundle.css";
+import SingleTestimonial from "./SingleTestimonial";
 
 export default function Testimonials({ testimonials }: any) {
   const swipeRef = useRef();
@@ -22,56 +23,32 @@ export default function Testimonials({ testimonials }: any) {
       id="testimonials"
       className=""
     >
-      <div className="py-14 md:py-28 ">
+      <div className="py-14 md:py-8 ">
         <div className="px-5 md:px-16 ">
-          <div className="flex items-center justify-center flex-wrap my-6 md:my-10">
+          <div className="flex items-center justify-end flex-wrap my-6 md:my-10">
             {testimonials?.length > 1 && (
               <div className="flex items-center gap-6 mb-3 md:mb-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  className="cursor-pointer"
+                <button
+                  className="border border-[#222222] h-8 w-8 md:h-12 md:w-12 text-[#222222]  rounded-full flex items-center justify-center"
                   onClick={() => {
                     /*
             // @ts-ignore */
                     swipeRef.current.slidePrev();
                   }}
                 >
-                  <path
-                    d="M20 26.5599L11.3066 17.8666C10.28 16.8399 10.28 15.1599 11.3066 14.1333L20 5.43994"
-                    stroke="#292D32"
-                    stroke-width="1.5"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
+                  <i className="bi bi-chevron-left text-xl"></i>
+                </button>
 
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                  className="cursor-pointer"
+                <button
+                  className="border border-[#222222] h-8 w-8 md:h-12 md:w-12 text-[#222222] rounded-full flex items-center justify-center"
                   onClick={() => {
                     /*
             // @ts-ignore */
                     swipeRef.current.slideNext();
                   }}
                 >
-                  <path
-                    d="M11.8799 26.5599L20.5732 17.8666C21.5999 16.8399 21.5999 15.1599 20.5732 14.1333L11.8799 5.43994"
-                    stroke="#292D32"
-                    stroke-width="1.5"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
+                  <i className="bi bi-chevron-right md:text-xl"></i>
+                </button>
               </div>
             )}
           </div>
@@ -82,7 +59,7 @@ export default function Testimonials({ testimonials }: any) {
       // @ts-ignore */
               swipeRef.current = swiper;
             }}
-            slidesPerView={1.2}
+            slidesPerView={1}
             spaceBetween={30}
             breakpoints={{
               340: {
@@ -90,7 +67,7 @@ export default function Testimonials({ testimonials }: any) {
                 spaceBetween: 10,
               },
               640: {
-                slidesPerView: 2,
+                slidesPerView: 1,
                 spaceBetween: 30,
               },
             }}
@@ -100,7 +77,8 @@ export default function Testimonials({ testimonials }: any) {
                 key={key}
                 className="flex flex-col gap-16 justify-between"
               >
-                <h1 className="text-base lg:text-xl h-full min-h-[220px] max-w-[600px]">
+                <SingleTestimonial testimonial={item}/>
+                {/* <h1 className="text-base lg:text-xl h-full min-h-[220px] max-w-[600px]">
                   {`“`} <br />
                   <span>{item?.description}</span>
                   {`”`}
@@ -127,7 +105,7 @@ export default function Testimonials({ testimonials }: any) {
                       </p>
                     </div>
                   </span>
-                </div>
+                </div> */}
               </SwiperSlide>
             ))}
           </Swiper>

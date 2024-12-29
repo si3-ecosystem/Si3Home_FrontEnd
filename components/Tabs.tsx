@@ -82,6 +82,8 @@ export default function Tabs({
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
 
+  const BOLD_TEXTS = ["LEADERSHIP","IN","WEB3"];
+
   useEffect(() => {
     if (isInView) {
       controls.start({
@@ -149,11 +151,13 @@ export default function Tabs({
           )}
           {activeTab === "leaders" && (
             <div className="p-4 text-center">
-              {/* <SherCoActive sherCoActive={sherCoActive} /> */}
+              <SherCoActive sherCoActive={sherCoActive} />
               <Brand brand={brand} />
               <Educational educationalProgramming={educationalProgramming} />
-              <SingleTestimonial testimonial={testimonials[0]}/>
-              <JoinForm/>
+              {/* <SingleTestimonial testimonial={testimonials[0]}/> */}
+              <p className="text-[#4428F2] font-medium text-[40px] leading-[68px] mb-12">TESTIMONIALS</p>
+
+              <Testimonials testimonials={testimonials}/>
 
               {/* <Members memberSpotlight={memberSpotlight} /> */}
               {/* <Mission mission={mission} /> */}
@@ -168,23 +172,24 @@ export default function Tabs({
               <Mission mission={mission} />
               <br />
               {/* <SherLive sheHerLive={sheHerLive} /> */}
-              {/* <Testimonials testimonials={testimonials} /> */}
-              <SingleTestimonial testimonial={testimonials[1]}/>
-              <div className="my-20 max-w-[1196px] mx-auto">
-                <p className="text-[56px] max-w-[672px] mx-auto font-mono">{partnerTabData.header.title}</p>
+              <p className="text-[#4428F2] font-medium text-[40px] leading-[68px] mb-6">TESTIMONIALS</p>
+              <Testimonials testimonials={testimonials} />
+              {/* <SingleTestimonial testimonial={testimonials[1]}/> */}
+              <div className="max-w-[1196px] mx-auto">
+                <p className="text-3xl md:leading-[64px] md:text-[56px] max-w-[672px] mx-auto font-mono">{partnerTabData.header.title}</p>
                 <p className="max-w-[802px] text-lg text-[#7E8492] mx-auto my-4">{partnerTabData.header.subtitle}</p>
               </div>
               {partnerTabData.programs.map((program,index)=>{
                 const isReversed = index % 2 !== 0;
                 
                 return ( 
-                  <div key={program.id} className={`flex max-w-[1196px] mx-auto items-center my-20 min-h-[500px] gap-[88px] ${isReversed && "flex-row-reverse"} justify-between`}>
+                  <div key={program.id} className={`flex max-w-[1196px] mx-auto flex-col lg:flex-row items-center my-20 min-h-[500px] gap-[88px] ${isReversed && "flex-row-reverse"} justify-between`}>
                     <div className="font-mono text-left flex-1">
-                      <span className="inline-block bg-[#FAB7D0] text-black py-2 px-3 text-base">{program.event}</span>
-                      <p className="text-[40px]">{program.title}</p>
-                      <p className="text-base text-[#7E8492]">{program.description}</p>
+                      <span className="inline-block text-xs sm:text-base bg-[#FAB7D0] text-black py-2 px-3">{program.event}</span>
+                      <p className="text-2xl sm:leading-[52px] my-2 sm:text-[40px]">{program.title}</p>
+                      <p className="text-sm sm:text-base text-[#7E8492]">{program.description}</p>
                     </div>
-                    <div className="flex-1 min-h-[479px] bg-[#F6F6F6] rounded-3xl p-8">
+                    <div className="flex-1 min-h-[300px] sm:min-h-[479px] bg-[#F6F6F6] rounded-3xl p-8">
                       <ImageUrl image={program.banner}/>
                     </div>
                   </div>
@@ -199,7 +204,7 @@ export default function Tabs({
           )}
 
           <div className="md:min-h-[410px] mt-10 md:mt-24 py-10 mx-4 sm:py-20 px-4 md:pr-[163px] relative overflow-hidden flex mb-[40px] sm:mb-[105px] bg-gradient-to-r from-[#FAB7D0] to-[#87B5F4] rounded-2xl">
-             <div className="max-w-[440px] -left-20 absolute hidden md:block -top-16">
+             <div className="max-w-[440px] -left-20 absolute hidden lg:block -top-16">
               <Image
                   src="/images/partner-footer-image.png"
                   alt="Background image mobile"
@@ -210,10 +215,18 @@ export default function Tabs({
                 />
              </div>
              <div className="mx-auto md:mx-0 md:ml-auto max-w-[500px] text-center md:text-left">
-                <p className="text-xl md:text-[40px] uppercase font-mono md:leading-[56px] tracking-normal">{partnerTabData.footer.title}</p>
+                <p className="text-xl md:text-[40px] uppercase font-mono md:leading-[56px] tracking-normal">
+                  {(partnerTabData.footer.title as string).split(" ").map((word)=>{
+                    if(BOLD_TEXTS.includes(word.toUpperCase())){
+                      return <b key={Math.random() * 100000}>{word + " "}</b>
+                    }
+                    return <span key={Math.random() * 100000}>{word + " "}</span>
+                  })}
+                </p>
                 <Link href={partnerTabData.footer.url || "/join"}>
                   <button className="text-white bg-[#222222] py-[14px] rounded-md text-sm sm:text-lg font-mono mt-6 md:mt-10 px-[30px]">{partnerTabData.footer.btnTitle}</button>
                 </Link>
+                <p className="mt-2">{partnerTabData.footer.caption}</p>
              </div>
           </div>
         </div>

@@ -96,8 +96,9 @@ export default function Educational({ educationalProgramming }: any) {
             swipeRef.current = swiper;
           }}
           modules={[Pagination, Autoplay]}
-          autoplay={false}
+          autoplay={true}
           slidesPerView={3}
+          scrollbar={true}
           spaceBetween={10}
           breakpoints={{
             340: {

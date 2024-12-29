@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-
+import "bootstrap-icons/font/bootstrap-icons.css"
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
