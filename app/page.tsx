@@ -38,6 +38,7 @@ export default async function Home() {
     register,
     sherExplorer,
     partners,
+    partnerTestimonials,
  } = content;
 
 
@@ -52,7 +53,7 @@ export default async function Home() {
         mission={mission}
         ecosystemSpotlight={ecosystemSpotlight}
       /> */}
-      <div className="max-w-[804px] mt-[50px] px-4 md:mt-[100px] font-medium mx-auto min-h-[100px] text-center bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
+      <div className="max-w-[804px] mt-[110px] px-4 md:mt-[170px] font-medium mx-auto min-h-[100px] text-center bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
       style={{
         backgroundPosition:"center top 15px"
       }}
@@ -63,6 +64,7 @@ export default async function Home() {
       </div>
       <Tabs
         brand={brand}
+        partnerTestimonials={partnerTestimonials}
         partnerTabData={partnerTabData}
         educationalProgramming={educationalProgramming}
         sherCoActive={sherCoActive}

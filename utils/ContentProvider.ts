@@ -22,7 +22,8 @@ class ContentProviderService{
             testimonials,
             register,
             sherExplorer,
-            partners
+            partners,
+            partnerTestimonials
           ] = await Promise.all([
             this.getBanner(),
             this.getSherLive(),
@@ -39,6 +40,7 @@ class ContentProviderService{
             this.getRegister(),
             this.getSherExplorer(),
             this.getPartners(),
+            this.getPartnerTestimonials(),
           ]);
 
           return {
@@ -57,6 +59,7 @@ class ContentProviderService{
             register,
             sherExplorer,
             partners,
+            partnerTestimonials,
           }
     }
 
@@ -75,7 +78,7 @@ class ContentProviderService{
         return data || {};
     }
     private async getPartnerTabFooter(){
-        const query = groq`*[_type == 'partnersTabFooter'][0]`;
+        const query = groq`*[_type == 'partnersTabFooter']`;
         const data = await client.fetch(query);
 
         return data || {};
@@ -163,6 +166,11 @@ class ContentProviderService{
     }
     private async  getTestimonials() {
         const query = groq`*[_type == 'testimonials']`;
+        const data = await client.fetch(query);
+        return data;
+    }
+    private async  getPartnerTestimonials() {
+        const query = groq`*[_type == 'partnerTestimonials']`;
         const data = await client.fetch(query);
         return data;
     }

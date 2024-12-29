@@ -60,12 +60,12 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
     >
       <div className="py-14 md:py-28">
         <div className="px-5 md:px-16">
-          <h1 className="text-2xl md:text-4xl text-primary mt-6 font-1000">
+          <h1 className="text-2xl md:text-4xl text-primary mt-6 font-medium uppercase">
             {ecosystemSpotlight.title}
           </h1>
 
           <div className="flex items-center justify-center flex-wrap">
-            <p className="font-mono my-4 md:my-6 text-[#999999]">
+            <p className="font-mono my-4 md:my-6 text-[#999999] text-base sm:text-xl">
               {ecosystemSpotlight.description}
             </p>
           </div>

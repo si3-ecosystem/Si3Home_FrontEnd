@@ -33,7 +33,7 @@ export default function SherCoActive({ sherCoActive }: any) {
         ease: "easeInOut",
       }}
       id="siherCoActive"
-      className="flex items-center justify-center flex-col md:px-0 py-16 md:py-28 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
+      className="flex items-center justify-center flex-col mt-[60px] md:px-0 py-16 md:py-28 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
       style={{
         backgroundPosition: bgPosition,
       }}

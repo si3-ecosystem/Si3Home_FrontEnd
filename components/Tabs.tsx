@@ -20,12 +20,14 @@ import SingleTestimonial from "./SingleTestimonial";
 import ImageUrl from "@/utils/imageUrl";
 import Link from "next/link";
 import Image from "next/image";
+import JoinTabFooter from "./JoinTabFooter";
 
 type TabsProps = {
   educationalProgramming: any;
   ecosystemSpotlight: any;
   mission: any;
   testimonials: any;
+  partnerTestimonials: any[];
   brand:any;
   sherCoActive: any;
   onboard: any;
@@ -37,7 +39,7 @@ type TabsProps = {
   register: any;
   partnerTabData:{
     header:any,
-    footer:any,
+    footer:any[],
     programs:any[]
   }
 };
@@ -57,6 +59,7 @@ export default function Tabs({
   sherexplorer,
   partnerTabData,
   register,
+  partnerTestimonials,
 }: TabsProps) {
   const [bgPosition, setBgPosition] = useState("center top 112px");
   const [activeTab, setActiveTab] = useState("explorers");
@@ -82,7 +85,7 @@ export default function Tabs({
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
 
-  const BOLD_TEXTS = ["LEADERSHIP","IN","WEB3"];
+
 
   useEffect(() => {
     if (isInView) {
@@ -147,6 +150,7 @@ export default function Tabs({
               {/* <Pricing pricing={pricing}/> */}
               {/* <JoinForm/> */}
               {/* <Testimonials testimonials={testimonials} /> */}
+              <JoinTabFooter footerData={partnerTabData.footer[0]}/>
             </div>
           )}
           {activeTab === "leaders" && (
@@ -163,19 +167,15 @@ export default function Tabs({
               {/* <Mission mission={mission} /> */}
               
               {/* <MembershipBanner /> */}
+              <JoinTabFooter footerData={partnerTabData.footer[1] ?? partnerTabData.footer[0]}/>
             </div>
           )}
           {activeTab === "brands" && (
             <div className="p-4 text-center mx-auto">
               {/* <Granting granting={granting} register={register} />
               <Educational educationalProgramming={educationalProgramming} /> */}
-              <Mission mission={mission} />
-              <br />
-              {/* <SherLive sheHerLive={sheHerLive} /> */}
-              <p className="text-[#4428F2] font-medium text-[40px] leading-[68px] mb-6">TESTIMONIALS</p>
-              <Testimonials testimonials={testimonials} />
               {/* <SingleTestimonial testimonial={testimonials[1]}/> */}
-              <div className="max-w-[1196px] mx-auto">
+              <div className="max-w-[1196px] mt-[170px] mx-auto">
                 <p className="text-3xl md:leading-[64px] md:text-[56px] max-w-[672px] mx-auto font-mono">{partnerTabData.header.title}</p>
                 <p className="max-w-[802px] text-lg text-[#7E8492] mx-auto my-4">{partnerTabData.header.subtitle}</p>
               </div>
@@ -195,40 +195,16 @@ export default function Tabs({
                   </div>
                 )
               })}
-              <div className="text-center my-10">
-                <Link href={"/join"}>
-                  <button className="my-10 text-lg text-white px-6 py-4 rounded-lg bg-[#1C1B22] font-mono">Join Si Her Co-Activator</button>
-                </Link>
-              </div>
+               <Mission mission={mission} />
+              <br />
+              {/* <SherLive sheHerLive={sheHerLive} /> */}
+              <p className="text-[#4428F2] font-medium text-[40px] leading-[68px] mb-6">TESTIMONIALS</p>
+              {partnerTestimonials && partnerTestimonials.length > 0 && <Testimonials testimonials={partnerTestimonials} />}
+              <JoinTabFooter footerData={partnerTabData.footer[2] ?? partnerTabData.footer[0] }/>
             </div>
           )}
 
-          <div className="md:min-h-[410px] mt-10 md:mt-24 py-10 mx-4 sm:py-20 px-4 md:pr-[163px] relative overflow-hidden flex mb-[40px] sm:mb-[105px] bg-gradient-to-r from-[#FAB7D0] to-[#87B5F4] rounded-2xl">
-             <div className="max-w-[440px] -left-20 absolute hidden lg:block -top-16">
-              <Image
-                  src="/images/partner-footer-image.png"
-                  alt="Background image mobile"
-                  width={500}
-                  height={500}
-                  priority
-                  className="w-full translate-x-36 scale-[1.2] sm:scale-[1.05] lg:scale-[1.2] translate-y-20 sm:translate-y-0 lg:translate-y-20 object-cover"
-                />
-             </div>
-             <div className="mx-auto md:mx-0 md:ml-auto max-w-[500px] text-center md:text-left">
-                <p className="text-xl md:text-[40px] uppercase font-mono md:leading-[56px] tracking-normal">
-                  {(partnerTabData.footer.title as string).split(" ").map((word)=>{
-                    if(BOLD_TEXTS.includes(word.toUpperCase())){
-                      return <b key={Math.random() * 100000}>{word + " "}</b>
-                    }
-                    return <span key={Math.random() * 100000}>{word + " "}</span>
-                  })}
-                </p>
-                <Link href={partnerTabData.footer.url || "/join"}>
-                  <button className="text-white bg-[#222222] py-[14px] rounded-md text-sm sm:text-lg font-mono mt-6 md:mt-10 px-[30px]">{partnerTabData.footer.btnTitle}</button>
-                </Link>
-                <p className="mt-2">{partnerTabData.footer.caption}</p>
-             </div>
-          </div>
+          
         </div>
       </div>
     </div>
