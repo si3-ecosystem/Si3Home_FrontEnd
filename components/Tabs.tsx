@@ -135,7 +135,7 @@ export default function Tabs({
                 : "bg-white text-black"
             }`}
           >
-            {"I'm Creating Web3"}
+            {"I'm Building Web3"}
           </button>
         </div>
 
@@ -159,7 +159,7 @@ export default function Tabs({
               <Brand brand={brand} />
               <Educational educationalProgramming={educationalProgramming} />
               {/* <SingleTestimonial testimonial={testimonials[0]}/> */}
-              <p className="text-[#4428F2] font-medium text-[40px] leading-[68px] mb-12">TESTIMONIALS</p>
+              <p className="text-[#4428F2] font-medium text-[40px] leading-[68px]">TESTIMONIALS</p>
 
               <Testimonials testimonials={testimonials}/>
 
@@ -177,7 +177,7 @@ export default function Tabs({
               {/* <SingleTestimonial testimonial={testimonials[1]}/> */}
               <div className="max-w-[1196px] mt-[170px] mx-auto">
                 <p className="text-3xl md:leading-[64px] md:text-[56px] max-w-[672px] mx-auto font-mono">{partnerTabData.header.title}</p>
-                <p className="max-w-[802px] text-lg text-[#7E8492] mx-auto my-4">{partnerTabData.header.subtitle}</p>
+                <p className="max-w-[802px] text-lg text-[#7E8492] font-mono mx-auto my-4">{partnerTabData.header.subtitle}</p>
               </div>
               {partnerTabData.programs.map((program,index)=>{
                 const isReversed = index % 2 !== 0;

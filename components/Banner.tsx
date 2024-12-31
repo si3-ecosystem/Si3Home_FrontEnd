@@ -124,9 +124,11 @@ export default function Banner({ hero,partners }:BannerProps) {
           <div className="absolute hidden md:flex bg-[#F0DEDE] z-40 h-full items-center left-0 px-4">
               <Image src={"/icons/Ecosystem Partners_.svg"} className="-mt-3" width={120} height={50} alt="title"/>
           </div>
-          <div className="flex-1 flex marquee justify-between items-center gap-8">
+          <div className="flex-1 flex marquee justify-between items-center gap-16" style={{
+            animationDuration:`${20 + (partners.length * 1)}s`
+          }}>
             {partners.map((item, key) => (
-              <div key={key} className="md:flex-1 min-w-[100px] md:min-w-[160px]">
+              <div key={key} className="md:flex-1 min-w-[100px] mr-12 md:min-w-[280px]">
                 <ImageUrl
                   image={item.logo}
                   width={50}
@@ -135,9 +137,11 @@ export default function Banner({ hero,partners }:BannerProps) {
               </div>
             ))}
           </div> 
-          <div className="flex-1 marquee flex justify-between items-center gap-8">
+          <div className="flex-1 marquee flex justify-between items-center gap-16" style={{
+             animationDuration:`${20 + (partners.length * 1)}s`
+          }}>
             {partners.map((item, key) => (
-              <div key={key} className="md:flex-1 min-w-[100px] md:min-w-[160px]">
+              <div key={key} className="md:flex-1 min-w-[100px] mr-12 md:min-w-[280px]">
                 <ImageUrl
                   image={item.logo}
                   width={50}

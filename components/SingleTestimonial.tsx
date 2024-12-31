@@ -10,7 +10,7 @@ interface TestimonialProps{
 export default function SingleTestimonial(props: TestimonialProps) {
     const {testimonial} = props
     return (
-        <div className="text-left py-4 max-w-[976px] min-h-[700px]">
+        <div className="text-left py-2 max-w-[976px]">
             <p className="font-mono text-xl md:text-[28px] md:leading-[46px]"> <span className="text-3xl md:leading-[96px] md:text-[80px]">{`“`}</span> <br /> {testimonial.description} {`”`}</p>
             <div className="flex items-center gap-6 md:gap-36 flex-wrap mt-12 pr-8">
                   <span className="flex gap-2 items-center">

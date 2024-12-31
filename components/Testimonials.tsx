@@ -23,7 +23,7 @@ export default function Testimonials({ testimonials }: any) {
       id="testimonials"
       className=""
     >
-      <div className="py-14 md:py-8 ">
+      <div className="mb-5 pb-8">
         <div className="px-5 md:px-16 ">
           <div className="flex items-center justify-end flex-wrap my-6 md:my-10">
             {testimonials?.length > 1 && (
