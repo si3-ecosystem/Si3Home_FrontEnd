@@ -23,7 +23,10 @@ class ContentProviderService{
             register,
             sherExplorer,
             partners,
-            partnerTestimonials
+            partnerTestimonials,
+            joinBuildersTab,
+            joinLeadersTab,
+            joinExplorersTab,
           ] = await Promise.all([
             this.getBanner(),
             this.getSherLive(),
@@ -41,6 +44,9 @@ class ContentProviderService{
             this.getSherExplorer(),
             this.getPartners(),
             this.getPartnerTestimonials(),
+            this.getJoinTab("joinBuilders"),
+            this.getJoinTab("joinLeaders"),
+            this.getJoinTab("joinExplorers"),
           ]);
 
           return {
@@ -60,7 +66,19 @@ class ContentProviderService{
             sherExplorer,
             partners,
             partnerTestimonials,
-          }
+            joinBuildersTab,
+            joinExplorersTab,
+            joinLeadersTab,
+        }
+    }
+
+    async getJoinTabs(){
+        const joinBuildersTab = await this.getJoinTab("joinBuilders")
+        const joinLeadersTab = await this.getJoinTab("joinLeaders")
+        const joinExplorersTab  = await this.getJoinTab("joinExplorers")
+
+        return {joinBuildersTab,joinExplorersTab,joinLeadersTab}
+
     }
 
     async getPartnerTabContent(){
@@ -79,6 +97,12 @@ class ContentProviderService{
     }
     private async getPartnerTabFooter(){
         const query = groq`*[_type == 'partnersTabFooter']`;
+        const data = await client.fetch(query);
+
+        return data || {};
+    }
+    private async getJoinTab(tab:string="joinBuilders"){
+        const query = groq`*[_type == '${tab}'][0]`;
         const data = await client.fetch(query);
 
         return data || {};
@@ -122,7 +146,7 @@ class ContentProviderService{
         const query = groq`*[_type == 'sihercoexplorer'][0]`;
         const data = await client.fetch(query);
         return data || {};
-    } 
+    }
     private async getPartners() {
         const query = groq`*[_type == 'partners']`;
         const data = await client.fetch(query);

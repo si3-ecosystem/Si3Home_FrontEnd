@@ -39,6 +39,9 @@ export default async function Home() {
     sherExplorer,
     partners,
     partnerTestimonials,
+    joinBuildersTab,
+    joinExplorersTab,
+    joinLeadersTab
  } = content;
 
 
@@ -78,6 +81,9 @@ export default async function Home() {
         granting={granting}
         register={register}
         pricing={pricing}
+        joinBuildersTab = {joinBuildersTab}
+        joinExplorersTab={joinExplorersTab}
+        joinLeadersTab={joinLeadersTab}
       />
 
       {/* <Granting granting={granting} register={register} /> */}

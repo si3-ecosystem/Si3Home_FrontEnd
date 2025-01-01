@@ -41,7 +41,10 @@ type TabsProps = {
     header:any,
     footer:any[],
     programs:any[]
-  }
+  },
+  joinBuildersTab:any,
+  joinExplorersTab:any,
+  joinLeadersTab:any
 };
 
 export default function Tabs({
@@ -60,6 +63,9 @@ export default function Tabs({
   partnerTabData,
   register,
   partnerTestimonials,
+  joinBuildersTab,
+  joinExplorersTab,
+  joinLeadersTab
 }: TabsProps) {
   const [bgPosition, setBgPosition] = useState("center top 112px");
   const [activeTab, setActiveTab] = useState("explorers");
@@ -150,7 +156,7 @@ export default function Tabs({
               {/* <Pricing pricing={pricing}/> */}
               {/* <JoinForm/> */}
               {/* <Testimonials testimonials={testimonials} /> */}
-              <JoinTabFooter footerData={partnerTabData.footer[0]}/>
+              <JoinTabFooter footerData={joinExplorersTab}/>
             </div>
           )}
           {activeTab === "leaders" && (
@@ -167,7 +173,7 @@ export default function Tabs({
               {/* <Mission mission={mission} /> */}
               
               {/* <MembershipBanner /> */}
-              <JoinTabFooter footerData={partnerTabData.footer[1] ?? partnerTabData.footer[0]}/>
+              <JoinTabFooter footerData={joinLeadersTab}/>
             </div>
           )}
           {activeTab === "brands" && (
@@ -200,7 +206,7 @@ export default function Tabs({
               {/* <SherLive sheHerLive={sheHerLive} /> */}
               <p className="text-[#4428F2] font-medium text-[40px] leading-[68px] mb-6">TESTIMONIALS</p>
               {partnerTestimonials && partnerTestimonials.length > 0 && <Testimonials testimonials={partnerTestimonials} />}
-              <JoinTabFooter footerData={partnerTabData.footer[2] ?? partnerTabData.footer[0] }/>
+              <JoinTabFooter footerData={joinBuildersTab}/>
             </div>
           )}
 
