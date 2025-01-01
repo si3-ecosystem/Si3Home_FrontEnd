@@ -119,7 +119,7 @@ export default function Banner({ hero,partners }:BannerProps) {
         </button>
       </div>
       {/* banner */}
-      <div className="w-full absolute bottom-0 z-40">
+      {/* <div className="w-full absolute bottom-0 z-40">
         <div className="relative p-2 bg-[#F0DEDE] flex overflow-hidden gap-4 flex-nowrap">
           <div className="absolute hidden md:flex bg-[#F0DEDE] z-40 h-full items-center left-0 px-4">
               <Image src={"/icons/Ecosystem Partners_.svg"} className="-mt-3" width={120} height={50} alt="title"/>
@@ -151,7 +151,7 @@ export default function Banner({ hero,partners }:BannerProps) {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </motion.div>
   );
 }
