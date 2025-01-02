@@ -97,7 +97,6 @@ export default function Educational({ educationalProgramming }: any) {
           }}
           modules={[Pagination, Autoplay]}
           autoplay={true}
-          slidesPerView={3}
           scrollbar={true}
           spaceBetween={10}
           breakpoints={{

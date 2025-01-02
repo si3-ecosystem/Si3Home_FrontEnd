@@ -71,7 +71,7 @@ export default function Banner({ hero,partners }:BannerProps) {
         <Image
           src="/heromobile.png"
           alt="Background image mobile"
-          width={800}
+          width={700}
           height={500}
           priority
           className="md:hidden w-full translate-x-36 scale-[1.2] sm:scale-[1.05] lg:scale-[1.2] translate-y-20 sm:translate-y-0 lg:translate-y-20 object-cover"
@@ -100,14 +100,14 @@ export default function Banner({ hero,partners }:BannerProps) {
           {hero?.headingOne}
         </motion.h1>
         <motion.h2
-          className="text-primary uppercase text-2xl md:text-6xl max-w-[200px] sm:max-w-xs font-[1000]"
+          className="text-primary uppercase text-xl md:text-6xl max-w-[300px] sm:max-w-xs font-[1000]"
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >
           {hero?.headingTwo}
         </motion.h2>
         <motion.p
-          className="md:pt-6 text-white text-sm md:text-3xl font-mono max-w-[182px] md:max-w-[522px] max-sm:mt-4  "
+          className="md:pt-6 text-white text-sm md:text-3xl font-mono max-w-[160px] md:max-w-[522px] max-sm:mt-4  "
           initial={{ opacity: 0.7, x: 500 }}
           animate={controls}
         >

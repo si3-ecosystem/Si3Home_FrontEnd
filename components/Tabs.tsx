@@ -165,7 +165,8 @@ export default function Tabs({
               <Brand brand={brand} />
               <Educational educationalProgramming={educationalProgramming} />
               {/* <SingleTestimonial testimonial={testimonials[0]}/> */}
-              <p className="text-[#4428F2] font-medium text-[40px] leading-[68px]">TESTIMONIALS</p>
+              <p className="text-[#4428F2] md:font-medium text-2xl md:text-[40px] leading-[68px] mb-6">TESTIMONIALS</p>
+
 
               <Testimonials testimonials={testimonials}/>
 
@@ -204,7 +205,7 @@ export default function Tabs({
                <Mission mission={mission} />
               <br />
               {/* <SherLive sheHerLive={sheHerLive} /> */}
-              <p className="text-[#4428F2] font-medium text-[40px] leading-[68px] mb-6">TESTIMONIALS</p>
+              <p className="text-[#4428F2] md:font-medium text-2xl md:text-[40px] leading-[68px] mb-6">TESTIMONIALS</p>
               {partnerTestimonials && partnerTestimonials.length > 0 && <Testimonials testimonials={partnerTestimonials} />}
               <JoinTabFooter footerData={joinBuildersTab}/>
             </div>
