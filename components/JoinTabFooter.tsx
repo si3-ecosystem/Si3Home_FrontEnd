@@ -32,7 +32,7 @@ export default function JoinTabFooter(props:Props){
                     return <span key={Math.random() * 100000}>{word + " "}</span>
                   })}
                 </p>
-                <Link href={footerData.url || "/join"}>
+                <Link href={"/onboard"}>
                   <button className="text-white bg-[#222222] py-[14px] rounded-md text-sm sm:text-lg font-mono mt-6 md:mt-10 px-[30px]">{footerData.btnTitle}</button>
                 </Link>
                 <p className="mt-2">{footerData.caption}</p>

@@ -72,10 +72,22 @@ const Navbar = ({ utils }: any) => {
                 className="w-[28px] h-[28px] "
               />
             </Link>
-
-            <button className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-xl !py-2 px-4 bg-[#C8BAFD] hover:bg-[#3C1FEF] text-black hover:text-white">
-              {utils.stayConnectedText || "ONBOARD"}
-            </button>
+            {
+              utils.stayConnectedText
+              ?(
+                <button className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-xl !py-2 px-4 bg-[#C8BAFD] hover:bg-[#3C1FEF] text-black hover:text-white">
+                {utils.stayConnectedText}
+              </button>
+              )
+              :(
+                <Link href={"/onboard"}>
+                   <button className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-xl !py-2 px-4 bg-[#C8BAFD] hover:bg-[#3C1FEF] text-black hover:text-white">
+                      {"ONBOARD"}
+                    </button>
+                </Link>
+              )
+            }
+           
           </div>
         </div>
         <div className="lg:hidden">
