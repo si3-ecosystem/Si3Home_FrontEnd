@@ -5,8 +5,10 @@ import Image from "next/image";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import urlFor from "@/utils/urlFor";
+import { useRouter } from "next/navigation";
 
 const Navbar = ({ utils }: any) => {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const controls = useAnimation();
@@ -38,7 +40,7 @@ const Navbar = ({ utils }: any) => {
     <motion.nav
       animate={controls}
       initial={{ backgroundColor: "#d3b4c2" }} // initial background color
-      className="fixed w-full z-50 backdrop-filter backdrop-blur-2xl lg:backdrop-blur-lg shadow-lg transition-all duration-100"
+      className="sticky top-0 w-full z-50 backdrop-filter backdrop-blur-2xl lg:backdrop-blur-lg shadow-lg transition-all duration-100"
     >
       <div className="flex justify-between items-center px-5 lg:px-16 py-4 gap-10 xl:gap-12 z-40">
         <div className=" space-x-4  font-medium flex  items-center justify-between">
@@ -138,26 +140,35 @@ const Navbar = ({ utils }: any) => {
           >
             <div className="flex flex-col gap-6 justify-center items-center h-full mt-4">
               <div className="relative flex items-center gap-2 cursor-pointer">
-                <a
-                  href="/explorers"
-                  className="lg:hidden text-white tracking-wider relative overflow-hidden font-medium text-base "
+              <Link
+                    href={"/#tab-content"}
+                   onClick={() => {
+                    setIsOpen(false)
+                  }}
+                  className="lg:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
                 >
                   I AM EXPLORING WEB3
-                </a>
+                </Link>
               </div>
 
               <div className="">
-                <a
-                  href="/co-active"
-                  className="lg:hidden text-white relative overflow-hidden tracking-wider text-base max-w-[233px]  font-medium"
+              <Link
+                    href={"/#tab-content"}
+                   onClick={() => {
+                    setIsOpen(false)
+                  }}
+                  className="lg:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
                 >
                   I AM LEADING WEB3
-                </a>
+                </Link>
               </div>
 
               <div className="">
-                <a
-                  href="#"
+                <Link
+                    href={"/#tab-content"}
+                   onClick={() => {
+                    setIsOpen(false)
+                  }}
                   className="lg:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
                 >
                   I AM BUILDING WEB3
@@ -169,7 +180,7 @@ const Navbar = ({ utils }: any) => {
                       className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-50"
                     />
                   )}
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

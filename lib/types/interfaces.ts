@@ -1,6 +1,6 @@
 import { Url } from 'next/dist/shared/lib/router/router';
 
-
+export type TabValues = "explorers" | "leaders" | "creators"
 export interface Card {
   _type: 'cards';
   communityLogo: {

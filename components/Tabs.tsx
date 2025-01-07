@@ -108,9 +108,10 @@ export default function Tabs({
     <div
       ref={ref}
       id="siherlive"
+      
       className="flex items-center justify-center flex-col md:px-0 py-16 md:!py-4 bg-no-repeat"
     >
-      <div className="w-full mx-auto p-4 mt-4 sm:mt-10">
+      <div className="w-full mx-auto p-4 mt-4 sm:mt-10" id="tab-content">
         {/* Tab Buttons */}
         <div className="flex w-full max-w-[750px] mx-auto justify-start rounded-[12px] border border-gray-300 bg-white p-1">
           <button
