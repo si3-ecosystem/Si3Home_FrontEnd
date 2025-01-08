@@ -49,8 +49,15 @@ interface BannerProps{
 export default function Banner({ hero,partners }:BannerProps) {
 
   const ref = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const isInView = useInView(ref, { once: true });
   const controls = useAnimation();
+
+  useEffect(()=>{
+    if(videoRef.current){
+      videoRef.current.play();
+    }
+  },[videoRef])
 
   useEffect(() => {
     if (isInView) {
@@ -67,27 +74,9 @@ export default function Banner({ hero,partners }:BannerProps) {
       ref={ref}
       className="relative w-full max-[390px]:h-[400px] max-md:h-[460px] max-h-[860px] -z-10 md:h-screen overflow-hidden  bg-gradient-to-r from-[#F5B6D3] to-[#E5B9DA]"
     >
+      <video ref={videoRef} src="/hero.mp4" className="w-full h-full absolute top-0 left-0 right-0 object-cover" loop></video>
       <div className="absolute inset-0 -z-40 ">
-        <Image
-          src="/heromobile.png"
-          alt="Background image mobile"
-          width={700}
-          height={500}
-          priority
-          className="md:hidden w-full translate-x-36 scale-[1.2] sm:scale-[1.05] lg:scale-[1.2] translate-y-20 sm:translate-y-0 lg:translate-y-20 object-cover"
-        />
         <motion.div className="hidden md:block ">
-          <Image
-            src="/herobgdesktop.png"
-            alt="Background image desktop"
-            decoding="async"
-            width={1100}
-            height={1100}
-            objectFit="cover"
-            priority
-            objectPosition="center right "
-            className="ml-auto -mr-[100px]  -mt-10  "
-          />
         </motion.div>
       </div>
       <div className="absolute inset-0" />

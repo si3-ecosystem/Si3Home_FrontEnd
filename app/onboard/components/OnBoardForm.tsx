@@ -163,13 +163,6 @@ export default function OnboardForm(){
                         />
                     </div>
                     <div className="col-span-2">
-                        <InputField
-                            label={"Your social proof to identifies your pronoun".toLowerCase()}
-                            required
-                            placeholder="Facebook, Instagram, Linkedin, X profile address"
-                        />
-                    </div>
-                    <div className="col-span-2">
                         <p className="uppercase text-sm md:text-lg font-mono">Are you interested in exploring creating a livestreaming channel for your personal brand with our decentralized media tools? (<b className="text-sm">for Si Her Co-Active members only</b>)</p>
                         <div className="flex flex-wrap md:flex-nowrap gap-4 justify-between my-7">
                             <RadioInputField
