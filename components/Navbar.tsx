@@ -42,7 +42,7 @@ const Navbar = ({ utils }: any) => {
       initial={{ backgroundColor: "#d3b4c2" }} // initial background color
       className="sticky top-0 w-full z-50 backdrop-filter backdrop-blur-2xl lg:backdrop-blur-lg shadow-lg transition-all duration-100"
     >
-      <div className="flex justify-between items-center px-5 lg:px-16 py-4 gap-10 xl:gap-12 z-40">
+      <div className="flex justify-between items-center px-5 lg:px-16 py-[5px] gap-10 xl:gap-12 z-40">
         <div className=" space-x-4  font-medium flex  items-center justify-between">
           <div className="flex items-center justify-center">
             <Link href="/" className="text-white text-5xl font-bold uppercase ">
@@ -148,7 +148,7 @@ const Navbar = ({ utils }: any) => {
               duration: 0.5,
               ease: "easeInOut",
             }}
-            className=" h-[320px] z-30 bg-[#3C1FEF] top-20 left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 lg:hidden"
+            className=" h-[420px] absolute z-30 bg-[#3C1FEF] top-[56px] left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 lg:hidden"
           >
             <div className="flex flex-col gap-6 justify-center items-center h-full mt-4">
               <div className="relative flex items-center gap-2 cursor-pointer">
