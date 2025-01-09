@@ -74,7 +74,7 @@ export default function Banner({ hero,partners }:BannerProps) {
       ref={ref}
       className="relative w-full max-[390px]:h-[400px] max-md:h-[460px] max-h-[860px] -z-10 md:h-screen overflow-hidden  bg-gradient-to-r from-[#F5B6D3] to-[#E5B9DA]"
     >
-      <video ref={videoRef} src="/hero.mp4" autoPlay className="w-full h-full absolute top-0 left-0 right-0 object-cover" loop/>
+      <video ref={videoRef} muted src="/hero.mp4" autoPlay className="w-full h-full absolute top-0 left-0 right-0 object-cover" loop/>
       <div className="absolute inset-0 -z-40 ">
         <motion.div className="hidden md:block ">
         </motion.div>
