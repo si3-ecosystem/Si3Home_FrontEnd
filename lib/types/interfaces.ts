@@ -62,3 +62,17 @@ export interface CommunityButton {
     text:string;
   };
 }
+
+export interface NewMemberData{
+  memberType:TabValues,
+  firstname:string,
+  lastname:string,
+  pronouns:string,
+  email:string,
+  pronouns_social_proof:string,
+  exploring_interests:string,
+  core_values:string[],
+  self_description:string,
+  source_of_information:string,
+  joining_intentions:string
+}

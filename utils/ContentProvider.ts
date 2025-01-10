@@ -1,11 +1,36 @@
+import { NewMemberData } from "@/lib/types/interfaces";
 import { client } from "@/utils/client";
 import groq from "groq";
+import {ClientError} from "next-sanity";
 
-interface ContentData{
-    [key:string]:any;
-}
 
 class ContentProviderService{
+    async createMember(newMember:NewMemberData){
+        try {
+            const data = await client.create({
+                _type: "members",
+                ...newMember,
+            })
+            return {
+                data,
+                error:null,
+                message:"Member Created successfully"
+            }
+        } catch (error) {
+            if(error instanceof ClientError){
+                return {
+                    data:null,
+                    error,
+                    message:error.message
+                }
+            }
+            return {
+                data:null,
+                error,
+                message:(error as Error).message,
+            }
+        }
+    }
     async getContent(){
         const [
             hero,
@@ -100,6 +125,42 @@ class ContentProviderService{
         const data = await client.fetch(query);
 
         return data || {};
+    }
+
+    async getExplorerPageData(){
+        const explorerVideos = await this.getListData("explorer_videos")
+        const explorerVideoCategories = await this.getListData("explorer_videos_categories")
+
+        return {
+            explorerVideos,
+            explorerVideoCategories
+        }
+    }
+
+    async getProgramPageData(){
+        const events = await this.getListData("program_events")
+        const post = await this.getListData("program_posts")
+        const replays = await this.getListData("program_replays")
+
+        return {events, post, replays}
+    }
+    async getCoActivePageData(){
+        const events = await this.getListData("events")
+        const post = await this.getListData("posts")
+        const replays = await this.getListData("educational_replays")
+
+        return {events, post, replays}
+    }
+
+    private async getListData<T>(documentId:string){
+       try {
+        const query = groq`*[_type == '${documentId}']`;
+        const data:T[] = await client.fetch(query);
+
+        return data || [] as T[];
+       } catch (error) {
+        return [] as T[];
+       }
     }
     private async getJoinTab(tab:string="joinBuilders"){
         const query = groq`*[_type == '${tab}'][0]`;

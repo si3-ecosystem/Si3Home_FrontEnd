@@ -11,7 +11,7 @@ export default function FormTab(){
         <section>
             <TabHeader {...{activeTab,setActiveTab}}/>
             <div>
-                <OnboardForm/>
+                <OnboardForm memberType={activeTab}/>
             </div>
         </section>
     )

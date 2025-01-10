@@ -17,6 +17,7 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/react-loader": "^1.10.3",
     "@studio-freight/lenis": "^1.0.42",
+    "antd": "^5.23.0",
     "axios": "^1.7.2",
     "bootstrap-icons": "^1.11.3",
     "class-variance-authority": "^0.7.0",
