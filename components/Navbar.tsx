@@ -6,6 +6,7 @@ import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import urlFor from "@/utils/urlFor";
 import { useRouter } from "next/navigation";
+import FlashInfoHeader from "@/app/components/v2/FlashInfoHeader";
 
 const Navbar = ({ utils }: any) => {
   const router = useRouter()
@@ -37,12 +38,12 @@ const Navbar = ({ utils }: any) => {
   }, [controls]);
 
   return (
+    <header className="sticky top-0 z-50">
+    <FlashInfoHeader/>
     <motion.nav
-      animate={controls}
-      initial={{ backgroundColor: "#d3b4c2" }} // initial background color
-      className="sticky top-0 w-full z-50 backdrop-filter backdrop-blur-2xl lg:backdrop-blur-lg shadow-lg transition-all duration-100"
+      className="w-full backdrop-filter backdrop-blur-2xl lg:backdrop-blur-lg shadow-lg transition-all duration-100"
     >
-      <div className="flex justify-between items-center px-5 lg:px-16 py-[5px] gap-10 xl:gap-12 z-40">
+      <div className="flex justify-between items-center px-5 lg:px-16 min-h-[67px] gap-10 xl:gap-12 z-40">
         <div className=" space-x-4  font-medium flex  items-center justify-between">
           <div className="flex items-center justify-center">
             <Link href="/" className="text-white text-5xl font-bold uppercase ">
@@ -59,7 +60,7 @@ const Navbar = ({ utils }: any) => {
         </p> */}
         <div className="max-lg:hidden font-medium">
           <div className=" flex items-center gap-[13px]">
-            <Link
+            {/* <Link
               href={utils?.stayConnected}
               target="_blank"
               className="p-2.5 rounded-lg"
@@ -71,7 +72,7 @@ const Navbar = ({ utils }: any) => {
                 height={36}
                 className="w-[28px] h-[28px] "
               />
-            </Link>
+            </Link> */}
             {
               utils.stayConnectedText
               ?(
@@ -81,8 +82,8 @@ const Navbar = ({ utils }: any) => {
               )
               :(
                 <Link href={"/onboard"}>
-                   <button className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-xl !py-2 px-4 bg-[#C8BAFD] hover:bg-[#3C1FEF] text-black hover:text-white">
-                      {"ONBOARD"}
+                   <button className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-8 bg-black hover:bg-[#3C1FEF] text-white hover:text-white">
+                      {"Get Started"}
                     </button>
                 </Link>
               )
@@ -199,6 +200,7 @@ const Navbar = ({ utils }: any) => {
         )}
       </AnimatePresence>
     </motion.nav>
+    </header>
   );
 };
 

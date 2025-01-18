@@ -12,6 +12,7 @@ import SherLive from "@/components/SherLive";
 import Tabs from "@/components/Tabs";
 import Testimonials from "@/components/Testimonials";
 import ContentProvider from "@/utils/ContentProvider";
+import Hero from "./components/v2/Hero";
 
 export const revalidate = 3600;
 
@@ -48,7 +49,8 @@ export default async function Home() {
 
   return (
     <main className="scroll-smooth overflow-x-hidden">
-      <Banner hero={hero} partners={partners}/>
+      <Hero/>
+      {/* <Banner hero={hero} partners={partners}/> */}
       {/* <SherLive
         sheHerLive={sheHerLive}
         educationalProgramming={educationalProgramming}

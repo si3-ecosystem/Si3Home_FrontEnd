@@ -12,6 +12,7 @@ import urlFor from "@/utils/urlFor";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
+
 export const revalidate = 3600;
 
 export async function getSeoData() {
