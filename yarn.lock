@@ -3220,6 +3220,18 @@ convert-source-map@^2.0.0:
   resolved "https://registry.npmjs.org/convert-source-map/-/convert-source-map-2.0.0.tgz"
   integrity sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==
 
+cookie@^1.0.1:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/cookie/-/cookie-1.0.2.tgz"
+  integrity sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==
+
+cookies-next@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.npmjs.org/cookies-next/-/cookies-next-5.1.0.tgz"
+  integrity sha512-9Ekne+q8hfziJtnT9c1yDUBqT0eDMGgPrfPl4bpR3xwQHLTd/8gbSf6+IEkP/pjGsDZt1TGbC6emYmFYRbIXwQ==
+  dependencies:
+    cookie "^1.0.1"
+
 copy-to-clipboard@^3.3.1, copy-to-clipboard@^3.3.3:
   version "3.3.3"
   resolved "https://registry.npmjs.org/copy-to-clipboard/-/copy-to-clipboard-3.3.3.tgz"
@@ -5777,7 +5789,7 @@ next-sanity@^9.3.10:
     groq "^3.37.1"
     history "^5.3.0"
 
-"next@^11.1.0 || ^12.0.0 || ^13.0.0 || ^14.0.0", "next@^13.0.0 || ^14.0.0", "next@^14.1 || >=14.3.0-canary.0 <14.3.0", "next@>= 13 || >=14.3.0-canary.0 <14.3.0", next@14.2.4:
+"next@^11.1.0 || ^12.0.0 || ^13.0.0 || ^14.0.0", "next@^13.0.0 || ^14.0.0", "next@^14.1 || >=14.3.0-canary.0 <14.3.0", "next@>= 13 || >=14.3.0-canary.0 <14.3.0", next@>=15.0.0, next@14.2.4:
   version "14.2.4"
   resolved "https://registry.npmjs.org/next/-/next-14.2.4.tgz"
   integrity sha512-R8/V7vugY+822rsQGQCjoLhMuC9oFj9SOi4Cl4b2wjDrseD0LRZ10W7R6Czo4w9ZznVSshKjuIomsRjvm9EKJQ==

@@ -23,6 +23,7 @@
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
+    "cookies-next": "^5.1.0",
     "framer-motion": "^11.2.10",
     "groq": "^3.46.1",
     "lucide-react": "^0.399.0",
