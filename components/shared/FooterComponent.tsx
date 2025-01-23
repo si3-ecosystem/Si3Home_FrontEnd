@@ -1,10 +1,10 @@
 'use client'; // This makes this component a Client Component
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import urlFor from "@/utils/urlFor";
-import { setCookie } from "cookies-next"; // Importing cookie functions
+import { setCookie, getCookie } from "cookies-next"; // Importing cookie functions
 
 interface FooterProps {
   footer: {
@@ -19,12 +19,20 @@ interface FooterProps {
 }
 
 const CookieConsent = () => {
-  const [showConsent, setShowConsent] = React.useState(true);
+  const [showConsent, setShowConsent] = useState(false);
+
+  useEffect(() => {
+    // Check if the cookie consent has already been given
+    const consentGiven = getCookie("localConsent");
+    if (!consentGiven) {
+      setShowConsent(true); // Show the popup if no consent is given
+    }
+  }, []);
 
   const acceptCookie = () => {
     // Accept cookies and set the cookie consent flag in cookies
     setShowConsent(false); // Hide the popup
-    setCookie("localConsent", "true", {}); // Set cookie consent to true
+    setCookie("localConsent", "true", { maxAge: 30 * 24 * 60 * 60 }); // Set cookie consent to true for 30 days
   };
 
   if (!showConsent) {
@@ -33,21 +41,18 @@ const CookieConsent = () => {
 
   return (
     <div className="fixed inset-0 bg-slate-700 bg-opacity-70">
-    <div className="fixed bottom-0 left-0 right-0 flex items-center justify-between px-4 py-8 bg-gray-100 rounded-lg m-4">
-      <span className="text-dark text-base mr-16">
-        This website uses cookies to improve user experience. By using our website you consent to all cookies in accordance with our Cookie Policy.
-      </span>
-      <button
-        className="py-2 px-8 rounded-lg border-2 border-[#4428F2] text-black hover:bg-[#4428F2] hover:text-white"
-        onClick={() => acceptCookie()}
-      >
-        Accept
-      </button>
+      <div className="fixed bottom-0 left-0 right-0 flex items-center justify-between px-4 py-8 bg-gray-100 rounded-lg m-4">
+        <span className="text-dark text-base mr-16">
+          This website uses cookies to improve user experience. By using our website you consent to all cookies in accordance with our Cookie Policy.
+        </span>
+        <button
+          className="py-2 px-8 rounded-lg border-2 border-[#4428F2] text-black hover:bg-[#4428F2] hover:text-white"
+          onClick={acceptCookie}
+        >
+          Accept
+        </button>
+      </div>
     </div>
-  </div>
-  
-
-  
   );
 };
 
