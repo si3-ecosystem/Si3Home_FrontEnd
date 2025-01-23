@@ -11,6 +11,7 @@ import { client } from "@/utils/client";
 import urlFor from "@/utils/urlFor";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Script from "next/script";
 
 export const revalidate = 3600;
 
@@ -106,11 +107,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* <script
-          defer
-          data-domain="si3.space"
-          src="https://plausible.io/js/script.js"
-        ></script> */}
+      <Script
+   src="https://cdn.markfi.xyz/scripts/analytics/0.11.21/cookie3.analytics.min.js"
+   integrity="sha384-wtYmYhbRlAqGwxc5Vb9GZVyp/Op3blmJICmXjRiJu2/TlPze5dHsmg2gglbH8viT"
+   crossOrigin="anonymous"
+   async
+   strategy="lazyOnload"
+   site-id="434ad72e-5f88-4f99-b163-6107f173b5fa"
+/>
         <link
           href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap"
           rel="stylesheet"
