@@ -9,10 +9,12 @@ interface TestimonialProps{
 
 export default function SingleTestimonial(props: TestimonialProps) {
     const {testimonial} = props
+    console.log({testimonial})
     return (
-        <div className="text-left py-2 max-w-[976px]">
-            <p className="font-mono text-xl md:text-[28px] md:leading-[46px]"> <span className="text-xl md:leading-[96px] md:text-[80px]">{`“`}</span> {testimonial.description} {`”`}</p>
-            <div className="flex items-center gap-6 md:gap-36 flex-wrap mt-12 pr-8">
+        <div className="text-left max-w-[821px] px-4 sm:px-8 p-8 border border-gray-400 rounded-lg lg:rounded-[30px] mx-auto bg-white">
+            <p className="font-mono font-black uppercase text-2xl lg:text-4xl"> {testimonial.title}</p>
+            <p className="font-mono text-base lg:text-2xl"> {testimonial.description}</p>
+            <div className="lg:flex items-center bg-[#EEEEEE] rounded-lg lg:rounded-full p-4 gap-6 md:gap-36 flex-wrap mt-12">
                   <span className="flex gap-2 items-center">
                     <div className="w-14 h-14 rounded-full overflow-hidden">
                       <ImageUrl
@@ -25,17 +27,11 @@ export default function SingleTestimonial(props: TestimonialProps) {
 
                     <div className="flex flex-col ">
                       <h4 className="font-mono text-sm md:text-base text-[#999999]">{testimonial?.name}</h4>
-                      <p className="font-mono text-[#999999]">
-                        {/* {testimonial?.title},{" "} */}
-                        {/* <a href={testimonial?.link} target="_blank">
-                          {testimonial?.companyName}
-                        </a> */}
-                      </p>
+                      <p className="text-sm sm:text-base">{testimonial?.title}</p>
                     </div>
                   </span>
                   <div className="sm:ml-auto flex items-center gap-2 uppercase font-mono">
-                    <p className="text-sm sm:text-base">{testimonial?.title}</p>
-                    <Link href={testimonial?.link ?? "/"}><button className="text-[#999999] text-sm md:text-base uppercase">{testimonial?.link}</button></Link>
+                    <Link href={testimonial?.link ?? "/"}><button className="text-sm md:text-base">{testimonial?.link}</button></Link>
                   </div>
                 </div>
         </div>

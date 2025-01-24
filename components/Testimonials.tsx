@@ -21,15 +21,21 @@ export default function Testimonials({ testimonials }: any) {
         ease: "easeInOut",
       }}
       id="testimonials"
-      className=""
+      className="bg-gradient-to-tr from-[rgb(255,237,207,0.4)] from-50% to-[rgb(252,198,233)]"
     >
-      <div className="mb-5 pb-8">
+      <div style={{
+             backgroundImage:`linear-gradient(to bottom right,rgba(255,255,255),rgb(255,237,207,0.5),rgb(252,198,233,0.7)), url("/images/grid-line.png")`
+        }}
+        className="lg:px-10 py-4 lg:py-[50px]"
+      >
+<div className="mb-5 pb-8">
         <div className="px-5 md:px-16 ">
-          <div className="flex items-center justify-end flex-wrap my-6 md:my-10">
+        <p className="font-black text-2xl md:text-[40px] leading-[68px] text-center mb-2 lg:mb-6">TESTIMONIALS</p>
+          <div className="flex items-center justify-center flex-wrap mb-6">
             {testimonials?.length > 1 && (
-              <div className="flex items-center gap-6 mb-3 md:mb-0">
+              <div className="flex items-center gap-2 md:gap-6 mb-3 md:mb-0">
                 <button
-                  className="border border-[#222222] h-8 w-8 md:h-12 md:w-12 text-[#222222]  rounded-full flex items-center justify-center"
+                  className="border border-[#222222] bg-white h-10 w-10 md:h-12 md:w-12 text-[#222222]  rounded-full flex items-center justify-center"
                   onClick={() => {
                     /*
             // @ts-ignore */
@@ -40,7 +46,7 @@ export default function Testimonials({ testimonials }: any) {
                 </button>
 
                 <button
-                  className="border border-[#222222] h-8 w-8 md:h-12 md:w-12 text-[#222222] rounded-full flex items-center justify-center"
+                  className="border border-[#222222] bg-white h-10 w-10 md:h-12 md:w-12 text-[#222222] rounded-full flex items-center justify-center"
                   onClick={() => {
                     /*
             // @ts-ignore */
@@ -110,6 +116,7 @@ export default function Testimonials({ testimonials }: any) {
             ))}
           </Swiper>
         </div>
+      </div>
       </div>
     </motion.div>
   );

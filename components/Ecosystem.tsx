@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import urlFor from "@/utils/urlFor";
 import Link from "next/link";
+import { ChevronLeftIcon, ChevronRightIcon } from "@/app/icons/chevron";
 
 export default function Ecosystem({ ecosystemSpotlight }: any) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,80 +47,35 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
   };
 
   return (
-    <motion.div
-      whileInView={{
-        y: [100, 0],
-        opacity: [0, 1],
-      }}
-      transition={{
-        duration: 0.5,
-        ease: "easeInOut",
-      }}
+    <div
+      // whileInView={{
+      //   y: [100, 0],
+      //   opacity: [0, 1],
+      // }}
+      // transition={{
+      //   duration: 0.5,
+      //   ease: "easeInOut",
+      // }}
       id="ecosystem"
-      className=""
+      className="px-4 lg:px-10 py-12 lg:py-[156px] bg-cover bg-[url('/images/immersion-2.png')]"
     >
-      <div className="py-14 md:py-28">
-        <div className="px-5 md:px-16">
-          <h1 className="text-2xl md:text-4xl text-primary mt-6 font-medium uppercase">
+      <div className="max-w-7xl mx-auto">
+        <div className="max-w-[629px] text-center lg:text-left">
+          <h1 className="text-2xl md:text-4xl text-black mt-6 font-black uppercase">
             {ecosystemSpotlight.title}
           </h1>
 
-          <div className="flex items-center justify-center flex-wrap">
+          <div className="">
             <p className="font-mono my-4 md:my-6 text-[#999999] text-base sm:text-xl">
               {ecosystemSpotlight.description}
             </p>
           </div>
         </div>
 
-        <div className="px-5 md:px-16">
-          <div className="flex justify-center gap-4 mb-5 mt-5">
-            <svg
-              onClick={slideLeft}
-              width="32"
-              height="33"
-              viewBox="0 0 32 33"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="cursor-pointer"
-            >
-              <g id="vuesax/linear/arrow-left">
-                <g id="arrow-left">
-                  <path
-                    id="Vector"
-                    d="M20 26.642L11.3066 17.9486C10.28 16.922 10.28 15.242 11.3066 14.2153L20 5.52197"
-                    stroke="#292D32"
-                    stroke-width="1.5"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </g>
-              </g>
-            </svg>
-
-            <svg
-              onClick={slideRight}
-              width="32"
-              height="33"
-              viewBox="0 0 32 33"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="cursor-pointer"
-            >
-              <g id="vuesax/linear/arrow-right">
-                <g id="arrow-right">
-                  <path
-                    id="Vector"
-                    d="M11.8799 26.642L20.5732 17.9486C21.5999 16.922 21.5999 15.242 20.5732 14.2153L11.8799 5.52197"
-                    stroke="#292D32"
-                    stroke-width="1.5"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </g>
-              </g>
-            </svg>
+        <div className="">
+          <div className="flex justify-center lg:justify-end gap-4 mb-5 mt-5">
+            <button className="bg-white h-12 w-12 flex items-center justify-center rounded-full border" onClick={slideLeft}><ChevronLeftIcon/></button>
+            <button className=" bg-white h-12 w-12 flex items-center justify-center rounded-full border" onClick={slideRight}><ChevronRightIcon/></button>
           </div>
           <AnimatePresence mode="wait">
             <motion.div
@@ -128,19 +84,19 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5 }}
-              className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-10"
+              className="grid lg:grid-cols-3 gap-3 md:gap-10"
             >
               {getVisibleItems().map((item: any, key: number) => (
                 <motion.div
                   key={key}
-                  className="border-2 px-2 sm:px-3 rounded-lg flex items-center sm:justify-center flex-col text-center py-6"
+                  className="border-2 bg-white px-2 sm:px-3 rounded-lg flex flex-col py-6"
                   whileHover={{ scale: 1.02 }}
                 >
                   <div className="max-sm:h-14">
                     <a
                       href={item?.companyUrl || "#"}
                       target="_blank"
-                      className="flex items-center gap-1  cursor-pointer justify-center bg-slate-100 rounded-lg px-2 py-2"
+                      className="flex gap-1  cursor-pointer rounded-lg px-2 py-2"
                     >
                       <Image
                         src={urlFor(item.companyLogo.asset).url()}
@@ -156,7 +112,7 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
                     {item.title}
                   </p>
 
-                  <div className="space-y-1 md:space-y-3 mt-2 md:mt-16 text-center">
+                  <div className="space-y-1 md:space-y-3 mt-2 md:mt-16">
                     <p className="font-mono text-sm md:text-[32px]">
                       {item.presenterName}
                     </p>
@@ -170,6 +126,6 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
           </AnimatePresence>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

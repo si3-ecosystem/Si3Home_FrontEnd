@@ -1,9 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { Image } from "antd";
 
-export default function SherCoActive({ sherCoActive }: any) {
-  const [bgPosition, setBgPosition] = useState("center top 112px");
+interface Props {
+  sherCoActive:any,
+  isLeaderTab?:boolean
+}
+
+export default function SherCoActive({ sherCoActive,isLeaderTab=false }:Props) {
+  const [, setBgPosition] = useState("center top 112px");
 
   useEffect(() => {
     const updateBgPosition = () => {
@@ -23,32 +28,36 @@ export default function SherCoActive({ sherCoActive }: any) {
   }, []);
 
   return (
-    <motion.div
-      whileInView={{
-        y: [100, 0],
-        opacity: [0, 1],
-      }}
-      transition={{
-        duration: 0.5,
-        ease: "easeInOut",
-      }}
+    <div
+      // whileInView={{
+      //   y: [100, 0],
+      //   opacity: [0, 1],
+      // }}
+      // transition={{
+      //   duration: 0.5,
+      //   ease: "easeInOut",
+      // }}
       id="siherCoActive"
-      className="flex items-center justify-center flex-col mt-[60px] md:px-0 py-16 md:py-28 bg-no-repeat bg-[url('/section-bgsmall.svg')] md:bg-[url('/section-bg.svg')]"
-      style={{
-        backgroundPosition: bgPosition,
-      }}
+      className="g lg:mt-[60px] px-4 lg:px-10 border-y border-gray-400"
     >
-      <div className="md:w-3/4 text-center space-y-3 md:space-y-[18px]">
-        <h3 className="md:text-xl font-medium uppercase">
-          {sherCoActive.subtitle}
-        </h3>
-        <h1 className="text-xl sm:text-4xl uppercase md:text-[64px] text-primary font-medium">
-          {sherCoActive.title}
-        </h1>
-        <p className="font-mono text-sm md:text-xl max-w-[704px] mx-auto">
-          {sherCoActive.description}
-        </p>
+      <div className="max-w-7xl grid lg:grid-cols-2">
+          <div className="lg:border-r text-center lg:text-left lg:border-gray-400 py-8 lg:py-32 lg:pr-24">
+            <h3 className="text-base text-primary  uppercase">
+              {sherCoActive.subtitle}
+            </h3>
+            <h1 className="text-xl sm:text-2xl uppercase md:text-[44px] my-4 text-black font-black">
+              {sherCoActive.title}
+            </h1>
+            <p className="font-mono text-sm md:text-lg">
+              {sherCoActive.description}
+            </p>
+          </div>
+          <div className="flex items-center justify-center pb-4">
+            {isLeaderTab
+            ?(<Image alt="Explorers Image" preview={false}  src="/images/leaders-coactive.png"/>)
+            :(<Image alt="Explorers Image" preview={false}  src="/images/explorers-2.png"/>)}
+          </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

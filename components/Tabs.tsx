@@ -21,6 +21,7 @@ import ImageUrl from "@/utils/imageUrl";
 import Link from "next/link";
 import Image from "next/image";
 import JoinTabFooter from "./JoinTabFooter";
+import ChatGPTIcon from "@/app/icons/chatgpt";
 
 type TabsProps = {
   educationalProgramming: any;
@@ -108,48 +109,52 @@ export default function Tabs({
     <div
       ref={ref}
       id="siherlive"
-      
-      className="flex items-center justify-center flex-col md:px-0 py-16 md:!py-4 bg-no-repeat"
+      className="flex items-center justify-center flex-col md:px-0 py-4 lg:py-16 md:!py-4 bg-no-repeat"
     >
-      <div className="w-full mx-auto p-4 mt-4 sm:mt-10" id="tab-content">
+      <div className="w-full mx-auto mt-4 sm:mt-10" id="tab-content">
         {/* Tab Buttons */}
-        <div className="flex w-full max-w-[750px] mx-auto justify-start rounded-[12px] border border-gray-300 bg-white p-1">
+        <div className="p-4">
+        <div className="flex w-full max-w-[750px]  bg-black mx-auto justify-start rounded-lg md:rounded-full p-2">
           <button
             onClick={() => setActiveTab("explorers")}
-            className={`flex-1 text-center h-14 px-6 text-xs md:text-base rounded-[12px] transition ${
+            className={`flex-1 text-center flex flex-col sm:flex-row items-center gap-x-2 py-2 min-h-14 rounded-lg lg:rounded-full px-6 text-[10px] md:text-base transition ${
               activeTab === "explorers"
-                ? "bg-black text-white"
-                : "bg-white text-black"
+                ? "bg-white text-black"
+                : "bg-black text-white"
             }`}
           >
+            <ChatGPTIcon fillColor={activeTab == "explorers"?undefined:"#1A1919"}/>
             {"I'm Exploring Web3"}
           </button>
           <button
             onClick={() => setActiveTab("leaders")}
-            className={`flex-1 text-center h-14 px-6 py-2 text-xs md:text-base rounded-[12px] transition ${
+            className={`flex-1 text-center flex flex-col sm:flex-row items-center gap-x-2  min-h-14 px-6 py-2 text-xs md:text-base rounded-lg lg:rounded-full transition ${
               activeTab === "leaders"
-                ? "bg-black text-white"
-                : "bg-white text-black"
+                ? "bg-white text-black"
+                : "bg-black text-white"
             }`}
           >
+            <ChatGPTIcon fillColor={"#1A1919"}/>
             {"I'm Leading Web3"}
           </button>
           <button
             onClick={() => setActiveTab("brands")}
-            className={`flex-1 text-center h-14 px-6 text-xs md:text-base py-2 rounded-[12px] transition ${
+            className={`flex-1  text-center flex flex-col sm:flex-row items-center gap-x-2 min-h-14 px-6 text-xs md:text-base py-2 rounded-lg lg:rounded-full transition ${
               activeTab === "brands"
-                ? "bg-black text-white"
-                : "bg-white text-black"
+                ? "bg-white text-black"
+                : "bg-black text-white"
             }`}
           >
+            <ChatGPTIcon fillColor={"#1A1919"}/>
             {"I'm Building Web3"}
           </button>
+        </div>
         </div>
 
         {/* Tab Content */}
         <div className="mt-6">
           {activeTab === "explorers" && (
-            <div className="p-4  mx-auto text-center">
+            <div className="mx-auto">
               <SherCoActive sherCoActive={sherexplorer} />
               {/* <Educational educationalProgramming={educationalProgramming} /> */}
               <Ecosystem ecosystemSpotlight={ecosystemSpotlight} />
@@ -161,12 +166,12 @@ export default function Tabs({
             </div>
           )}
           {activeTab === "leaders" && (
-            <div className="p-4 text-center">
-              <SherCoActive sherCoActive={sherCoActive} />
+            <div className="">
+              <SherCoActive sherCoActive={sherCoActive} isLeaderTab />
               <Brand brand={brand} />
               <Educational educationalProgramming={educationalProgramming} />
               {/* <SingleTestimonial testimonial={testimonials[0]}/> */}
-              <p className="text-[#4428F2] md:font-medium text-2xl md:text-[40px] leading-[68px] mb-6">TESTIMONIALS</p>
+              {/* <p className="text-[#4428F2] md:font-medium text-2xl md:text-[40px] leading-[68px] mb-6">TESTIMONIALS</p> */}
 
 
               <Testimonials testimonials={testimonials}/>
@@ -179,35 +184,35 @@ export default function Tabs({
             </div>
           )}
           {activeTab === "brands" && (
-            <div className="p-4 text-center mx-auto">
+            <div className="text-center mx-auto">
               {/* <Granting granting={granting} register={register} />
               <Educational educationalProgramming={educationalProgramming} /> */}
               {/* <SingleTestimonial testimonial={testimonials[1]}/> */}
-              <div className="max-w-[1196px] mt-[170px] mx-auto">
-                <p className="text-3xl md:leading-[64px] md:text-[56px] max-w-[672px] mx-auto font-mono">{partnerTabData.header.title}</p>
-                <p className="max-w-[802px] text-lg text-[#7E8492] font-mono mx-auto my-4">{partnerTabData.header.subtitle}</p>
+             <section className="bg-gradient-to-r px-4 py-12 lg:py-[170px] from-[rgb(255,237,207,0.4)] from-50% to-[rgb(252,198,233)]">
+             <div className="max-w-[1196px] mx-auto">
+                <p className="text-3xl md:leading-[56px] uppercase md:text-[44px] max-w-[672px] mx-auto font-mono font-black">{partnerTabData.header.title}</p>
+                <p className="max-w-[802px] text-lg font-mono mx-auto my-4">{partnerTabData.header.subtitle}</p>
               </div>
               {partnerTabData.programs.map((program,index)=>{
                 const isReversed = index % 2 !== 0;
                 
                 return ( 
-                  <div key={program.id} className={`flex flex-col max-w-[1196px] mx-auto items-center my-20 min-h-[500px] gap-10 lg:gap-[88px] ${isReversed?"lg:flex-row-reverse":"lg:flex-row"} justify-between`}>
-                    <div className="font-mono text-left flex-1">
-                      <span className="inline-block text-xs sm:text-base bg-[#FAB7D0] text-black py-2 px-3">{program.event}</span>
-                      <p className="text-2xl sm:leading-[52px] my-2 sm:text-[40px]">{program.title}</p>
-                      <p className="text-sm sm:text-base text-[#7E8492]">{program.description}</p>
+                  <div key={program.id} className={`flex  max-w-[1196px] mx-auto p-4 lg:p-8 rounded-lg lg:rounded-[30px] my-4 lg:my-10 bg-white min-h-[500px] gap-10 lg:gap-[88px] flex-col border border-gray-400 lg:flex-row justify-between`}>
+                    <div className="font-mono text-left flex-[2] max-w-[528px]">
+                      <span className="inline-block text-xs sm:text-base bg-[#FAB7D0] rounded-full text-black py-1 px-3">{program.event}</span>
+                      <p className="text-2xl uppercase my-6 sm:text-4xl font-black">{program.title}</p>
+                      <p className="text-sm sm:text-base">{program.description}</p>
                     </div>
-                    <div className="flex-1 min-h-[300px] sm:min-h-[479px] bg-[#F6F6F6] rounded-3xl p-8">
-                      <ImageUrl image={program.banner}/>
+                    <div className="flex-1 relative justify-end text-right">
+                      <ImageUrl image={program.banner} className={"max-h-[400px] ml-auto"}/>
                     </div>
                   </div>
                 )
               })}
-               <Mission mission={mission} />
+             </section>
+               <Mission mission={mission} showValues={false} />
               <br />
               {/* <SherLive sheHerLive={sheHerLive} /> */}
-              <p className="text-[#4428F2] md:font-medium text-2xl md:text-[40px] leading-[68px] mb-6">TESTIMONIALS</p>
-              {partnerTestimonials && partnerTestimonials.length > 0 && <Testimonials testimonials={partnerTestimonials} />}
               <JoinTabFooter footerData={joinBuildersTab}/>
             </div>
           )}
