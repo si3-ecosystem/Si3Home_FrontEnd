@@ -1,10 +1,10 @@
 'use client'; // This makes this component a Client Component
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import urlFor from "@/utils/urlFor";
-import { setCookie } from "cookies-next";
+import { setCookie, getCookie } from "cookies-next";
 
 interface FooterProps {
   footer: {
@@ -21,7 +21,14 @@ interface FooterProps {
 }
 
 const CookieConsent: React.FC = () => {
-  const [showConsent, setShowConsent] = useState(true);
+  const [showConsent, setShowConsent] = useState(false);
+
+  useEffect(() => {
+    const consent = getCookie("localConsent");
+    if (!consent) {
+      setShowConsent(true);
+    }
+  }, []);
 
   const acceptCookie = () => {
     setShowConsent(false);
@@ -42,7 +49,7 @@ const CookieConsent: React.FC = () => {
           height: "197px",
           left: "19.5px",
           top: "281px",
-          marginBottom:"4%",
+          marginBottom: "4%",
           boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
           borderRadius: "16px",
         }}
