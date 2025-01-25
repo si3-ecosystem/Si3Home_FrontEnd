@@ -1,4 +1,4 @@
-'use client'; // This makes this component a Client Component
+'use client'; // Client Component
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -36,28 +36,54 @@ const CookieConsent = () => {
     // setCookie("localConsent", "true", { maxAge: 30 * 24 * 60 * 60 }); // Set cookie consent to true for 30 days
   };
 
-  if (!showConsent) {
-    return null; // Don't render the consent popup if consent is given
-  }
+  if (!showConsent) return null;
 
   return (
-    <div className="fixed inset-0 bg-slate-700 bg-opacity-70">
-      <div className="fixed bottom-0 left-0 right-0 flex items-center justify-between px-4 py-8 bg-gray-100 rounded-lg m-4">
-        <span className="text-dark text-base mr-16">
-          This website uses cookies to improve user experience. By using our website you consent to all cookies in accordance with our Cookie Policy.
-        </span>
-        <button
-          className="py-2 px-8 rounded-lg border-2 border-[#4428F2] text-black hover:bg-[#4428F2] hover:text-white"
-          onClick={acceptCookie}
-        >
-          Accept
-        </button>
+    <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center">
+      <div className="bg-white rounded-lg p-6 shadow-lg w-[552px] h-[197px]">
+        <div className="flex items-start">
+          <svg
+            width="41"
+            height="41"
+            viewBox="0 0 41 41"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Your SVG content */}
+          </svg>
+          <div className="ml-4 text-sm text-gray-700">
+            <p>
+              By clicking {"Accept" }or continuing to browse our website, you
+              agree to our{" "}
+              <Link href="/terms-of-service">
+                <a className="text-blue-600 hover:underline">Terms of Service</a>
+              </Link>{" "}
+              and{" "}
+              <Link href="/privacy-policy">
+                <a className="text-blue-600 hover:underline">Privacy Policy</a>
+              </Link>
+              . View our{" "}
+              <Link href="/cookie-policy">
+                <a className="text-blue-600 hover:underline">Cookie Policy</a>
+              </Link>{" "}
+              for more information.
+            </p>
+          </div>
+        </div>
+        <div className="mt-4 flex justify-end">
+          <button
+            onClick={acceptCookie}
+            className="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800"
+          >
+            Accept
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
-export default function FooterComponent({ footer }: FooterProps) {
+const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -128,36 +154,9 @@ export default function FooterComponent({ footer }: FooterProps) {
         </div>
       </div>
 
-      {/* Ethermail Subscription Widget */}
-      <script
-        defer
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function ({ ...args }) {
-              var p = document.createElement('script');
-              p.src = 'https://cdn-email.ethermail.io/sdk/v2/ethermail.js';
-              document.body.appendChild(p);
-              p.setAttribute('a', args.afid);
-              p.setAttribute('b', args.communityAlias);
-              p.setAttribute('c', args.features);
-            })({
-              afid: '67353ab1f14dc512c8f225ef',
-              communityAlias: 'si3',
-              features: ['subscribe']
-            });
-          `,
-        }}
-      ></script>
-      <ethermail-subscribe
-        widget="677f0f8f690e56d4d9800180"
-        theme="light"
-        input="auto"
-        wallet-connect-project-id="66d5a2d55c125fff0bf241a58c1f24f8"
-        rpc='{"http": "[YOUR_RPC_URL]"}'
-      ></ethermail-subscribe>
-
-      {/* Cookie Consent Popup */}
       <CookieConsent />
     </>
   );
-}
+};
+
+export default FooterComponent;
