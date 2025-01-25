@@ -70,7 +70,7 @@ export default function OnboardForm(props:Props){
         {loading && (<Loader/>)}
         {error_message && modalOpen && (<ErrorModal errorMessage={error_message} closeModal={closeModal}/>)}
         {showSuccessModal && <SuccessModal/>}
-        <div className="max-w-[1096px] mt-16 mx-auto p-4">
+        <div className="mt-16 p-4 lg:p-8">
             <form onSubmit={handleSubmit}>
                 <div className="grid lg:grid-cols-2 gap-8">
                     <div className="col-span-2 md:col-span-1">
@@ -200,7 +200,7 @@ export default function OnboardForm(props:Props){
                         />
                     </div>
                 </div>
-                <button type="submit" className="w-full h-12 border rounded-lg font-mono mt-12 md:text-xl border-[#3C1FEF]">Submit Application</button>
+                <button type="submit" className="w-full h-16 border rounded-full font-mono mt-12 md:text-xl bg-black text-white">Submit Application</button>
             </form>
         </div>
         </>

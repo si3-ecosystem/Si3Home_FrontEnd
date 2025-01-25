@@ -22,6 +22,10 @@ const Navbar = ({ utils }: any) => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
   };
 
+  const redirectToPushChannel = () => {
+    window.location.href = "https://app.push.org/channels/0x0D54bD457AF5b5691d1D9790746d4C95f7885CFF"; // Open specific Push channel
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -55,9 +59,6 @@ const Navbar = ({ utils }: any) => {
             </Link>
           </div>
         </div>
-        {/* <p className="text-base max-lg:hidden xl:text-lg font-medium text-white text-center ">
-          {"SI<3> LAUNCHES SEASON 1 WORKING GROUP FOR WEB3 GRANTS PROGRAMS "}
-        </p> */}
         <div className="max-lg:hidden font-medium">
           <div className=" flex items-center gap-[13px]">
             {/* <Link
@@ -70,7 +71,7 @@ const Navbar = ({ utils }: any) => {
                 alt="Bell Icon"
                 width={36}
                 height={36}
-                className="w-[28px] h-[28px] "
+                className="w-[28px] h-[28px]"
               />
             </Link> */}
             {
@@ -85,10 +86,9 @@ const Navbar = ({ utils }: any) => {
                    <button className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-8 bg-black hover:bg-[#3C1FEF] text-white hover:text-white">
                       {"Get Started"}
                     </button>
-                </Link>
-              )
+                  </Link>
+                )
             }
-           
           </div>
         </div>
         <div className="lg:hidden">
@@ -139,6 +139,8 @@ const Navbar = ({ utils }: any) => {
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -149,14 +151,14 @@ const Navbar = ({ utils }: any) => {
               duration: 0.5,
               ease: "easeInOut",
             }}
-            className=" h-[420px] absolute z-30 bg-[#3C1FEF] top-[56px] left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 lg:hidden"
+            className="h-[420px] absolute z-30 bg-[#3C1FEF] top-[56px] left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 lg:hidden"
           >
             <div className="flex flex-col gap-6 justify-center items-center h-full mt-4">
               <div className="relative flex items-center gap-2 cursor-pointer">
-              <Link
-                    href={"/#tab-content"}
-                   onClick={() => {
-                    setIsOpen(false)
+                <Link
+                  href={"/#tab-content"}
+                  onClick={() => {
+                    setIsOpen(false);
                   }}
                   className="lg:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
                 >
@@ -165,10 +167,10 @@ const Navbar = ({ utils }: any) => {
               </div>
 
               <div className="">
-              <Link
-                    href={"/#tab-content"}
-                   onClick={() => {
-                    setIsOpen(false)
+                <Link
+                  href={"/#tab-content"}
+                  onClick={() => {
+                    setIsOpen(false);
                   }}
                   className="lg:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
                 >
@@ -178,9 +180,9 @@ const Navbar = ({ utils }: any) => {
 
               <div className="">
                 <Link
-                    href={"/#tab-content"}
-                   onClick={() => {
-                    setIsOpen(false)
+                  href={"/#tab-content"}
+                  onClick={() => {
+                    setIsOpen(false);
                   }}
                   className="lg:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
                 >

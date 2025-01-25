@@ -10,10 +10,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
 
 function Button(props:ButtonProps){
     if(props.isActive){
-        return <button {...props} className="min-h-14 text-xs sm:text-base font-mono font-medium rounded-lg flex-1 bg-[#1C1B22] text-white ">{props.title}</button>
+        return <button {...props} className="min-h-14 rounded-full text-xs sm:text-sm font-mono font-medium flex-1 bg-white ">{props.title}</button>
     }
     return (
-        <button className="min-h-14 flex-1 font-mono text-xs sm:text-base" {...props}>{props.title}</button>
+        <button className="min-h-14 flex-1 rounded-full font-mono text-xs text-white sm:text-sm" {...props}>{props.title}</button>
     )
 }
 
@@ -40,7 +40,7 @@ export default function TabHeader(props:HeaderProps){
     const {activeTab,setActiveTab} = props
     return (
         <div className="px-4">
-            <header className="max-w-[776px] mx-auto rounded-xl flex border p-1 ">
+            <header className="max-w-[590px] bg-black mx-auto rounded-full flex border p-3 ">
                 {tabList.map((tab)=>{
                     return (
                         <Button

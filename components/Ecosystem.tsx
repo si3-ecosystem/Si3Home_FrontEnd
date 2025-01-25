@@ -61,7 +61,7 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
     >
       <div className="max-w-7xl mx-auto">
         <div className="max-w-[629px] text-center lg:text-left">
-          <h1 className="text-2xl md:text-4xl text-black mt-6 font-black uppercase">
+          <h1 className="text-2xl md:text-4xl font-clesmont text-black mt-6 font-black uppercase">
             {ecosystemSpotlight.title}
           </h1>
 

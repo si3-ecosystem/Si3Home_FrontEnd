@@ -22,7 +22,7 @@ export default function JoinTabFooter(props:Props){
                   className="w-full absolute top-0 left-0 z-[30] h-full"
                 />
              <div className="text-white text-center max-w-[724px] z-[40]">
-                <p className="text-xl text-center lg:mx-0 md:text-[40px] font-black uppercase font-mono md:leading-[56px] tracking-normal">
+                <p className="text-xl text-center font-clesmont lg:mx-0 md:text-[40px] font-black uppercase font-mono md:leading-[56px] tracking-normal">
                   {(footerData.title as string).split(" ").map((word)=>{
                     if(BOLD_TEXTS.includes(word.toUpperCase())){
                       return <b key={Math.random() * 100000}>{word + " "}</b>
@@ -37,5 +37,38 @@ export default function JoinTabFooter(props:Props){
              </div>
           </div>
         </div>
+    )
+}
+export  function PartnerFooterInfo(props:Props){
+    const {footerData} = props;
+
+    console.log(footerData)
+
+    return (
+        <section className="bg-[url('/images/partners.png')] px-4 py-16 bg-cover">
+          <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4 sm:min-h-[476px] relative">
+              <Image
+                  src="/images/partner-subtract.png"
+                  alt="Background image mobile"
+                  fill
+                  className="w-full absolute top-0 left-0 z-[30] h-full"
+                />
+             <div className="text-white text-center max-w-[724px] z-[40]">
+                <p className="text-xl text-center font-clesmont lg:mx-0 md:text-[40px] font-black uppercase font-mono md:leading-[56px] tracking-normal">
+                  {(footerData.title as string).split(" ").map((word)=>{
+                    if(BOLD_TEXTS.includes(word.toUpperCase())){
+                      return <b key={Math.random() * 100000}>{word + " "}</b>
+                    }
+                    return <span key={Math.random() * 100000}>{word + " "}</span>
+                  })}
+                </p>
+                <p className="sm:text-xl">{footerData.description}</p>
+                <Link href={"/onboard"}>
+                  <button className="text-white bg-black py-[14px] capitalize rounded-full text-sm sm:text-lg font-mono mt-6 md:mt-10 px-[30px]">{footerData.btnTitle}</button>
+                </Link>
+                <p className="mt-2">{footerData.caption}</p>
+             </div>
+          </div>
+        </section>
     )
 }

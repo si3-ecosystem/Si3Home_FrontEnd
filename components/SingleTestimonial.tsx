@@ -12,8 +12,8 @@ export default function SingleTestimonial(props: TestimonialProps) {
     console.log({testimonial})
     return (
         <div className="text-left max-w-[821px] px-4 sm:px-8 p-8 border border-gray-400 rounded-lg lg:rounded-[30px] mx-auto bg-white">
-            <p className="font-mono font-black uppercase text-2xl lg:text-4xl"> {testimonial.title}</p>
-            <p className="font-mono text-base lg:text-2xl"> {testimonial.description}</p>
+            <p className="font-black uppercase text-2xl lg:text-4xl font-clesmont"> {testimonial.title}</p>
+            <p className="text-base lg:text-2xl"> {testimonial.description}</p>
             <div className="lg:flex items-center bg-[#EEEEEE] rounded-lg lg:rounded-full p-4 gap-6 md:gap-36 flex-wrap mt-12">
                   <span className="flex gap-2 items-center">
                     <div className="w-14 h-14 rounded-full overflow-hidden">

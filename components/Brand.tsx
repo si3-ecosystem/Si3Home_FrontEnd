@@ -70,7 +70,7 @@ export default function Brand({ brand }: any) {
       <div className="max-w-7xl grid lg:grid-cols-2">
         <div className=" border-b lg:border-r border-gray-400 px-4 lg:px-10  py-32">
           <div className="space-y-5 mb-6 md:mb-16 max-w-[539px]">
-            <h1 className="text-2xl text-center lg:text-left uppercase md:text-4xl font-black">
+            <h1 className="text-2xl font-clesmont text-center lg:text-left uppercase md:text-4xl font-black">
               Activate Your Web3 Brand
             </h1>
 

@@ -28,7 +28,7 @@ export default function Mission({ mission,showValues = true }: any) {
 
           <div className="lg:border-r border-gray-400 px-4 py-14 md:py-[130px]">
               <div className="max-w-[556px] mx-auto lg:mx-0">
-                <h1 className="text-2xl md:text-5xl uppercase font-black">{mission.title}</h1>
+                <h1 className="text-2xl md:text-5xl uppercase font-black font-clesmont">{mission.title}</h1>
                 <p className="font-mono text-sm md:text-lg font-medium py-3 md:pt-4">{mission.description}</p>
               </div>
             </div>

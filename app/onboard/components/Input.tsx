@@ -23,7 +23,7 @@ export function InputField(props: InputFieldProps) {
     return (
         <div className="my-2 w-full">
             <label htmlFor="" className="block text-sm sm:text-lg uppercase font-mono">{props.label}{props.required && <span className="text-[#FF2727]">*</span>}</label>
-            <input {...props} type="text" className="w-full text-xs sm:text-base h-12 px-6 font-dm-sans mt-1 rounded-lg p-2 border border-[#FAB7D0]"/>
+            <input {...props} type="text" className="w-full text-xs sm:text-base h-12 px-6 font-dm-sans mt-1 rounded-lg p-2 border border-[#BDBDBD]"/>
         </div>
     )
 }
@@ -31,7 +31,7 @@ export function SelectField(props: SelectFieldProps) {
     return (
         <div className="my-2">
             <label htmlFor="" className="block text-sm sm:text-lg uppercase font-mono">{props.label}{props.required && <span className="text-[#FF2727]">*</span>}</label>
-            <select {...props}  className="w-full h-12 px-6 font-dm-sans mt-1 rounded-lg p-2 border border-[#FAB7D0]">
+            <select {...props}  className="w-full h-12 px-6 font-dm-sans mt-1 rounded-lg p-2 border border-[#BDBDBD]">
                 {props.options.map((item)=>(
                     <option key={item.label} value={item.value}>{item.label}</option>
                 ))}
@@ -46,7 +46,7 @@ export function TextAreaField(props: InputFieldProps) {
     return (
         <div className="my-2">
             <label htmlFor="" className="block text-sm sm:text-lg uppercase font-mono">{props.label}{props.required && <span className="text-[#FF2727]">*</span>}</label>
-            <textarea {...props} className="w-full h-[155px] text-xs sm:text-base px-6 font-dm-sans mt-1 rounded-lg p-2 border border-[#FAB7D0]"/>
+            <textarea {...props} className="w-full h-[155px] text-xs sm:text-base px-6 font-dm-sans mt-1 rounded-lg p-2 border border-[#BDBDBD]"/>
         </div>
     )
 }
@@ -56,7 +56,7 @@ export function RadioInputField(props:CheckBoxFieldProps){
         <div className="flex items-center gap-x-6 text-sm">
             <button type="button" onClick={props.handleCheck} className="border border-[rgba(18,15,34,0.6)] inline-flex items-center justify-center h-5 w-5 rounded-full">
                 {props.checked && (
-                    <span className="h-[12px] inline-block w-[12px] bg-[#FAB7D0] rounded-md"></span>
+                    <span className="h-[12px] inline-block w-[12px] bg-[#000] rounded-md"></span>
                 )}
             </button>
             <p className="text-[#1E1E1E] text-base font-dm-sans">{props.label}</p>
@@ -67,7 +67,7 @@ export function CheckBoxField(props:CheckBoxFieldProps){
 
     function getActiveClass (){
         if(props.checked){
-            return "bg-[#FAB7D0]"
+            return "bg-[#000]"
         }
         return "border border-[rgba(18,15,34,0.6)]"
     }

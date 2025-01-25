@@ -30,7 +30,7 @@ export default function Testimonials({ testimonials }: any) {
       >
 <div className="mb-5 pb-8">
         <div className="px-5 md:px-16 ">
-        <p className="font-black text-2xl md:text-[40px] leading-[68px] text-center mb-2 lg:mb-6">TESTIMONIALS</p>
+        <p className="font-black text-2xl md:text-[40px] leading-[68px] text-center font-clesmont mb-2 lg:mb-6">TESTIMONIALS</p>
           <div className="flex items-center justify-center flex-wrap mb-6">
             {testimonials?.length > 1 && (
               <div className="flex items-center gap-2 md:gap-6 mb-3 md:mb-0">

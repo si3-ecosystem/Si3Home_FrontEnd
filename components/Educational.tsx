@@ -31,7 +31,7 @@ export default function Educational({ educationalProgramming }: any) {
     <motion.div ref={ref} className="py-14 px-4 lg:px-8 md:py-28 ">
       <div className="max-w-7xl mx-auto">
         <header className="max-w-[736px] mx-auto text-center">
-          <h1 className="text-2xl md:text-[40px] font-1000 md:leading-10 mt-6 ">
+          <h1 className="text-2xl font-clesmont md:text-[40px] font-1000 md:leading-10 mt-6 ">
             {educationalProgramming.title}
           </h1>
           <p className="font-mono my-4 md:my-6 w-full text-sm lg:text-lg lg:leading-7">
@@ -110,7 +110,7 @@ export default function Educational({ educationalProgramming }: any) {
                   </div>
 
                   <div className="space-y-3 mt-6 ">
-                    <h3 className="text-black font-1000 text-base sm:text-2xl">
+                    <h3 className="text-black font-clesmont font-1000 text-base sm:text-xl">
                       {item.title}
                     </h3>
                     <p className="text-justify h-full sm:min-h-[226px] text-xs sm:text-base  overflow-hidden ">
@@ -118,7 +118,7 @@ export default function Educational({ educationalProgramming }: any) {
                     </p>
 
                     <div>
-                      <p className="font-black uppercase text-xl">Presenters</p>
+                      <p className="font-black uppercase font-clesmont text-xl">Presenters</p>
 
                       <motion.div className="space-y-3">
                         {item?.presenters?.map((presenter: any, key: number) => (

@@ -1,7 +1,7 @@
 import { NewMemberData } from "@/lib/types/interfaces";
 import { client } from "@/utils/client";
 import groq from "groq";
-import {ClientError} from "next-sanity";
+
 
 
 class ContentProviderService{
@@ -17,7 +17,7 @@ class ContentProviderService{
                 message:"Member Created successfully"
             }
         } catch (error) {
-            if(error instanceof ClientError){
+            if(error instanceof Error){
                 return {
                     data:null,
                     error,

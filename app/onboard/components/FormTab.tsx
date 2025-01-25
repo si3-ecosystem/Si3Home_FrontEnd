@@ -1,18 +1,16 @@
 "use client";
-
-import { useState } from "react";
-import TabHeader from "./TabHeader";
 import { TabValues } from "@/lib/types/interfaces";
 import OnboardForm from "./OnBoardForm";
 
-export default function FormTab(){
-    const [activeTab,setActiveTab] = useState<TabValues>("explorers")
+interface Props{
+    activeTab:TabValues
+}
+
+
+export default function FormTab(props: Props){
     return (
         <section>
-            <TabHeader {...{activeTab,setActiveTab}}/>
-            <div>
-                <OnboardForm memberType={activeTab}/>
-            </div>
+            <OnboardForm memberType={props.activeTab}/>
         </section>
     )
 }
