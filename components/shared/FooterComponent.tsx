@@ -1,4 +1,4 @@
-'use client'; // Ensures this is a client component in Next.js
+'use client';
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -23,17 +23,17 @@ const CookieConsent = () => {
   const [showConsent, setShowConsent] = useState(false);
 
   useEffect(() => {
-    // Check if the cookie consent has already been given
+
     const consentGiven = localStorage.getItem("cookieConsent");
     if (!consentGiven) {
-      setShowConsent(true); // Show the popup if no consent is given
+      setShowConsent(true);
     }
   }, []);
 
   const acceptCookie = () => {
-    // Accept cookies and set the cookie consent flag in localStorage
+
     localStorage.setItem("cookieConsent", "true");
-    setShowConsent(false); // Hide the popup
+    setShowConsent(false);
   };
 
   if (!showConsent) return null;
@@ -43,8 +43,8 @@ const CookieConsent = () => {
       <div className="bg-white rounded-lg p-6 shadow-lg w-[552px] h-[197px]">
         <div className="flex items-start">
           <svg
-            width="41"
-            height="41"
+            width="81"
+            height="81"
             viewBox="0 0 41 41"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -65,8 +65,8 @@ const CookieConsent = () => {
           </svg>
           <div className="ml-4 text-sm text-gray-700">
             <p>
-              By clicking "Accept" or continuing to browse our website, you
-              agree to our{" "}
+              By clicking &apos;Accept&apos; or continuing to browse our website, you
+              agree to our{' '}
               <Link href="/terms-of-service">
                 <span className="text-blue-600 hover:underline">
                   Terms of Service
@@ -88,6 +88,7 @@ const CookieConsent = () => {
               </Link>{" "}
               for more information.
             </p>
+
           </div>
         </div>
         <div className="mt-4 flex justify-end">
