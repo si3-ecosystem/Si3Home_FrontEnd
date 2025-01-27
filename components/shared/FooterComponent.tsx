@@ -43,8 +43,8 @@ const CookieConsent = () => {
       <div className="bg-white rounded-lg p-6 shadow-lg w-[552px] h-[197px]">
         <div className="flex items-start">
           <svg
-            width="81"
-            height="81"
+            width="100"
+            height="100"
             viewBox="0 0 41 41"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
