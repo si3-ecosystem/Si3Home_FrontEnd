@@ -70,7 +70,7 @@ const CookieConsent = () => {
               for more information.
             </p>
       </div>
-      <div className="mt-4 flex justify-center gap-4">
+      <div className="mt-4 flex justify-start gap-4">
         <button
           onClick={acceptCookie}
           className="bg-black text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-all duration-300"
