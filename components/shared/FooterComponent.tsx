@@ -20,40 +20,33 @@ interface FooterProps {
 }
 
 const CookieConsent = () => {
-  const [showConsent, setShowConsent] = useState(true);  // Always show consent
+  const [showConsent, setShowConsent] = useState(false);
+
+  // Check if the consent is already stored in localStorage
+  useEffect(() => {
+    const cookieConsent = localStorage.getItem("cookieConsent");
+    if (cookieConsent !== "accepted") {
+      setShowConsent(true);
+    }
+  }, []);
 
   const acceptCookie = () => {
-    setShowConsent(false);  // Hide the consent once accepted
+    localStorage.setItem("cookieConsent", "accepted");
+    setShowConsent(false);
+  };
+
+  const declineCookie = () => {
+    localStorage.setItem("cookieConsent", "declined");
+    setShowConsent(false);
   };
 
   if (!showConsent) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center">
-      <div className="bg-white rounded-lg p-6 shadow-lg w-[552px] h-[197px]">
+      <div className="bg-white rounded-lg p-6 shadow-lg w-[552px] h-[197px] ">
         <div className="flex items-start">
-          <svg
-            width="15em"
-            height="3em"
-            viewBox="0 0 41 41"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M20.8535 0.372314C19.7723 1.43172 19.0238 2.78359 18.6997 4.26217C18.3755 5.74076 18.4899 7.28179 19.0287 8.69634C19.5675 10.1109 20.5074 11.3375 21.7331 12.2257C22.9588 13.1139 24.4171 13.6251 25.9291 13.6968C26.6459 15.2143 27.8344 16.4592 29.3172 17.2455C30.8 18.0317 32.4974 18.3171 34.1557 18.059C34.1004 18.4573 34.0729 18.859 34.0735 19.2612C34.0735 23.1168 36.4802 26.319 39.6357 26.9323C38.4315 30.4006 36.2959 33.4704 33.4629 35.8055C30.6298 38.1406 27.2087 39.6509 23.5743 40.1708C19.94 40.6907 16.2326 40.2001 12.8585 38.753C9.48445 37.3058 6.5738 34.9578 4.44553 31.9662C2.31727 28.9747 1.0535 25.455 0.792715 21.793C0.531929 18.1309 1.28419 14.4677 2.96706 11.2047C4.64993 7.94179 7.19848 5.20503 10.3334 3.29432C13.4684 1.38361 17.0688 0.372682 20.7402 0.372314H20.8535Z"
-              fill="black"
-            />
-            <circle cx="20.7402" cy="31.4834" r="2.2223" fill="black" />
-            <circle cx="10.7402" cy="25.9279" r="1.1111" fill="black" />
-            <circle cx="26.2957" cy="23.7056" r="1.1111" fill="black" />
-            <circle cx="12.9624" cy="14.8168" r="3.3334" fill="black" />
-            <circle cx="31.8513" cy="9.2612" r="2.2223" fill="black" />
-            <circle cx="39.6291" cy="10.3723" r="1.1111" fill="black" />
-            <circle cx="26.2957" cy="3.70565" r="1.1111" fill="black" />
-          </svg>
-          <div className="ml-4 text-sm text-gray-700">
+          <div className="ml-2 text-sm text-gray-700">
             <p>
               By clicking &apos;Accept&apos; or continuing to browse our website, you
               agree to our{' '}
@@ -80,12 +73,19 @@ const CookieConsent = () => {
             </p>
           </div>
         </div>
-        <div className="mt-4 flex justify-end">
+        <div className="mt-4 flex justify-start gap-4">
           <button
             onClick={acceptCookie}
-            className="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800"
+            className="bg-black text-white py-2 px-6 rounded-full hover:bg-blue-700 hover:text-white transition-all duration-300"
           >
             Accept
+          </button>
+          <button
+            onClick={declineCookie}
+            className="bg-white text-black py-2 px-6 rounded-full border border-black relative overflow-hidden transition-all duration-300 group hover:border-transparent"
+          >
+            <span className="relative z-10 group-hover:text-white">Decline</span>
+            <span className="absolute inset-0 bg-blue-700 transition-all duration-300 group-hover:translate-x-0 group-hover:text-white transform translate-x-[-100%] z-0"></span>
           </button>
         </div>
       </div>
