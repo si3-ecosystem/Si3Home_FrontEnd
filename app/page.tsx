@@ -48,7 +48,7 @@ export default async function Home() {
 
 
   return (
-    <main className="scroll-smooth overflow-x-hidden">
+    <main className="overflow-x-hidden">
       <Hero partners={partners}/>
       {/* <Banner hero={hero} partners={partners}/> */}
       {/* <SherLive

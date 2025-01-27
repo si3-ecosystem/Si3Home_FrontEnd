@@ -149,6 +149,9 @@ function VideoPlayer() {
 
 export default function Hero({ partners }: any) {
 
+    
+
+
     return (
         <section className="bg-gradient-to-tr from-[rgb(255,237,207,0.6)] from-50% to-[rgb(252,198,233)]">
             <div style={{
