@@ -22,72 +22,63 @@ interface FooterProps {
 const CookieConsent = () => {
   const [showConsent, setShowConsent] = useState(false);
 
-  // Check if the consent is already stored in localStorage
+  // Show consent popup initially
   useEffect(() => {
-    const cookieConsent = localStorage.getItem("cookieConsent");
-    if (cookieConsent !== "accepted") {
-      setShowConsent(true);
-    }
+    setShowConsent(true);
   }, []);
 
   const acceptCookie = () => {
-    localStorage.setItem("cookieConsent", "accepted");
     setShowConsent(false);
   };
 
   const declineCookie = () => {
-    localStorage.setItem("cookieConsent", "declined");
     setShowConsent(false);
   };
 
   if (!showConsent) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center">
-      <div className="bg-white rounded-lg p-6 shadow-lg w-[552px] h-[197px] ">
-        <div className="flex items-start">
-          <div className="ml-2 text-sm text-gray-700">
-            <p>
-              By clicking &apos;Accept&apos; or continuing to browse our website, you
-              agree to our{' '}
-              <Link href="/terms-of-service">
-                <span className="text-blue-600 hover:underline">
-                  Terms of Service
-                </span>
-              </Link>{" "}
-              and{" "}
-              <Link href="/privacy-policy">
-                <span className="text-blue-600 hover:underline">
-                  Privacy Policy
-                </span>
-              </Link>
-              , and to the storing of cookies on your device to enhance site
-              navigation, analyze site usage, and assist in our marketing
-              efforts. View our{" "}
-              <Link href="/cookie-policy">
-                <span className="text-blue-600 hover:underline">
-                  Cookie Policy
-                </span>
-              </Link>{" "}
-              for more information.
-            </p>
-          </div>
-        </div>
-        <div className="mt-4 flex justify-start gap-4">
-          <button
-            onClick={acceptCookie}
-            className="bg-black text-white py-2 px-6 rounded-full hover:bg-blue-700 hover:text-white transition-all duration-300"
-          >
-            Accept
-          </button>
-          <button
-            onClick={declineCookie}
-            className="bg-white text-black py-2 px-6 rounded-full border border-black relative overflow-hidden transition-all duration-300 group hover:border-transparent"
-          >
-            <span className="relative z-10 group-hover:text-white">Decline</span>
-            <span className="absolute inset-0 bg-blue-700 transition-all duration-300 group-hover:translate-x-0 group-hover:text-white transform translate-x-[-100%] z-0"></span>
-          </button>
-        </div>
+    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white rounded-lg p-6 shadow-lg w-[90%] max-w-[600px] flex flex-col space-y-4">
+      <div className="text-sm text-gray-700">
+        <p>
+          By clicking &apos;Accept&apos; or continuing to browse our website, you
+          agree to our{' '}
+          <Link href="/terms-of-service">
+            <span className="text-blue-600 hover:underline">
+              Terms of Service
+            </span>
+          </Link>{" "}
+          and{" "}
+          <Link href="/privacy-policy">
+            <span className="text-blue-600 hover:underline">
+              Privacy Policy
+            </span>
+          </Link>
+          , and to the storing of cookies on your device to enhance site
+          navigation, analyze site usage, and assist in our marketing
+          efforts. View our{" "}
+          <Link href="/cookie-policy">
+            <span className="text-blue-600 hover:underline">
+              Cookie Policy
+            </span>
+          </Link>{" "}
+          for more information.
+        </p>
+      </div>
+      <div className="flex justify-start gap-4">
+        <button
+          onClick={acceptCookie}
+          className="bg-black text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-all duration-300"
+        >
+          Accept
+        </button>
+        <button
+          onClick={declineCookie}
+          className="bg-white text-black py-2 px-6 rounded-full border border-black relative overflow-hidden transition-all duration-300 group hover:border-transparent"
+        >
+          <span className="relative z-10 group-hover:text-white">Decline</span>
+          <span className="absolute inset-0 bg-blue-700 transition-all duration-300 group-hover:translate-x-0 group-hover:text-white transform translate-x-[-100%] z-0"></span>
+        </button>
       </div>
     </div>
   );
