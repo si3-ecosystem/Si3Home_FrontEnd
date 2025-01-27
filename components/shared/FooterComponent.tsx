@@ -22,50 +22,46 @@ interface FooterProps {
 const CookieConsent = () => {
   const [showConsent, setShowConsent] = useState(false);
 
-  // Show consent popup initially
+  // Check if the consent is already stored in localStorage
   useEffect(() => {
-    setShowConsent(true);
+    const cookieConsent = localStorage.getItem("cookieConsent");
+    if (!cookieConsent) {
+      setShowConsent(true);
+    }
   }, []);
 
   const acceptCookie = () => {
+    localStorage.setItem("cookieConsent", "accepted");
     setShowConsent(false);
   };
 
   const declineCookie = () => {
+    localStorage.setItem("cookieConsent", "declined");
     setShowConsent(false);
   };
 
   if (!showConsent) return null;
 
   return (
-    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white rounded-lg p-6 shadow-lg w-[90%] max-w-[600px] flex flex-col space-y-4">
+    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-6 w-[90%] max-w-[600px] z-50">
       <div className="text-sm text-gray-700">
         <p>
-          By clicking &apos;Accept&apos; or continuing to browse our website, you
-          agree to our{' '}
+          By clicking <span className="font-bold">'Accept'</span> or continuing to browse our website, you agree to our{' '}
           <Link href="/terms-of-service">
-            <span className="text-blue-600 hover:underline">
-              Terms of Service
-            </span>
-          </Link>{" "}
-          and{" "}
+            <span className="text-blue-600 hover:underline">Terms of Service</span>
+          </Link>{' '}
+          and{' '}
           <Link href="/privacy-policy">
-            <span className="text-blue-600 hover:underline">
-              Privacy Policy
-            </span>
+            <span className="text-blue-600 hover:underline">Privacy Policy</span>
           </Link>
-          , and to the storing of cookies on your device to enhance site
-          navigation, analyze site usage, and assist in our marketing
-          efforts. View our{" "}
+          , and to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts. View our{' '}
           <Link href="/cookie-policy">
-            <span className="text-blue-600 hover:underline">
-              Cookie Policy
-            </span>
-          </Link>{" "}
+            <span className="text-blue-600 hover:underline">Cookie Policy</span>
+          </Link>{' '}
           for more information.
         </p>
       </div>
-      <div className="flex justify-start gap-4">
+      <div className="mt-4 flex justify-center gap-4">
         <button
           onClick={acceptCookie}
           className="bg-black text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-all duration-300"
@@ -95,7 +91,12 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
             <div className="flex-1">
               <div className="max-w-[500px]">
                 <Link href="/" className="text-5xl font-bold uppercase">
-                 <p className="text-2xl md:text-4xl font-black text-black font-clesmont">{"SI<3>"}</p>
+                  <Image
+                    src={urlFor(footer?.logo?.asset).url()}
+                    alt={footer?.logo?.alt}
+                    width={96}
+                    height={48}
+                  />
                 </Link>
                 <p className="my-2 mb-3">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
