@@ -51,29 +51,27 @@ const Navbar = ({ utils }: any) => {
         <div className=" space-x-4  font-medium flex  items-center justify-between">
           <div className="flex items-center justify-center">
             <Link href="/" className="text-white text-5xl font-bold uppercase ">
-              <img
-                src={urlFor(utils?.logo?.asset).url()}
-                alt={utils?.logo?.alt}
-                className="w-24 h-12 "
-              />
+              <p className="text-2xl md:text-4xl text-black font-clesmont font-black">{"SI<3>"}</p>
             </Link>
           </div>
         </div>
         <div className="max-lg:hidden font-medium">
           <div className=" flex items-center gap-[13px]">
-            {/* <Link
+            <Link
               href={utils?.stayConnected}
               target="_blank"
               className="p-2.5 rounded-lg"
             >
+             <button className="h-12 w-12 rounded-full bg-white flex items-center justify-center border">
               <Image
-                src={"/bell.png"}
-                alt="Bell Icon"
-                width={36}
-                height={36}
-                className="w-[28px] h-[28px]"
-              />
-            </Link> */}
+                  src={"/bell.png"}
+                  alt="Bell Icon"
+                  width={36}
+                  height={36}
+                  className="w-[28px] h-[28px]"
+                />
+             </button>
+            </Link>
             {
               utils.stayConnectedText
               ?(
@@ -91,27 +89,29 @@ const Navbar = ({ utils }: any) => {
             }
           </div>
         </div>
-        <div className="lg:hidden">
+        <div className="flex items-center lg:hidden">
+            <Link
+                href={utils?.stayConnected}
+                target="_blank"
+                className="p-2.5 rounded-lg"
+              >
+              <button className="h-12 w-12 rounded-full bg-white flex items-center justify-center border">
+                <Image
+                    src={"/bell.png"}
+                    alt="Bell Icon"
+                    width={36}
+                    height={36}
+                    className="w-[28px] h-[28px]"
+                  />
+              </button>
+            </Link>
           <button
             onClick={toggleMenu}
             aria-label="Open Menu"
-            className="text-white"
+            className="text-white bg-black h-10 w-10 rounded-full flex items-center justify-center"
           >
             {!isOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              </svg>
+             <i className="bi bi-list text-2xl"></i>
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
