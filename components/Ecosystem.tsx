@@ -66,7 +66,7 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
           </h1>
 
           <div className="">
-            <p className="font-mono my-4 md:my-6 text-[#999999] text-base sm:text-xl">
+            <p className="my-4 md:my-6 text-[#999999] text-base sm:text-xl">
               {ecosystemSpotlight.description}
             </p>
           </div>
@@ -113,7 +113,7 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
                   </p>
 
                   <div className="space-y-1 md:space-y-3 mt-2 md:mt-16">
-                    <p className="font-mono text-sm md:text-[32px]">
+                    <p className="font-clesmont text-sm md:text-lg">
                       {item.presenterName}
                     </p>
                     <p className="text-[#898989] text-sm">

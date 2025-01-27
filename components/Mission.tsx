@@ -29,7 +29,7 @@ export default function Mission({ mission,showValues = true }: any) {
           <div className="lg:border-r border-gray-400 px-4 py-14 md:py-[130px]">
               <div className="max-w-[556px] mx-auto lg:mx-0">
                 <h1 className="text-2xl md:text-5xl uppercase font-black font-clesmont">{mission.title}</h1>
-                <p className="font-mono text-sm md:text-lg font-medium py-3 md:pt-4">{mission.description}</p>
+                <p className="text-sm md:text-lg font-medium py-3 md:pt-4">{mission.description}</p>
               </div>
             </div>
 
@@ -47,8 +47,8 @@ export default function Mission({ mission,showValues = true }: any) {
 
     {showValues && (
         <div className="border-b border-gray-400">
-        <header className="text-3xl py-12 text-center border-b border-gray-400 font-medium leading-8 uppercase ">
-          {"SI<3> 's Values:"}
+        <header className="text-3xl py-12 text-center border-b border-gray-400 font-polyamine font-medium leading-8 uppercase ">
+          {"Our Values"}
         </header>
         <div className="">
           <ul className="grid max-w-7xl font-mono lg:pl-5 lin grid-cols-2 lg:grid-cols-4">

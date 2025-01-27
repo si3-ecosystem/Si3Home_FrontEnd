@@ -48,7 +48,7 @@ export default function SherCoActive({ sherCoActive,isLeaderTab=false }:Props) {
             <h1 className="text-xl font-clesmont sm:text-2xl uppercase md:text-[44px] my-4 text-black font-black">
               {sherCoActive.title}
             </h1>
-            <p className="font-mono text-sm md:text-lg">
+            <p className="text-sm md:text-lg">
               {sherCoActive.description}
             </p>
           </div>

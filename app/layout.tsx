@@ -133,7 +133,7 @@ export default async function RootLayout({
           rel="stylesheet"
         ></link>
       </head>
-      <body className="scroll-smooth">
+      <body>
         <script
           type="text/javascript"
           id="hs-script-loader"
@@ -143,7 +143,7 @@ export default async function RootLayout({
         ></script>
         <CustomLayout>
           <Navbar utils={utils} />
-          <div className="min-h-screen">{children}</div>
+          {children}
           <Footer />
         </CustomLayout>
       </body>

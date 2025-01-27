@@ -8,6 +8,10 @@
   font-family: "Clesmont";
   src: url('/fonts/Clesmont.otf');
 }
+@font-face {
+  font-family: "Polyamine";
+  src: url('/fonts/Polyamine.ttf');
+}
 
 @font-face {
   font-family: "Roobert";
@@ -42,6 +46,9 @@
 
 .font-clesmont, .font-clesmont * {
   font-family: "Clesmont",monospace;
+}
+.font-polyamine, .font-polyamine * {
+  font-family: "Polyamine",sans-serif;
 }
 
 body {

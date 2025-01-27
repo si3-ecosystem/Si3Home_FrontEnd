@@ -95,12 +95,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
             <div className="flex-1">
               <div className="max-w-[500px]">
                 <Link href="/" className="text-5xl font-bold uppercase">
-                  <Image
-                    src={urlFor(footer?.logo?.asset).url()}
-                    alt={footer?.logo?.alt}
-                    width={96}
-                    height={48}
-                  />
+                 <p className="text-2xl md:text-4xl font-black text-black font-clesmont">{"SI<3>"}</p>
                 </Link>
                 <p className="my-2 mb-3">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
