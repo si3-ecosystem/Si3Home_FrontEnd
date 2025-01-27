@@ -20,20 +20,10 @@ interface FooterProps {
 }
 
 const CookieConsent = () => {
-  const [showConsent, setShowConsent] = useState(false);
-
-  useEffect(() => {
-
-    const consentGiven = localStorage.getItem("cookieConsent");
-    if (!consentGiven) {
-      setShowConsent(true);
-    }
-  }, []);
+  const [showConsent, setShowConsent] = useState(true);  // Always show consent
 
   const acceptCookie = () => {
-
-    localStorage.setItem("cookieConsent", "true");
-    setShowConsent(false);
+    setShowConsent(false);  // Hide the consent once accepted
   };
 
   if (!showConsent) return null;
@@ -43,8 +33,8 @@ const CookieConsent = () => {
       <div className="bg-white rounded-lg p-6 shadow-lg w-[552px] h-[197px]">
         <div className="flex items-start">
           <svg
-            width="1em"
-            height="1em"
+            width="15em"
+            height="3em"
             viewBox="0 0 41 41"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +78,6 @@ const CookieConsent = () => {
               </Link>{" "}
               for more information.
             </p>
-
           </div>
         </div>
         <div className="mt-4 flex justify-end">
