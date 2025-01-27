@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import urlFor from "@/utils/urlFor";
 import Link from "next/link";
 import ImageUrl from "@/utils/imageUrl";
+import MouseIcon from "@/app/icons/mouse";
 const shadowClass = "0 8px 16px 0 rgba(0,0,0,0.2)"
 
 
@@ -134,13 +135,13 @@ function VideoPlayer() {
 
     return (
         <div className="flex h-[500px] items-center justify-center relative">
-            <video ref={videoRef} muted src="/hero.mp4" className="w-full absolute rounded-[32px] h-full top-0 left-0 right-0 object-cover" />
-            <button onClick={play} style={{ boxShadow: shadowClass }} className="h-[96px] z-10 bg-white rounded-full w-[96px] flex items-center justify-center">
+            <video  id="hero-video" ref={videoRef} autoPlay loop muted src="/hero.mp4" className="w-full absolute rounded-[32px] h-full top-0 left-0 right-0 object-cover" />
+            {/* <button onClick={play} style={{ boxShadow: shadowClass }} className="h-[96px] z-10 bg-white rounded-full w-[96px] flex items-center justify-center">
                 {paused
                     ? <i className="bi bi-play-fill text-[64px]"></i>
                     : <i className="bi bi-pause-fill text-[64px]"></i>
                 }
-            </button>
+            </button> */}
         </div>
     )
 }
@@ -163,7 +164,7 @@ export default function Hero({ partners }: any) {
                             web3 era
                         </h1>
                         <p className="max-w-[500px] my-2 text-base lg:text-xl tracking-normal mx-auto text-center">Explore Our Decentralizing Ecosystem Creating Pathways For Diverse Voices Of the New Economy</p>
-                        <button className="bg-black my-4 px-6 py-[13px] rounded-full font-medium text-white">Get Started</button>
+                        <Link href={"#hero-video"}><button className=""><MouseIcon/></button></Link>
                     </div>
                     <VideoPlayer />
                 </div>
