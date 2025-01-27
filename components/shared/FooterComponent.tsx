@@ -6,6 +6,7 @@ import Link from "next/link";
 import urlFor from "@/utils/urlFor";
 import LinkedinIcon from "@/app/icons/linkedin";
 import XIcon from "@/app/icons/x";
+import Head from "next/head"; // Import next/head for injecting external scripts
 
 interface FooterProps {
   footer: {
@@ -45,35 +46,35 @@ const CookieConsent = () => {
   return (
     <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-6 w-[90%] max-w-[600px] z-50">
       <div className="text-sm text-gray-700">
-      <p>
-              By clicking &apos;Accept&apos; or continuing to browse our website, you
-              agree to our{' '}
-              <Link href="/terms-of-service">
-                <span className="text-blue-600 hover:underline">
-                  Terms of Service
-                </span>
-              </Link>{" "}
-              and{" "}
-              <Link href="/privacy-policy">
-                <span className="text-blue-600 hover:underline">
-                  Privacy Policy
-                </span>
-              </Link>
-              , and to the storing of cookies on your device to enhance site
-              navigation, analyze site usage, and assist in our marketing
-              efforts. View our{" "}
-              <Link href="/cookie-policy">
-                <span className="text-blue-600 hover:underline">
-                  Cookie Policy
-                </span>
-              </Link>{" "}
-              for more information.
-            </p>
+        <p>
+          By clicking &apos;Accept&apos; or continuing to browse our website, you
+          agree to our{' '}
+          <Link href="/terms-of-service">
+            <span className="text-blue-600 hover:underline">
+              Terms of Service
+            </span>
+          </Link>{" "}
+          and{" "}
+          <Link href="/privacy-policy">
+            <span className="text-blue-600 hover:underline">
+              Privacy Policy
+            </span>
+          </Link>
+          , and to the storing of cookies on your device to enhance site
+          navigation, analyze site usage, and assist in our marketing
+          efforts. View our{" "}
+          <Link href="/cookie-policy">
+            <span className="text-blue-600 hover:underline">
+              Cookie Policy
+            </span>
+          </Link>{" "}
+          for more information.
+        </p>
       </div>
       <div className="mt-4 flex justify-start gap-4">
         <button
           onClick={acceptCookie}
-          className="bg-black text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-all duration-300"
+          className="bg-black text-white py-2 px-6 rounded-full hover:bg-[#3C1FEF] transition-all duration-300"
         >
           Accept
         </button>
@@ -82,7 +83,7 @@ const CookieConsent = () => {
           className="bg-white text-black py-2 px-6 rounded-full border border-black relative overflow-hidden transition-all duration-300 group hover:border-transparent"
         >
           <span className="relative z-10 group-hover:text-white">Decline</span>
-          <span className="absolute inset-0 bg-blue-700 transition-all duration-300 group-hover:translate-x-0 group-hover:text-white transform translate-x-[-100%] z-0"></span>
+          <span className="absolute inset-0 bg-[#3C1FEF] transition-all duration-300 group-hover:translate-x-0 group-hover:text-white transform translate-x-[-100%] z-0"></span>
         </button>
       </div>
     </div>
@@ -94,6 +95,14 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
 
   return (
     <>
+      <Head>
+        {/* Injecting EtherMail SDK script */}
+        <script
+          defer
+          src="https://cdn-email.ethermail.io/sdk/v2/ethermail.js"
+          type="text/javascript"
+        ></script>
+      </Head>
       <div id="stayConnected" className="bg-white -mt-4">
         <div className="max-w-7xl border-gray-400 mx-auto lg:flex">
           <div className="flex-[2] sm:pr-4 min-h-[250px] border-b px-4 lg:px-0 lg:border-r border-gray-400 lg:py-12 flex items-center justify-center">
@@ -113,16 +122,23 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                 </p>
                 <form
                   action=""
-                  className="border rounded-full flex gap-x-4 items-center pl-8 p-2 border-black w-11/12 lg:min-h-[57px] lg:max-w-[375x]"
+                  className="border rounded-full flex gap-x-4 items-center pl-8 p-2 border-black w-11/12 lg:min-h-[57px] lg:max-w-[375px]"
                 >
-                  <input
-                    type="text"
-                    className="flex-1 text-xs sm:text-base text-[#1E1E1E] placeholder:text-[#1E1E1E]"
-                    placeholder="Subscribe to our newsletter"
-                  />
-                  <button className="text-white bg-black rounded-full py-2 px-3 sm:px-6">
-                    Subscribe
-                  </button>
+                  {/* Email Input Field */}
+                  <div className="relative w-full">
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="Enter your email"
+                      className="w-full h-12 px-4 text-gray-700 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
+                    />
+                    <button
+                      type="submit"
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black hover:bg-[#3C1FEF] text-white px-4 py-2 rounded-full"
+                    >
+                      Subscribe
+                    </button>
+                  </div>
                 </form>
               </div>
             </div>
