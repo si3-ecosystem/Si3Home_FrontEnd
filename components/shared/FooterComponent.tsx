@@ -45,21 +45,30 @@ const CookieConsent = () => {
   return (
     <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-6 w-[90%] max-w-[600px] z-50">
       <div className="text-sm text-gray-700">
-        <p>
-          By clicking <span className="font-bold">'Accept'</span> or continuing to browse our website, you agree to our{' '}
-          <Link href="/terms-of-service">
-            <span className="text-blue-600 hover:underline">Terms of Service</span>
-          </Link>{' '}
-          and{' '}
-          <Link href="/privacy-policy">
-            <span className="text-blue-600 hover:underline">Privacy Policy</span>
-          </Link>
-          , and to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts. View our{' '}
-          <Link href="/cookie-policy">
-            <span className="text-blue-600 hover:underline">Cookie Policy</span>
-          </Link>{' '}
-          for more information.
-        </p>
+      <p>
+              By clicking &apos;Accept&apos; or continuing to browse our website, you
+              agree to our{' '}
+              <Link href="/terms-of-service">
+                <span className="text-blue-600 hover:underline">
+                  Terms of Service
+                </span>
+              </Link>{" "}
+              and{" "}
+              <Link href="/privacy-policy">
+                <span className="text-blue-600 hover:underline">
+                  Privacy Policy
+                </span>
+              </Link>
+              , and to the storing of cookies on your device to enhance site
+              navigation, analyze site usage, and assist in our marketing
+              efforts. View our{" "}
+              <Link href="/cookie-policy">
+                <span className="text-blue-600 hover:underline">
+                  Cookie Policy
+                </span>
+              </Link>{" "}
+              for more information.
+            </p>
       </div>
       <div className="mt-4 flex justify-center gap-4">
         <button
