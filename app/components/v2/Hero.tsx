@@ -1,6 +1,6 @@
 "use client";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/app/icons/chevron";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, use } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import urlFor from "@/utils/urlFor";
@@ -66,7 +66,7 @@ function Partners({ partners }: any) {
             >
                 {
                     getVisibleItems().map((item:any) => (
-                        <div className="border-r flex items-center justify-center p-8" key={item.id}>
+                        <div className="border-r flex items-center justify-center sm:p-8" key={item.id}>
                            <div className="flex-1 text-center">
                                 <div className="mb-5">
                                     <ImageUrl image={item.logo}/>
@@ -95,7 +95,7 @@ function Partners({ partners }: any) {
                                 <div className="mb-5">
                                     <ImageUrl image={item.logo}/>
                                 </div>
-                                <span className="px-4 p-2 bg-[#EEEEEE] rounded-full">Community Partner</span>
+                                <span className="px-4 p-2 bg-[#EEEEEE] text-xs rounded-full">Community Partner</span>
                            </div>
                         </div>
                     ))
@@ -149,7 +149,19 @@ function VideoPlayer() {
 
 export default function Hero({ partners }: any) {
 
-    
+    const [index,setIndex] = useState(1);
+
+    useEffect(() => {
+        const countInterval = setInterval(() => {
+            setIndex(prev=>{
+                if(prev > 3) return 1;
+                return prev+1
+            })
+        },5000)
+
+        return ()=>clearInterval(countInterval)
+    },[])
+
 
 
     return (
@@ -161,13 +173,26 @@ export default function Hero({ partners }: any) {
             >
                 <div className="rounded-[32px] max-w-7xl mx-auto bg-white pt-8 mb-8" style={{ boxShadow: shadowClass }}>
                     <div className="max-w-[700px] px-4 mb-14 mx-auto text-center">
-                        <h1 className="text-3xl font-clesmont lg:text-6xl font-bold uppercase">
-                            Entering An <br />
-                            <span className="bg-gradient-to-r from-[#4663FA] bg-clip-text text-transparent to-[#3FE8CA]">Accessible</span> <br />
-                            web3 era
-                        </h1>
+                        <div className="text-3xl font-clesmont lg:text-6xl font-bold uppercase">
+                            <p>Entering An</p>
+                            <p className="max-h-16 overflow-hidden translate-container">
+                                <span
+                                style={index > 1 ?{transform: "translateY(-200%)"}:undefined}
+                                className="bg-gradient-to-r inline-block  from-[#F6CEEC] bg-clip-text text-transparent to-[#D939CD]">Accessible</span> <br />
+                                <span
+                                style={index > 2 ?{transform: "translateY(-200%)"}:index > 1 ?{transform: "translateY(-100%)"}:undefined}
+                                className="bg-gradient-to-r inline-block  from-[#CE9FFC] bg-clip-text text-transparent to-[#7367F0]">Collaborative</span> <br />
+                                 <span
+                                style={index > 3 ?{transform: "translateY(-300%)"}:index > 2 ?{transform: "translateY(-200%)"}:undefined}
+                                className="bg-gradient-to-r inline-block  from-[#ABDCFF] bg-clip-text text-transparent to-[#0396FF]">Diverse</span> <br />
+                                <span
+                                 style={index > 3 ?{transform: "translateY(-300%)"}:undefined}
+                                className="bg-gradient-to-b inline-block  from-[#F0FF00] bg-clip-text text-transparent to-[#58CFFB]">Invicible</span> <br />
+                            </p>
+                            <p>web3 era</p>
+                        </div>
                         <p className="max-w-[500px] my-2 text-base lg:text-xl tracking-normal mx-auto text-center">Explore Our Decentralizing Ecosystem Creating Pathways For Diverse Voices Of the New Economy</p>
-                        <Link href={"#hero-video"}><button className=""><MouseIcon/></button></Link>
+                        <Link href={"#explore"}><button className=""><MouseIcon/></button></Link>
                     </div>
                     <VideoPlayer />
                 </div>

@@ -55,7 +55,7 @@ export default function SherCoActive({ sherCoActive,isLeaderTab=false }:Props) {
           <div className="flex items-center justify-center pb-4">
             {isLeaderTab
             ?(<Image alt="Explorers Image" preview={false}  src="/images/leaders-coactive.png"/>)
-            :(<Image alt="Explorers Image" preview={false}  src="/images/explorers-2.png"/>)}
+            :(<Image alt="Explorers Image" preview={false}  src="/images/explorers-3.png"/>)}
           </div>
       </div>
     </div>

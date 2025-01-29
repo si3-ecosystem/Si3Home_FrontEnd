@@ -152,7 +152,7 @@ export default function Tabs({
         </div>
 
         {/* Tab Content */}
-        <div className="mt-6">
+        <div className="mt-6" id="explore">
           {activeTab === "explorers" && (
             <div className="mx-auto">
               <SherCoActive sherCoActive={sherexplorer} />
