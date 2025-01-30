@@ -44,7 +44,13 @@ const Navbar = ({ utils }: any) => {
 
   const goToURL = (url:string) => {
     setIsOpen(false);
-    router.push(url);
+    router.push(url + `#tab-content`);
+    // const tab = document.querySelector("#accountTabContent") as HTMLDivElement;
+
+    // if(tab) {
+    //   tab.scrollIntoView({behavior: "smooth"});
+    // }
+
   }
 
   return (
@@ -155,26 +161,26 @@ const Navbar = ({ utils }: any) => {
               <p className="text-3xl font-clesmont font-black">{"SI<3>"}</p>
               <button onClick={()=>setIsOpen(false)} className="bg-[#D9D9D9] h-9 w-9 flex items-center justify-center rounded-full"><i className="bi bi-x-lg"></i></button>
             </header>
-            <div className="flex flex-col justify-between h-[85vh]">
+            <div className="flex flex-col justify-between h-[75vh]">
             <ul className="flex flex-col gap-4 my-8 justify-between">
-              <li onClick={()=>goToURL("/?tab=explore")} className="border cursor-pointer border-[#D9D9D9] rounded-lg flex items-center justify-between px-4 min-h-[46px]">
+              <li onClick={()=>goToURL("/?tab=explorers")} className="border cursor-pointer border-[#D9D9D9] rounded-lg flex items-center justify-between px-4 min-h-[46px]">
                 <p>Explore Web3</p>
                 <ArrowRightIcon/>
               </li>
-              <li onClick={()=>goToURL("/?tab=build")} className="border cursor-pointer border-[#D9D9D9] rounded-lg flex items-center justify-between px-4 min-h-[46px]">
-                <p>Build Web 3</p>
+              <li onClick={()=>goToURL("/?tab=leaders")} className="border cursor-pointer border-[#D9D9D9] rounded-lg flex items-center justify-between px-4 min-h-[46px]">
+                <p>Build Web3</p>
                 <ArrowRightIcon/>
               </li>
-              <li onClick={()=>goToURL("/?tab=lead")} className="border border-[#D9D9D9] rounded-lg cursor-pointer flex items-center justify-between px-4 min-h-[46px]">
-                <p>Learn Web 3</p>
+              <li onClick={()=>goToURL("/?tab=brands")} className="border border-[#D9D9D9] rounded-lg cursor-pointer flex items-center justify-between px-4 min-h-[46px]">
+                <p>Lead Web3</p>
                 <ArrowRightIcon/>
               </li>
             </ul>
             <div>
             <Link href={"/onboard"}><button className="bg-black w-full py-3 rounded-full text-white">Get Started</button></Link>
             <div className="bg-[#EEEEEE] mt-4 p-4 rounded-md min-h-[164px]">
-              <p className="font-medium text-lg">Help us build a more inclusive Web3!</p>
-              <p className="my-1">Share your unique perspective by filling out our Diversity Tracker—your voice matters.</p>
+              <p className="font-medium">Help us build a more inclusive Web3!</p>
+              <p className="my-1 text-xs">Share your unique perspective by filling out our Diversity Tracker—your voice matters.</p>
               <button className="bg-white rounded-full px-4 py-2 my-2">Learn More</button>
             </div>
             </div>

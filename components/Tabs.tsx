@@ -22,6 +22,7 @@ import Link from "next/link";
 import Image from "next/image";
 import JoinTabFooter from "./JoinTabFooter";
 import ChatGPTIcon from "@/app/icons/chatgpt";
+import { useSearchParams } from "next/navigation";
 
 type TabsProps = {
   educationalProgramming: any;
@@ -93,6 +94,15 @@ export default function Tabs({
   const controls = useAnimation();
 
 
+  const params = useSearchParams()
+
+  useEffect(()=>{
+    const tab = params.get("tab")
+    if(tab) {
+      setActiveTab(tab);
+    }
+  },[params])
+
 
   useEffect(() => {
     if (isInView) {
@@ -106,12 +116,14 @@ export default function Tabs({
 
 
   return (
+    <>
+    <div id="tab-content"></div>
     <div
       ref={ref}
       id="siherlive"
       className="flex items-center justify-center flex-col md:px-0 py-4 lg:py-16 md:!py-4 bg-no-repeat"
     >
-      <div className="w-full mx-auto mt-4 sm:mt-10" id="tab-content">
+      <div className="w-full mx-auto mt-4 sm:mt-10">
         {/* Tab Buttons */}
         <div className="p-4">
         <div className="flex w-full max-w-[750px]  bg-black mx-auto justify-start rounded-lg md:rounded-full p-2">
@@ -152,7 +164,7 @@ export default function Tabs({
         </div>
 
         {/* Tab Content */}
-        <div className="mt-6" id="explore">
+        <div className="mt-6" id="accountTabContent">
           {activeTab === "explorers" && (
             <div className="mx-auto">
               <SherCoActive sherCoActive={sherexplorer} />
@@ -221,5 +233,6 @@ export default function Tabs({
         </div>
       </div>
     </div>
+    </>
   );
 }
