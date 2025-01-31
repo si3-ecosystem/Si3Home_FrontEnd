@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ImageUrl from "@/utils/imageUrl";
 import MouseIcon from "@/app/icons/mouse";
+import Link from "next/link";
 const shadowClass = "0 8px 16px 0 rgba(0,0,0,0.2)"
 
 
@@ -103,9 +104,9 @@ function Partners({ partners }: any) {
                 <div className="lg:flex max-w-6xl mx-auto items-center gap-11">
                     <div className="flex-1 lg:border-l border-gray-400  min-h-[152px]">
                         <div className="px-1 sm:px-4 p-8">
-                            <p className="text-xl sm:text-3xl">Join Us in Building an Inclusive Web3 Future</p>
+                            <p className="text-xl sm:text-3xl">Join Us in Building an Inclusive <br className="md:hidden"/> Web3 Future</p>
                             <p className="my-3">Join us in creating an inclusive Web3 future for women and non-binary individuals. Let’s empower change together!</p>
-                            <button className="border rounded-full py-3 font-medium my-3 px-6">Partner With Us</button>
+                            <Link href={"/onboard"}><button className="border rounded-full py-3 font-medium my-3 px-6">Partner With Us</button></Link>
                         </div>
                     </div>
                 </div>
@@ -202,7 +203,7 @@ export default function Hero({ partners }: any) {
                     <VideoPlayer />
                 </div>
                 </div>
-                <p className="font-black uppercase text-2xl md:text-5xl text-center font-clesmont mt-20">Our Partners</p>
+                <p className="font-black uppercase text-2xl md:text-5xl text-center font-clesmont mt-20 mb-5 md:mb-8">Our Partners</p>
                 <Partners partners={partners} />
             </div>
         </section>

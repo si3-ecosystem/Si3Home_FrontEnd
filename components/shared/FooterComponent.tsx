@@ -148,7 +148,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                 <Link href="/member-policy">
                   <button className="block">Member Policy</button>
                 </Link>
-                <Link href="https://app.charmverse.io/si3/welcome-to-si-3-734090998628107">
+                <Link href="https://app.charmverse.io/si3/welcome-to-si-3-734090998628107" target="_blank">
                   <button className="block">Media Kit</button>
                 </Link>
               </div>

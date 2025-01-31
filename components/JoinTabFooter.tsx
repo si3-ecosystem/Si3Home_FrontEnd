@@ -21,8 +21,10 @@ export default function JoinTabFooter(props:Props){
                   fill
                   className="w-full absolute top-0 left-0 z-[30] h-full"
                 />
-             <div className="text-white text-center max-w-[724px] z-[40]">
-                <p className="text-xl text-center font-clesmont lg:mx-0 md:text-[40px] font-black uppercase font-mono md:leading-[56px] tracking-normal">
+             <p className="font-clesmont absolute top-10 left-4 lg:left-16 text-2xl text-white z-[40]">{"SI<3>"}</p>
+
+             <div className="text-white text-center max-w-[724px]  z-[40]">
+                <p className="text-xl text-center mt-10 sm:mt-0 font-clesmont lg:mx-0 md:text-[40px] font-black uppercase font-mono md:leading-[56px] tracking-normal">
                   {(footerData.title as string).split(" ").map((word)=>{
                     if(BOLD_TEXTS.includes(word.toUpperCase())){
                       return <b key={Math.random() * 100000}>{word + " "}</b>
