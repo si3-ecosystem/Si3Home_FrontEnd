@@ -112,8 +112,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                   <p className="text-4xl font-black font-clesmont">{"SI<3>"}</p>
                 </Link>
                 <p className="my-2 mb-3">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium.
+                 {"SI<3> is a decentralizing universe of emerging tech communities, educators, explorers and organizations, powered by the industry's diverse voices."}
                 </p>
                 <form
                   action=""
