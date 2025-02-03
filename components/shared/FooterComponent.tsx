@@ -123,7 +123,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                 <div className="border rounded-full flex items-center pl-4 p-2 border-black w-full lg:min-h-[57px] lg:max-w-[325px]">
                   <ethermail-subscribe
                     widget="66d5a2d55c125fff0bf241a58c1f24f8"
-                    className="flex items-center w-full justify-between"
+                    className="flex items-center w-full justify-center"
                   >
                     <input
                       type="email"
