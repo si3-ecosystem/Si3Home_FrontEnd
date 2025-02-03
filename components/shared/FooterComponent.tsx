@@ -6,7 +6,7 @@ import Link from "next/link";
 import urlFor from "@/utils/urlFor";
 import LinkedinIcon from "@/app/icons/linkedin";
 import XIcon from "@/app/icons/x";
-import Head from "next/head"; // Import next/head for injecting external scripts
+import Head from "next/head";
 
 interface FooterProps {
   footer: {
@@ -23,7 +23,6 @@ interface FooterProps {
 const CookieConsent = () => {
   const [showConsent, setShowConsent] = useState(false);
 
-  // Check if the consent is already stored in localStorage
   useEffect(() => {
     const cookieConsent = localStorage.getItem("cookieConsent");
     if (!cookieConsent) {
@@ -96,7 +95,6 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
   return (
     <>
       <Head>
-        {/* Injecting EtherMail SDK script */}
         <script
           defer
           src="https://cdn-email.ethermail.io/sdk/v2/ethermail.js"
@@ -107,7 +105,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
         <div className="max-w-7xl border-gray-400 mx-auto lg:flex">
           <div className="flex-[2] sm:pr-4 min-h-[250px] border-b px-4 lg:px-0 lg:border-r border-gray-400 lg:py-12 flex items-center justify-center">
             <div className="flex-1">
-              <div className="max-w-[500px]">
+              <div className="w-full">
                 <Link href="/" className="text-5xl font-bold uppercase">
                   <Image
                     src={urlFor(footer?.logo?.asset).url()}
@@ -120,29 +118,28 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque laudantium.
                 </p>
-                <form
-                  action=""
-                  className="border rounded-full flex gap-x-4 items-center pl-8 p-2 border-black w-11/12 lg:min-h-[57px] lg:max-w-[375px]"
-                >
-                  {/* Email Input Field */}
-                  <div className="relative w-full">
+
+                {/* EtherMail Subscription Form */}
+                <div className="border rounded-full flex items-center justify-start border-black w-full lg:min-h-[57px] lg:max-w-[305px] p-1">
+                  <ethermail-subscribe
+                    widget="66d5a2d55c125fff0bf241a58c1f24f8"
+                    className="flex items-center lg:max-w-[375px]"
+                    rpc='{"http": "//eth-mainnet.g.alchemy.com/v2/isvoo_tVdqb1O0KKxZb_ypfynw2rTa0A"}'
+                  >
                     <input
                       type="email"
-                      id="email"
                       placeholder="Enter your email"
-                      className="w-full h-12 px-4 text-gray-700 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600"
+                      className="flex-grow border-none outline-none text-base px-2"
                     />
-                    <button
-                      type="submit"
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black hover:bg-[#3C1FEF] text-white px-4 py-2 rounded-full"
-                    >
+                    <button className="bg-black text-white py-2 px-4 rounded-full hover:bg-[#3C1FEF] transition-all duration-300">
                       Subscribe
                     </button>
-                  </div>
-                </form>
+                  </ethermail-subscribe>
+                </div>
               </div>
             </div>
           </div>
+
           <div className="flex-1 border-r pt-16 p-4 border-gray-400 flex lg:justify-center">
             <div>
               <p className="font-black text-2xl font-clesmont">SI Things</p>
@@ -159,6 +156,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
               </div>
             </div>
           </div>
+
           <div className="flex-1 border-r p-4 pt-16 border-gray-400 flex lg:justify-center">
             <div>
               <p className="font-black text-2xl font-clesmont">Follow Us</p>
@@ -179,12 +177,14 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
             </div>
           </div>
         </div>
+
         <div className="border-t p-4 py-8 border-gray-400">
           <p className="text-sm max-w-7xl mx-auto text-center md:text-base">
             {"Copyright © "} {currentYear} {" Si<3>, Inc. All rights reserved."}
           </p>
         </div>
       </div>
+
       <CookieConsent />
     </>
   );
