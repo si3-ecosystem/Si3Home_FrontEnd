@@ -105,27 +105,32 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
         <div className="max-w-7xl border-gray-400 mx-auto lg:flex">
           <div className="flex-[2] sm:pr-4 min-h-[250px] border-b px-4 lg:px-0 lg:border-r border-gray-400 lg:py-12 flex items-center justify-center">
             <div className="flex-1">
-              <div className="w-full">
+              <div className="max-w-[500px]">
                 <Link href="/" className="text-5xl font-bold uppercase">
-                  <p className="text-4xl font-black font-clesmont">{"SI<3>"}</p>
+                  <Image
+                    src={urlFor(footer?.logo?.asset).url()}
+                    alt={footer?.logo?.alt}
+                    width={96}
+                    height={48}
+                  />
                 </Link>
                 <p className="my-2 mb-3">
-                 {"SI<3> is a decentralizing universe of emerging tech communities, educators, explorers and organizations, powered by the industry's diverse voices."}
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium.
                 </p>
 
                 {/* EtherMail Subscription Form */}
-                <div className="border rounded-full flex items-center justify-start border-black w-full lg:min-h-[57px] lg:max-w-[305px] p-1">
+                <div className="border rounded-full flex items-center pl-4 p-2 border-black w-full lg:min-h-[57px] lg:max-w-[325px]">
                   <ethermail-subscribe
                     widget="66d5a2d55c125fff0bf241a58c1f24f8"
-                    className="flex items-center lg:max-w-[375px]"
-                    rpc='{"http": "//eth-mainnet.g.alchemy.com/v2/isvoo_tVdqb1O0KKxZb_ypfynw2rTa0A"}'
+                    className="flex items-center w-full justify-between"
                   >
                     <input
                       type="email"
                       placeholder="Enter your email"
                       className="flex-grow border-none outline-none text-base px-2"
                     />
-                    <button className="bg-black text-white py-2 px-4 rounded-full hover:bg-[#3C1FEF] transition-all duration-300">
+                    <button className="bg-black text-white py-2 px-4 ml-1 rounded-full hover:bg-[#3C1FEF] transition-all duration-300">
                       Subscribe
                     </button>
                   </ethermail-subscribe>
@@ -144,7 +149,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                 <Link href="/member-policy">
                   <button className="block">Member Policy</button>
                 </Link>
-                <Link href="https://app.charmverse.io/si3/welcome-to-si-3-734090998628107" target="_blank">
+                <Link href="/media-kit">
                   <button className="block">Media Kit</button>
                 </Link>
               </div>
@@ -158,7 +163,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                 <Link href={footer.twitter} target="_blank">
                   <button className="flex items-center gap-2">
                     <XIcon />
-                    <span>Twitter/X</span>
+                    <span>Twitter X</span>
                   </button>
                 </Link>
                 <Link href={footer.linkedIn} target="_blank">
