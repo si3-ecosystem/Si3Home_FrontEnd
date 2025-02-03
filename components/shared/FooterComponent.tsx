@@ -107,16 +107,10 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
             <div className="flex-1">
               <div className="w-full">
                 <Link href="/" className="text-5xl font-bold uppercase">
-                  <Image
-                    src={urlFor(footer?.logo?.asset).url()}
-                    alt={footer?.logo?.alt}
-                    width={96}
-                    height={48}
-                  />
+                  <p className="text-4xl font-black font-clesmont">{"SI<3>"}</p>
                 </Link>
                 <p className="my-2 mb-3">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium.
+                 {"SI<3> is a decentralizing universe of emerging tech communities, educators, explorers and organizations, powered by the industry's diverse voices."}
                 </p>
 
                 {/* EtherMail Subscription Form */}
@@ -150,7 +144,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                 <Link href="/member-policy">
                   <button className="block">Member Policy</button>
                 </Link>
-                <Link href="/media-kit">
+                <Link href="https://app.charmverse.io/si3/welcome-to-si-3-734090998628107" target="_blank">
                   <button className="block">Media Kit</button>
                 </Link>
               </div>
@@ -164,7 +158,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                 <Link href={footer.twitter} target="_blank">
                   <button className="flex items-center gap-2">
                     <XIcon />
-                    <span>Twitter X</span>
+                    <span>Twitter/X</span>
                   </button>
                 </Link>
                 <Link href={footer.linkedIn} target="_blank">

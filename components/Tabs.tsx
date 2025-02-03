@@ -22,6 +22,7 @@ import Link from "next/link";
 import Image from "next/image";
 import JoinTabFooter from "./JoinTabFooter";
 import ChatGPTIcon from "@/app/icons/chatgpt";
+import { useSearchParams } from "next/navigation";
 
 type TabsProps = {
   educationalProgramming: any;
@@ -93,6 +94,15 @@ export default function Tabs({
   const controls = useAnimation();
 
 
+  const params = useSearchParams()
+
+  useEffect(()=>{
+    const tab = params.get("tab")
+    if(tab) {
+      setActiveTab(tab);
+    }
+  },[params])
+
 
   useEffect(() => {
     if (isInView) {
@@ -106,12 +116,14 @@ export default function Tabs({
 
 
   return (
+    <>
+    <div id="tab-content"></div>
     <div
       ref={ref}
       id="siherlive"
       className="flex items-center justify-center flex-col md:px-0 py-4 lg:py-16 md:!py-4 bg-no-repeat"
     >
-      <div className="w-full mx-auto mt-4 sm:mt-10" id="tab-content">
+      <div className="w-full mx-auto mt-4 sm:mt-10">
         {/* Tab Buttons */}
         <div className="p-4">
         <div className="flex w-full max-w-[750px]  bg-black mx-auto justify-start rounded-lg md:rounded-full p-2">
@@ -152,7 +164,7 @@ export default function Tabs({
         </div>
 
         {/* Tab Content */}
-        <div className="mt-6">
+        <div className="mt-6" id="accountTabContent">
           {activeTab === "explorers" && (
             <div className="mx-auto">
               <SherCoActive sherCoActive={sherexplorer} />
@@ -190,17 +202,16 @@ export default function Tabs({
               {/* <SingleTestimonial testimonial={testimonials[1]}/> */}
              <section className="bg-gradient-to-r px-4 py-12 lg:py-[170px] from-[rgb(255,237,207,0.4)] from-50% to-[rgb(252,198,233)]">
              <div className="max-w-[1196px] mx-auto">
-                <p className="text-3xl md:leading-[56px] uppercase md:text-[44px] max-w-[672px] mx-auto font-mono font-black">{partnerTabData.header.title}</p>
+                <p className="text-3xl md:leading-[56px] uppercase md:text-[44px] max-w-[672px] mx-auto font-clesmont font-black">{partnerTabData.header.title}</p>
                 <p className="max-w-[802px] text-lg font-mono mx-auto my-4">{partnerTabData.header.subtitle}</p>
               </div>
               {partnerTabData.programs.map((program,index)=>{
-                const isReversed = index % 2 !== 0;
                 
                 return ( 
                   <div key={program.id} className={`flex  max-w-[1196px] mx-auto p-4 lg:p-8 rounded-lg lg:rounded-[30px] my-4 lg:my-10 bg-white min-h-[500px] gap-10 lg:gap-[88px] flex-col border border-gray-400 lg:flex-row justify-between`}>
                     <div className="font-mono text-left flex-[2] max-w-[528px]">
                       <span className="inline-block text-xs sm:text-base bg-[#FAB7D0] rounded-full text-black py-1 px-3">{program.event}</span>
-                      <p className="text-2xl uppercase my-6 sm:text-4xl font-black">{program.title}</p>
+                      <p className="text-2xl uppercase my-6 sm:text-4xl font-black font-clesmont">{program.title}</p>
                       <p className="text-sm sm:text-base">{program.description}</p>
                     </div>
                     <div className="flex-1 relative justify-end text-right">
@@ -221,5 +232,6 @@ export default function Tabs({
         </div>
       </div>
     </div>
+    </>
   );
 }

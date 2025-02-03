@@ -7,6 +7,7 @@ import Link from "next/link";
 import urlFor from "@/utils/urlFor";
 import { useRouter } from "next/navigation";
 import FlashInfoHeader from "@/app/components/v2/FlashInfoHeader";
+import ArrowRightIcon from "@/app/icons/arrow-right";
 
 const Navbar = ({ utils }: any) => {
   const router = useRouter()
@@ -40,6 +41,17 @@ const Navbar = ({ utils }: any) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [controls]);
+
+  const goToURL = (url:string) => {
+    setIsOpen(false);
+    router.push(url + `#tab-content`);
+    // const tab = document.querySelector("#accountTabContent") as HTMLDivElement;
+
+    // if(tab) {
+    //   tab.scrollIntoView({behavior: "smooth"});
+    // }
+
+  }
 
   return (
     <header className="sticky top-0 z-50">
@@ -81,7 +93,7 @@ const Navbar = ({ utils }: any) => {
               )
               :(
                 <Link href={"/onboard"}>
-                   <button className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-8 bg-black hover:bg-[#3C1FEF] text-white hover:text-white">
+                   <button style={{transition:"all ease 5s"}} className="text-base lg:text-xl hover:bg-gradient-to-tr from-[#E2B0FF] from-50% to-[#9F44D3] font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-8 bg-black  text-white hover:text-white">
                       {"Get Started"}
                     </button>
                   </Link>
@@ -141,66 +153,39 @@ const Navbar = ({ utils }: any) => {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ y: "-100%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: "-100%", opacity: 0 }}
-            transition={{
-              duration: 0.5,
-              ease: "easeInOut",
-            }}
-            className="h-[420px] absolute z-30 bg-[#3C1FEF] top-[56px] left-0 right-0 w-full px-5 py-8 flex flex-col justify-start items-center text-2xl gap-6 lg:hidden"
+          <div
+            style={{transition:"all ease 0.5s"}}
+            className={`fixed z-[10000] ${isOpen?"translate-x-0":"-translate-x-[100%]"} top-0 left-0 w-10/12 sm:w-9/12 p-4 bg-white h-screen`}
           >
-            <div className="flex flex-col gap-6 justify-center items-center h-full mt-4">
-              <div className="relative flex items-center gap-2 cursor-pointer">
-                <Link
-                  href={"/#tab-content"}
-                  onClick={() => {
-                    setIsOpen(false);
-                  }}
-                  className="lg:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
-                >
-                  I AM EXPLORING WEB3
-                </Link>
-              </div>
-
-              <div className="">
-                <Link
-                  href={"/#tab-content"}
-                  onClick={() => {
-                    setIsOpen(false);
-                  }}
-                  className="lg:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
-                >
-                  I AM LEADING WEB3
-                </Link>
-              </div>
-
-              <div className="">
-                <Link
-                  href={"/#tab-content"}
-                  onClick={() => {
-                    setIsOpen(false);
-                  }}
-                  className="lg:hidden text-white relative overflow-hidden font-medium tracking-wider text-base max-w-[233px]"
-                >
-                  I AM BUILDING WEB3
-                  {activeDropdown === "about" && (
-                    <motion.span
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute bottom-0 left-0 w-full h-0.5 bg-white bg-opacity-50"
-                    />
-                  )}
-                </Link>
-              </div>
+            <header className="w-full flex items-center justify-between">
+              <p className="text-3xl font-clesmont font-black">{"SI<3>"}</p>
+              <button onClick={()=>setIsOpen(false)} className="bg-[#D9D9D9] h-9 w-9 flex items-center justify-center rounded-full"><i className="bi bi-x-lg"></i></button>
+            </header>
+            <div className="flex flex-col justify-between h-[75vh]">
+            <ul className="flex flex-col gap-4 my-8 justify-between">
+              <li onClick={()=>goToURL("/?tab=explorers")} className="border cursor-pointer border-[#D9D9D9] rounded-lg flex items-center justify-between px-4 min-h-[46px]">
+                <p>Explore Web3</p>
+                <ArrowRightIcon/>
+              </li>
+              <li onClick={()=>goToURL("/?tab=leaders")} className="border cursor-pointer border-[#D9D9D9] rounded-lg flex items-center justify-between px-4 min-h-[46px]">
+                <p>Build Web3</p>
+                <ArrowRightIcon/>
+              </li>
+              <li onClick={()=>goToURL("/?tab=brands")} className="border border-[#D9D9D9] rounded-lg cursor-pointer flex items-center justify-between px-4 min-h-[46px]">
+                <p>Lead Web3</p>
+                <ArrowRightIcon/>
+              </li>
+            </ul>
+            <div>
+            <Link href={"/onboard"}><button className="bg-black w-full py-3 rounded-full text-white">Get Started</button></Link>
+            <div className="bg-[#EEEEEE] mt-4 p-4 rounded-md min-h-[164px]">
+              <p className="font-medium">Help us build a more inclusive Web3!</p>
+              <p className="my-1 text-xs">Share your unique perspective by filling out our Diversity Tracker—your voice matters.</p>
+              <button className="bg-white rounded-full px-4 py-2 my-2">Learn More</button>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+            </div>
+          </div>
     </motion.nav>
     </header>
   );

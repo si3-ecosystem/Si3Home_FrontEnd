@@ -13,6 +13,7 @@ import Tabs from "@/components/Tabs";
 import Testimonials from "@/components/Testimonials";
 import ContentProvider from "@/utils/ContentProvider";
 import Hero from "./components/v2/Hero";
+import { Suspense } from "react";
 
 export const revalidate = 3600;
 
@@ -58,12 +59,14 @@ export default async function Home() {
         mission={mission}
         ecosystemSpotlight={ecosystemSpotlight}
       /> */}
+      <div id="ecosystem-header"></div>
       <div className="max-w-[804px] mt-16 px-4 md:mt-[170px] font-medium mx-auto lg:min-h-[100px] text-center bg-no-repeat">
         <p className="text-[10px] sm:text-base tracking-[15%] text-[#000001]">{sheHerLive.subtitle}</p>
         <h3 className="text-2xl sm:text-4xl font-black font-clesmont md:text-[56px] md:my-[18px] leading-[68px] text-black">{sheHerLive.title}</h3>
         <p className="text-xs md:text-xl md:leading-[30px] text-[#757575]">{sheHerLive.description}</p>
       </div>
-      <Tabs
+     <Suspense fallback={null}>
+     <Tabs
         brand={brand}
         partnerTestimonials={partnerTestimonials}
         partnerTabData={partnerTabData}
@@ -83,6 +86,7 @@ export default async function Home() {
         joinExplorersTab={joinExplorersTab}
         joinLeadersTab={joinLeadersTab}
       />
+     </Suspense>
 
       {/* <Granting granting={granting} register={register} /> */}
       {/* <Educational educationalProgramming={educationalProgramming} /> */}

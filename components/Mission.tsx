@@ -37,7 +37,7 @@ export default function Mission({ mission,showValues = true }: any) {
               <div className="relative">
                 <Image src="/images/mission.png" alt="missions" preview={false}/>
                 <div className="text-white absolute left-10 bottom-10">
-                  <p className="font-black font-mono text-2xl">KARA HORWARD</p>
+                  <p className="font-clesmont text-2xl">KARA HOWARD</p>
                   <p> {"SI<3>"} ECOSYSTEM GROWTH</p>
                 </div>
               </div>
