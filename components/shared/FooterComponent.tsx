@@ -120,17 +120,17 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                 </p>
 
                 {/* EtherMail Subscription Form */}
-                <div className="border rounded-full flex items-center pl-4 p-2 border-black w-full lg:min-h-[57px] lg:max-w-[325px]">
+                <div className="border rounded-full flex items-center pl-4 p-2 border-black w-full lg:min-h-[57px] lg:max-w-[330px]">
                   <ethermail-subscribe
                     widget="66d5a2d55c125fff0bf241a58c1f24f8"
-                    className="flex items-center w-full justify-between"
+                    className="flex items-center w-full"
                   >
                     <input
                       type="email"
                       placeholder="Enter your email"
                       className="flex-grow border-none outline-none text-base px-2"
                     />
-                    <button className="bg-black text-white py-2 px-4 ml-1 rounded-full hover:bg-[#3C1FEF] transition-all duration-300">
+                    <button className="bg-black text-white py-2 px-4 rounded-full hover:bg-[#3C1FEF] transition-all duration-300">
                       Subscribe
                     </button>
                   </ethermail-subscribe>
