@@ -1,4 +1,4 @@
-import { NewMemberData } from "@/lib/types/interfaces";
+import { DiversityTrackerFormData, NewMemberData } from "@/lib/types/interfaces";
 import { client } from "@/utils/client";
 import groq from "groq";
 
@@ -15,6 +15,32 @@ class ContentProviderService{
                 data,
                 error:null,
                 message:"Member Created successfully"
+            }
+        } catch (error) {
+            if(error instanceof Error){
+                return {
+                    data:null,
+                    error,
+                    message:error.message
+                }
+            }
+            return {
+                data:null,
+                error,
+                message:(error as Error).message,
+            }
+        }
+    }
+    async addDiversityTracker(diversityTrackerData:DiversityTrackerFormData){
+        try {
+            const data = await client.create({
+                _type: "diversity-tracker",
+                ...diversityTrackerData,
+            })
+            return {
+                data,
+                error:null,
+                message:"Form submitted successfully"
             }
         } catch (error) {
             if(error instanceof Error){

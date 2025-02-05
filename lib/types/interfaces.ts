@@ -76,3 +76,16 @@ export interface NewMemberData{
   source_of_information:string,
   joining_intentions:string
 }
+
+
+export interface DiversityTrackerFormData{
+  self_identity:string,
+  age_range:string,
+  ethnicity:string,
+  disabality:string,
+  sexual_orientation:string,
+  equity_scale:number,
+  improvement_suggesstions:string,
+  grant_provider:string,
+  grant_round:string,
+}
