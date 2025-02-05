@@ -97,6 +97,7 @@ const Navbar = ({ utils }: any) => {
                       {"Get Started"}
                     </button>
                   </Link>
+                  
                 )
             }
           </div>
