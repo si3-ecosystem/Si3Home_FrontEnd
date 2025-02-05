@@ -111,7 +111,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque laudantium.
                 </p>
-                <div className="w-full min-w-[324px] max-w-[330px] mx-auto border rounded-full flex items-center p-2 border-black">
+                <div className="w-full min-w-[324px] max-w-[328px] mx-auto border rounded-full flex items-center p-2 border-black">
                   <ethermail-subscribe
                     widget="66d5a2d55c125fff0bf241a58c1f24f8"
                     className="flex items-center w-full gap-3"
