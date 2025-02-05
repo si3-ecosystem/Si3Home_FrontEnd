@@ -70,7 +70,7 @@ const Navbar = ({ utils }: any) => {
         <div className="max-lg:hidden font-medium">
           <div className=" flex items-center gap-[13px]">
             <Link
-              href={utils?.stayConnected}
+              href={""}
               target="_blank"
               className="p-2.5 rounded-lg"
             >
@@ -103,7 +103,7 @@ const Navbar = ({ utils }: any) => {
         </div>
         <div className="flex items-center lg:hidden">
             <Link
-                href={utils?.stayConnected}
+                href={""}
                 target="_blank"
                 className="p-2.5 rounded-lg"
               >
@@ -181,7 +181,7 @@ const Navbar = ({ utils }: any) => {
             <div className="bg-[#EEEEEE] mt-4 p-4 rounded-md min-h-[164px]">
               <p className="font-medium">Help us build a more inclusive Web3!</p>
               <p className="my-1 text-xs">Share your unique perspective by filling out our Diversity Tracker—your voice matters.</p>
-              <button className="bg-white rounded-full px-4 py-2 my-2">Learn More</button>
+              <Link href={"/diversity-tracker"}><button className="bg-white rounded-full px-4 py-2 my-2">Learn More</button></Link>
             </div>
             </div>
             </div>

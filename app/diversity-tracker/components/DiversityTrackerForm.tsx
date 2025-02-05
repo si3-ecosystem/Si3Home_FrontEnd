@@ -1,5 +1,6 @@
 import { CheckBoxField, RadioInputField, SelectField, TextAreaField } from "@/app/onboard/components/Input"
 import { ConfigProvider, Slider } from "antd"
+import Link from "next/link"
 
 function PreferToDescribeForm(){
     return (
@@ -180,7 +181,7 @@ function ImprovementField(){
 
 export default function DiversityTrackerForm(){
     return (
-        <form className="mt-10 max-w-7xl mx-auto px-3 py-4 sm:p-8 pb-32 bg-white">
+        <form className="mt-10 max-w-7xl mx-auto px-4 pt-4 sm:p-8 pb-64 bg-white">
             <p className="max-w-[726px] sm:text-2xl font-medium mb-8">Complete this form to share your demographic data <br /> (completely anonymously)</p>
             <SelfIdentityField/>
             <AgeRangeField/>
@@ -190,10 +191,13 @@ export default function DiversityTrackerForm(){
             <EqualityScaleField/>
             <ImprovementField/>
             <GrantField/>
-            <button type="submit" className="bg-black text-white py-[14px] mt-6 w-full rounded-3xl font-medium text-base">
+            <button type="submit" className="bg-black mb-14 text-white py-[14px] mt-6 w-full rounded-3xl font-medium text-base">
                 <span className="hidden md:inline-block">Submit</span>
                 <span className="md:hidden">Submit Application</span>
             </button>
+            <div className="max-w-[782px] mb-16 mx-auto text-center">
+                <p>By clicking the submit button, I hereby agree to and accept the following <Link href={"/terms-and-conditions"}><span className="text-[#CA92EE]">terms and conditions</span></Link> governing my use of the {"Si<3>"} website. I further reaffirm my acceptance of the general <Link href={"/terms-and-conditions"}><span className="text-[#CA92EE]">terms and conditions</span></Link> & <Link href={"/privacy-policy"}><span className="text-[#CA92EE]">privacy policy</span></Link> governing my use of any website controlled by {"SI<3>"} and understand the use of my data</p>
+            </div>
         </form>
     )
 }
