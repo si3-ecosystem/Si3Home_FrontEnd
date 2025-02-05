@@ -115,7 +115,10 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                   <ethermail-subscribe
                     widget="66d5a2d55c125fff0bf241a58c1f24f8"
                     className="flex items-center w-full gap-3"
-                     rpc='{"http": "//eth-mainnet.g.alchemy.com/v2/isvoo_tVdqb1O0KKxZb_ypfynw2rTa0A"}'
+                    theme="light"
+                    input="auto"
+                    wallet-connect-project-id="66d5a2d55c125fff0bf241a58c1f24f8"
+                    rpc='{"http": "//eth-mainnet.g.alchemy.com/v2/isvoo_tVdqb1O0KKxZb_ypfynw2rTa0A"}'
                   >
                     <input
                       type="email"
