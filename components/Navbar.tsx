@@ -84,6 +84,7 @@ const Navbar = ({ utils }: any) => {
                 />
              </button>
             </Link>
+            
             {
               utils.stayConnectedText
               ?(
