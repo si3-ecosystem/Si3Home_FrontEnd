@@ -110,8 +110,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                  <span className="text-[40px] font-clesmont">{"SI<3>"}</span>
                 </Link>
                 <p className="my-2 mb-3">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium.
+                Stay ahead in Web3! Subscribe to our newsletter for the latest updates, insights, and community news.
                 </p>
 
                 {/* EtherMail Subscription Form */}
@@ -158,7 +157,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                 <Link href={footer.twitter} target="_blank">
                   <button className="flex items-center gap-2">
                     <XIcon />
-                    <span>Twitter X</span>
+                    <span>Twitter/X</span>
                   </button>
                 </Link>
                 <Link href={footer.linkedIn} target="_blank">
@@ -174,7 +173,7 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
 
         <div className="border-t p-4 py-8 border-gray-400">
           <p className="text-sm max-w-7xl mx-auto text-center md:text-base">
-            {"Copyright © "} {currentYear} {" Si<3>, Inc. All rights reserved."}
+            {"Copyright © "} {currentYear} {" SI<3>, Inc. All rights reserved."}
           </p>
         </div>
       </div>

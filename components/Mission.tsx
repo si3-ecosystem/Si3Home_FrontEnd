@@ -51,7 +51,7 @@ export default function Mission({ mission,showValues = true }: any) {
           {"Our Values"}
         </header>
         <div className="">
-          <ul className="grid max-w-7xl font-mono lg:pl-5 lin grid-cols-2 lg:grid-cols-4">
+          <ul className="grid max-w-7xl mx-auto font-mono lg:pl-5 lin grid-cols-2 lg:grid-cols-4">
             {mission?.values?.lists?.map((item: any, key: number) => (
               <li
                 key={key}

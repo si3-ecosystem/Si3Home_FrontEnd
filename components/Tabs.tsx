@@ -49,6 +49,31 @@ type TabsProps = {
   joinLeadersTab:any
 };
 
+interface TabButtonProps{
+  handleClick:()=>void;
+  label:string,
+  isActive?:boolean,
+}
+
+function TabButton(props:TabButtonProps){
+  if(props.isActive){
+    return (
+      <div className="flex-1 cursor-pointer border-2 rounded-full min-h-16 flex items-center justify-center p-2 border-[#B668E4]">
+        <button className="w-full bg-black min-h-14 rounded-full text-white">{props.label}</button>
+      </div>
+    )
+  }
+  return (
+    <div
+    onClick={props.handleClick}
+    className={`flex-1 text-center border-2 border-[#B668E4] flex flex-col sm:flex-row items-center gap-x-2 py-2 min-h-14 rounded-lg lg:rounded-full px-6 text-[10px] md:text-base transition`}
+  >
+    {/* <ChatGPTIcon/> */}
+    <button className="w-full">{props.label}</button>
+  </div>
+  )
+}
+
 export default function Tabs({
   educationalProgramming,
   ecosystemSpotlight,
@@ -126,40 +151,22 @@ export default function Tabs({
       <div className="w-full mx-auto mt-4 sm:mt-10">
         {/* Tab Buttons */}
         <div className="p-4">
-        <div className="flex w-full max-w-[750px]  bg-black mx-auto justify-start rounded-lg md:rounded-full p-2">
-          <button
-            onClick={() => setActiveTab("explorers")}
-            className={`flex-1 text-center flex flex-col sm:flex-row items-center gap-x-2 py-2 min-h-14 rounded-lg lg:rounded-full px-6 text-[10px] md:text-base transition ${
-              activeTab === "explorers"
-                ? "bg-white text-black"
-                : "bg-black text-white"
-            }`}
-          >
-            <ChatGPTIcon fillColor={activeTab == "explorers"?undefined:"#1A1919"}/>
-            {"I'm Exploring Web3"}
-          </button>
-          <button
-            onClick={() => setActiveTab("leaders")}
-            className={`flex-1 text-center flex flex-col sm:flex-row items-center gap-x-2  min-h-14 px-6 py-2 text-xs md:text-base rounded-lg lg:rounded-full transition ${
-              activeTab === "leaders"
-                ? "bg-white text-black"
-                : "bg-black text-white"
-            }`}
-          >
-            <ChatGPTIcon fillColor={"#1A1919"}/>
-            {"I'm Leading Web3"}
-          </button>
-          <button
-            onClick={() => setActiveTab("brands")}
-            className={`flex-1  text-center flex flex-col sm:flex-row items-center gap-x-2 min-h-14 px-6 text-xs md:text-base py-2 rounded-lg lg:rounded-full transition ${
-              activeTab === "brands"
-                ? "bg-white text-black"
-                : "bg-black text-white"
-            }`}
-          >
-            <ChatGPTIcon fillColor={"#1A1919"}/>
-            {"I'm Building Web3"}
-          </button>
+        <div className="flex w-full gap-4 max-w-[750px]   mx-auto justify-start rounded-lg md:rounded-full p-2">
+          <TabButton
+            isActive={activeTab === "explorers"}
+            label="I am Exploring Web3"
+            handleClick={()=>setActiveTab("explorers")}
+          />
+          <TabButton
+            isActive={activeTab === "leaders"}
+            label="I am Leading Web3"
+            handleClick={()=>setActiveTab("leaders")}
+          />
+          <TabButton
+            isActive={activeTab === "brands"}
+            label="I am Building Web3"
+            handleClick={()=>setActiveTab("brands")}
+          />
         </div>
         </div>
 

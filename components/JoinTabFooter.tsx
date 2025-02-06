@@ -14,13 +14,17 @@ export default function JoinTabFooter(props:Props){
     const {footerData} = props;
     return (
         <div className="bg-[url('/images/join.png')] px-4 py-16 bg-cover">
-          <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4 sm:min-h-[476px] relative">
-              <Image
+          <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4  rounded-2xl sm:min-h-[576px] relative">
+              {/* <Image
                   src="/images/join-subtract-2.png"
                   alt="Background image mobile"
                   fill
                   className="w-full absolute top-0 left-0 z-[30] h-full"
-                />
+              /> */}
+              <video 
+              // style={{clipPath:"polygon(100%)"}}
+              src="/si3footervideo.mp4" className="h-full w-full absolute top-0 object-cover rounded-2xl z-[33]" autoPlay muted loop></video>
+              <div className="absolute top-0 left-0 w-full h-full z-[35] bg-[rgba(0,0,0,0.2)]"></div>
              <p className="font-clesmont absolute top-10 left-4 lg:left-16 text-2xl text-white z-[40]">{"SI<3>"}</p>
 
              <div className="text-white text-center max-w-[724px]  z-[40]">

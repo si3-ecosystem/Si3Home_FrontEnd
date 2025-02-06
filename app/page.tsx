@@ -63,7 +63,7 @@ export default async function Home() {
       <div className="max-w-[804px] mt-16 px-4 md:mt-[170px] font-medium mx-auto lg:min-h-[100px] text-center bg-no-repeat">
         <p className="text-[10px] sm:text-base tracking-[15%] text-[#000001]">{sheHerLive.subtitle}</p>
         <h3 className="text-2xl sm:text-4xl font-black font-clesmont md:text-[56px] md:my-[18px] leading-[68px] text-black">{sheHerLive.title}</h3>
-        <p className="text-xs md:text-xl md:leading-[30px] text-[#757575]">{sheHerLive.description}</p>
+        <p className="text-xs max-w-[610px] mx-auto md:text-xl md:leading-[30px] text-[#757575]">{sheHerLive.description}</p>
       </div>
      <Suspense fallback={null}>
      <Tabs

@@ -106,7 +106,11 @@ function Partners({ partners }: any) {
                         <div className="px-1 sm:px-4 p-8">
                             <p className="text-xl sm:text-3xl">Join Us in Building an Inclusive <br className="md:hidden"/> Web3 Future</p>
                             <p className="my-3">Join us in creating an inclusive Web3 future for women and non-binary individuals. Let’s empower change together!</p>
-                            <Link href={"/onboard"}><button className="border rounded-full py-3 font-medium my-3 px-6">Partner With Us</button></Link>
+                            <Link href={"/onboard"}><button
+                            style={{transition:"all ease 0.4s"}}
+                            className="border hover:bg-gradient-to-r bg-none hover:text-white from-[#E2B0FF] via-[#9F44D3] from-[90%] to-[10%] to-[#000000] rounded-full py-3 font-medium my-3 px-6">
+                                Partner With Us
+                            </button></Link>
                         </div>
                     </div>
                 </div>
@@ -180,20 +184,20 @@ export default function Hero({ partners }: any) {
                 <div className="rounded-[32px] max-w-7xl mx-auto bg-white pt-8 mb-8" style={{ boxShadow: shadowClass }}>
                     <div className="max-w-[700px] px-4 mb-7 lg:mb-14 mx-auto text-center">
                         <div className="text-3xl font-clesmont lg:text-6xl font-bold uppercase">
-                            <p>Entering An</p>
+                            <p>Entering</p>
                             <p className="max-h-8 lg:max-h-16 overflow-hidden translate-container">
                                 <span
                                 style={index > 1 ?{transform: "translateY(-200%)"}:undefined}
-                                className="bg-gradient-to-r inline-block  from-[#F6CEEC] bg-clip-text text-transparent to-[#D939CD]">Accessible</span> <br />
+                                className="bg-gradient-to-r inline-block  from-[#F6CEEC] bg-clip-text text-transparent to-[#D939CD]">An Accessible</span> <br />
                                 <span
                                 style={index > 2 ?{transform: "translateY(-200%)"}:index > 1 ?{transform: "translateY(-100%)"}:undefined}
-                                className="bg-gradient-to-r inline-block  from-[#CE9FFC] bg-clip-text text-transparent to-[#7367F0]">Collaborative</span> <br />
+                                className="bg-gradient-to-r inline-block  from-[#CE9FFC] bg-clip-text text-transparent to-[#7367F0]">A Collaborative</span> <br />
                                  <span
                                 style={index > 3 ?{transform: "translateY(-300%)"}:index > 2 ?{transform: "translateY(-200%)"}:undefined}
-                                className="bg-gradient-to-r inline-block  from-[#ABDCFF] bg-clip-text text-transparent to-[#0396FF]">Diverse</span> <br />
+                                className="bg-gradient-to-r inline-block  from-[#ABDCFF] bg-clip-text text-transparent to-[#0396FF]">A Diverse</span> <br />
                                 <span
                                  style={index > 3 ?{transform: "translateY(-300%)"}:undefined}
-                                className="bg-gradient-to-b inline-block  from-[#F0FF00] bg-clip-text text-transparent to-[#58CFFB]">Invicible</span> <br />
+                                className="bg-gradient-to-b inline-block  from-[#F0FF00] bg-clip-text text-transparent to-[#58CFFB]">An Invicible</span> <br />
                             </p>
                             <p>web3 era</p>
                         </div>
