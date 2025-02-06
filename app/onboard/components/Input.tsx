@@ -23,15 +23,15 @@ interface CheckBoxFieldProps{
 export function InputField(props: InputFieldProps) {
     return (
         <div className="my-2 w-full">
-            <label htmlFor="" className="block text-sm sm:text-lg uppercase font-mono">{props.label}{props.required && <span className="text-[#FF2727]">*</span>}</label>
-            <input {...props} type="text" className="w-full text-xs sm:text-base h-12 px-6 font-dm-sans mt-1 rounded-lg p-2 border border-[#BDBDBD]"/>
+            <label htmlFor="" className="block text-sm sm:text-lg capitalize">{props.label}{props.required && <span className="text-[#FF2727]">*</span>}</label>
+            <input {...props} type="text" className="w-full text-xs sm:text-base h-12 px-6 mt-1 rounded-lg p-2 border border-[#BDBDBD]"/>
         </div>
     )
 }
 export function SelectField(props: SelectFieldProps) {
     return (
         <div className="my-2">
-            <label htmlFor="" className="block text-sm sm:text-lg uppercase font-mono">{props.label}{props.required && <span className="text-[#FF2727]">*</span>}</label>
+            <label htmlFor="" className="block text-sm sm:text-lg capitalize font-mono">{props.label}{props.required && <span className="text-[#FF2727]">*</span>}</label>
             <select {...props}  className="w-full h-12 px-6 font-dm-sans mt-1 rounded-lg p-2 border border-[#BDBDBD]">
                 {props.placeholder && (
                     <option value={""}>{props.placeholder}</option>
@@ -49,7 +49,7 @@ export function SelectField(props: SelectFieldProps) {
 export function TextAreaField(props: InputFieldProps) {
     return (
         <div className="my-2">
-            <label htmlFor="" className="block text-sm sm:text-lg uppercase font-mono">{props.label}{props.required && <span className="text-[#FF2727]">*</span>}</label>
+            <label htmlFor="" className="block text-sm sm:text-lg capitalize font-mono">{props.label}{props.required && <span className="text-[#FF2727]">*</span>}</label>
             <textarea {...props} className="w-full h-[155px] text-xs sm:text-base px-6 font-dm-sans mt-1 rounded-lg p-2 border border-[#BDBDBD]"/>
         </div>
     )
@@ -63,7 +63,7 @@ export function RadioInputField(props:CheckBoxFieldProps){
                     <span className="h-[12px] inline-block w-[12px] bg-[#000] rounded-md"></span>
                 )}
             </button>
-            <p className="text-[#1E1E1E] text-base font-dm-sans">{props.label}</p>
+            <p className="text-[#1E1E1E] text-base">{props.label}</p>
         </div>
     )
 }
@@ -86,7 +86,7 @@ export function CheckBoxField(props:CheckBoxFieldProps){
                     <span><i className="bi bi-check text-xl text-white"></i></span>
                 )}
             </button>
-            <p className="text-black text-xs md:text-sm uppercase font-mono">{props.label}</p>
+            <p className="text-black text-xs md:text-sm capitalize">{props.label}</p>
         </div>
     )
 }

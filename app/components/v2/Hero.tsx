@@ -183,7 +183,7 @@ export default function Hero({ partners }: any) {
                 <div className="px-4">
                 <div className="rounded-[32px] max-w-7xl mx-auto bg-white pt-8 mb-8" style={{ boxShadow: shadowClass }}>
                     <div className="max-w-[700px] px-4 mb-7 lg:mb-14 mx-auto text-center">
-                        <div className="text-3xl font-clesmont lg:text-6xl font-bold uppercase">
+                        <div className="text-2xl font-clesmont lg:text-6xl font-bold uppercase">
                             <p>Entering</p>
                             <p className="max-h-8 lg:max-h-16 overflow-hidden translate-container">
                                 <span

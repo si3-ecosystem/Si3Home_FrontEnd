@@ -75,29 +75,29 @@ export default function OnboardForm(props:Props){
                 <div className="grid lg:grid-cols-2 gap-8">
                     <div className="col-span-2 md:col-span-1">
                         <InputField
-                            label="FIRST NAME"
+                            label="Your Name"
                             name="firstname"
                             minLength={3}
                             onChange={handleInput}
                             value={newMember.firstname}
                             required
-                            placeholder="YOUR FIRST NAME"
+                            placeholder="Your First name"
                         />
                     </div>
                     <div  className="col-span-2 md:col-span-1">
                         <InputField
-                            label="LAST NAME"
+                            label="Your Social Profile"
                             minLength={3}
                             name="lastname"
                             onChange={handleInput}
                             value={newMember.lastname}
                             required
-                            placeholder="YOUR LAST NAME"
+                            placeholder="Enter your LinkedIn/ X profile URL"
                         />
                     </div>
                    <div  className="col-span-2 md:col-span-1">
                     <InputField
-                            label="PRONOUNS"
+                            label="Pronouns"
                             name="pronouns"
                             minLength={3}
                             onChange={handleInput}
@@ -108,7 +108,7 @@ export default function OnboardForm(props:Props){
                    </div>
                    <div  className="col-span-2 md:col-span-1">
                     <InputField
-                            label="EMAIL"
+                            label="Email"
                             type="email"
                             name="email"
                             onChange={handleInput}
@@ -129,7 +129,7 @@ export default function OnboardForm(props:Props){
                         />
                     </div>
                     <div className="col-span-2">
-                        <p className="uppercase text-sm md:text-lg font-mono">Are you interested in exploring creating a livestreaming channel for your personal brand with our decentralized media tools? (<b className="text-sm">for Si Her Co-Active members only</b>)</p>
+                        <p className="text-sm md:text-lg font-mono">Are you interested in exploring creating a livestreaming channel for your personal brand with our decentralized media tools? (<b className="text-sm">for Si Her Co-Active members only</b>)</p>
                         <div className="flex flex-wrap md:flex-nowrap gap-4 justify-between my-7">
                             <RadioInputField
                                 checked={newMember.exploring_interests === "Yes"}
@@ -149,7 +149,7 @@ export default function OnboardForm(props:Props){
                         </div>
                     </div>
                     <div className="col-span-2">
-                        <p className="uppercase text-sm md:text-lg font-mono">Which values do you most strongly resonate with?</p>
+                        <p className="text-sm md:text-lg font-mono">Which values do you most strongly resonate with?</p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 my-7">
                            {values.map((value) => (
                             <CheckBoxField

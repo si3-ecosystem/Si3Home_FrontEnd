@@ -16,10 +16,11 @@ export default function Page(){
     }
 
     const programs = [
-        {banner:"/explorers.png",id:1,title:"SI Her Explorers"},
-        {banner:"/fixx.png",id:2,title:"SI Her Fixx Program"},
-        {banner:"/activator.png",id:3,title:"SI Her Co-Active"},
+        {banner:"/explorers.png",id:1,title:"explorers"},
+        {banner:"/fixx.png",id:2,title:"leaders"},
+        {banner:"/activator.png",id:3,title:"creators"},
     ]
+
 
     return (
         <main >

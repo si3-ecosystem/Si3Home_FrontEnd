@@ -1,4 +1,5 @@
 import ImageUrl from "@/utils/imageUrl"
+import { Image } from "antd"
 import Link from "next/link"
 
 interface TestimonialProps{
@@ -31,7 +32,7 @@ export default function SingleTestimonial(props: TestimonialProps) {
                     </div>
                   </span>
                   <div className="sm:ml-auto flex items-center gap-2 uppercase font-mono">
-                    <Link href={testimonial?.link ?? "/"}><button className="text-sm md:text-base">{testimonial?.link}</button></Link>
+                    <Link href={testimonial?.link ?? "/"}><button className="text-sm md:text-base"><Image src="/images/url-icon.svg" alt="Url Icon" preview={false}/></button></Link>
                   </div>
                 </div>
         </div>

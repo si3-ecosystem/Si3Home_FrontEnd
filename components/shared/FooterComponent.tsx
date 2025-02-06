@@ -108,7 +108,8 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                   <span className="text-[40px] font-clesmont">{"SI<3>"}</span>
                 </Link>
                 <p className="my-2 mb-3">
-                Stay ahead in Web3! Subscribe to our newsletter for the latest updates, insights, and community news.
+                {/* Stay ahead in Web3! Subscribe to our newsletter for the latest updates, insights, and community news. */}
+                Stay up-to-date with {"SI<3>"} and Web3 with our CurrentSi weekly newsletter.
                 </p>
                 <div className="w-full min-w-[324px] max-w-[328px] mx-auto border rounded-full flex items-center p-2 border-black">
                   <ethermail-subscribe

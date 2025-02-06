@@ -13,7 +13,7 @@ export default function FlashInfoHeader(){
                <div className="flex-1 flex items-center gap-x-2 justify-center">
                     <MegaphoneIcon/>
                     <p className="sm:text-center">{"SI<3>"} Launches Diversity Tracker For Web3 🎉</p>
-                    <Link href={"/diversity-tracker"}><button className="md:inline-block rounded-3xl px-3 py-2 text-[#CA92EE]">Learn More</button></Link>
+                    <Link href={"/diversity-tracker"}><button className="hidden md:inline-block rounded-3xl px-3 py-2 text-[#CA92EE]">Learn More</button></Link>
                </div>
                <button onClick={closeInfo} className=""><CloseCircleIcon/></button>
             </header>
