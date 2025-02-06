@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -46,8 +46,8 @@ const CookieConsent = () => {
     <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-6 w-[90%] max-w-[600px] z-50">
       <div className="text-sm text-gray-700">
         <p>
-          By clicking &apos;Accept&apos; or continuing to browse our website, you
-          agree to our{' '}
+          By clicking &apos;Accept&apos; or continuing to browse our website,
+          you agree to our{" "}
           <Link href="/terms-of-service">
             <span className="text-blue-600 hover:underline">
               Terms of Service
@@ -60,12 +60,10 @@ const CookieConsent = () => {
             </span>
           </Link>
           , and to the storing of cookies on your device to enhance site
-          navigation, analyze site usage, and assist in our marketing
-          efforts. View our{" "}
+          navigation, analyze site usage, and assist in our marketing efforts.
+          View our{" "}
           <Link href="/cookie-policy">
-            <span className="text-blue-600 hover:underline">
-              Cookie Policy
-            </span>
+            <span className="text-blue-600 hover:underline">Cookie Policy</span>
           </Link>{" "}
           for more information.
         </p>
@@ -107,24 +105,26 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
             <div className="flex-1">
               <div className="max-w-[500px]">
                 <Link href="/" className="text-5xl font-bold uppercase">
-                 <span className="text-[40px] font-clesmont">{"SI<3>"}</span>
+                  <span className="text-[40px] font-clesmont">{"SI<3>"}</span>
                 </Link>
                 <p className="my-2 mb-3">
                 Stay ahead in Web3! Subscribe to our newsletter for the latest updates, insights, and community news.
                 </p>
-
-                {/* EtherMail Subscription Form */}
-                <div className="border rounded-full flex items-center pl-4 p-2 border-black w-full lg:min-h-[57px] lg:max-w-[330px]">
+                <div className="w-full min-w-[324px] max-w-[328px] mx-auto border rounded-full flex items-center p-2 border-black">
                   <ethermail-subscribe
                     widget="66d5a2d55c125fff0bf241a58c1f24f8"
-                    className="flex items-center w-full"
+                    className="flex items-center w-full gap-3"
+                    theme="light"
+                    input="auto"
+                    wallet-connect-project-id="66d5a2d55c125fff0bf241a58c1f24f8"
+                    rpc='{"http": "//eth-mainnet.g.alchemy.com/v2/isvoo_tVdqb1O0KKxZb_ypfynw2rTa0A"}'
                   >
                     <input
                       type="email"
                       placeholder="Enter your email"
                       className="flex-grow border-none outline-none text-base px-2"
                     />
-                    <button className="bg-black text-white py-2 px-4 rounded-full hover:bg-[#3C1FEF] transition-all duration-300">
+                    <button className="bg-black text-white py-2 px-4 rounded-full hover:bg-[#3C1FEF] transition-all duration-300 flex-shrink-0">
                       Subscribe
                     </button>
                   </ethermail-subscribe>
