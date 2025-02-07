@@ -8,6 +8,7 @@ import urlFor from "@/utils/urlFor";
 import { useRouter } from "next/navigation";
 import FlashInfoHeader from "@/app/components/v2/FlashInfoHeader";
 import ArrowRightIcon from "@/app/icons/arrow-right";
+import UserCircleIcon from "@/app/icons/user-circle";
 
 const Navbar = ({ utils }: any) => {
   const router = useRouter();
@@ -83,6 +84,15 @@ const Navbar = ({ utils }: any) => {
                   />
                 </button>
               </Link>
+              <Link href={"/onboard"}>
+                  <button
+                    style={{ transition: "all ease 5s" }}
+                    className="text-base lg:text-xl border border-[rgba(0,0,0,0.3)] font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-2"
+                  >
+                    <UserCircleIcon/>
+                    <span>{"Member Login"}</span>
+                  </button>
+                </Link>
               {utils.stayConnectedText ? (
                 <button className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-xl !py-2 px-4 bg-[#C8BAFD] hover:bg-[#3C1FEF] text-black hover:text-white">
                   {utils.stayConnectedText}
@@ -97,6 +107,7 @@ const Navbar = ({ utils }: any) => {
                   </button>
                 </Link>
               )}
+              
             </div>
           </div>
           <div className="flex items-center lg:hidden">

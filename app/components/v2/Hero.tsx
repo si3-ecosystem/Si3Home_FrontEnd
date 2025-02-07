@@ -104,12 +104,12 @@ function Partners({ partners }: any) {
                 <div className="lg:flex max-w-6xl mx-auto items-center gap-11">
                     <div className="flex-1 lg:border-l border-gray-400  min-h-[152px]">
                         <div className="px-1 sm:px-4 p-8">
-                            <p className="text-xl sm:text-3xl">Join Us in Building an Inclusive <br className="md:hidden"/> Web3 Future</p>
-                            <p className="my-3">Join us in creating an inclusive Web3 future for women and non-binary individuals. Let’s empower change together!</p>
+                            <p className="text-xl sm:text-3xl">We grow together</p>
+                            <p className="my-3 text-[#454545]">Aligning emerging tech communities and organizations for collaborative growth.</p>
                             <Link href={"/onboard"}><button
                             style={{transition:"all ease 0.4s"}}
-                            className="border hover:bg-gradient-to-r bg-none hover:text-white from-[#E2B0FF] via-[#9F44D3] from-[90%] to-[10%] to-[#000000] rounded-full py-3 font-medium my-3 px-6">
-                                Partner With Us
+                            className="border bg-gradient-to-r text-white  from-[#E2B0FF] to-[#9F44D3] rounded-full py-3 font-medium my-3 px-6">
+                                Get Started
                             </button></Link>
                         </div>
                     </div>
