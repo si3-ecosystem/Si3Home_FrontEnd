@@ -29,7 +29,7 @@ export default function JoinTabFooter(props:Props){
 
              <div className="text-white text-center max-w-[724px]  z-[40]">
                 <p className="text-xl text-center mt-10 sm:mt-0 font-clesmont lg:mx-0 md:text-[40px] font-black uppercase font-mono md:leading-[56px] tracking-normal">
-                  {(footerData.title as string).split(" ").map((word)=>{
+                  {footerData.title && (footerData.title as string).split(" ").map((word)=>{
                     if(BOLD_TEXTS.includes(word.toUpperCase())){
                       return <b key={Math.random() * 100000}>{word + " "}</b>
                     }
