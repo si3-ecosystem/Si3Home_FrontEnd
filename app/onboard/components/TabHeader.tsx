@@ -44,7 +44,7 @@ export default function TabHeader(props:HeaderProps){
     const {activeTab,setActiveTab} = props
     return (
         <div className="px-4">
-            <header className="max-w-[590px] mx-auto justify-between flex gap-4">
+            <header className="max-w-[590px] mx-auto justify-between flex gap-2 md:gap-4">
                 {tabList.map((tab)=>{
                     return (
                         <Button

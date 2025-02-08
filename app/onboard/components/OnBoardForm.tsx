@@ -70,7 +70,7 @@ export default function OnboardForm(props:Props){
         {loading && (<Loader/>)}
         {error_message && modalOpen && (<ErrorModal errorMessage={error_message} closeModal={closeModal}/>)}
         {showSuccessModal && <SuccessModal/>}
-        <div className="mt-16 p-4 lg:p-8">
+        <div className="mt-4 md:mt-16 p-4 lg:p-8">
             <form onSubmit={handleSubmit}>
                 <div className="grid lg:grid-cols-2 gap-8">
                     <div className="col-span-2 md:col-span-1">

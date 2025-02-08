@@ -18,8 +18,6 @@ export default function JoinTabFooter(props:Props){
               // style={{clipPath:"polygon(100%)"}}
               src="/si3footervideo.mp4" className="h-full w-full absolute top-0 object-cover rounded-2xl z-[33]" autoPlay muted loop></video>
               <div className="absolute top-0 left-0 w-full h-full z-[35] bg-[rgba(0,0,0,0.2)]"></div>
-             <p className="font-clesmont absolute top-10 left-4 lg:left-16 text-2xl text-white z-[40]">{"SI<3>"}</p>
-
              <div className="text-white text-center max-w-[724px]  z-[40]">
                 <p className="text-xl text-center mt-10 sm:mt-0 font-clesmont lg:mx-0 md:text-[40px] font-black uppercase font-mono md:leading-[56px] tracking-normal">
                   {footerData.title && (footerData.title as string).split(" ").map((word)=>{
@@ -52,6 +50,11 @@ export  function PartnerFooterInfo(props:Props){
                   fill
                   className="w-full absolute top-0 left-0 z-[30] h-full"
                 />
+                  <video
+              // style={{clipPath:"polygon(100%)"}}
+              src="/si3footervideo.mp4" className="h-full w-full absolute top-0 object-cover rounded-2xl z-[33]" autoPlay muted loop></video>
+              <div className="absolute top-0 left-0 w-full h-full z-[35] bg-[rgba(0,0,0,0.2)]"></div>
+
              <div className="text-white text-center max-w-[724px] z-[40]">
                 <p className="text-xl text-center font-clesmont lg:mx-0 md:text-[40px] font-black uppercase font-mono md:leading-[56px] tracking-normal">
                   {(footerData.title as string).split(" ").map((word)=>{

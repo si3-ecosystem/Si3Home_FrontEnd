@@ -136,7 +136,7 @@ function VideoPlayer() {
     }
 
     return (
-        <div className="flex h-[320px] md:h-[500px] items-center justify-center relative">
+        <div className="flex h-[250px] md:h-[500px] items-center justify-center relative">
             <video  id="hero-video" ref={videoRef} autoPlay loop muted src="/hero.mp4" className="w-full absolute rounded-[32px] h-full top-0 left-0 right-0 object-cover" />
             {/* <button onClick={play} style={{ boxShadow: shadowClass }} className="h-[96px] z-10 bg-white rounded-full w-[96px] flex items-center justify-center">
                 {paused
@@ -159,7 +159,7 @@ export default function Hero({ partners }: any) {
                 if(prev > 3) return 1;
                 return prev+1
             })
-        },5000)
+        },3000)
 
         return ()=>clearInterval(countInterval)
     },[])
@@ -178,11 +178,11 @@ export default function Hero({ partners }: any) {
             {{
                 backgroundImage: `linear-gradient(to right,rgb(255,255,255,0.5),rgb(252,255,255,0.5)), url("/images/grid-line.png")`
             }}
-                className="pt-[50px]"
+                className="pt-8 sm:pt-[50px]"
             >
-                <div className="px-4">
+                <div className="">
                 <div className="rounded-[32px] max-w-7xl mx-auto bg-white pt-8 mb-8" style={{ boxShadow: shadowClass }}>
-                    <div className="max-w-[700px] px-4 mb-7 lg:mb-14 mx-auto text-center">
+                    <div className="max-w-[700px] md:px-4 mb-7 lg:mb-14 mx-auto text-center">
                         <div className="text-2xl font-clesmont lg:text-6xl font-bold uppercase">
                             <p>Entering</p>
                             <p className="max-h-8 lg:max-h-16 overflow-hidden translate-container">
