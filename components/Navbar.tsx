@@ -56,7 +56,9 @@ const Navbar = ({ utils }: any) => {
 
   return (
     <header className="sticky top-0 z-50">
+      <Link href={"/diversity-tracker"}>
       <FlashInfoHeader />
+      </Link>
       <motion.nav className="w-full backdrop-filter backdrop-blur-2xl lg:backdrop-blur-lg shadow-lg transition-all duration-100">
         <div className="flex justify-between items-center px-5 lg:px-16 min-h-[67px] gap-10 xl:gap-12 z-40">
           <div className=" space-x-4  font-medium flex  items-center justify-between">
@@ -127,32 +129,7 @@ const Navbar = ({ utils }: any) => {
               aria-label="Open Menu"
               className="text-white bg-black h-10 w-10 rounded-full flex items-center justify-center"
             >
-              {!isOpen ? (
-                <i className="bi bi-list text-2xl"></i>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="25"
-                  viewBox="0 0 24 25"
-                  fill="none"
-                >
-                  <path
-                    d="M4 20.5L20 4.5"
-                    stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M20 20.5L4 4.5"
-                    stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              )}
+              <i className="bi bi-list text-2xl"></i>
             </button>
           </div>
         </div>

@@ -53,67 +53,76 @@ function Partners({ partners }: any) {
                 </button>
             </div>
             <div className="border-y border-gray-400 grid lg:grid-cols-3 mx-auto bg-white lg:px-4 border">
-            <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5 }}
-              className="col-span-2 hidden lg:grid grid-cols-2 lg:grid-cols-3 gap-3 grid-col md:gap-10"
-            >
-                {
-                    getVisibleItems().map((item:any) => (
-                        <div className="border-r flex items-center justify-center sm:p-8" key={item.id}>
-                           <div className="flex-1 text-center">
-                                <div className="mb-5">
-                                    <ImageUrl image={item.logo}/>
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={currentIndex}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -50 }}
+                        transition={{ duration: 0.5 }}
+                        className="col-span-2 hidden lg:grid grid-cols-2 lg:grid-cols-3 gap-3 grid-col md:gap-10"
+                    >
+                        {
+                            getVisibleItems().map((item: any) =>{
+                                console.log({item})
+                                return(<div className="border-r flex items-center justify-center sm:p-8" key={item.id}>
+                                    <div className="flex-1 text-center">
+                                        <div className="mb-5">
+                                            <ImageUrl image={item.logo} />
+                                        </div>
+                                        <p className="px-4 p-2  bg-[#EEEEEE] rounded-full">Community Partner</p>
+                                    </div>
                                 </div>
-                                <p className="px-4 p-2  bg-[#EEEEEE] rounded-full">Community Partner</p>
-                           </div>
-                        </div>
-                    ))
-                }
+                                )}
+                            )
+                        }
 
-            </motion.div>
-            </AnimatePresence>
-            <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5 }}
-              className="col-span-2 lg:hidden border-b grid grid-cols-2 lg:grid-cols-3 gap-3 grid-col md:gap-10"
-            >
-                {
-                    getVisibleItemsMobile().map((item:any) => (
-                        <div className="border-r flex items-center justify-center p-6 py-8 sm:p-8" key={item.id}>
-                           <div className="flex-1 text-center">
-                                <div className="mb-5">
-                                    <ImageUrl image={item.logo}/>
+                    </motion.div>
+                </AnimatePresence>
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={currentIndex}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -50 }}
+                        transition={{ duration: 0.5 }}
+                        className="col-span-2 lg:hidden border-b grid grid-cols-2 lg:grid-cols-3 gap-3 grid-col md:gap-10"
+                    >
+                        {
+                            getVisibleItemsMobile().map((item: any) => (
+                                <div className="border-r flex items-center justify-center p-6 py-8 sm:p-8" key={item.id}>
+                                    <div className="flex-1 text-center">
+                                        <div className="mb-5">
+                                            <ImageUrl image={item.logo} />
+                                        </div>
+                                        <p className="p-2 bg-[#EEEEEE] text-[10px] rounded-full">Community Partner</p>
+                                    </div>
                                 </div>
-                                <p className="p-2 bg-[#EEEEEE] text-[10px] rounded-full">Community Partner</p>
-                           </div>
-                        </div>
-                    ))
-                }
+                            ))
+                        }
 
-            </motion.div>
-            </AnimatePresence>
-                <div className="lg:flex max-w-6xl mx-auto items-center gap-11">
-                    <div className="flex-1 lg:border-l border-gray-400  min-h-[152px]">
-                        <div className="px-1 sm:px-4 p-8">
-                            <p className="text-xl sm:text-3xl">We grow together</p>
-                            <p className="my-3 text-[#454545]">Aligning emerging tech communities and organizations for collaborative growth.</p>
-                            <Link href={"/onboard"}><button
-                            style={{transition:"all ease 0.4s"}}
+                    </motion.div>
+                </AnimatePresence>
+                <div className="p-8 hidden lg:block">
+                    <div className="">
+                        <p className="text-xl sm:text-3xl">We grow together</p>
+                        <p className="my-3 text-sm sm:text-base text-[#454545]">Aligning emerging tech communities and organizations for collaborative growth.</p>
+                        <Link href={"/onboard"}><button
+                            style={{ transition: "all ease 0.4s" }}
                             className="border bg-gradient-to-r text-white  from-[#E2B0FF] to-[#9F44D3] rounded-full py-3 font-medium my-3 px-6">
-                                Get Started
-                            </button></Link>
-                        </div>
+                            Get Started
+                        </button></Link>
                     </div>
                 </div>
+            </div>
+            <div className="bg-white border-x border-b py-8 px-4 border-gray-400  lg:hidden">
+                <p className="text-xl sm:text-3xl">We grow together</p>
+                <p className="my-3 text-sm sm:text-base text-[#454545]">Aligning emerging tech communities and organizations for collaborative growth.</p>
+                <Link href={"/onboard"}><button
+                    style={{ transition: "all ease 0.4s" }}
+                    className="border bg-gradient-to-r text-white  from-[#E2B0FF] to-[#9F44D3] rounded-full py-3 font-medium my-3 px-6">
+                    Get Started
+                </button></Link>
             </div>
         </section>
     )
@@ -137,7 +146,7 @@ function VideoPlayer() {
 
     return (
         <div className="flex h-[250px] md:h-[500px] items-center justify-center relative">
-            <video  id="hero-video" ref={videoRef} autoPlay loop muted src="/hero.mp4" className="w-full absolute rounded-[32px] h-full top-0 left-0 right-0 object-cover" />
+            <video id="hero-video" ref={videoRef} autoPlay loop muted src="/hero.mp4" className="w-full absolute rounded-[32px] h-full top-0 left-0 right-0 object-cover" />
             {/* <button onClick={play} style={{ boxShadow: shadowClass }} className="h-[96px] z-10 bg-white rounded-full w-[96px] flex items-center justify-center">
                 {paused
                     ? <i className="bi bi-play-fill text-[64px]"></i>
@@ -151,23 +160,23 @@ function VideoPlayer() {
 
 export default function Hero({ partners }: any) {
 
-    const [index,setIndex] = useState(1);
+    const [index, setIndex] = useState(1);
 
     useEffect(() => {
         const countInterval = setInterval(() => {
-            setIndex(prev=>{
-                if(prev > 3) return 1;
-                return prev+1
+            setIndex(prev => {
+                if (prev > 3) return 1;
+                return prev + 1
             })
-        },3000)
+        }, 3000)
 
-        return ()=>clearInterval(countInterval)
-    },[])
+        return () => clearInterval(countInterval)
+    }, [])
 
     const scrollToSection = () => {
         const section = window.document.querySelector("#ecosystem-header") as HTMLDivElement
-        if(section){
-            section.scrollIntoView({behavior:"smooth",block:"start"})
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "start" })
         }
     }
 
@@ -175,37 +184,37 @@ export default function Hero({ partners }: any) {
     return (
         <section className="bg-gradient-to-tr from-[rgb(255,237,207,0.6)] from-50% to-[rgb(252,198,233)]">
             <div style=
-            {{
-                backgroundImage: `linear-gradient(to right,rgb(255,255,255,0.5),rgb(252,255,255,0.5)), url("/images/grid-line.png")`
-            }}
+                {{
+                    backgroundImage: `linear-gradient(to right,rgb(255,255,255,0.5),rgb(252,255,255,0.5)), url("/images/grid-line.png")`
+                }}
                 className="pt-8 sm:pt-[50px]"
             >
                 <div className="">
-                <div className="rounded-[32px] max-w-7xl mx-auto bg-white pt-8 mb-8" style={{ boxShadow: shadowClass }}>
-                    <div className="max-w-[700px] md:px-4 mb-7 lg:mb-14 mx-auto text-center">
-                        <div className="text-2xl font-clesmont lg:text-6xl font-bold uppercase">
-                            <p>Entering</p>
-                            <p className="max-h-8 lg:max-h-16 overflow-hidden translate-container">
-                                <span
-                                style={index > 1 ?{transform: "translateY(-200%)"}:undefined}
-                                className="bg-gradient-to-r inline-block  from-[#F6CEEC] bg-clip-text text-transparent to-[#D939CD]">An Accessible</span> <br />
-                                <span
-                                style={index > 2 ?{transform: "translateY(-200%)"}:index > 1 ?{transform: "translateY(-100%)"}:undefined}
-                                className="bg-gradient-to-r inline-block  from-[#CE9FFC] bg-clip-text text-transparent to-[#7367F0]">A Collaborative</span> <br />
-                                 <span
-                                style={index > 3 ?{transform: "translateY(-300%)"}:index > 2 ?{transform: "translateY(-200%)"}:undefined}
-                                className="bg-gradient-to-r inline-block  from-[#ABDCFF] bg-clip-text text-transparent to-[#0396FF]">A Diverse</span> <br />
-                                <span
-                                 style={index > 3 ?{transform: "translateY(-300%)"}:undefined}
-                                className="bg-gradient-to-b inline-block  from-[#F0FF00] bg-clip-text text-transparent to-[#58CFFB]">An Invicible</span> <br />
-                            </p>
-                            <p>web3 era</p>
+                    <div className="rounded-[32px] max-w-7xl mx-auto bg-white pt-8 mb-8" style={{ boxShadow: shadowClass }}>
+                        <div className="max-w-[700px] md:px-4 mb-7 lg:mb-14 mx-auto text-center">
+                            <div className="text-2xl font-clesmont lg:text-6xl font-bold uppercase">
+                                <p>Entering</p>
+                                <p className="max-h-8 lg:max-h-16 overflow-hidden translate-container">
+                                    <span
+                                        style={index > 1 ? { transform: "translateY(-200%)" } : undefined}
+                                        className="bg-gradient-to-r inline-block  from-[#F6CEEC] bg-clip-text text-transparent to-[#D939CD]">An Accessible</span> <br />
+                                    <span
+                                        style={index > 2 ? { transform: "translateY(-200%)" } : index > 1 ? { transform: "translateY(-100%)" } : undefined}
+                                        className="bg-gradient-to-r inline-block  from-[#CE9FFC] bg-clip-text text-transparent to-[#7367F0]">A Collaborative</span> <br />
+                                    <span
+                                        style={index > 3 ? { transform: "translateY(-300%)" } : index > 2 ? { transform: "translateY(-200%)" } : undefined}
+                                        className="bg-gradient-to-r inline-block  from-[#ABDCFF] bg-clip-text text-transparent to-[#0396FF]">A Diverse</span> <br />
+                                    <span
+                                        style={index > 3 ? { transform: "translateY(-300%)" } : undefined}
+                                        className="bg-gradient-to-b inline-block  from-[#F0FF00] bg-clip-text text-transparent to-[#58CFFB]">An Invicible</span> <br />
+                                </p>
+                                <p>web3 era</p>
+                            </div>
+                            <p className="max-w-[500px] my-2 text-base lg:text-xl tracking-normal mx-auto text-center">Explore Our Ecosystem</p>
+                            <button onClick={scrollToSection}><MouseIcon /></button>
                         </div>
-                        <p className="max-w-[500px] my-2 text-base lg:text-xl tracking-normal mx-auto text-center">Explore Our Ecosystem</p>
-                        <button onClick={scrollToSection}><MouseIcon/></button>
+                        <VideoPlayer />
                     </div>
-                    <VideoPlayer />
-                </div>
                 </div>
                 <p className="font-black uppercase text-2xl md:text-5xl text-center font-clesmont mt-20 mb-5 md:mb-8">Our Partners</p>
                 <Partners partners={partners} />

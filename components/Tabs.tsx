@@ -58,18 +58,18 @@ interface TabButtonProps{
 function TabButton(props:TabButtonProps){
   if(props.isActive){
     return (
-      <div className="flex-1 cursor-pointer bg-white lg:border-2 rounded md:rounded-full min-h-16 flex items-center justify-center p-1 text-[10px] lg:text-base lg:border-[#B668E4]">
-        <button className="w-full md:bg-black min-h-14 rounded-full lg:text-white">{props.label}</button>
+      <div className="flex-1 cursor-pointer min-w-[166px] border-2 bg-white rounded-full min-h-9 sm:min-h-14 flex items-center justify-center p-2 text-[10px] lg:text-base border-[#B668E4]">
+        <button className="w-full bg-black min-h-10 sm:min-h-14 rounded-full text-white">{props.label}</button>
       </div>
     )
   }
   return (
     <div
     onClick={props.handleClick}
-    className={`flex-1 text-center lg:border-2 lg:border-[#B668E4] flex flex-col sm:flex-row items-center gap-x-2 py-2 min-h-14 rounded-lg lg:rounded-full px-6 text-[10px] md:text-base transition`}
+    className={`flex-1 text-center border-2 min-w-[166px] border-[#B668E4] flex flex-col sm:flex-row items-center gap-x-2 py-2 min-h-9 sm:min-h-14 rounded-full px-6 text-[10px] md:text-base transition`}
   >
     {/* <ChatGPTIcon/> */}
-    <button className="w-full text-white lg:text-black">{props.label}</button>
+    <button className="w-full min-h-10 text-black">{props.label}</button>
   </div>
   )
 }
@@ -151,7 +151,7 @@ export default function Tabs({
       <div className="w-full mx-auto mt-4 sm:mt-10">
         {/* Tab Buttons */}
         <div className="p-4">
-        <div className="flex w-full gap-4 max-w-[750px] bg-black lg:bg-transparent   mx-auto justify-start rounded-lg md:rounded-full p-2">
+        <div className="flex w-full gap-4 max-w-[750px] overflow-auto bg-transparent   mx-auto justify-start rounded-lg md:rounded-full p-2">
           <TabButton
             isActive={activeTab === "explorers"}
             label="I am Exploring Web3"
