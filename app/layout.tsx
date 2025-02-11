@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./globals.css";
 import CustomLayout from "@/components/provider/CustomLayout";
-import LayoutWrapper from "../components/LayoutWrapper"; // ✅ Import Client Component
+import LayoutWrapper from "../components/LayoutWrapper"; 
 import image from "./logo.webp";
 
 import groq from "groq";

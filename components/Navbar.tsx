@@ -95,11 +95,6 @@ const Navbar = ({ utils }: any) => {
                     <span>{"Member Login"}</span>
                   </button>
                 </Link>
-              utils.stayConnectedText ? 
-                <button className="text-base lg:text-xl font-medium  flex items-center gap-2 cursor-pointer rounded-xl !py-2 px-4 bg-[#C8BAFD] hover:bg-[#3C1FEF] text-black hover:text-white">
-                  {utils.stayConnectedText}
-                </button>
-              
                 <Link href={"/onboard"}>
                   <button
                     style={{ transition: "all ease 5s" }}
@@ -131,8 +126,6 @@ const Navbar = ({ utils }: any) => {
             </button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
         <div
           style={{ transition: "all ease 0.5s" }}
           className={`fixed z-[10000] ${isOpen ? "translate-x-0" : "-translate-x-[100%]"} top-0 left-0 w-10/12 sm:w-9/12 p-4 bg-white h-screen`}

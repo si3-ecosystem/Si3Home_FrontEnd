@@ -11,18 +11,17 @@ const Login: React.FC = () => {
     return (
         <div className="flex flex-col min-h-screen bg-gradient-to-r from-[#FDCFFB] to-[#FFEDCF]">
             <nav className="w-full p-5 bg-transparent flex justify-between items-center">
-                <Link
-                    href="/"
-                    className="text-white text-5xl font-bold uppercase "
-                >
-                    <p className="text-2xl md:text-4xl text-black font-clesmont font-black">
-                        {"SI<3>"}
-                    </p>
-                </Link>
+            <Link
+                href="/"
+                className="text-white text-5xl font-bold uppercase "
+              >
+                <p className="text-2xl md:text-4xl text-black font-clesmont font-black">
+                  {"SI<3>"}
+                </p>
+              </Link>
             </nav>
             <div className="flex flex-grow items-center justify-center p-5 md:p-10 w-full h-auto md:h-full max-h-[90vh]">
                 <div className="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg w-full max-w-7xl overflow-hidden">
-                    {/* Login Form */}
                     <div className="p-8 md:p-12 flex flex-col justify-center w-full order-1 md:order-1">
                         <h1 className="text-4xl font-bold">Login</h1>
                         <p className="text-gray-500 mt-3 font-bold text-lg">It's so nice to SI you 👋</p>
