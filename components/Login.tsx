@@ -54,7 +54,7 @@ const Login: React.FC = () => {
                             </div>
                         </div>
                         <p className="mt-4 md:mt-5 text-center text-base md:text-lg text-gray-500">
-                            New to Si3? <Link href="/members" className="text-purple-500 font-semibold">Explore our membership</Link>
+                            New to Si3? <Link href="/member-policy" className="text-purple-500 font-semibold">Explore our membership</Link>
                         </p>
                         <span className="mt-4 md:mt-5 text-center text-base md:text-lg text-gray-500">to join our ecosystem.</span>
                     </div>
