@@ -3,12 +3,27 @@
 import Image from "next/image";
 import TabHeader from "./TabHeader";
 import { TabValues } from "@/lib/types/interfaces";
+import ImageUrl from "@/utils/imageUrl";
 
 
 interface Props{
     programs:any[]
     activeTab:TabValues,
     setActiveTab:(value:TabValues)=>void,
+}
+
+// ------------- SORT OBJECT FOR DATA FROM SANITY
+const order:{
+    [key:string]:number
+} = {
+    explorers:1,
+    leaders:2,
+    creators:3,
+}
+
+interface PathwayObject{
+    pathway:string,
+    [key:string]:any
 }
 
 export default function ChoosePathWaySection(props:Props){
@@ -20,14 +35,16 @@ export default function ChoosePathWaySection(props:Props){
             </header>
             <TabHeader {...{activeTab,setActiveTab}}/>
             <div className="mt-6 md:mt-12 px-4 grid grid-cols-3">
-                {programs.map((program:any)=>{
+                {programs
+                .sort((a:PathwayObject,b:PathwayObject)=>order[a.pathway] - order[b.pathway])
+                .map((program:any)=>{
                     return (
                         <div  style={{
-                            transform: activeTab === program.title?"scale(1.1)":"scale(1)",
-                            zIndex:activeTab === program.title?2:1,
+                            transform: activeTab === program.pathway?"scale(1.1)":"scale(1)",
+                            zIndex:activeTab === program.pathway?2:1,
                             transition: "all ease 0.4s",
                         }} className="h-[100px] lg:h-[312px] relative" key={program._id}>
-                            <Image fill className="w-full" alt={program.title} src={program.banner} />
+                            <ImageUrl fill className="w-full" alt={program.pathway} image={program.banner} />
                         </div>
                     )
                 })}

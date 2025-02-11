@@ -153,6 +153,10 @@ class ContentProviderService{
         return data || {};
     }
 
+    async getOnboardingPathways(){
+        const onboardingPathWays = await this.getListData("onboarding_pathways")
+        return onboardingPathWays
+    }
     async getExplorerPageData(){
         const explorerVideos = await this.getListData("explorer_videos")
         const explorerVideoCategories = await this.getListData("explorer_videos_categories")
