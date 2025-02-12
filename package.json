@@ -20,6 +20,10 @@
     "@sanity/types": "^3.71.2",
     "@sanity/ui": "^2.11.4",
     "@studio-freight/lenis": "^1.0.42",
+    "@tanstack/react-query": "^5.66.0",
+    "@walletconnect/web3wallet": "^1.16.1",
+    "@web3modal/react": "^2.7.1",
+    "@web3modal/wagmi": "^5.1.11",
     "antd": "^5.23.0",
     "axios": "^1.7.2",
     "bootstrap-icons": "^1.11.3",
@@ -45,7 +49,9 @@
     "styled-components": "^6.1.14",
     "swiper": "^11.1.4",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "viem": "^2.23.2",
+    "wagmi": "^2.14.11"
   },
   "devDependencies": {
     "@types/node": "^20",
