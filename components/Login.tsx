@@ -24,7 +24,7 @@ const Login: React.FC = () => {
                 <div className="flex flex-col md:flex-row bg-white rounded-2xl shadow-lg w-full max-w-7xl overflow-hidden">
                     <div className="p-8 md:p-12 flex flex-col justify-center w-full order-1 md:order-1">
                         <h1 className="text-4xl font-bold">Login</h1>
-                        <p className="text-gray-500 mt-3 font-bold text-lg">It's so nice to SI you 👋</p>
+                        <p className="text-gray-500 mt-3 font-bold text-lg">It&apos;s so nice to SI you 👋</p>
                         <div className="mt-6 space-y-4 md:mt-8 md:space-y-5">
                             <button className="w-full flex items-center gap-4 p-3 md:p-4 border rounded-lg bg-gray-100 hover:bg-gray-200">
                                 <Image src={metamaskimg} alt="Metamask" className="w-6 md:w-7 h-6 md:h-7" />
