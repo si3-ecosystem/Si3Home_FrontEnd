@@ -2,6 +2,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./globals.css";
 import image from "./logo.webp";
 
+import urlFor from "@/utils/urlFor";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Script from "next/script";
 import { getSeoData } from "@/utils/seo";
@@ -10,13 +11,26 @@ export const revalidate = 3600;
 
 async function sharedMetaData() {
   const settings = await getSeoData();
+
+  const seoLogoUrl = settings?.seoLogo
+    ? urlFor(settings?.seoLogo).url()
+    : "/icons/logo.webp";
   return {
+    // enable this for resolving opengraph image
     metadataBase: new URL("https://www.si3.space/"),
-    title: { default: settings?.seoTitle || "si3", template: "%s" },
+    title: {
+      default: settings?.seoTitle || "si3",
+      template: "%s",
+    },
+
     icons: {
       icon: [
         { rel: "icon", url: "/icons/favicon-16x16.png", sizes: "16x16" },
-        { rel: "icon", url: "/icons/favicon-16x16.png", sizes: "16x16" },
+        {
+          rel: "icon",
+          url: "/icons/favicon-16x16.png",
+          sizes: "16x16",
+        },
         {
           rel: "apple-touch-icon",
           url: "/icons/favicon-16x16.png",
@@ -43,7 +57,14 @@ async function sharedMetaData() {
       description:
         settings?.overview ||
         "Creating Pathways For Diverse Voices Of the New Economy",
-      images: [{ url: "/icons/logo.webp" }, { url: image.src }],
+      images: [
+        {
+          url: "/icons/logo.webp",
+        },
+        {
+          url: image.src,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -53,7 +74,10 @@ async function sharedMetaData() {
         "Creating Pathways For Diverse Voices Of the New Economy",
       images: ["https://www.si3.space/icons/logo.webp"],
     },
-    robots: { index: true, follow: true },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 
@@ -63,7 +87,10 @@ export async function generateMetadata() {
 
 export default async function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const utils = await getSeoData();
   return (
     <html lang="en">
       <head>
@@ -82,15 +109,15 @@ export default async function RootLayout({
         <link
           href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
           rel="stylesheet"
-        />
+        ></link>
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
           rel="stylesheet"
-        />
+        ></link>
         <link
           href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap"
           rel="stylesheet"
-        />
+        ></link>
       </head>
       <body>
         <script

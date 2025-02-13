@@ -49,9 +49,8 @@ const Login: React.FC = () => {
                                 </div>
                             </div>
                             <p className="mt-3 md:mt-4 text-center text-sm md:text-md text-gray-500">
-                                New to Si3? <Link href="/member-policy" className="text-purple-500 font-semibold">Explore our membership</Link>
+                                New to Si3? <Link href="/" className="text-purple-500 font-semibold">Explore our membership</Link>
                             </p>
-                            <span className="mt-3 md:mt-4 text-center text-sm md:text-md text-gray-500">to join our ecosystem.</span>
                         </div>
                         <div className="w-full md:w-1/2 flex justify-center order-2 md:order-1">
                             <Image
