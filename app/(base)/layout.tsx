@@ -1,9 +1,8 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "./globals.css";
-import image from "./logo.webp";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Script from "next/script";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { getSeoData } from "@/utils/seo";
 
 export const revalidate = 3600;
@@ -43,7 +42,7 @@ async function sharedMetaData() {
       description:
         settings?.overview ||
         "Creating Pathways For Diverse Voices Of the New Economy",
-      images: [{ url: "/icons/logo.webp" }, { url: image.src }],
+      images: [{ url: "/icons/logo.webp" }],
     },
     twitter: {
       card: "summary_large_image",
@@ -61,47 +60,14 @@ export async function generateMetadata() {
   return await sharedMetaData();
 }
 
-export default async function RootLayout({
+export default async function BaseLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <head>
-        <Script
-          src="https://cdn.markfi.xyz/scripts/analytics/0.11.21/cookie3.analytics.min.js"
-          integrity="sha384-wtYmYhbRlAqGwxc5Vb9GZVyp/Op3blmJICmXjRiJu2/TlPze5dHsmg2gglbH8viT"
-          crossOrigin="anonymous"
-          async
-          strategy="lazyOnload"
-          site-id="434ad72e-5f88-4f99-b163-6107f173b5fa"
-        />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@400&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
-        <script
-          type="text/javascript"
-          id="hs-script-loader"
-          async
-          defer
-          src="//js.hs-scripts.com/45396312.js"
-        ></script>
-        {children}
-      </body>
-    </html>
+    <>
+      <Navbar />
+      {children}
+      <Footer />
+    </>
   );
 }

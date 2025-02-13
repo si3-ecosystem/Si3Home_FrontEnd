@@ -2,15 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, useAnimation, AnimatePresence } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
-import urlFor from "@/utils/urlFor";
 import { useRouter } from "next/navigation";
-import FlashInfoHeader from "@/app/components/v2/FlashInfoHeader";
+import FlashInfoHeader from "@/app/(base)/components/v2/FlashInfoHeader";
 import ArrowRightIcon from "@/app/icons/arrow-right";
 import UserCircleIcon from "@/app/icons/user-circle";
 
-const Navbar = ({ utils }: any) => {
+const Navbar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -57,7 +56,7 @@ const Navbar = ({ utils }: any) => {
   return (
     <header className="sticky top-0 z-50">
       <Link href={"/diversity-tracker"}>
-      <FlashInfoHeader />
+        <FlashInfoHeader />
       </Link>
       <motion.nav className="w-full backdrop-filter backdrop-blur-2xl lg:backdrop-blur-lg shadow-lg transition-all duration-100">
         <div className="flex justify-between items-center px-5 lg:px-16 min-h-[67px] gap-10 xl:gap-12 z-40">
@@ -87,22 +86,22 @@ const Navbar = ({ utils }: any) => {
                 </button>
               </Link>
               <Link href={"/login"}>
-                  <button
-                    style={{ transition: "all ease 5s" }}
-                    className="text-base lg:text-xl border border-[rgba(0,0,0,0.3)] font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-2"
-                  >
-                    <UserCircleIcon/>
-                    <span>{"Member Login"}</span>
-                  </button>
-                </Link>
-                <Link href={"/onboard"}>
-                  <button
-                    style={{ transition: "all ease 5s" }}
-                    className="text-base lg:text-xl hover:bg-gradient-to-tr from-[#E2B0FF] from-50% to-[#9F44D3] font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-8 bg-black  text-white hover:text-white"
-                  >
-                    {"Get Started"}
-                  </button>
-                </Link>
+                <button
+                  style={{ transition: "all ease 5s" }}
+                  className="text-base lg:text-xl border border-[rgba(0,0,0,0.3)] font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-2"
+                >
+                  <UserCircleIcon />
+                  <span>{"Member Login"}</span>
+                </button>
+              </Link>
+              <Link href={"/onboard"}>
+                <button
+                  style={{ transition: "all ease 5s" }}
+                  className="text-base lg:text-xl hover:bg-gradient-to-tr from-[#E2B0FF] from-50% to-[#9F44D3] font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-8 bg-black  text-white hover:text-white"
+                >
+                  {"Get Started"}
+                </button>
+              </Link>
             </div>
           </div>
           <div className="flex items-center lg:hidden">

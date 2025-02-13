@@ -1,11 +1,11 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import {client }from '../../utils/client';
-import groq from 'groq';
-import { PolicyItem } from '@/lib/types/interfaces';
+import React, { useState, useEffect } from "react";
+import { client } from "../../../utils/client";
+import groq from "groq";
+import { PolicyItem } from "@/lib/types/interfaces";
 
 // Helper function to extract number from a string
-const extractNumber = (text:any) => {
+const extractNumber = (text: any) => {
   const match = text.match(/\d+/); // Matches the first sequence of digits in the string
   return match ? parseInt(match[0], 10) : 0;
 };
@@ -19,7 +19,7 @@ const Policy = () => {
       const data = await client.fetch(query);
 
       // Sort the data by the number extracted from the title
-      const sortedData = (data || []).sort((a:any, b:any) => {
+      const sortedData = (data || []).sort((a: any, b: any) => {
         const numberA = extractNumber(a.title);
         const numberB = extractNumber(b.title);
         return numberA - numberB; // Ascending order
