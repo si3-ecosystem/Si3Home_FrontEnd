@@ -4,10 +4,8 @@ import Image from "next/image";
 import { useNextSanityImage } from "next-sanity-image";
 import { client } from "./client";
 
-const ImageUrl = ({ image, className,width,height }: any) => {
+const ImageUrl = ({ image, className, width, height }: any) => {
   const imageProps = useNextSanityImage(client, image);
-
-  console.log("imageProps", imageProps);
 
   return (
     <Image
@@ -17,7 +15,7 @@ const ImageUrl = ({ image, className,width,height }: any) => {
       loading="lazy"
       sizes="(max-width: 800px) 100vw, 800px"
       className={className}
-      alt={image?.alt??"partner-image"}
+      alt={image?.alt ?? "partner-image"}
     />
   );
 };

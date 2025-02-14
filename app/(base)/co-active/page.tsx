@@ -1,11 +1,11 @@
-import { ExplorerPageTemplate } from "@/components/templates/explorers";
+import { CoActiveTemplate } from "@/components/templates/co-active";
 import { Suspense } from "react";
-import Loading from "../loading";
+import Loading from "../../loading";
 
 export default function page() {
   return (
     <Suspense fallback={<Loading />}>
-      <ExplorerPageTemplate />
+      <CoActiveTemplate />
     </Suspense>
   );
 }

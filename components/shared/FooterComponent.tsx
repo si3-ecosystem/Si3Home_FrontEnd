@@ -7,18 +7,19 @@ import urlFor from "@/utils/urlFor";
 import LinkedinIcon from "@/app/icons/linkedin";
 import XIcon from "@/app/icons/x";
 import Head from "next/head";
+import { client } from "@/utils/client";
 
-interface FooterProps {
-  footer: {
-    logo: {
-      asset: any;
-      alt: string;
-    };
-    twitter: string;
-    linkedIn: string;
-    mediakit: string;
-  };
-}
+// interface FooterProps {
+//   footer: {
+//     logo: {
+//       asset: any;
+//       alt: string;
+//     };
+//     twitter: string;
+//     linkedIn: string;
+//     mediakit: string;
+//   };
+// }
 
 const CookieConsent = () => {
   const [showConsent, setShowConsent] = useState(false);
@@ -87,18 +88,47 @@ const CookieConsent = () => {
   );
 };
 
-const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
+interface FooterData {
+  logo: {
+    asset: any;
+    alt: string;
+  };
+  twitter: string;
+  linkedIn: string;
+  mediakit: string;
+}
+
+const FooterComponent = () => {
+  const [footer, setFooter] = useState<FooterData | null>(null);
+
+  useEffect(() => {
+    const fetchFooter = async () => {
+      try {
+        const data = await client.fetch(`*[_type == 'utils'][0]`);
+        setFooter(data);
+      } catch (error) {
+        console.error("Error fetching footer data:", error);
+      }
+    };
+
+    fetchFooter();
+  }, []);
   const currentYear = new Date().getFullYear();
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://cdn-email.ethermail.io/sdk/v2/ethermail.js";
+    script.defer = true;
+    script.type = "text/javascript";
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <>
-      <Head>
-        <script
-          defer
-          src="https://cdn-email.ethermail.io/sdk/v2/ethermail.js"
-          type="text/javascript"
-        ></script>
-      </Head>
       <div id="stayConnected" className="bg-white -mt-4">
         <div className="max-w-7xl border-gray-400 mx-auto lg:flex">
           <div className="flex-[2] sm:pr-4 min-h-[250px] border-b px-4 lg:px-0 lg:border-r border-gray-400 lg:py-12 flex items-center justify-center">
@@ -108,13 +138,14 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                   <span className="text-[40px] font-clesmont">{"SI<3>"}</span>
                 </Link>
                 <p className="my-2 mb-3">
-                {/* Stay ahead in Web3! Subscribe to our newsletter for the latest updates, insights, and community news. */}
-                Stay up-to-date with {"SI<3>"} and Web3 with our CurrentSi weekly newsletter.
+                  {/* Stay ahead in Web3! Subscribe to our newsletter for the latest updates, insights, and community news. */}
+                  Stay up-to-date with {"SI<3>"} and Web3 with our CurrentSi
+                  weekly newsletter.
                 </p>
-                <div className="w-full min-w-[324px] max-w-[328px] mx-auto border rounded-full flex items-center p-2 border-black">
+                <div className="w-full relative sm:min-w-[324px] sm:max-w-[320px] sm:flex-shrink-0 sm:whitespace-nowrap  border rounded-full flex flex-row items-center justify-between p-2 py-1.5 border-black">
                   <ethermail-subscribe
                     widget="66d5a2d55c125fff0bf241a58c1f24f8"
-                    className="flex items-center w-full gap-3"
+                    className="flex flex-row flex-1 items-center justify-between w-full gap-3 "
                     theme="light"
                     input="auto"
                     wallet-connect-project-id="66d5a2d55c125fff0bf241a58c1f24f8"
@@ -123,9 +154,9 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                     <input
                       type="email"
                       placeholder="Enter your email"
-                      className="flex-grow border-none outline-none text-base px-2"
+                      className="sm:flex-grow max-sm:!w-full flex-1 border-none outline-none text-base px-2 py-1.5 "
                     />
-                    <button className="bg-black text-white py-2 px-4 rounded-full hover:bg-[#3C1FEF] transition-all duration-300 flex-shrink-0">
+                    <button className="bg-black max-sm:absolute right-1.5 top-1.5 bottom-1.5 z-10 text-white py-1.5 px-4 ml-1.5 rounded-full hover:bg-[#3C1FEF] transition-all duration-300 flex-shrink-0 w-fit">
                       Subscribe
                     </button>
                   </ethermail-subscribe>
@@ -144,7 +175,10 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
                 <Link href="/member-policy">
                   <button className="block">Member Policy</button>
                 </Link>
-                <Link target="_blank" href="https://app.charmverse.io/si3/welcome-to-si-3-734090998628107">
+                <Link
+                  target="_blank"
+                  href="https://app.charmverse.io/si3/welcome-to-si-3-734090998628107"
+                >
                   <button className="block">Media Kit</button>
                 </Link>
               </div>
@@ -155,13 +189,13 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
             <div>
               <p className="font-black text-2xl font-clesmont">Follow Us</p>
               <div className="my-2 flex flex-col gap-2">
-                <Link href={footer.twitter} target="_blank">
+                <Link href={footer?.twitter || "#"} target="_blank">
                   <button className="flex items-center gap-2">
                     <XIcon />
                     <span>Twitter/X</span>
                   </button>
                 </Link>
-                <Link href={footer.linkedIn} target="_blank">
+                <Link href={footer?.linkedIn || "#"} target="_blank">
                   <button className="flex items-center gap-2">
                     <LinkedinIcon />
                     <span>LinkedIn</span>
@@ -174,7 +208,8 @@ const FooterComponent: React.FC<FooterProps> = ({ footer }) => {
 
         <div className="border-t p-4 py-8 border-gray-400">
           <p className="text-sm max-w-7xl mx-auto text-center md:text-base">
-            {"Copyright © "} {currentYear} {" SI<3>, Inc. All rights reserved."}
+            {"Copyright © "} {currentYear}{" "}
+            {" SI<3>, Inc. All rights reserved."}
           </p>
         </div>
       </div>

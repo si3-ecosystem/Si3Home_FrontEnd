@@ -1,8 +1,7 @@
-import dynamic from "next/dynamic";
+import FooterComponent from "./shared/FooterComponent";
 import groq from "groq";
 import { client } from "@/utils/client";
-
-const FooterComponent = dynamic(() => import("./shared/FooterComponent"), { ssr: true });
+import { Suspense } from "react";
 
 async function getFooter() {
   const query = groq`*[_type == 'utils'][0]`;
@@ -11,5 +10,10 @@ async function getFooter() {
 
 export default async function Footer() {
   const footer = await getFooter();
-  return <FooterComponent footer={footer} />;
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FooterComponent footer={footer} />
+    </Suspense>
+  );
 }
