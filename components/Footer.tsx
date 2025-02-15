@@ -13,7 +13,7 @@ export default async function Footer() {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <FooterComponent footer={footer} />
+      <FooterComponent/>
     </Suspense>
   );
 }
