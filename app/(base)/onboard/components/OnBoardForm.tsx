@@ -148,7 +148,7 @@ export default function OnboardForm(props: Props) {
               />
             </div>
             <div className="col-span-2">
-              <p className="text-sm md:text-lg font-mono">
+              <p className="text-sm md:text-lg ">
                 Are you interested in exploring creating a livestreaming channel
                 for your personal brand with our decentralized media tools? (
                 <b className="text-sm">for Si Her Co-Active members only</b>)
@@ -178,7 +178,7 @@ export default function OnboardForm(props: Props) {
               </div>
             </div>
             <div className="col-span-2">
-              <p className="text-sm md:text-lg font-mono">
+              <p className="text-sm md:text-lg ">
                 Which values do you most strongly resonate with?
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 my-7">
@@ -199,11 +199,13 @@ export default function OnboardForm(props: Props) {
                 value={newMember.self_description}
                 label={"How would you describe yourself professionally".toLowerCase()}
                 required
+                isRoobert={true}
                 options={professionOptions}
               />
             </div>
             <div className="col-span-2">
               <TextAreaField
+                className="font-roobert"
                 name="joining_intentions"
                 minLength={40}
                 onChange={handleInput}
@@ -222,6 +224,7 @@ export default function OnboardForm(props: Props) {
             </div>
             <div className="col-span-2">
               <SelectField
+                className="font-roobert"
                 label={"Please share how you heard about Si Her".toLowerCase()}
                 required
                 name="source_of_information"
@@ -233,7 +236,7 @@ export default function OnboardForm(props: Props) {
           </div>
           <button
             type="submit"
-            className="w-full h-16 border rounded-full font-mono mt-12 md:text-xl bg-black text-white"
+            className="w-full h-16 border rounded-full mt-12 md:text-xl bg-black text-white "
           >
             Submit Application
           </button>

@@ -24,7 +24,7 @@ export default function JoinTabFooter(props: Props) {
         ></video>
         <div className="absolute top-0 left-0 w-full h-full z-[35] bg-[rgba(0,0,0,0.2)]"></div>
         <div className="text-white text-center max-w-[724px]  z-[40]">
-          <p className="text-xl text-center mt-10 sm:mt-0 font-clesmont lg:mx-0 md:text-[40px] font-black uppercase font-mono md:leading-[56px] tracking-normal">
+          <p className="text-xl text-center mt-10 sm:mt-0 font-clesmont lg:mx-0 md:text-[40px] font-black uppercase  md:leading-[56px] tracking-normal">
             {footerData.title &&
               (footerData.title as string).split(" ").map((word) => {
                 if (BOLD_TEXTS.includes(word.toUpperCase())) {
@@ -67,7 +67,7 @@ export function PartnerFooterInfo(props: Props) {
         <div className="absolute top-0 left-0 w-full h-full z-[35] bg-[rgba(0,0,0,0.2)]"></div>
 
         <div className="text-white text-center max-w-[724px] z-[40]">
-          <p className="text-xl text-center font-clesmont lg:mx-0 md:text-[40px] font-black uppercase font-mono md:leading-[56px] tracking-normal">
+          <p className="text-xl text-center font-clesmont lg:mx-0 md:text-[40px] font-black uppercase md:leading-[56px] tracking-normal">
             {(footerData.title as string).split(" ").map((word) => {
               if (BOLD_TEXTS.includes(word.toUpperCase())) {
                 return <b key={Math.random() * 100000}>{word + " "}</b>;
@@ -77,7 +77,7 @@ export function PartnerFooterInfo(props: Props) {
           </p>
           <p className="sm:text-xl">{footerData.description}</p>
           <Link href={"/onboard"}>
-            <button className="text-white bg-black py-[14px] capitalize rounded-full text-sm sm:text-lg font-mono mt-6 md:mt-10 px-[30px]">
+            <button className="text-white bg-black py-[14px] capitalize rounded-full text-sm sm:text-lg mt-6 md:mt-10 px-[30px]">
               {footerData.btnTitle}
             </button>
           </Link>
