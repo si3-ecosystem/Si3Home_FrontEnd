@@ -7,16 +7,17 @@ interface Props {
   footerData: {
     [key: string]: any;
   };
+  video?: string;
 }
 
 export default function JoinTabFooter(props: Props) {
-  const { footerData } = props;
+  const { footerData, video } = props;
   return (
     <div className="bg-[url('/images/join.png')] px-4 py-16 bg-cover">
       <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4  rounded-2xl overflow-hidden sm:min-h-[576px] relative">
         <video
           // style={{clipPath:"polygon(100%)"}}
-          src="/si3footervideo.mp4"
+          src={video || "/si3footervideo.mp4"}
           className="h-full w-full absolute top-0 object-cover rounded-2xl z-[33]"
           autoPlay
           muted
@@ -45,11 +46,11 @@ export default function JoinTabFooter(props: Props) {
   );
 }
 export function PartnerFooterInfo(props: Props) {
-  const { footerData } = props;
+  const { footerData, video } = props;
 
   return (
-    <section className="bg-[url('/images/partners.png')] px-4 py-16 bg-cover">
-      <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4 sm:min-h-[476px] relative">
+    <section className="bg-[url('/images/partners.png')] px-4 py-16 bg-cover ">
+      <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4 sm:min-h-[476px] relative  rounded-2xl overflow-hidden">
         <Image
           src="/images/partner-subtract.png"
           alt="Background image mobile"
@@ -58,7 +59,7 @@ export function PartnerFooterInfo(props: Props) {
         />
         <video
           // style={{clipPath:"polygon(100%)"}}
-          src="/si3footervideo.mp4"
+          src={video || "/si3footervideo.mp4"}
           className="h-full w-full absolute top-0 object-cover rounded-2xl z-[33]"
           autoPlay
           muted

@@ -153,7 +153,7 @@ function VideoPlayer() {
         autoPlay
         loop
         muted
-        src="/hero.mp4"
+        src="/hero-video.mp4"
         className="w-full absolute rounded-[32px] h-full top-0 left-0 right-0 object-cover"
       />
       {/* <button onClick={play} style={{ boxShadow: shadowClass }} className="h-[96px] z-10 bg-white rounded-full w-[96px] flex items-center justify-center">
