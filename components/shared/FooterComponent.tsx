@@ -156,7 +156,7 @@ const FooterComponent = () => {
                       placeholder="Enter your email"
                       className="sm:flex-grow max-sm:!w-full flex-1 border-none outline-none text-base px-2 py-1.5 "
                     />
-                    <button className="bg-black max-sm:absolute right-1.5 top-1.5 bottom-1.5 z-10 text-white py-1.5 px-4 ml-1.5 rounded-full hover:bg-[#3C1FEF] transition-all duration-300 flex-shrink-0 w-fit">
+                    <button className="bg-black max-sm:absolute right-1.5 top-1.5 bottom-1.5 z-10 text-white py-1.5 px-2 ml-1.5 rounded-full hover:bg-[#3C1FEF] transition-all duration-300 flex-shrink-0 w-fit">
                       Subscribe
                     </button>
                   </ethermail-subscribe>

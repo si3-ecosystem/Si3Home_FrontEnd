@@ -23,6 +23,7 @@ import { Image } from "antd";
 import JoinTabFooter from "./JoinTabFooter";
 import ChatGPTIcon from "@/app/icons/chatgpt";
 import { useSearchParams } from "next/navigation";
+import CommunityCollaboration from "./community-collaborative";
 
 type TabsProps = {
   educationalProgramming: any;
@@ -33,6 +34,7 @@ type TabsProps = {
   brand: any;
   sherCoActive: any;
   onboard: any;
+  community: any;
   memberSpotlight: any;
   sheHerLive: any;
   granting: any;
@@ -83,6 +85,7 @@ export default function Tabs({
   testimonials,
   sherCoActive,
   onboard,
+  community,
   memberSpotlight,
   sheHerLive,
   brand,
@@ -175,7 +178,7 @@ export default function Tabs({
               <div className="w-full ">
                 <div className="">
                   <SherCoActive sherCoActive={sherexplorer} />
-                  {/* <Educational educationalProgramming={educationalProgramming} /> */}
+                  <CommunityCollaboration community={community} />
                   <Ecosystem ecosystemSpotlight={ecosystemSpotlight} />
                   <Mission mission={mission} />
                   {/* <Pricing pricing={pricing}/> */}
@@ -230,7 +233,7 @@ export default function Tabs({
                   {partnerTabData.programs.map((program, index) => {
                     return (
                       <div
-                        key={program.id}
+                        key={index}
                         className={`flex  max-w-[1196px] mx-auto p-4 lg:p-8 rounded-lg lg:rounded-[30px] my-4 lg:mt-4 lg:mb-10 bg-white min-h-[500px] gap-10 lg:gap-[88px] flex-col border border-gray-400 lg:flex-row justify-between`}
                       >
                         <div className="font-mono text-left flex-[2] max-w-[528px]">
@@ -254,9 +257,10 @@ export default function Tabs({
                     );
                   })}
                 </section>
+                <Testimonials testimonials={partnerTestimonials} />
                 <Mission mission={mission} showValues={false} />
                 <br />
-                {/* <SherLive sheHerLive={sheHerLive} /> */}
+
                 <JoinTabFooter footerData={joinBuildersTab} />
               </div>
             )}
