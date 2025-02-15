@@ -64,14 +64,14 @@ function Partners({ partners }: any) {
                   className="border-r flex items-center justify-center sm:p-8"
                   key={item.id}
                 >
-                  <div className="flex-1 text-center flex flex-col gap-8">
+                  <div className="flex-1 text-center flex flex-col items-center justify-center gap-8">
                     <div className="mb-5">
                       <ImageUrl
                         image={item.logo}
                         className="max-h-[41px] max-w-[217px] w-full h-full"
                       />
                     </div>
-                    <p className="px-4 py-1 w-fit bg-[#EEEEEE] rounded-full">
+                    <p className="px-4 py-1 w-fit mx-auto text-center bg-[#EEEEEE] rounded-full">
                       Community Partner
                     </p>
                   </div>
@@ -94,14 +94,14 @@ function Partners({ partners }: any) {
                 className="border-r flex items-center justify-center p-6 py-8 sm:p-8"
                 key={item.id}
               >
-                <div className="flex-1 text-center">
+                <div className="flex-1 text-center flex flex-col items-center justify-center">
                   <div className="mb-5">
                     <ImageUrl
                       image={item.logo}
-                      className="max-h-[232px] max-w-[360px] w-full h-full"
+                      className="max-h-[35px] max-w-[148px] w-full h-full"
                     />
                   </div>
-                  <p className="p-2 bg-[#EEEEEE] text-[10px] rounded-full">
+                  <p className="px-2 lg:px-4 py-1 w-fit mx-auto text-center bg-[#EEEEEE] rounded-full max-lg:text-[13px]">
                     Community Partner
                   </p>
                 </div>
@@ -185,7 +185,7 @@ export default function Hero({ partners }: any) {
         if (prev > 3) return 1;
         return prev + 1;
       });
-    }, 3000);
+    }, 1500);
 
     return () => clearInterval(countInterval);
   }, []);

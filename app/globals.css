@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,11 +6,11 @@
 
 @font-face {
   font-family: "Clesmont";
-  src: url('/fonts/Clesmont.otf');
+  src: url("/fonts/Clesmont.otf");
 }
 @font-face {
   font-family: "Polyamine";
-  src: url('/fonts/Polyamine.ttf');
+  src: url("/fonts/Polyamine.ttf");
 }
 
 @font-face {
@@ -44,11 +44,13 @@
   font-weight: 800;
 }
 
-.font-clesmont, .font-clesmont * {
-  font-family: "Clesmont",monospace;
+.font-clesmont,
+.font-clesmont * {
+  font-family: "Clesmont", monospace;
 }
-.font-polyamine, .font-polyamine * {
-  font-family: "Polyamine",sans-serif;
+.font-polyamine,
+.font-polyamine * {
+  font-family: "Polyamine", sans-serif;
 }
 
 body {
@@ -60,11 +62,11 @@ body {
   font-family: "IBM Plex Mono", serif;
 }
 
-*{
-  font-family: "Roobert",sans-serif;
+* {
+  font-family: "Roobert", sans-serif;
 }
 
-.font-dm-sans{
+.font-dm-sans {
   font-family: "DM Sans", serif;
 }
 
@@ -211,22 +213,22 @@ body {
   -moz-animation: marquee 20s linear infinite;
   -webkit-animation: marquee 20s linear infinite;
   animation: marquee 20s linear infinite;
-} 
+}
 .marquee-fast {
   -moz-animation: marquee 2s linear infinite;
   -webkit-animation: marquee 2s linear infinite;
   animation: marquee 2s linear infinite;
 }
-@media screen and (max-width:800px) {
-  .marquee{
+@media screen and (max-width: 800px) {
+  .marquee {
     -moz-animation: marquee 12s linear infinite;
     -webkit-animation: marquee 12s linear infinite;
     animation: marquee 12s linear infinite;
   }
 }
 
-.translate-container *{
-    transition: all linear 2s;
+.translate-container * {
+  transition: all linear 2s;
 }
 
 @-moz-keyframes marquee {
@@ -249,11 +251,15 @@ body {
   0% {
     -moz-transform: translateX(0%);
     -webkit-transform: translateX(0%);
-    transform: translateX(0%)
+    transform: translateX(0%);
   }
   100% {
     -moz-transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
   }
+}
+
+.font-roobert {
+  font-family: "Roobert", sans-serif;
 }

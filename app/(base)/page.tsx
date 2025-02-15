@@ -32,6 +32,7 @@ export default async function Home() {
     brand,
     mission,
     onboard,
+    community,
     pricing,
     testimonials,
     register,
@@ -77,6 +78,7 @@ export default async function Home() {
           ecosystemSpotlight={ecosystemSpotlight}
           testimonials={testimonials}
           onboard={onboard}
+          community={community}
           memberSpotlight={memberSpotlight}
           sheHerLive={sheHerLive}
           sherexplorer={sherExplorer}
