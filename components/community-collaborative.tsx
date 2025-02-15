@@ -216,9 +216,12 @@ export default function CommunityCollaboration({ community }: any) {
                             </div>
                           )}
                         </div>
-                        <button className="w-full mt-16 py-3.5 px-6 hover:bg-[#e9e3ff] rounded-full border border-black hover:border-[#B668E4] ">
+                        <Link
+                          href={item?.discover || "#"}
+                          className="w-full mt-16 py-3.5 px-6 hover:bg-[#e9e3ff] rounded-full border border-black hover:border-[#B668E4] "
+                        >
                           Discover
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
