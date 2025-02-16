@@ -35,9 +35,12 @@ export default function CommunityCollaboration({ community }: any) {
     <motion.div ref={ref} className="py-14 px-4 lg:px-8 md:py-28 ">
       <div className="max-w-7xl mx-auto">
         <header className="">
-          <h1 className="text-2xl md:text-[36px] xl:text-[36px] max-lg:text-center font-clesmont font-1000 md:leading-10 mt-6 ">
-            DISCOVER OUR COMMUNITY COLLABORATIVE
-          </h1>
+          <h2 className="text-2xl md:text-[36px] xl:text-[36px] max-lg:text-center font-clesmont font-1000 md:leading-10 mt-6 ">
+            DISCOVER OUR COMMUNITY
+          </h2>
+          <h2 className="text-2xl md:text-[36px] xl:text-[36px] max-lg:text-center font-clesmont font-1000 md:leading-10 ">
+            COLLABORATIVE
+          </h2>
           <p className=" my-4 md:my-6 w-full max-lg:text-center text-base lg:text-xl text-[#454545] lg:leading-7">
             Explore our growing collaborative of women & non-binary led Web3
             communities.

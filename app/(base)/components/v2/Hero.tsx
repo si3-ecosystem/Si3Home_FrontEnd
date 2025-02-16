@@ -71,7 +71,7 @@ function Partners({ partners }: any) {
                       />
                     </div>
                     <p className="px-4 py-1 w-fit mx-auto text-center bg-[#EEEEEE] rounded-full">
-                      Community Partner
+                      {item?.type}
                     </p>
                   </div>
                 </div>
@@ -101,7 +101,7 @@ function Partners({ partners }: any) {
                     />
                   </div>
                   <p className="px-2 lg:px-4 py-1 w-fit mx-auto text-center bg-[#EEEEEE] rounded-full max-lg:text-[13px]">
-                    Community Partner
+                    {item?.type}
                   </p>
                 </div>
               </div>
