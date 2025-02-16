@@ -90,7 +90,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const utils = await getSeoData();
   return (
     <html lang="en">
       <head>

@@ -74,8 +74,18 @@ export default function Ecosystem({ ecosystemSpotlight }: any) {
 
         <div className="">
           <div className="flex justify-center lg:justify-end gap-4 mb-5 mt-5">
-            <button className="bg-white h-12 w-12 flex items-center justify-center rounded-full border" onClick={slideLeft}><ChevronLeftIcon/></button>
-            <button className=" bg-white h-12 w-12 flex items-center justify-center rounded-full border" onClick={slideRight}><ChevronRightIcon/></button>
+            <button
+              className="bg-white h-12 w-12 flex items-center justify-center rounded-full border hover:border-[#B668E4] hover:bg-[#e9e3ff]"
+              onClick={slideLeft}
+            >
+              <ChevronLeftIcon />
+            </button>
+            <button
+              className=" bg-white h-12 w-12 flex items-center justify-center rounded-full border hover:border-[#B668E4] hover:bg-[#e9e3ff]"
+              onClick={slideRight}
+            >
+              <ChevronRightIcon />
+            </button>
           </div>
           <AnimatePresence mode="wait">
             <motion.div

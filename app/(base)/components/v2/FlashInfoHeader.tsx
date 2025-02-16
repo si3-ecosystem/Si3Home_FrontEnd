@@ -18,11 +18,9 @@ export default function FlashInfoHeader() {
             <p className="sm:text-center group-hover:text-white">
               {"SI<3>"}Launches Diversity Tracker For Web3 🎉
             </p>
-            <Link href={"/diversity-tracker"}>
-              <button className="hidden md:inline-block rounded-3xl px-3 py-2 text-[#CA92EE] group-hover:text-white">
-                Learn More
-              </button>
-            </Link>
+            <button className="hidden md:inline-block rounded-3xl px-3 py-2 text-[#CA92EE] group-hover:text-white">
+              Learn More
+            </button>
           </div>
           <button onClick={closeInfo} className="block group-hover:hidden">
             <CloseCircleIcon />

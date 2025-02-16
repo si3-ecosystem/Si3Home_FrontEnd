@@ -38,7 +38,7 @@ export default function Testimonials({ testimonials }: any) {
               {testimonials?.length > 1 && (
                 <div className="flex items-center gap-2 md:gap-6 mb-3 md:mb-0">
                   <button
-                    className="border border-[#222222] bg-white h-10 w-10 md:h-12 md:w-12 text-[#222222]  rounded-full flex items-center justify-center"
+                    className="border border-[#222222] hover:border-[#B668E4] hover:bg-[#e9e3ff] bg-white h-10 w-10 md:h-12 md:w-12 text-[#222222]  rounded-full flex items-center justify-center"
                     onClick={() => {
                       /*
             // @ts-ignore */
@@ -49,7 +49,7 @@ export default function Testimonials({ testimonials }: any) {
                   </button>
 
                   <button
-                    className="border border-[#222222] bg-white h-10 w-10 md:h-12 md:w-12 text-[#222222] rounded-full flex items-center justify-center"
+                    className="border border-[#222222] hover:border-[#B668E4] hover:bg-[#e9e3ff] bg-white h-10 w-10 md:h-12 md:w-12 text-[#222222] rounded-full flex items-center justify-center"
                     onClick={() => {
                       /*
             // @ts-ignore */

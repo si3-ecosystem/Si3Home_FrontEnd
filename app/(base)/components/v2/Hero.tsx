@@ -36,13 +36,13 @@ function Partners({ partners }: any) {
       <div className="lg:absolute mb-8 justify-center items-center flex gap-4 lg:-bottom-14 w-full lg:w-8/12 z-10">
         <button
           onClick={slideLeft}
-          className="h-12 w-12 bg-white rounded-full flex items-center justify-center border"
+          className="h-12 w-12 bg-white rounded-full flex items-center justify-center border hover:border-[#B668E4] hover:bg-[#e9e3ff]"
         >
           <ChevronLeftIcon />
         </button>
         <button
           onClick={slideRight}
-          className="h-12 w-12 bg-white rounded-full flex items-center justify-center border"
+          className="h-12 w-12 bg-white rounded-full flex items-center justify-center border hover:border-[#B668E4] hover:bg-[#e9e3ff]"
         >
           <ChevronRightIcon />
         </button>
@@ -57,11 +57,11 @@ function Partners({ partners }: any) {
             transition={{ duration: 0.5 }}
             className="col-span-1 hidden lg:grid grid-cols-2 lg:grid-cols-3 gap-3 grid-col md:gap-10 max-w-7xl mx-auto w-full"
           >
-            {getVisibleItems().map((item: any) => {
+            {getVisibleItems().map((item: any, key: number) => {
               return (
                 <div
                   className="border-r first-of-type:border-l flex items-center justify-center sm:p-8"
-                  key={item.id}
+                  key={key}
                 >
                   <div className="flex-1 text-center flex flex-col items-center justify-center gap-8">
                     <div className="mb-5">
@@ -88,10 +88,10 @@ function Partners({ partners }: any) {
             transition={{ duration: 0.5 }}
             className="col-span-2 lg:hidden border-b grid grid-cols-2 lg:grid-cols-3 gap-3 grid-col md:gap-10"
           >
-            {getVisibleItemsMobile().map((item: any) => (
+            {getVisibleItemsMobile().map((item: any, key: number) => (
               <div
                 className="border-r flex items-center justify-center p-6 py-8 sm:p-8"
-                key={item.id}
+                key={key}
               >
                 <div className="flex-1 text-center flex flex-col items-center justify-center">
                   <div className="mb-5">
@@ -166,8 +166,8 @@ function VideoPlayer() {
 }
 
 export default function Hero({ partners }: any) {
-  const [index, setIndex] = useState(1);
-
+  const [index, setIndex] = useState(0); // Start from the first word
+  const [direction, setDirection] = useState(1); // 1 for forward, -1 for backward
   const [showSecondIcon, setShowSecondIcon] = useState(false);
 
   const words = [
@@ -179,11 +179,29 @@ export default function Hero({ partners }: any) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
+      setIndex((prevIndex) => {
+        let newIndex;
+
+        if (direction === 1) {
+          newIndex = prevIndex + 1;
+          if (newIndex >= words.length) {
+            setDirection(-1);
+            newIndex = words.length - 2;
+          }
+        } else {
+          newIndex = prevIndex - 1;
+          if (newIndex < 0) {
+            setDirection(1);
+            newIndex = 1;
+          }
+        }
+
+        return newIndex;
+      });
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [direction]);
 
   const scrollToSection = () => {
     const section = window.document.querySelector(
@@ -214,13 +232,13 @@ export default function Hero({ partners }: any) {
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={words[index].text}
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: direction === 1 ? 20 : -20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
+                      exit={{ opacity: 0, y: direction === 1 ? -20 : 20 }}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
-                      className={`absolute left-0 right-0 bg-gradient-to-r bg-clip-text text-transparent ${words[index].gradient}`}
+                      className={`absolute left-0 right-0 bg-gradient-to-r bg-clip-text text-transparent ${words[index]?.gradient}`}
                     >
-                      {words[index].text}
+                      {words[index]?.text}
                     </motion.span>
                   </AnimatePresence>
                 </div>
@@ -239,26 +257,20 @@ export default function Hero({ partners }: any) {
                   {!showSecondIcon ? (
                     <motion.div
                       key="mouse-icon"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: -10 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
                     >
                       <Image
                         src="/mouse.png"
                         width={100}
                         height={100}
                         alt="mouse over"
-                        className="w-[34px]"
+                        className="w-[37px] -mt-3"
                       />
                     </motion.div>
                   ) : (
                     <motion.div
                       key="image-icon"
-                      initial={{ opacity: 0, y: 0 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 0 }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
                     >
                       <Image
                         src="/State2.svg"
