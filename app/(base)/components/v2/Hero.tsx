@@ -55,13 +55,12 @@ function Partners({ partners }: any) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.5 }}
-            className="col-span-1 hidden lg:grid grid-cols-2 lg:grid-cols-3 gap-3 grid-col md:gap-10"
+            className="col-span-1 hidden lg:grid grid-cols-2 lg:grid-cols-3 gap-3 grid-col md:gap-10 max-w-7xl mx-auto w-full"
           >
             {getVisibleItems().map((item: any) => {
-              console.log({ item });
               return (
                 <div
-                  className="border-r flex items-center justify-center sm:p-8"
+                  className="border-r first-of-type:border-l flex items-center justify-center sm:p-8"
                   key={item.id}
                 >
                   <div className="flex-1 text-center flex flex-col items-center justify-center gap-8">
@@ -171,23 +170,19 @@ export default function Hero({ partners }: any) {
 
   const [showSecondIcon, setShowSecondIcon] = useState(false);
 
+  const words = [
+    { text: "An Accessible", gradient: "from-[#F6CEEC] to-[#D939CD]" },
+    { text: "A Collaborative", gradient: "from-[#CE9FFC] to-[#7367F0]" },
+    { text: "A Diverse", gradient: "from-[#ABDCFF] to-[#0396FF]" },
+    { text: "An Invincible", gradient: "from-[#FFF6B7] to-[#F6416C]" },
+  ];
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setShowSecondIcon((prev) => !prev);
-    }, 1000);
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const countInterval = setInterval(() => {
-      setIndex((prev) => {
-        if (prev > 3) return 1;
-        return prev + 1;
-      });
-    }, 1500);
-
-    return () => clearInterval(countInterval);
   }, []);
 
   const scrollToSection = () => {
@@ -215,52 +210,20 @@ export default function Hero({ partners }: any) {
             <div className="max-w-[700px] md:px-4  mx-auto text-center">
               <div className="text-2xl font-clesmont lg:text-6xl font-bold uppercase">
                 <p>Entering</p>
-                <p className="max-h-8 lg:max-h-16 overflow-hidden translate-container">
-                  <span
-                    style={
-                      index > 1 ? { transform: "translateY(-200%)" } : undefined
-                    }
-                    className="bg-gradient-to-r inline-block  from-[#F6CEEC] bg-clip-text text-transparent to-[#D939CD]"
-                  >
-                    An Accessible
-                  </span>{" "}
-                  <br />
-                  <span
-                    style={
-                      index > 2
-                        ? { transform: "translateY(-200%)" }
-                        : index > 1
-                          ? { transform: "translateY(-100%)" }
-                          : undefined
-                    }
-                    className="bg-gradient-to-r inline-block  from-[#CE9FFC] bg-clip-text text-transparent to-[#7367F0]"
-                  >
-                    A Collaborative
-                  </span>{" "}
-                  <br />
-                  <span
-                    style={
-                      index > 3
-                        ? { transform: "translateY(-300%)" }
-                        : index > 2
-                          ? { transform: "translateY(-200%)" }
-                          : undefined
-                    }
-                    className="bg-gradient-to-r inline-block  from-[#ABDCFF] bg-clip-text text-transparent to-[#0396FF]"
-                  >
-                    A Diverse
-                  </span>{" "}
-                  <br />
-                  <span
-                    style={
-                      index > 3 ? { transform: "translateY(-300%)" } : undefined
-                    }
-                    className="bg-gradient-to-b inline-block  from-[#FFF6B7] bg-clip-text text-transparent to-[#F6416C]"
-                  >
-                    An Invicible
-                  </span>{" "}
-                  <br />
-                </p>
+                <div className="relative h-[50px] lg:h-[80px] overflow-hidden mt-3 -mb-3">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={words[index].text}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className={`absolute left-0 right-0 bg-gradient-to-r bg-clip-text text-transparent ${words[index].gradient}`}
+                    >
+                      {words[index].text}
+                    </motion.span>
+                  </AnimatePresence>
+                </div>
                 <p>web3 era</p>
               </div>
               <p className="max-w-[500px] my-2 text-base lg:text-xl tracking-normal mx-auto text-center">
@@ -268,42 +231,44 @@ export default function Hero({ partners }: any) {
               </p>
               <button
                 onClick={scrollToSection}
-                className="transition-all duration-500 ease-in-out min-h-[150px] relative"
+                onMouseEnter={() => setShowSecondIcon(true)}
+                onMouseLeave={() => setShowSecondIcon(false)}
+                className="relative transition-all duration-500 ease-in-out min-h-[150px]"
               >
-                {showSecondIcon ? (
-                  <motion.div
-                    key="mouse-icon"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: -10 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <Image
-                      src="/mouse.png"
-                      width={100}
-                      height={100}
-                      alt="mouse over"
-                      className="w-[34px]"
-                    />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="image-icon"
-                    initial={{ opacity: 0, y: 0 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <Image
-                      src="/State2.png"
-                      width={100}
-                      height={100}
-                      alt="mouse over"
-                    />
-                  </motion.div>
-                )}
-
-                {/* Image fades in after 3s */}
+                <AnimatePresence mode="wait">
+                  {!showSecondIcon ? (
+                    <motion.div
+                      key="mouse-icon"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: -10 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Image
+                        src="/mouse.png"
+                        width={100}
+                        height={100}
+                        alt="mouse over"
+                        className="w-[34px]"
+                      />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="image-icon"
+                      initial={{ opacity: 0, y: 0 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Image
+                        src="/State2.svg"
+                        width={100}
+                        height={100}
+                        alt="mouse over"
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </button>
             </div>
             <VideoPlayer />
