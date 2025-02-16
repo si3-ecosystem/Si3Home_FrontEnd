@@ -35,6 +35,7 @@ export default function ClientPage(props: Props) {
             "We are open to exploring collaborations with impactful organizations aligned with the values on our website.",
           btnTitle: "Inquire Here",
         }}
+        video="/onboard.mp4"
       />
     </main>
   );

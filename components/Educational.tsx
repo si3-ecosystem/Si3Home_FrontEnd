@@ -39,7 +39,7 @@ export default function Educational({ educationalProgramming }: any) {
           </p>
           <div className="px-5 md:px-16 flex items-center gap-2 lg:gap-6 mt-4 md:mt-0 justify-center mb-5">
             <button
-              className="h-12 w-12 rounded-full border flex items-center justify-center border-gray-400"
+              className="h-12 w-12 rounded-full border flex items-center justify-center border-gray-400 hover:border-[#B668E4] hover:bg-[#e9e3ff]"
               onClick={() => {
                 swipeRef.current.slidePrev();
               }}
@@ -48,7 +48,7 @@ export default function Educational({ educationalProgramming }: any) {
             </button>
 
             <button
-              className="h-12 w-12 rounded-full border flex items-center justify-center border-gray-400"
+              className="h-12 w-12 rounded-full border flex items-center justify-center border-gray-400 hover:border-[#B668E4] hover:bg-[#e9e3ff]"
               onClick={() => {
                 swipeRef.current.slideNext();
               }}
@@ -59,8 +59,6 @@ export default function Educational({ educationalProgramming }: any) {
         </header>
 
         <div className="w-full lg:px-0 lg:ml-auto md:flex  ">
-
-
           <Swiper
             onSwiper={(swiper) => {
               swipeRef.current = swiper;
@@ -88,11 +86,8 @@ export default function Educational({ educationalProgramming }: any) {
               },
             }}
           >
-
             {educationalProgramming?.Events?.length > 0 &&
               educationalProgramming.Events.map((item: any, key: number) => (
-
-
                 <SwiperSlide
                   key={key}
                   className=" border p-3 sm:p-6 rounded-lg border-gray-400 group cursor-pointer"
@@ -118,48 +113,52 @@ export default function Educational({ educationalProgramming }: any) {
                     </p>
 
                     <div>
-                      <p className="font-black uppercase font-clesmont text-xl">Presenters</p>
+                      <p className="font-black uppercase font-clesmont text-xl">
+                        Presenters
+                      </p>
 
                       <motion.div className="space-y-3">
-                        {item?.presenters?.map((presenter: any, key: number) => (
-                          <motion.div
-                            whileHover={{
-                              scale: [1, 1.02],
-                            }}
-                            transition={{
-                              duration: 0.3,
-                              ease: "easeInOut",
-                            }}
-                            key={key}
-                            className="bg-[#F2F1F7] rounded-full flex items-center justify-between py-2.5 px-[18px] mt-1 "
-                          >
-                            <div className="flex items-center gap-2 ">
-                              <div className="w-[38px] h-[38px] rounded-full overflow-hidden">
-                                <ImageUrl
-                                  image={presenter.image}
-                                  className={
-                                    "w-[38px] h-[38px] object-cover object-center rounded-full"
-                                  }
-                                />
+                        {item?.presenters?.map(
+                          (presenter: any, key: number) => (
+                            <motion.div
+                              whileHover={{
+                                scale: [1, 1.02],
+                              }}
+                              transition={{
+                                duration: 0.3,
+                                ease: "easeInOut",
+                              }}
+                              key={key}
+                              className="bg-[#F2F1F7] rounded-full flex items-center justify-between py-2.5 px-[18px] mt-1 "
+                            >
+                              <div className="flex items-center gap-2 ">
+                                <div className="w-[38px] h-[38px] rounded-full overflow-hidden">
+                                  <ImageUrl
+                                    image={presenter.image}
+                                    className={
+                                      "w-[38px] h-[38px] object-cover object-center rounded-full"
+                                    }
+                                  />
+                                </div>
+                                <div>
+                                  <h6 className="font-medium">
+                                    {presenter?.name}
+                                  </h6>
+                                  <p className="text-[10px] lg:text-[12px] font-medium font-mono">
+                                    {presenter?.position}
+                                  </p>
+                                </div>
                               </div>
-                              <div>
-                                <h6 className="font-medium">
-                                  {presenter?.name}
-                                </h6>
-                                <p className="text-[10px] lg:text-[12px] font-medium font-mono">
-                                  {presenter?.position}
-                                </p>
-                              </div>
-                            </div>
-                            <Image
-                              src={urlFor(presenter?.logo).url()}
-                              alt={presenter?.alt || ""}
-                              width={59}
-                              height={12}
-                              className="w-[54px] lg:w-[84px] h-auto aspect-auto"
-                            />
-                          </motion.div>
-                        ))}
+                              <Image
+                                src={urlFor(presenter?.logo).url()}
+                                alt={presenter?.alt || ""}
+                                width={59}
+                                height={12}
+                                className="w-[54px] lg:w-[84px] h-auto aspect-auto"
+                              />
+                            </motion.div>
+                          )
+                        )}
                       </motion.div>
                     </div>
                     <div className="mt-2">
@@ -203,7 +202,6 @@ export default function Educational({ educationalProgramming }: any) {
               ))}
           </Swiper>
         </div>
-
       </div>
     </motion.div>
   );

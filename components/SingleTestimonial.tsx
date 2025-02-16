@@ -12,10 +12,10 @@ export default function SingleTestimonial(props: TestimonialProps) {
   const { testimonial } = props;
   return (
     <div className="text-left max-w-[821px] px-4 sm:px-8 p-8 border border-gray-400 rounded-lg lg:rounded-[30px] mx-auto bg-white">
-      <p className="font-black uppercase text-2xl font-clesmont">
+      {/* <p className="font-black uppercase text-2xl font-clesmont">
         {" "}
         {testimonial.title}
-      </p>
+      </p> */}
       <p className="text-base lg:text-2xl font-medium">
         {" "}
         {testimonial.description}

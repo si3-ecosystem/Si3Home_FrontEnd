@@ -184,7 +184,10 @@ export default function Tabs({
                   {/* <Pricing pricing={pricing}/> */}
                   {/* <JoinForm/> */}
                   {/* <Testimonials testimonials={testimonials} /> */}
-                  <JoinTabFooter footerData={joinExplorersTab} />
+                  <JoinTabFooter
+                    video={"/home.mp4"}
+                    footerData={joinExplorersTab}
+                  />
                 </div>
               </div>
             )}
@@ -202,7 +205,10 @@ export default function Tabs({
                 {/* <Mission mission={mission} /> */}
 
                 {/* <MembershipBanner /> */}
-                <JoinTabFooter footerData={joinLeadersTab} />
+                <JoinTabFooter
+                  video={"/home.mp4"}
+                  footerData={joinLeadersTab}
+                />
               </div>
             )}
             {activeTab === "brands" && (
@@ -261,7 +267,10 @@ export default function Tabs({
                 <Mission mission={mission} showValues={false} />
                 <br />
 
-                <JoinTabFooter footerData={joinBuildersTab} />
+                <JoinTabFooter
+                  video={"/home.mp4"}
+                  footerData={joinBuildersTab}
+                />
               </div>
             )}
           </div>
