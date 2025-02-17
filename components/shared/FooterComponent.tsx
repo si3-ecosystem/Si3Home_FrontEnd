@@ -1,25 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import urlFor from "@/utils/urlFor";
+import { client } from "@/utils/client";
 import LinkedinIcon from "@/app/icons/linkedin";
 import XIcon from "@/app/icons/x";
 import Head from "next/head";
-import { client } from "@/utils/client";
-
-// interface FooterProps {
-//   footer: {
-//     logo: {
-//       asset: any;
-//       alt: string;
-//     };
-//     twitter: string;
-//     linkedIn: string;
-//     mediakit: string;
-//   };
-// }
 
 const CookieConsent = () => {
   const [showConsent, setShowConsent] = useState(false);
@@ -100,6 +86,7 @@ interface FooterData {
 
 const FooterComponent = () => {
   const [footer, setFooter] = useState<FooterData | null>(null);
+  const [email, setEmail] = useState<string>("");
 
   useEffect(() => {
     const fetchFooter = async () => {
@@ -113,6 +100,7 @@ const FooterComponent = () => {
 
     fetchFooter();
   }, []);
+
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {
@@ -127,6 +115,17 @@ const FooterComponent = () => {
     };
   }, []);
 
+  const handleSubscribe = () => {
+    const ethermailWidget = document.getElementById("ethermail-widget") as HTMLElement;
+
+    if (ethermailWidget && email.trim() !== "") {
+      ethermailWidget.setAttribute("email", email); 
+      ethermailWidget.dispatchEvent(new Event("submit"));
+    } else {
+      alert("Please enter a valid email address!");
+    }
+  };
+
   return (
     <>
       <div id="stayConnected" className="bg-white -mt-4">
@@ -138,28 +137,33 @@ const FooterComponent = () => {
                   <span className="text-[40px] font-clesmont">{"SI<3>"}</span>
                 </Link>
                 <p className="my-2 mb-3">
-                  {/* Stay ahead in Web3! Subscribe to our newsletter for the latest updates, insights, and community news. */}
                   Stay up-to-date with {"SI<3>"} and Web3 with our CurrentSi
                   weekly newsletter.
                 </p>
-                <div className="w-full relative sm:min-w-[324px] sm:max-w-[320px] sm:flex-shrink-0 sm:whitespace-nowrap  border rounded-full flex flex-row items-center justify-between p-2 py-1.5 border-black">
+                <div className="w-full relative sm:min-w-[324px] sm:max-w-[320px] sm:flex-shrink-0 sm:whitespace-nowrap border rounded-full flex flex-row items-center justify-between p-2 py-1.5 border-black">
+                  <input
+                    type="email"
+                    id="ethermail-input"
+                    placeholder="Subscribe to our newsletter"
+                    className="w-full outline-none border-none bg-transparent px-3 text-sm"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} 
+                  />
                   <ethermail-subscribe
+                    id="ethermail-widget"
                     widget="66d5a2d55c125fff0bf241a58c1f24f8"
-                    className="flex flex-row flex-1 items-center justify-between w-full gap-3 "
+                    className="flex flex-row flex-1 items-center justify-between w-full gap-3"
                     theme="light"
                     input="auto"
                     wallet-connect-project-id="66d5a2d55c125fff0bf241a58c1f24f8"
                     rpc='{"http": "//eth-mainnet.g.alchemy.com/v2/isvoo_tVdqb1O0KKxZb_ypfynw2rTa0A"}'
+                  ></ethermail-subscribe>
+                  <button
+                    onClick={handleSubscribe}
+                    className="bg-black text-white px-4 py-1.5 rounded-full hover:bg-[#3C1FEF] transition-all duration-300"
                   >
-                    <input
-                      type="email"
-                      placeholder="Enter your email"
-                      className="sm:flex-grow max-sm:!w-full flex-1 border-none outline-none text-base px-2 py-1.5 "
-                    />
-                    <button className="bg-black max-sm:absolute right-1.5 top-1.5 bottom-1.5 z-10 text-white py-1.5 px-2 ml-1.5 rounded-full hover:bg-[#3C1FEF] transition-all duration-300 flex-shrink-0 w-fit">
-                      Subscribe
-                    </button>
-                  </ethermail-subscribe>
+                    Subscribe
+                  </button>
                 </div>
               </div>
             </div>
