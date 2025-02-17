@@ -45,7 +45,7 @@ export default function CommunityCollaboration({ community }: any) {
             Explore our growing collaborative of women & non-binary led Web3
             communities.
           </p>
-          <div className=" w-full flex items-center justify-end gap-2 lg:gap-6 mt-4 md:mt-0  mb-5">
+          <div className=" w-full flex items-center justify-center md:justify-end gap-2 lg:gap-6 mt-4 md:mt-0  mb-5">
             <button
               className="h-12 w-12 rounded-full border flex items-center justify-center border-gray-400 hover:border-[#B668E4] hover:bg-[#e9e3ff]"
               onClick={() => {

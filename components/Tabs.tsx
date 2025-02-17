@@ -24,6 +24,7 @@ import JoinTabFooter from "./JoinTabFooter";
 import ChatGPTIcon from "@/app/icons/chatgpt";
 import { useSearchParams } from "next/navigation";
 import CommunityCollaboration from "./community-collaborative";
+import BuildingTestimonials from "./buildingTestimonials";
 
 type TabsProps = {
   educationalProgramming: any;
@@ -263,7 +264,7 @@ export default function Tabs({
                     );
                   })}
                 </section>
-                <Testimonials testimonials={partnerTestimonials} />
+                <BuildingTestimonials testimonials={partnerTestimonials} />
                 <Mission mission={mission} showValues={false} />
                 <br />
 
