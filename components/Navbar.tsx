@@ -23,10 +23,10 @@ const Navbar = () => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
   };
   
-  // const redirectToPushChannel = () => {
-  //   window.location.href =
-  //     "https://app.push.org/channels/0x0D54bD457AF5b5691d1D9790746d4C95f7885CFF"; 
-  // };
+  const redirectToPushChannel = () => {
+    window.location.href =
+      "https://app.push.org/channels/0x0D54bD457AF5b5691d1D9790746d4C95f7885CFF"; 
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,8 +74,7 @@ const Navbar = () => {
           </div>
           <div className="max-lg:hidden font-medium">
             <div className=" flex items-center gap-[13px]">
-              <Link href={"https://app.push.org/channels/0x0D54bD457AF5b5691d1D9790746d4C95f7885CFF"} target="_blank" className="p-2.5 rounded-lg">
-                <button className="h-12 w-12 rounded-full bg-white flex items-center justify-center border">
+                <button onClick={redirectToPushChannel} className="h-12 w-12 rounded-full bg-white flex items-center justify-center border">
                   <Image
                     src={"/bell.png"}
                     alt="Bell Icon"
@@ -84,8 +83,7 @@ const Navbar = () => {
                     className="w-[28px] h-[28px]"
                   />
                 </button>
-              </Link>
-              <Link href={"/"}>
+              {/* <Link href={"/"}>
                 <button
                   style={{ transition: "all ease 5s" }}
                   className="text-base lg:text-xl border border-[rgba(0,0,0,0.3)] font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-2"
@@ -101,7 +99,7 @@ const Navbar = () => {
                 >
                   {"Get Started"}
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="flex items-center lg:hidden">
