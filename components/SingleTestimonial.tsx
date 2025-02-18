@@ -42,13 +42,24 @@ export default function SingleTestimonial(props: TestimonialProps) {
         </span>
         <div className="sm:ml-auto flex items-center gap-2 uppercase font-mono">
           <Link target="_blank" href={testimonial?.link ?? "/"}>
-            <button className="text-sm md:text-base">
-              <Image
-                src="/images/url-icon.svg"
-                alt="Url Icon"
-                preview={false}
-              />
-            </button>
+            {!testimonial.companyLogo ? (
+              <button className="text-sm md:text-base">
+                <Image
+                  src="/images/url-icon.svg"
+                  alt="Url Icon"
+                  preview={false}
+                />
+              </button>
+            ) : (
+              <div className="w-11 h-11  rounded-full flex items-center justify-center overflow-hidden">
+                <ImageUrl
+                  image={testimonial?.companyLogo}
+                  className={
+                    "rounded-full w-11 h-11 object-cover object-center aspect-auto"
+                  }
+                />
+              </div>
+            )}
           </Link>
         </div>
       </div>

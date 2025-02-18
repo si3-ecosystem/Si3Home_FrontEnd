@@ -162,7 +162,7 @@ class ContentProviderService {
   }
 
   async getCommunityCollaborators() {
-    const community = await this.getListData("cards");
+    const community = await this.geCommunityListData("cards");
     return community;
   }
 
@@ -196,6 +196,16 @@ class ContentProviderService {
   private async getListData<T>(documentId: string) {
     try {
       const query = groq`*[_type == '${documentId}']`;
+      const data: T[] = await client.fetch(query);
+
+      return data || ([] as T[]);
+    } catch (error) {
+      return [] as T[];
+    }
+  }
+  private async geCommunityListData<T>(documentId: string) {
+    try {
+      const query = groq`*[_type == '${documentId}'] | order(order asc)`;
       const data: T[] = await client.fetch(query);
 
       return data || ([] as T[]);
