@@ -115,8 +115,7 @@ const CookieConsent = () => {
                     <span className="text-[40px] font-clesmont">{"SI<3>"}</span>
                   </Link>
                   <p className="my-2 mb-3">
-                    Stay up-to-date with {"SI<3>"} and Web3 with our CurrentSi
-                    weekly newsletter.
+                  Stay up-to-date with our CurrentSi weekly newsletter.
                   </p>
                   <SubscriptionWidget/>
                 </div>
