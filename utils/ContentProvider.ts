@@ -260,7 +260,7 @@ class ContentProviderService {
     return data || {};
   }
   private async getPartners() {
-    const query = groq`*[_type == 'partners']`;
+    const query = groq`*[_type == 'sortedPartners'][0] {...,"partners":partners[]->{...}}`;
     const data = await client.fetch(query);
     return data || {};
   }

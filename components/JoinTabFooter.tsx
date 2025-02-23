@@ -8,10 +8,11 @@ interface Props {
     [key: string]: any;
   };
   video?: string;
+  hideCTA?: boolean;
 }
 
 export default function JoinTabFooter(props: Props) {
-  const { footerData, video } = props;
+  const { footerData, video, hideCTA = false } = props;
   return (
     <div className="bg-[url('/images/join.png')] px-4 py-16 bg-cover">
       <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4  rounded-2xl overflow-hidden sm:min-h-[600px] relative">
@@ -33,11 +34,14 @@ export default function JoinTabFooter(props: Props) {
                 return <span key={Math.random() * 100000}>{word + " "}</span>;
               })}
           </p>
-          <Link href={"/onboard"}>
-            <button className="text-white bg-black py-[14px] capitalize rounded-full text-sm sm:text-lg mt-6 md:mt-10 px-[30px]">
-              {footerData.btnTitle}
-            </button>
-          </Link>
+
+          {!props.hideCTA && (
+            <Link href={"/onboard"}>
+              <button className="text-white bg-black py-[14px] capitalize rounded-full text-sm sm:text-lg mt-6 md:mt-10 px-[30px]">
+                {footerData.btnTitle}
+              </button>
+            </Link>
+          )}
           <p className="mt-2">{footerData.caption}</p>
         </div>
       </div>

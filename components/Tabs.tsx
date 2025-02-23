@@ -220,13 +220,18 @@ export default function Tabs({
                 <div className="md:border-y border-[#B0B0B0]">
                   <div className="max-w-[1196px] px-4 lg:grid grid-cols-2 mx-auto">
                     <div className="py-[120px] text-center lg:text-left lg:border-r border-[#B0B0B0]">
-                      <p className="text-3xl md:leading-[56px] uppercase md:text-[44px] max-w-[672px] mx-auto font-clesmont font-black">
+                      <p className=" text-base text-[#B668E4]  uppercase">
+                        PERSONAL BRAND. PUBLIC SPEAKING. LEADERSHIP.
+                      </p>
+
+                      <h1 className="text-xl font-clesmont sm:text-2xl uppercase md:text-[44px] my-4 text-black font-black lg:leading-[110%]">
+                        {partnerTabData.header.subtitle}
+                      </h1>
+                      <p className="text-sm md:text-lg lg:max-w-[509px]">
                         {partnerTabData.header.title}
                       </p>
-                      <p className="max-w-[802px] text-lg font-mono mx-auto my-4">
-                        {partnerTabData.header.subtitle}
-                      </p>
                     </div>
+
                     <div className="hidden lg:flex items-center justify-center">
                       <Image
                         src={"/images/partner-header.png"}
@@ -265,12 +270,13 @@ export default function Tabs({
                   })}
                 </section>
                 <BuildingTestimonials testimonials={partnerTestimonials} />
-                <Mission mission={mission} showValues={false} />
-                <br />
+                {/* <Mission mission={mission} showValues={false} /> */}
+                {/* <br /> */}
 
                 <JoinTabFooter
                   video={"/home.mp4"}
                   footerData={joinBuildersTab}
+                  hideCTA={true}
                 />
               </div>
             )}

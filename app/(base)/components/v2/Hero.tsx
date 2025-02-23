@@ -18,17 +18,20 @@ function Partners({ partners }: any) {
 
   const slideRight = () => {
     setCurrentIndex((prevIndex) =>
-      Math.min(prevIndex + 1, Math.ceil(partners.length / itemsPerPage) - 1)
+      Math.min(
+        prevIndex + 1,
+        Math.ceil(partners?.partners?.length / itemsPerPage) - 1
+      )
     );
   };
 
   const getVisibleItems = () => {
     const startIndex = currentIndex * itemsPerPage;
-    return partners.slice(startIndex, startIndex + itemsPerPage);
+    return partners?.partners?.slice(startIndex, startIndex + itemsPerPage);
   };
   const getVisibleItemsMobile = () => {
     const startIndex = currentIndex * itemsPerPage;
-    return partners.slice(startIndex, startIndex + 2);
+    return partners?.partners?.slice(startIndex, startIndex + 2);
   };
 
   return (
