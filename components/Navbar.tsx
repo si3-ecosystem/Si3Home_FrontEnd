@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 import FlashInfoHeader from "@/app/(base)/components/v2/FlashInfoHeader";
 import ArrowRightIcon from "@/app/icons/arrow-right";
 import UserCircleIcon from "@/app/icons/user-circle";
+import { initializePushUser } from "@/lib/pushClient";
+import Notifications from "@/components/Notifications";
 
 const Navbar = () => {
   const router = useRouter();
@@ -53,6 +55,22 @@ const Navbar = () => {
     // }
   };
 
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  const handleBellClick = async () => {
+    setShowDropdown((prev) => !prev); // Toggle dropdown
+
+    if (!isInitialized) {
+      try {
+        await initializePushUser();
+        setIsInitialized(true);
+      } catch (error) {
+        console.error("Error initializing Push Protocol:", error);
+      }
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50">
       <Link href={"/diversity-tracker"}>
@@ -74,7 +92,7 @@ const Navbar = () => {
           </div>
           <div className="max-lg:hidden font-medium">
             <div className=" flex items-center gap-[13px]">
-                <button onClick={redirectToPushChannel} className="h-12 w-12 rounded-full bg-white flex items-center justify-center border">
+                <button onClick={handleBellClick} className="h-12 w-12 rounded-full bg-white flex items-center justify-center border">
                   <Image
                     src={"/bell.png"}
                     alt="Bell Icon"
@@ -83,16 +101,16 @@ const Navbar = () => {
                     className="w-[28px] h-[28px]"
                   />
                 </button>
-              {/* <Link href={"/"}>
+         
+              <Link href={"/login"}>
                 <button
                   style={{ transition: "all ease 5s" }}
                   className="text-base lg:text-xl border border-[rgba(0,0,0,0.3)] font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-2"
                 >
                   <UserCircleIcon />
-                  <span>{"Member Login"}</span>
                 </button>
               </Link>
-              <Link href={"/onboard"}>
+              {/* <Link href={"/onboard"}>
                 <button
                   style={{ transition: "all ease 5s" }}
                   className="text-base lg:text-xl hover:bg-gradient-to-tr from-[#E2B0FF] from-50% to-[#9F44D3] font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-8 bg-black  text-white hover:text-white"

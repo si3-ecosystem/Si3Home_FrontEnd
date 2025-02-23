@@ -1,13 +1,13 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./globals.css";
 import image from "./logo.webp";
-
 import urlFor from "@/utils/urlFor";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Script from "next/script";
 import { getSeoData } from "@/utils/seo";
 
 export const revalidate = 3600;
+
 
 async function sharedMetaData() {
   const settings = await getSeoData();
@@ -84,12 +84,12 @@ async function sharedMetaData() {
 export async function generateMetadata() {
   return await sharedMetaData();
 }
-
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>)
+{
   return (
     <html lang="en">
       <head>

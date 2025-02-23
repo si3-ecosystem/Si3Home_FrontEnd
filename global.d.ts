@@ -10,6 +10,7 @@ declare namespace JSX {
         'wallet-connect-project-id'?: string;
         rpc?: string;
       };
+      "ethermail-login": any;
     }
   }
 
