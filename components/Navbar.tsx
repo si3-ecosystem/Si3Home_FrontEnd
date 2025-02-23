@@ -102,14 +102,14 @@ const Navbar = () => {
                   />
                 </button>
          
-              <Link href={"/login"}>
+              {/* <Link href={"/login"}>
                 <button
                   style={{ transition: "all ease 5s" }}
                   className="text-base lg:text-xl border border-[rgba(0,0,0,0.3)] font-medium  flex items-center gap-2 cursor-pointer rounded-full !py-2 px-2"
                 >
                   <UserCircleIcon />
                 </button>
-              </Link>
+              </Link> */}
               {/* <Link href={"/onboard"}>
                 <button
                   style={{ transition: "all ease 5s" }}
