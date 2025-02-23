@@ -11,6 +11,8 @@ import {
   EqualityScaleField,
   ImprovementField,
   GrantField,
+  SuggestionsField,
+  ActiveGrantsField,
 } from "./FormFields";
 
 export default function DiversityTrackerForm() {
@@ -21,6 +23,7 @@ export default function DiversityTrackerForm() {
     handleUpdate,
     modalOpen,
     showSuccessModal,
+    closeSuccessModal,
     closeModal,
     loading,
     error_message,
@@ -31,10 +34,10 @@ export default function DiversityTrackerForm() {
       {error_message && modalOpen && (
         <ErrorModal errorMessage={error_message} closeModal={closeModal} />
       )}
-      {showSuccessModal && <SuccessModal />}
+      {showSuccessModal && <SuccessModal closeModal={closeSuccessModal} />}
       <form
         onSubmit={handleSubmit}
-        className="mt-10 max-w-7xl mx-auto px-4 pt-4 sm:p-8 pb-64 bg-white"
+        className="mt-10 max-w-7xl mx-auto px-4 pt-4 sm:p-8 pb-64 bg-white "
       >
         <p className="max-w-[726px] sm:text-2xl font-medium mb-8">
           Complete this form to share your demographic data <br /> (completely
@@ -88,7 +91,26 @@ export default function DiversityTrackerForm() {
             })
           }
         />
-        <ImprovementField
+
+        <SuggestionsField
+          value={formData.suggestions}
+          onChange={(newValue) =>
+            handleUpdate({
+              suggestions: newValue,
+            })
+          }
+        />
+
+        <ActiveGrantsField
+          value={formData.active_grants_participated}
+          onChange={(newValue) =>
+            handleUpdate({
+              active_grants_participated: newValue,
+            })
+          }
+        />
+
+        {/* <ImprovementField
           value={formData.improvement_suggesstions}
           handleInput={handleInput}
         />
@@ -96,7 +118,7 @@ export default function DiversityTrackerForm() {
           handleInput={handleInput}
           grant_provider={formData.grant_provider}
           grant_round={formData.grant_round}
-        />
+        /> */}
         <button
           type="submit"
           className="bg-black mb-14 text-white py-[14px] mt-6 w-full rounded-3xl font-medium text-base"
@@ -104,7 +126,7 @@ export default function DiversityTrackerForm() {
           <span className="hidden md:inline-block">Submit</span>
           <span className="md:hidden">Submit Application</span>
         </button>
-        <div className="max-w-[782px] mb-16 mx-auto text-center">
+        <div className="max-w-[782px] w-full mb-16 mx-auto text-center">
           <p>
             By clicking the submit button, I hereby agree to and accept the
             following{" "}

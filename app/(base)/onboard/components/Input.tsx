@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import {
   InputHTMLAttributes,
   ReactNode,
@@ -9,6 +10,8 @@ interface InputFieldProps
   extends InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
   label: ReactNode;
   className?: string;
+  extraClassName?: string;
+  required?: boolean;
 }
 
 interface SelectFieldProps extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -84,7 +87,10 @@ export function TextAreaField(props: InputFieldProps) {
       </label>
       <textarea
         {...props}
-        className="w-full h-[155px] text-xs sm:text-base px-6 font-dm-sans mt-1 rounded-lg p-2 border border-[#BDBDBD]"
+        className={cn(
+          "w-full h-[155px] text-xs sm:text-base px-6 font-dm-sans mt-1 rounded-lg p-2 border border-[#BDBDBD]",
+          props.extraClassName
+        )}
       />
     </div>
   );

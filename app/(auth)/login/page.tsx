@@ -1,7 +1,6 @@
 import React from "react";
+import Lodingtemplate from "@/components/template/login";
 
 export default function page() {
-  return 
-  <div>page</div>
-  
+  return <Lodingtemplate />;
 }

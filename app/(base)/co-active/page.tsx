@@ -1,4 +1,4 @@
-import { CoActiveTemplate } from "@/components/templates/co-active";
+import { CoActiveTemplate } from "@/components/template/co-active";
 import { Suspense } from "react";
 import Loading from "../../loading";
 

@@ -58,7 +58,7 @@ export function SelfIdentityField(props: FormFieldProps) {
         Which of the following gender categories best describes how you
         self-identify ?
       </p>
-      <div className="flex flex-wrap my-3 gap-y-4 gap-x-4 sm:gap-x-12">
+      <div className="flex flex-wrap my-3 gap-y-4 gap-x-4 sm:gap-x-12 mb-8">
         {identities.map((identity) => {
           if (identity == props.value) {
             return (
@@ -189,7 +189,7 @@ export function DisabalityField(props: FormFieldProps) {
 }
 
 export function AgeRangeField(props: FormFieldProps) {
-  const ranges = ["Under 18", "24-35", "45-54", "55-64", "64 and older"];
+  const ranges = ["Under 18", "25-34", "45-54", "55-64", "64 and older"];
   return (
     <div className="my-8">
       <p className="text-sm sm:text-lg">What is your age range ?</p>
@@ -306,6 +306,20 @@ export function EqualityScaleField(props: FormFieldProps) {
             <Slider
               value={props.value as number}
               onChange={(value) => props.setValue!(value)}
+              min={1}
+              max={10}
+              marks={{
+                1: "|",
+                2: "|",
+                3: "|",
+                4: "|",
+                5: "|",
+                6: "|",
+                7: "|",
+                8: "|",
+                9: "|",
+                10: "|",
+              }}
             />
           </ConfigProvider>
         </div>
@@ -315,9 +329,56 @@ export function EqualityScaleField(props: FormFieldProps) {
   );
 }
 
-export function ImprovementField(props: FormFieldProps) {
+export function SuggestionsField(props: {
+  value: string;
+  onChange: (value: string) => void;
+}) {
   return (
     <div className="my-8">
+      <TextAreaField
+        placeholder="Share your thoughts on improving Diversity, Equity, Accessibility, and Inclusion in Web3."
+        value={props.value}
+        name="suggestions"
+        onChange={(e) => props.onChange(e.target.value)}
+        label={
+          <p className="text-sm sm:text-lg">
+            Please share your thoughts on how the Web3 industry can improve on
+            the topics of Diversity, Equity, Accessibility, and Inclusion.
+          </p>
+        }
+      />
+    </div>
+  );
+}
+
+export function ActiveGrantsField(props: {
+  value: boolean;
+  onChange: (value: boolean) => void;
+}) {
+  return (
+    <div className="my-4">
+      <p className="text-sm sm:text-lg">
+        Are you currently participating in any of these active grant rounds?
+      </p>
+      <div className="my-3 flex gap-x-12 max-w-4xl">
+        <RadioInputField
+          label="Yes"
+          checked={props.value}
+          handleCheck={() => props.onChange(true)}
+        />
+        <RadioInputField
+          label="No"
+          checked={!props.value}
+          handleCheck={() => props.onChange(false)}
+        />
+      </div>
+    </div>
+  );
+}
+
+export function ImprovementField(props: FormFieldProps) {
+  return (
+    <div className="my-4">
       <p className="text-sm sm:text-lg">
         Please share your thoughts on how the Web3 industry can improve on the
         topics of Diversity, Equity, Accessibility and Inclusion.
@@ -328,6 +389,7 @@ export function ImprovementField(props: FormFieldProps) {
         onChange={props.handleInput}
         placeholder="Please share your suggestions here;"
         label=""
+        extraClassName="sm:h-[300px]"
       />
     </div>
   );

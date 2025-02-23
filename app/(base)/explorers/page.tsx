@@ -1,5 +1,5 @@
 import Loading from "@/app/loading";
-import { ExplorerPageTemplate } from "@/components/templates/explorers";
+import { ExplorerPageTemplate } from "@/components/template/explorers";
 import { Suspense } from "react";
 
 export default function page() {

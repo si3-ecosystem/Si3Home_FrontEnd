@@ -1,8 +1,8 @@
-import { Url } from 'next/dist/shared/lib/router/router';
+import { Url } from "next/dist/shared/lib/router/router";
 
-export type TabValues = "explorers" | "leaders" | "creators"
+export type TabValues = "explorers" | "leaders" | "creators";
 export interface Card {
-  _type: 'cards';
+  _type: "cards";
   communityLogo: {
     asset: {
       url: string;
@@ -23,11 +23,10 @@ export interface Card {
   communityWebsite: string;
   published: boolean;
   eventDate: string;
-
 }
 
 export interface ExperienceCard {
-  _type: 'experiencesCards';
+  _type: "experiencesCards";
   communityLogo: {
     asset: {
       url: string;
@@ -48,7 +47,6 @@ export interface ExperienceCard {
   communityWebsite: string;
   published: boolean;
   eventDate: string;
-
 }
 
 export interface PolicyItem {
@@ -59,33 +57,34 @@ export interface PolicyItem {
 export interface CommunityButton {
   cta: {
     link: string;
-    text:string;
+    text: string;
   };
 }
 
-export interface NewMemberData{
-  memberType:TabValues,
-  firstname:string,
-  lastname:string,
-  pronouns:string,
-  email:string,
-  pronouns_social_proof:string,
-  exploring_interests:string,
-  core_values:string[],
-  self_description:string,
-  source_of_information:string,
-  joining_intentions:string
+export interface NewMemberData {
+  memberType: TabValues;
+  firstname: string;
+  lastname: string;
+  pronouns: string;
+  email: string;
+  pronouns_social_proof: string;
+  exploring_interests: string;
+  core_values: string[];
+  self_description: string;
+  source_of_information: string;
+  joining_intentions: string;
 }
 
-
-export interface DiversityTrackerFormData{
-  self_identity:string,
-  age_range:string,
-  ethnicity:string,
-  disabality:string,
-  sexual_orientation:string,
-  equity_scale:number,
-  improvement_suggesstions:string,
-  grant_provider:string,
-  grant_round:string,
+export interface DiversityTrackerFormData {
+  self_identity: string;
+  age_range: string;
+  ethnicity: string;
+  disabality: string;
+  sexual_orientation: string;
+  equity_scale: number;
+  improvement_suggesstions: string;
+  grant_provider: string;
+  grant_round: string;
+  suggestions: string;
+  active_grants_participated: boolean;
 }
