@@ -1,6 +1,6 @@
 'use client'
 
-import { ethersAdapter, projectId, networks } from '@/config'
+import { ethersAdapter, projectId, networks } from '../config'
 import { createAppKit } from '@reown/appkit/react'
 import React, { type ReactNode } from 'react'
 
@@ -37,4 +37,4 @@ function ContextProvider({ children }: { children: ReactNode}) {
   )
 }
 
-export default ContextProvider
+export default ContextProvider;
