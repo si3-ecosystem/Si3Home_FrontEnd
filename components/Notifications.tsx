@@ -41,9 +41,8 @@ const Notifications = () => {
 
   return (
     <div>
-      <h2>Notifications</h2>
       <button onClick={handleSubscribeAndListen} disabled={isSubscribed}>
-        {isSubscribed ? "Subscribed & Listening" : "Subscribe & Listen"}
+        {isSubscribed}
       </button>
 
       <ul>

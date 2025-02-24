@@ -55,21 +55,11 @@ const Navbar = () => {
     // }
   };
 
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
 
-  const handleBellClick = async () => {
-    setShowDropdown((prev) => !prev); // Toggle dropdown
-
-    if (!isInitialized) {
-      try {
-        await initializePushUser();
-        setIsInitialized(true);
-      } catch (error) {
-        console.error("Error initializing Push Protocol:", error);
-      }
-    }
-  };
+  const handleBellClick = () => {
+    setShowNotifications((prev) => !prev);
+  }
 
   return (
     <header className="sticky top-0 z-50">
@@ -101,6 +91,7 @@ const Navbar = () => {
                     className="w-[28px] h-[28px]"
                   />
                 </button>
+                {showNotifications && <Notifications />}
          
               {/* <Link href={"/login"}>
                 <button
