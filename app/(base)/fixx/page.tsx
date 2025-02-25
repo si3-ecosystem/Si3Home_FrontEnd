@@ -1,11 +1,12 @@
 import Loading from "@/app/loading";
-import { CoActiveTemplate } from "@/components/template/co-active";
+import { FixxTemplate } from "@/components/template/fixx";
+import ContentProvider from "@/utils/ContentProvider";
 import { Suspense } from "react";
 
-export default function page() {
+export default async function page() {
   return (
     <Suspense fallback={<Loading />}>
-      <CoActiveTemplate />
+      <FixxTemplate />
     </Suspense>
   );
 }

@@ -9,7 +9,7 @@ interface Props {
   };
 }
 
-export default function OnboardHero(props: Props) {
+export default function FixxBanner(props: Props) {
   const { heroData } = props;
   return (
     <div className="min-h-[210px] md:min-h-[410px] items-center sm:py-10 px-4 sm:px-8 relative overflow-hidden flex mb-[40px] sm:mb-[105px] gap-x-10 bg-[url('/images/onboard-hero-bg.png')] bg-cover">

@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { EventCard } from "@/components/atoms/card/event-card";
+import { PostCard } from "@/components/atoms/card/post-card";
+import { CoActiveMembershipBanner } from "@/components/organism/banner/co-active-membership";
 import { FixxBanner } from "@/components/organism/banner/fixx-banner";
 import ContentProvider from "@/utils/ContentProvider";
 import { FixIntelligenceCard } from "@/components/atoms/card/fix-intelligence-card";
@@ -9,18 +11,37 @@ import { ReplayCard } from "@/components/atoms/card/replay-card";
 import { cn } from "@/lib/utils";
 
 const categories = [
-  "Upcoming Events",
-  "Educational Replays",
+  "Upcoming Sessions",
+  "FiXX Intelligence",
   "Krypto Kollab (Coming Soon)",
-  "Blog Posts",
+  "Program REPLAYS",
 ];
 
-interface CoActiveData {
-  upcoming_events: any[];
-  latest_posts: any[];
-  educational_replays: any[];
-  title?: string;
-  description?: string;
+const educationalReplays = [
+  {
+    title: "How to Build A Successful Team with elena",
+    image: "/images/latestpost1.png",
+    description:
+      "Learn how to find and apply for grants that align with your mission and values.",
+  },
+  {
+    title: "How to Build A Successful Team with elena",
+    image: "/images/latestpost1.png",
+    description:
+      "Discover the keys to unlocking grant opportunities and securing funding.",
+  },
+  {
+    title: "How to Build A Successful Team with elena",
+    image: "/images/latestpost1.png",
+    description:
+      "Master the art of grant writing and increase your chances of success.",
+  },
+];
+
+interface SheHerFixx {
+  upcoming_sessions?: any[];
+  fixx_intelligence?: any[];
+  program_replays?: any[];
 }
 
 export function Banner() {
@@ -29,7 +50,7 @@ export function Banner() {
       <div className="py-12 md:py-20 px-4 text-center relative">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-wider">
-            Si Her Co-Active.
+            Si Her CoLLABORATIVE
           </h1>
           <p className="text-sm md:text-base lg:text-lg text-white max-w-2xl mx-auto leading-relaxed">
             Co-activating growth and funding opportunities for women and
@@ -42,34 +63,28 @@ export function Banner() {
   );
 }
 
-export function CoActiveTemplate() {
-  const [coActiveData, setCoActiveData] = useState<CoActiveData>({
-    title: "",
-    description: "",
-    upcoming_events: [],
-    latest_posts: [],
-    educational_replays: [],
-  });
+export function FixxTemplate() {
+  const [sheHerFixx, setSheHerFixx] = useState<SheHerFixx>({});
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   useEffect(() => {
     async function getData() {
-      const data = await ContentProvider.getSheHerCoActive();
-      setCoActiveData(data);
-      return data;
+      const sheHerFixx = await ContentProvider.getSherHerFixx();
+      setSheHerFixx(sheHerFixx);
+      return sheHerFixx;
     }
 
     getData();
   }, []);
 
-  const upcoming_events = coActiveData?.upcoming_events || [];
-  const latest_posts = coActiveData?.latest_posts || [];
-  const educational_replays = coActiveData?.educational_replays || [];
+  const sessions = sheHerFixx?.upcoming_sessions || [];
+  const fixx_intelligence = sheHerFixx?.fixx_intelligence || [];
+  const program_replays = sheHerFixx?.program_replays || [];
 
   return (
     <div>
       <div className="min-h-screen bg-white flex flex-col gap-8 lg:gap-14">
-        <FixxBanner data={coActiveData} />
+        <FixxBanner data={sheHerFixx} />
         <section className="">
           {/* Category Selector */}
           <div className="flex  gap-4  items-center lg:justify-center overflow-x-auto  lg:max-w-[1440px] lg:mx-auto w-full px-4 py-8">
@@ -100,17 +115,17 @@ export function CoActiveTemplate() {
           <div className=" flex flex-col gap-24 lg:gap-36">
             {/* Content Rendering */}
             {(activeCategory === null ||
-              activeCategory === "Upcoming Events") && (
+              activeCategory === "Upcoming Sessions") && (
               <section
                 className={cn(
-                  "max-w-[1440px] mx-auto w-full px-12 max-lg:px-4 py-8",
-                  activeCategory === "Upcoming Events" && "py-10 lg:py-[80px]"
+                  "max-w-[1440px] mx-auto w-full px-4 py-8",
+                  activeCategory === "Upcoming Sessions" && "py-10 lg:py-[80px]"
                 )}
               >
                 <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6 py-8">
                   <div className="flex flex-col gap-2">
                     <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase">
-                      UPCOMING EVENTS
+                      UPCOMING Sessions
                     </h2>
                     <p className="text-lg leading-8">
                       Presentations and workshops from leading organizations
@@ -119,11 +134,11 @@ export function CoActiveTemplate() {
                   <button
                     className={`px-4 py-2 rounded-full border border-black hover:bg-[#3c1fef] text-base font-medium transition-colors ${" bg-black text-white"}`}
                   >
-                    Explore All Events
+                    Explore All Sessions
                   </button>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
-                  {upcoming_events
+                  {sessions
                     ?.slice(0, 3)
                     .map((session: any, index: number) => (
                       <EventCard key={index} {...session} />
@@ -132,46 +147,13 @@ export function CoActiveTemplate() {
               </section>
             )}
 
-            {(activeCategory === null || activeCategory === "Blog Posts") && (
-              <section className=" bg-[url('/sheherfixxbg.svg')] bg-no-repeat bg-center bg-cover w-full h-full  py-10 lg:py-[80px]">
-                <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6  max-w-[1440px] mx-auto w-full px-12 max-lg:px-4  py-8">
-                  <div className="flex flex-col gap-2">
-                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase">
-                      Latest Posts
-                    </h2>
-                    <p className="text-lg leading-8">
-                      Presentations and workshops from leading organizations
-                    </p>
-                  </div>
-                  <button
-                    className={`px-4 py-2 rounded-full border border-black hover:bg-[#3c1fef] text-base font-medium transition-colors ${" bg-black text-white"}`}
-                  >
-                    Explore All Posts
-                  </button>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10  max-w-[1440px] mx-auto w-full py-8 px-12 max-lg:px-4 ">
-                  {latest_posts
-                    ?.slice(0, 3)
-                    .map((event: any, index: number) => (
-                      <FixIntelligenceCard key={index} {...event} />
-                    ))}
-                </div>
-              </section>
-            )}
-
             {(activeCategory === null ||
-              activeCategory === "Educational Replays") && (
-              <section
-                className={cn(
-                  "max-w-[1440px] mx-auto w-full px-12 max-lg:px-4  pb-8 -mt-12 lg:pb-20",
-                  activeCategory === "Educational Replays" &&
-                    "py-10 lg:py-[80px]"
-                )}
-              >
-                <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6 py-8">
+              activeCategory === "FiXX Intelligence") && (
+              <section className=" bg-[url('/sheherfixxbg.svg')] bg-no-repeat bg-center bg-cover w-full h-full py-10 lg:py-[80px]">
+                <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6  max-w-[1440px] mx-auto w-full px-4 py-8">
                   <div className="flex flex-col gap-2">
                     <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase">
-                      Educational Replays
+                      FiXX Intelligence
                     </h2>
                     <p className="text-lg leading-8">
                       Presentations and workshops from leading organizations
@@ -183,8 +165,41 @@ export function CoActiveTemplate() {
                     Explore All Replays
                   </button>
                 </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10  max-w-[1440px] mx-auto w-full px-4 py-8">
+                  {fixx_intelligence
+                    ?.slice(0, 3)
+                    .map((event: any, index: number) => (
+                      <FixIntelligenceCard key={index} {...event} />
+                    ))}
+                </div>
+              </section>
+            )}
+
+            {(activeCategory === null ||
+              activeCategory === "Program REPLAYS") && (
+              <section
+                className={cn(
+                  "max-w-[1440px] mx-auto w-full px-4 pb-8 -mt-12 lg:pb-20",
+                  activeCategory === "Program REPLAYS" && "py-10 lg:py-[80px]"
+                )}
+              >
+                <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6 py-8">
+                  <div className="flex flex-col gap-2">
+                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase">
+                      Program REPLAYS
+                    </h2>
+                    <p className="text-lg leading-8">
+                      Presentations and workshops from leading organizations
+                    </p>
+                  </div>
+                  <button
+                    className={`px-4 py-2 rounded-full border border-black hover:bg-[#3c1fef] text-base font-medium transition-colors ${" bg-black text-white"}`}
+                  >
+                    Explore All Posts
+                  </button>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
-                  {educational_replays
+                  {program_replays
                     ?.slice(0, 3)
                     .map((post: any, index: number) => (
                       <ReplayCard key={index} {...post} />
@@ -195,7 +210,7 @@ export function CoActiveTemplate() {
           </div>
 
           {activeCategory === "Krypto Kollab (Coming Soon)" && (
-            <section className="mb-12 text-center max-w-[1440px] mx-auto w-full px-12 max-lg:px-4  py-8">
+            <section className="mb-12 text-center max-w-[1440px] mx-auto w-full px-4 py-8">
               <h2 className="text-[#6B46C1] text-xl font-medium mb-4">
                 Krypto Kollab is Coming Soon!
               </h2>

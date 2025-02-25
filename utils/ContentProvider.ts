@@ -80,6 +80,8 @@ class ContentProviderService {
       joinBuildersTab,
       joinLeadersTab,
       joinExplorersTab,
+      sheHerFixx,
+      sheHerCoActive,
     ] = await Promise.all([
       this.getBanner(),
       this.getSherLive(),
@@ -101,6 +103,8 @@ class ContentProviderService {
       this.getJoinTab("joinBuilders"),
       this.getJoinTab("joinLeaders"),
       this.getJoinTab("joinExplorers"),
+      this.getSherHerFixx(),
+      this.getSheHerCoActive(),
     ]);
 
     return {
@@ -124,6 +128,8 @@ class ContentProviderService {
       joinBuildersTab,
       joinExplorersTab,
       joinLeadersTab,
+      sheHerFixx,
+      sheHerCoActive,
     };
   }
 
@@ -191,6 +197,30 @@ class ContentProviderService {
     const replays = await this.getListData("educational_replays");
 
     return { events, post, replays };
+  }
+  async getSherHerFixx() {
+    const query = groq`*[_type == 'sheHerFixx'][0] {
+    ...,
+   "upcoming_sessions":upcoming_sessions[]-> {...,"partners":partners[]-> {...}},
+   "fixx_intelligence":fixx_intelligence[]-> {...,"partners":partners[]-> {...}},
+   "program_replays":program_replays[]-> {...,"partners":partners[]-> {...}}
+   
+    }`;
+    const data = await client.fetch(query);
+    return data;
+  }
+
+  async getSheHerCoActive() {
+    const query = groq`*[_type == 'sheHerCoActive'][0]  {
+    ...,
+      "upcoming_events":upcoming_events[]-> {...,"partners":partners[]-> {...}},
+   "latest_posts":latest_posts[]-> {...,"partners":partners[]-> {...}},
+   "educational_replays":educational_replays[]-> {...,"partners":partners[]-> {...}}
+    }
+    
+    `;
+    const data = await client.fetch(query);
+    return data;
   }
 
   private async getListData<T>(documentId: string) {
