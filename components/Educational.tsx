@@ -90,34 +90,33 @@ export default function Educational({ educationalProgramming }: any) {
               educationalProgramming.Events.map((item: any, key: number) => (
                 <SwiperSlide
                   key={key}
-                  className=" border p-3 sm:p-6 rounded-lg border-gray-400 group cursor-pointer"
+                  className="  p-3 sm:p-4 rounded-[30px] border border-[#B0B0B0] group cursor-pointer"
                 >
-                  <div className="relative overflow-hidden rounded-lg">
+                  <div className="relative overflow-hidden rounded-[24px] w-full">
                     <ImageUrl
                       image={item.image}
                       className={
-                        "w-full sm:w-[440px] aspect-square object-cover object-top rounded-lg card-shaper  group-hover:scale-[1.03] transition-all duration-300"
+                        "!w-full max-h-[259px]  object-cover object-center  group-hover:scale-[1.03] transition-all duration-300"
                       }
                     />
-                    <p className="text-[10px] sm:text-xs onramp-background whitespace-pre-wrap absolute top-0 mx font-mono text-white truncate p-1 rounded-lg ">
-                      {item.date}
-                    </p>
                   </div>
-
-                  <div className="space-y-3 mt-6 ">
+                  <p className="text-[10px] sm:text-xs bg-white text-black whitespace-pre-wrap absolute top-7 left-7 mx font-mono truncate p-1 py-1.5 rounded-lg ">
+                    {item.date}
+                  </p>
+                  <div className="space-y-1.5 mt-6 ">
                     <h3 className="text-black font-clesmont font-1000 text-base sm:text-xl">
                       {item.title}
                     </h3>
-                    <p className="text-justify h-full sm:min-h-[226px] text-xs sm:text-base  overflow-hidden ">
+                    <p className="text-justify h-full sm:min-h-[236px] text-xs sm:text-base  overflow-hidden ">
                       {item.description}
                     </p>
 
-                    <div>
-                      <p className="font-black uppercase font-clesmont text-xl">
+                    <div className="mt-[18px] flex flex-col gap-2">
+                      <p className=" uppercase font-clesmont leading-[140%]">
                         Presenters
                       </p>
 
-                      <motion.div className="space-y-3">
+                      <motion.div className="space-y-1.5">
                         {item?.presenters?.map(
                           (presenter: any, key: number) => (
                             <motion.div
@@ -129,7 +128,7 @@ export default function Educational({ educationalProgramming }: any) {
                                 ease: "easeInOut",
                               }}
                               key={key}
-                              className="bg-[#F2F1F7] rounded-full flex items-center justify-between py-2.5 px-[18px] mt-1 "
+                              className="bg-[#eee] rounded-[48px] flex items-center justify-between py-2 px-2"
                             >
                               <div className="flex items-center gap-2 ">
                                 <div className="w-[38px] h-[38px] rounded-full overflow-hidden">
@@ -141,10 +140,10 @@ export default function Educational({ educationalProgramming }: any) {
                                   />
                                 </div>
                                 <div>
-                                  <h6 className="font-medium">
+                                  <h6 className="font-medium leading-[120%]">
                                     {presenter?.name}
                                   </h6>
-                                  <p className="text-[10px] lg:text-[12px] font-medium font-mono">
+                                  <p className="text-[10px] lg:text-[14px] font-medium">
                                     {presenter?.position}
                                   </p>
                                 </div>
