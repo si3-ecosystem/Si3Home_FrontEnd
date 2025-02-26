@@ -35,14 +35,14 @@ export default function JoinTabFooter(props: Props) {
               })}
           </p>
 
-          {!props.hideCTA && (
+          {/* {!props.hideCTA && (
             <Link href={"/onboard"}>
               <button className="text-white bg-black py-[14px] capitalize rounded-full text-sm sm:text-lg mt-6 md:mt-10 px-[30px]">
                 {footerData.btnTitle}
               </button>
             </Link>
-          )}
-          <p className="mt-2">{footerData.caption}</p>
+          )} */}
+          {/* <p className="mt-2">{footerData.caption}</p> */}
         </div>
       </div>
     </div>

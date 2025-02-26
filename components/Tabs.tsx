@@ -208,6 +208,7 @@ export default function Tabs({
                 {/* <MembershipBanner /> */}
                 <JoinTabFooter
                   video={"/home.mp4"}
+                  hideCTA={true}
                   footerData={joinLeadersTab}
                 />
               </div>
