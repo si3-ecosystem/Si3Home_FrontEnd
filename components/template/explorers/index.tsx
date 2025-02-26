@@ -125,8 +125,6 @@ export function ExplorerPageTemplate() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  console.log("currentItems", currentItems);
-
   return (
     <div className="">
       <div className="min-h-screen flex flex-col gap-16 relative overflow-hidden ">

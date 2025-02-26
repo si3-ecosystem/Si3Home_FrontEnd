@@ -5,6 +5,7 @@ import urlFor from "@/utils/urlFor";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Script from "next/script";
 import { getSeoData } from "@/utils/seo";
+import { Toaster } from "react-hot-toast";
 
 export const revalidate = 3600;
 
@@ -80,7 +81,6 @@ async function sharedMetaData() {
 
 export async function generateMetadata() {
   const metadata = await sharedMetaData();
-  console.log("metadata", metadata?.openGraph?.images);
   return metadata;
 }
 export default async function RootLayout({
@@ -125,6 +125,7 @@ export default async function RootLayout({
           src="//js.hs-scripts.com/45396312.js"
         ></script>
         {children}
+        <Toaster position="top-center" reverseOrder={false} gutter={8} />
       </body>
     </html>
   );
