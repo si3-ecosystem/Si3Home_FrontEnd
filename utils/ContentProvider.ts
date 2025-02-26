@@ -82,6 +82,7 @@ class ContentProviderService {
       joinExplorersTab,
       sheHerFixx,
       sheHerCoActive,
+      sheHerGrowthNetworkContent,
     ] = await Promise.all([
       this.getBanner(),
       this.getSherLive(),
@@ -105,6 +106,7 @@ class ContentProviderService {
       this.getJoinTab("joinExplorers"),
       this.getSherHerFixx(),
       this.getSheHerCoActive(),
+      this.getSheHerGrowthNetworkContent(),
     ]);
 
     return {
@@ -130,6 +132,7 @@ class ContentProviderService {
       joinLeadersTab,
       sheHerFixx,
       sheHerCoActive,
+      sheHerGrowthNetworkContent,
     };
   }
 
@@ -198,6 +201,68 @@ class ContentProviderService {
 
     return { events, post, replays };
   }
+  async getWeb3EducationContent(subcategory?: string) {
+    try {
+      let query;
+      if (subcategory) {
+        // Filter by subcategory if provided
+        query = groq`*[_type == 'programReplayVideos' && subcategory == '${subcategory}']`;
+      } else {
+        // Get all Web3 Education content
+        query = groq`*[_type == 'programReplayVideos' && "Web3 Education" in category]`;
+      }
+      const data = await client.fetch(query);
+      return data || [];
+    } catch (error) {
+      console.error("Error fetching Web3 Education content:", error);
+      return [];
+    }
+  }
+
+  async getGrantFundingContent() {
+    try {
+      const query = groq`*[_type == 'programReplayVideos' && "Grant Funding" in category]`;
+      const data = await client.fetch(query);
+      return data || [];
+    } catch (error) {
+      console.error("Error fetching Grant Funding content:", error);
+      return [];
+    }
+  }
+  async getSheHerGrowthNetworkContent() {
+    try {
+      const query = groq`*[_type == 'programReplayVideos' && "SI Her Growth Network" in category]`;
+      const data = await client.fetch(query);
+
+      return data || [];
+    } catch (error) {
+      console.error("Error fetching Grant Funding content:", error);
+      return [];
+    }
+  }
+
+  async getAllVideos() {
+    try {
+      const programReplays = await this.getListData("programReplayVideos");
+
+      return [...(programReplays || [])];
+    } catch (error) {
+      console.error("Error fetching all videos:", error);
+      return [];
+    }
+  }
+
+  async getAllPosts() {
+    try {
+      const fixxIntelligence = await this.getListData("fixxIntelligence");
+
+      return [...(fixxIntelligence || [])];
+    } catch (error) {
+      console.error("Error fetching all posts:", error);
+      return [];
+    }
+  }
+
   async getSherHerFixx() {
     const query = groq`*[_type == 'sheHerFixx'][0] {
     ...,

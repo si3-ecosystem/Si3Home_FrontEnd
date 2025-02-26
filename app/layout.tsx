@@ -8,7 +8,6 @@ import { getSeoData } from "@/utils/seo";
 
 export const revalidate = 3600;
 
-
 async function sharedMetaData() {
   const settings = await getSeoData();
 
@@ -22,7 +21,9 @@ async function sharedMetaData() {
       default: settings?.seoTitle || "si3",
       template: "%s",
     },
-
+    description:
+      settings?.overview ||
+      "Co-activating growth and financial inclusion opportunities for women and non-binary web3 leaders through personal brand development, public speaking, partnerships, and DeFi.",
     icons: {
       icon: [
         { rel: "icon", url: "/icons/favicon-16x16.png", sizes: "16x16" },
@@ -44,9 +45,7 @@ async function sharedMetaData() {
         { rel: "icon", url: "/icons/favicon-16x16.png", sizes: "16x16" },
       ],
     },
-    description:
-      settings?.overview ||
-      "Creating Pathways For Diverse Voices Of the New Economy",
+
     keywords: ["si3", "si/her", "web3"],
     authors: [{ name: "Asraful" }],
     canonical: "https://www.si3.space",
@@ -59,7 +58,7 @@ async function sharedMetaData() {
         "Creating Pathways For Diverse Voices Of the New Economy",
       images: [
         {
-          url: "/icons/logo.webp",
+          url: seoLogoUrl,
         },
         {
           url: image.src,
@@ -72,7 +71,7 @@ async function sharedMetaData() {
       description:
         settings?.overview ||
         "Creating Pathways For Diverse Voices Of the New Economy",
-      images: ["https://www.si3.space/icons/logo.webp"],
+      images: [seoLogoUrl],
     },
     robots: {
       index: true,
@@ -88,8 +87,7 @@ export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>)
-{
+}>) {
   return (
     <html lang="en">
       <head>

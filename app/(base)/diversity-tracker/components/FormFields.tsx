@@ -273,7 +273,7 @@ export function GrantField(props: GrantFormFieldsProps) {
 
 export function EqualityScaleField(props: FormFieldProps) {
   return (
-    <div className="my-8">
+    <div className="my-8 -z-10">
       <p className="text-sm sm::text-lg">
         On a scale from 1-10, how inclusive and equitable do you feel the Web3
         industry is?

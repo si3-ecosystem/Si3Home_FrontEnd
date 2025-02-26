@@ -219,7 +219,7 @@ export default function Tabs({
                 {/* <SingleTestimonial testimonial={testimonials[1]}/> */}
                 <div className="md:border-y border-[#B0B0B0]">
                   <div className="max-w-[1196px] px-4 lg:grid grid-cols-2 mx-auto">
-                    <div className="py-[120px] text-center lg:text-left lg:border-r border-[#B0B0B0]">
+                    <div className="py-8 lg:py-[120px] text-center lg:text-left lg:border-r border-[#B0B0B0]">
                       <p className=" text-base text-[#B668E4]  uppercase">
                         PERSONAL BRAND. PUBLIC SPEAKING. LEADERSHIP.
                       </p>
@@ -232,7 +232,7 @@ export default function Tabs({
                       </p>
                     </div>
 
-                    <div className="hidden lg:flex items-center justify-center">
+                    <div className="flex items-center justify-center">
                       <Image
                         src={"/images/partner-header.png"}
                         alt="Partner Header"

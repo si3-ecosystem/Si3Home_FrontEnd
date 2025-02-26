@@ -40,7 +40,7 @@ export function DropdownButton({
       <Button
         active={active}
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2"
+        className="!rounded-full hover:text-white hover:!bg-black transition-all duration-300 ease-in-out flex items-center gap-2"
       >
         {selectedOption ? `${selectedOption}` : label}
         <svg
@@ -59,12 +59,16 @@ export function DropdownButton({
       </Button>
 
       {isOpen && (
-        <div className="absolute z-10 mt-2 w-56 text-white rounded-md shadow-lg bg-black ring-1 ring-black ring-opacity-5">
-          <div className="py-1" role="menu" aria-orientation="vertical">
+        <div className="absolute z-30 mt-2 w-56 text-black rounded-md shadow-lg bg-white overflow-hidden ">
+          <div
+            className="py-1 !overflow-hidden rounded-md"
+            role="menu"
+            aria-orientation="vertical"
+          >
             {options.map((option) => (
               <button
                 key={option}
-                className="block w-full text-left px-4 py-2 text-sm hover:text-black  hover:bg-white"
+                className="block w-full text-left px-4 py-2.5 text-sm hover:text-black bg-white hover:bg-gray-100"
                 role="menuitem"
                 onClick={() => {
                   onSelect(option);
