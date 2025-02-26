@@ -199,7 +199,7 @@ export function ExplorerPageTemplate() {
               {totalPages > 1 && (
                 <div className="my-20 flex justify-center gap-6 lg:gap-10">
                   <button
-                    className={`py-2 px-4 rounded flex items-center justify-center border border-[#E5007A] text-[#E5007A] ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""}`}
+                    className={`py-2 px-4 rounded flex items-center justify-center border border-black  text-black ${currentPage === 1 ? "opacity-20 cursor-not-allowed" : ""}`}
                     onClick={() =>
                       currentPage > 1 && handlePageChange(currentPage - 1)
                     }
@@ -232,7 +232,7 @@ export function ExplorerPageTemplate() {
                             ${
                               pageNum === currentPage
                                 ? "bg-black text-white"
-                                : "border border-[#FAB7D0] hover:bg-gray-50 text-[#A5A8BD]"
+                                : "border border-black border-opacity-20 hover:border-opacity-100 hover:bg-black hover:text-white text-black"
                             }`}
                           onClick={() => handlePageChange(pageNum)}
                         >
@@ -242,7 +242,7 @@ export function ExplorerPageTemplate() {
                     })}
                   </div>
                   <button
-                    className={`py-2 px-4 rounded flex items-center justify-center border border-[#E5007A] text-[#E5007A] ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""}`}
+                    className={`py-2 px-4 rounded flex items-center justify-center border border-black  text-black ${currentPage === totalPages ? "opacity-20 cursor-not-allowed" : ""}`}
                     onClick={() =>
                       currentPage < totalPages &&
                       handlePageChange(currentPage + 1)

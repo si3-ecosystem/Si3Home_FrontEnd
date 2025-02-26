@@ -14,6 +14,7 @@ async function sharedMetaData() {
   const seoLogoUrl = settings?.seoLogo
     ? urlFor(settings?.seoLogo).url()
     : "/icons/logo.webp";
+
   return {
     // enable this for resolving opengraph image
     metadataBase: new URL("https://www.si3.space/"),
@@ -60,9 +61,6 @@ async function sharedMetaData() {
         {
           url: seoLogoUrl,
         },
-        {
-          url: image.src,
-        },
       ],
     },
     twitter: {
@@ -81,7 +79,9 @@ async function sharedMetaData() {
 }
 
 export async function generateMetadata() {
-  return await sharedMetaData();
+  const metadata = await sharedMetaData();
+  console.log("metadata", metadata?.openGraph?.images);
+  return metadata;
 }
 export default async function RootLayout({
   children,

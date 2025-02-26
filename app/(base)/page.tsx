@@ -1,16 +1,4 @@
-import Banner from "@/components/Banner";
-import Brand from "@/components/Brand";
-import Ecosystem from "@/components/Ecosystem";
-import Educational from "@/components/Educational";
-import Granting from "@/components/Granting";
-import Members from "@/components/Members";
-import Mission from "@/components/Mission";
-import Onboard from "@/components/Onboard";
-import Pricing from "@/components/Pricing";
-import SherCoActive from "@/components/SherCoActive";
-import SherLive from "@/components/SherLive";
 import Tabs from "@/components/Tabs";
-import Testimonials from "@/components/Testimonials";
 import ContentProvider from "@/utils/ContentProvider";
 import { Suspense } from "react";
 import Hero from "./components/v2/Hero";
@@ -47,14 +35,7 @@ export default async function Home() {
   return (
     <main className="overflow-x-hidden">
       <Hero partners={partners} />
-      {/* <Banner hero={hero} partners={partners}/> */}
-      {/* <SherLive
-        sheHerLive={sheHerLive}
-        educationalProgramming={educationalProgramming}
-        sherCoActive={sherCoActive}
-        mission={mission}
-        ecosystemSpotlight={ecosystemSpotlight}
-      /> */}
+
       <div id="ecosystem-header"></div>
       <div className="max-w-[804px] mt-16 px-4 md:mt-[170px] font-medium mx-auto lg:min-h-[100px] text-center bg-no-repeat">
         <p className="text-[10px] sm:text-base tracking-[15%] text-[#000001]">
@@ -90,16 +71,6 @@ export default async function Home() {
           joinLeadersTab={joinLeadersTab}
         />
       </Suspense>
-
-      {/* <Granting granting={granting} register={register} /> */}
-      {/* <Educational educationalProgramming={educationalProgramming} /> */}
-      {/* <SherCoActive sherCoActive={sherCoActive} /> */}
-      {/* <Members memberSpotlight={memberSpotlight} /> */}
-      {/* <Ecosystem ecosystemSpotlight={ecosystemSpotlight} /> */}
-      {/* <Mission mission={mission} /> */}
-      {/* <Testimonials testimonials={testimonials} /> */}
-      {/* <Onboard onboard={onboard} /> */}
-      {/* <Pricing pricing={pricing} /> */}
     </main>
   );
 }
