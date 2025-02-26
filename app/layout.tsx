@@ -28,23 +28,23 @@ async function sharedMetaData() {
       "Co-activating growth and financial inclusion opportunities for women and non-binary web3 leaders through personal brand development, public speaking, partnerships, and DeFi.",
     icons: {
       icon: [
-        { rel: "icon", url: "/icons/favicon-16x16.png", sizes: "16x16" },
+        { rel: "icon", url: "/icons/favicon.png", sizes: "16x16" },
         {
           rel: "icon",
-          url: "/icons/favicon-16x16.png",
+          url: "/icons/favicon.png",
           sizes: "16x16",
         },
         {
           rel: "apple-touch-icon",
-          url: "/icons/favicon-16x16.png",
+          url: "/icons/favicon.png",
           sizes: "16x16",
         },
         {
           rel: "mask-icon",
-          url: "/icons/safari-pinned-tab.svg",
+          url: "/icons/favicon.png",
           color: "#5bbad5",
         },
-        { rel: "icon", url: "/icons/favicon-16x16.png", sizes: "16x16" },
+        { rel: "icon", url: "/icons/favicon.png", sizes: "16x16" },
       ],
     },
 
