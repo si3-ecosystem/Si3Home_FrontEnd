@@ -62,7 +62,7 @@ async function sharedMetaData() {
         {
           url: seoLogoUrl,
           width: 1200,
-          height: 630,
+          height: 170,
           alt: settings?.seoTitle || "si3 Banner",
         },
       ],
@@ -77,7 +77,7 @@ async function sharedMetaData() {
         {
           url: seoLogoUrl,
           width: 1200,
-          height: 630,
+          height: 170,
           alt: settings?.seoTitle || "si3 Banner",
         },
       ],
