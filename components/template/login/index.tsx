@@ -1,10 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import loginimage from "@/public/loginframe.png";
-import ethermailimg from "@/public/ethermail.png";
-import walletconnectimg from "@/public/walletconnect.png";
-import metamaskimg from "@/public/metamask.png";
 
 const LoginTemplate: React.FC = () => {
   return (
@@ -27,7 +23,7 @@ const LoginTemplate: React.FC = () => {
               <div className="mt-4 space-y-3 md:mt-6 md:space-y-4">
                 <button className="w-full flex items-center gap-3 p-2 md:p-3 border rounded-lg bg-gray-100 hover:bg-gray-200">
                   <Image
-                    src={metamaskimg}
+                    src={"/metamask.png"}
                     alt="Metamask"
                     width={20}
                     height={20}
@@ -36,7 +32,7 @@ const LoginTemplate: React.FC = () => {
                 </button>
                 <button className="w-full flex items-center gap-3 p-2 md:p-3 border rounded-lg bg-gray-100 hover:bg-gray-200">
                   <Image
-                    src={walletconnectimg}
+                    src={"/walletconnect.png"}
                     alt="WalletConnect"
                     width={20}
                     height={20}
@@ -45,7 +41,7 @@ const LoginTemplate: React.FC = () => {
                 </button>
                 <button className="w-full flex items-center gap-3 p-2 md:p-3 border rounded-lg bg-gray-100 hover:bg-gray-200">
                   <Image
-                    src={ethermailimg}
+                    src={"/ethermail.png"}
                     alt="EtherMail"
                     width={20}
                     height={20}
@@ -84,7 +80,7 @@ const LoginTemplate: React.FC = () => {
             </div>
             <div className="w-full md:w-1/2 flex justify-center order-2 md:order-1">
               <Image
-                src={loginimage}
+                src={"/loginframe.png"}
                 alt="Preview"
                 layout="intrinsic"
                 width={600}
