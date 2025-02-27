@@ -103,13 +103,13 @@ export function CoActiveTemplate() {
               activeCategory === "Upcoming Events") && (
               <section
                 className={cn(
-                  "max-w-[1440px] mx-auto w-full px-12 max-lg:px-4 py-8",
+                  "max-w-[1251.136px] mx-auto w-full px-4 py-8",
                   activeCategory === "Upcoming Events" && "py-10 lg:py-[80px]"
                 )}
               >
                 <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6 py-8">
                   <div className="flex flex-col gap-2">
-                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase">
+                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
                       UPCOMING EVENTS
                     </h2>
                     <p className="text-lg leading-8">
@@ -134,9 +134,9 @@ export function CoActiveTemplate() {
 
             {(activeCategory === null || activeCategory === "Blog Posts") && (
               <section className=" bg-[url('/sheherfixxbg.svg')] bg-no-repeat bg-center bg-cover w-full h-full  py-10 lg:py-[80px]">
-                <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6  max-w-[1440px] mx-auto w-full px-12 max-lg:px-4  py-8">
+                <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6  max-w-[1251.136px] mx-auto w-full px-4  py-8">
                   <div className="flex flex-col gap-2">
-                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase">
+                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
                       Latest Posts
                     </h2>
                     <p className="text-lg leading-8">
@@ -149,7 +149,7 @@ export function CoActiveTemplate() {
                     Explore All Posts
                   </button>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10  max-w-[1440px] mx-auto w-full py-8 px-12 max-lg:px-4 ">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10  max-w-[1251.136px] mx-auto w-full py-8 px-4">
                   {latest_posts
                     ?.slice(0, 3)
                     .map((event: any, index: number) => (
@@ -163,14 +163,14 @@ export function CoActiveTemplate() {
               activeCategory === "Educational Replays") && (
               <section
                 className={cn(
-                  "max-w-[1440px] mx-auto w-full px-12 max-lg:px-4  pb-8 -mt-12 lg:pb-20",
+                  "max-w-[1251.136px] mx-auto w-full px-4 pb-8 -mt-12 lg:pb-20",
                   activeCategory === "Educational Replays" &&
                     "py-10 lg:py-[80px]"
                 )}
               >
                 <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6 py-8">
                   <div className="flex flex-col gap-2">
-                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase">
+                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
                       Educational Replays
                     </h2>
                     <p className="text-lg leading-8">
@@ -195,7 +195,7 @@ export function CoActiveTemplate() {
           </div>
 
           {activeCategory === "Krypto Kollab (Coming Soon)" && (
-            <section className="mb-12 text-center max-w-[1440px] mx-auto w-full px-12 max-lg:px-4  py-8">
+            <section className="mb-12 text-center max-w-[1440px] mx-auto w-full px-4 py-8">
               <h2 className="text-[#6B46C1] text-xl font-medium mb-4">
                 Krypto Kollab is Coming Soon!
               </h2>

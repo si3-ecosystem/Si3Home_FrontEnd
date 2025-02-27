@@ -2,6 +2,7 @@ import { useState } from "react";
 import Image from "next/image";
 import urlFor from "@/utils/urlFor";
 import moment from "moment";
+import { cn } from "@/lib/utils";
 
 interface EventCardProps {
   badge: string;
@@ -13,6 +14,7 @@ interface EventCardProps {
   partners: any[];
   time: string;
   description?: string;
+  showBgOnHostedBy?: boolean;
 }
 
 export function EventCard({
@@ -25,18 +27,19 @@ export function EventCard({
   time,
   description,
   partners,
+  showBgOnHostedBy = true,
 }: EventCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="group relative bg-white rounded-xl px-3 pt-2 pb-4  shadow-sm hover:shadow-md transition-shadow border-2 border-black border-opacity-30">
+    <div className="group relative bg-white rounded-xl px-3 pt-3 pb-4  shadow-sm hover:shadow-md transition-shadow border-2 border-black border-opacity-30">
       {/* Event Image */}
       <div className="relative h-[208px]">
         <Image
           src={urlFor(image).url()}
           alt={title}
           fill
-          className="object-cover rounded-xl"
+          className="object-cover rounded-lg"
         />
         <div className="bg-white p-1.5 rounded-md text-xs absolute top-0 left-0 m-3">
           {badge}
@@ -51,7 +54,12 @@ export function EventCard({
               {description}
             </p>
           )}
-          <div className="flex items-center justify-between gap-4">
+          <div
+            className={cn(
+              "flex items-center justify-between gap-4 ",
+              showBgOnHostedBy && "px-3 py-2 rounded-xl bg-[#F4F4F4]"
+            )}
+          >
             {hostedBy && (
               <div className="flex flex-col">
                 <p className="text-xs font-normal leading-4">Hosted by</p>
@@ -134,7 +142,7 @@ export function EventCard({
                 Attend the Event
               </span>
             </button>
-            {isOpen && (
+            {/* {isOpen && (
               <div className="absolute left-0 mt-2 w-full bg-white border border-gray-300 rounded shadow-lg z-10">
                 <button
                   className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -161,7 +169,7 @@ export function EventCard({
                   View Details
                 </button>
               </div>
-            )}
+            )} */}
           </div>
         )}
       </div>

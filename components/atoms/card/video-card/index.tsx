@@ -8,7 +8,7 @@ interface VideoCardProps {
 
 export function VideoCard({ data }: VideoCardProps) {
   return (
-    <div className="group relative bg-white rounded-xl px-3 pt-2 pb-4 overflow-hidden shadow-sm hover:shadow-md transition-shadow border-2 border-black border-opacity-30">
+    <div className="group relative bg-white rounded-xl px-3 pt-3 pb-4 overflow-hidden shadow-sm hover:shadow-md transition-shadow border-2 border-black border-opacity-30">
       <div className="aspect-video relative mb-5">
         <Image
           src={urlFor(data?.image).url()}

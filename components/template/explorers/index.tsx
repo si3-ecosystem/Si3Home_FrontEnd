@@ -127,10 +127,10 @@ export function ExplorerPageTemplate() {
 
   return (
     <div className="">
-      <div className="min-h-screen flex flex-col gap-16 relative overflow-hidden ">
+      <div className="min-h-screen flex flex-col gap-8 lg:gap-16 relative overflow-hidden ">
         <ExplorerBanner />
-        <div className="max-w-[1440px] mx-auto px-5 lg:px-16 pb-16 flex flex-col items-center justify-center">
-          <div className="flex flex-wrap gap-2 mb-8 items-center justify-center z-30">
+        <div className="lg:max-w-[1270px] max-sm:pl-5 lg:mx-auto md:px-5 lg:px-16 lg:pb-16 lg:flex lg:flex-col lg:items-center lg:justify-center">
+          <div className="flex gap-4 lg:gap-2 w-auto lg:mb-8 items-center max-lg:pb-3 lg:justify-center z-20  overflow-auto">
             {categories.map((category) => {
               if (category === "Web3 Education") {
                 return (
@@ -145,7 +145,7 @@ export function ExplorerPageTemplate() {
                     onSelect={(subcategory) => {
                       setActiveCategory(category);
                       setActiveSubCategory(subcategory);
-                      setCurrentPage(1); // Reset to first page on category change
+                      setCurrentPage(1);
                     }}
                   />
                 );
@@ -153,12 +153,12 @@ export function ExplorerPageTemplate() {
               return (
                 <Button
                   key={category}
-                  className="!rounded-full hover:text-white hover:!bg-black transition-all duration-300 ease-in-out"
+                  className="!rounded-full flex-shrink-0 hover:text-white hover:!bg-black transition-all duration-300 ease-in-out"
                   active={activeCategory === category}
                   onClick={() => {
                     setActiveCategory(category);
                     setActiveSubCategory(null);
-                    setCurrentPage(1); // Reset to first page on category change
+                    setCurrentPage(1);
                   }}
                 >
                   {category}
@@ -166,94 +166,93 @@ export function ExplorerPageTemplate() {
               );
             })}
           </div>
-
-          {loading ? (
-            <div className="py-20">
-              <Loading />
+        </div>
+        {loading ? (
+          <div className="py-20">
+            <Loading />
+          </div>
+        ) : (
+          <>
+            {/* Content Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:grid-cols-3 gap-6 lg:gap-10 z-10 max-w-[1270px] mx-auto px-4 lg:px-16">
+              {activeCategory === "All Posts"
+                ? currentItems?.map((post: PostItem, index: number) => (
+                    <EventCard key={index} {...post} showBgOnHostedBy={false} />
+                  ))
+                : currentItems.map((data: VideoItem, index: number) => (
+                    <VideoCard key={index} data={data} />
+                  ))}
             </div>
-          ) : (
-            <>
-              {/* Content Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:gap-10 z-10">
-                {activeCategory === "All Posts"
-                  ? currentItems?.map((post: PostItem, index: number) => (
-                      <EventCard key={index} {...post} />
-                    ))
-                  : currentItems.map((data: VideoItem, index: number) => (
-                      <VideoCard key={index} data={data} />
-                    ))}
+
+            {/* Show message if no content */}
+            {currentItems.length === 0 && !loading && (
+              <div className="py-20 text-center">
+                <p className="text-xl text-gray-500">
+                  No content found for this category.
+                </p>
               </div>
+            )}
 
-              {/* Show message if no content */}
-              {currentItems.length === 0 && !loading && (
-                <div className="py-20 text-center">
-                  <p className="text-xl text-gray-500">
-                    No content found for this category.
-                  </p>
-                </div>
-              )}
-
-              {/* Pagination */}
-              {totalPages > 1 && (
-                <div className="my-20 flex justify-center gap-6 lg:gap-10">
-                  <button
-                    className={`py-2 px-4 rounded flex items-center justify-center border border-black  text-black ${currentPage === 1 ? "opacity-20 cursor-not-allowed" : ""}`}
-                    onClick={() =>
-                      currentPage > 1 && handlePageChange(currentPage - 1)
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="my-20 flex justify-center gap-6 lg:gap-10">
+                <button
+                  className={`py-2 px-4 rounded flex items-center justify-center border border-black  text-black ${currentPage === 1 ? "opacity-20 cursor-not-allowed" : ""}`}
+                  onClick={() =>
+                    currentPage > 1 && handlePageChange(currentPage - 1)
+                  }
+                  disabled={currentPage === 1}
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <div className="flex items-center gap-3 lg:gap-5">
+                  {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
+                    // Show at most 5 page numbers
+                    let pageNum;
+                    if (totalPages <= 5) {
+                      // If 5 or fewer pages, show all
+                      pageNum = i + 1;
+                    } else if (currentPage <= 3) {
+                      // If current page is 1, 2, or 3, show pages 1-5
+                      pageNum = i + 1;
+                    } else if (currentPage >= totalPages - 2) {
+                      // If current page is among the last 3, show the last 5 pages
+                      pageNum = totalPages - 4 + i;
+                    } else {
+                      // Otherwise show current page and 2 pages on each side
+                      pageNum = currentPage - 2 + i;
                     }
-                    disabled={currentPage === 1}
-                  >
-                    <ChevronLeft className="w-4 h-4" />
-                  </button>
-                  <div className="flex items-center gap-3 lg:gap-5">
-                    {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
-                      // Show at most 5 page numbers
-                      let pageNum;
-                      if (totalPages <= 5) {
-                        // If 5 or fewer pages, show all
-                        pageNum = i + 1;
-                      } else if (currentPage <= 3) {
-                        // If current page is 1, 2, or 3, show pages 1-5
-                        pageNum = i + 1;
-                      } else if (currentPage >= totalPages - 2) {
-                        // If current page is among the last 3, show the last 5 pages
-                        pageNum = totalPages - 4 + i;
-                      } else {
-                        // Otherwise show current page and 2 pages on each side
-                        pageNum = currentPage - 2 + i;
-                      }
 
-                      return (
-                        <button
-                          key={pageNum}
-                          className={`py-2 px-4 rounded-md flex items-center justify-center text-base
+                    return (
+                      <button
+                        key={pageNum}
+                        className={`py-2 px-4 rounded-md flex items-center justify-center text-base
                             ${
                               pageNum === currentPage
                                 ? "bg-black text-white"
                                 : "border border-black border-opacity-20 hover:border-opacity-100 hover:bg-black hover:text-white text-black"
                             }`}
-                          onClick={() => handlePageChange(pageNum)}
-                        >
-                          {pageNum}
-                        </button>
-                      );
-                    })}
-                  </div>
-                  <button
-                    className={`py-2 px-4 rounded flex items-center justify-center border border-black  text-black ${currentPage === totalPages ? "opacity-20 cursor-not-allowed" : ""}`}
-                    onClick={() =>
-                      currentPage < totalPages &&
-                      handlePageChange(currentPage + 1)
-                    }
-                    disabled={currentPage === totalPages}
-                  >
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                        onClick={() => handlePageChange(pageNum)}
+                      >
+                        {pageNum}
+                      </button>
+                    );
+                  })}
                 </div>
-              )}
-            </>
-          )}
-        </div>
+                <button
+                  className={`py-2 px-4 rounded flex items-center justify-center border border-black  text-black ${currentPage === totalPages ? "opacity-20 cursor-not-allowed" : ""}`}
+                  onClick={() =>
+                    currentPage < totalPages &&
+                    handlePageChange(currentPage + 1)
+                  }
+                  disabled={currentPage === totalPages}
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            )}
+          </>
+        )}
         <MembershipBanner />
       </div>
     </div>

@@ -123,7 +123,7 @@ const Navbar = () => {
 
         <div
           style={{ transition: "all ease 0.5s" }}
-          className={`fixed z-[10000] ${isOpen ? "translate-x-0" : "-translate-x-[100%]"} top-0 left-0 h-screen`}
+          className={`fixed z-[10000] ${isOpen ? "translate-x-0" : "-translate-x-[100%]"} inset-0 h-screen`}
         >
           <div className="w-10/12 sm:w-9/12 !z-50 bg-white h-full  p-4">
             <header className="w-full flex items-center justify-between">
@@ -160,7 +160,7 @@ const Navbar = () => {
                 </li>
               </ul>
               <div>
-                <Link href={"/onboard"}>
+                <Link onClick={() => setIsOpen(false)} href={"/onboard"}>
                   <button className="bg-black w-full py-3 rounded-full text-white">
                     Get Started
                   </button>
@@ -173,7 +173,10 @@ const Navbar = () => {
                     Share your unique perspective by filling out our Diversity
                     Tracker—your voice matters.
                   </p>
-                  <Link href={"/diversity-tracker"}>
+                  <Link
+                    onClick={() => setIsOpen(false)}
+                    href={"/diversity-tracker"}
+                  >
                     <button className="bg-white rounded-full px-4 py-2 my-2">
                       Learn More
                     </button>
@@ -184,7 +187,7 @@ const Navbar = () => {
           </div>
           <div
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black opacity-60  -z-40  transition-opacity duration-500 ease-in-out"
+            className="fixed inset-0 bg-black opacity-60   -z-40  transition-opacity duration-500 ease-in-out"
           />
         </div>
 

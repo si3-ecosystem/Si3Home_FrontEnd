@@ -34,7 +34,7 @@ export default function Educational({ educationalProgramming }: any) {
           <h1 className="text-2xl font-clesmont md:text-[40px] font-1000 md:leading-10 mt-6 ">
             {educationalProgramming.title}
           </h1>
-          <p className="font-mono my-4 md:my-6 w-full text-sm lg:text-lg lg:leading-7">
+          <p className=" my-4 md:my-6 w-full text-sm lg:text-lg lg:leading-7">
             {educationalProgramming.description}
           </p>
           <div className="px-5 md:px-16 flex items-center gap-2 lg:gap-6 mt-4 md:mt-0 justify-center mb-5">
@@ -65,7 +65,7 @@ export default function Educational({ educationalProgramming }: any) {
             }}
             modules={[Pagination, Autoplay]}
             // autoplay={true}
-            scrollbar={true}
+            // scrollbar={true}
             spaceBetween={10}
             breakpoints={{
               340: {
@@ -100,7 +100,7 @@ export default function Educational({ educationalProgramming }: any) {
                       }
                     />
                   </div>
-                  <p className="text-[10px] sm:text-xs bg-white text-black whitespace-pre-wrap absolute top-7 left-7 mx font-mono truncate p-1 py-1.5 rounded-lg ">
+                  <p className="text-[10px] sm:text-xs bg-white text-black whitespace-pre-wrap absolute top-7 left-7 mx truncate p-1 py-1.5 rounded-lg ">
                     {item.date}
                   </p>
                   <div className="space-y-1.5 mt-6 ">

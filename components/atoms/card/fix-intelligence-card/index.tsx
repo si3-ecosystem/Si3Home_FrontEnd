@@ -49,13 +49,13 @@ export function FixIntelligenceCard({
                 {description || "No description available"}
               </p>
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4 justify-between">
               <button
                 onClick={() => setIsCommentModalOpen(true)}
                 className="flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-black transition-colors"
               >
-                <ChatBubbleLeftIcon className="w-5 h-5" />
-                Add Comment
+                <ChatBubbleLeftIcon className="w-4 h-4" />
+                Comment
               </button>
               <button className="w-2/3 mt-1.5 relative bg-white text-black py-3 rounded-full border border-black text-sm lg:text-xl font-medium hover:bg-black hover:text-white transition-colors">
                 <span className="relative z-10 flex items-center justify-center gap-2.5">

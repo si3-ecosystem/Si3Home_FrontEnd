@@ -15,15 +15,15 @@ export default function JoinTabFooter(props: Props) {
   const { footerData, video, hideCTA = false } = props;
   return (
     <div className="bg-[url('/images/join.png')] px-4 py-16 bg-cover">
-      <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4  rounded-2xl overflow-hidden sm:min-h-[600px] relative">
+      <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4  rounded-2xl overflow-hidden sm:min-h-[575px] relative">
         <video
-          src={video || "/si3footervideo.mp4"}
-          className="h-full w-full absolute top-0 object-cover object-[center_-180px] max-md:object-[center_-5px] rounded-2xl z-[33]"
+          src={video || "/home.mp4"}
+          className="h-full w-full absolute  object-cover object-center rounded-2xl z-[33]"
           autoPlay
           muted
           loop
         ></video>
-        <div className="absolute top-0 left-0 w-full h-full z-[35] bg-[rgba(0,0,0,0.2)]"></div>
+        {/* <div className="absolute top-0 left-0 w-full h-full z-[35] bg-[rgba(0,0,0,0.2)]"></div> */}
         <div className="text-white text-center max-w-[724px]  z-[40]">
           <p className="text-xl text-center mt-10 sm:mt-0 font-clesmont lg:mx-0 md:text-[40px] font-black uppercase  md:leading-[56px] tracking-normal">
             {footerData.title &&

@@ -31,12 +31,12 @@ export default function BuildingSingleTestimonial(props: TestimonialProps) {
             </p> */}
           </div>
         </span>
-        <div className="sm:ml-auto flex items-center gap-2 uppercase font-mono">
-          <div className="w-11 h-11  rounded-full flex items-center justify-center overflow-hidden">
+        <div className="sm:ml-auto flex items-center gap-2 uppercase ">
+          <div className="w-16 flex items-center justify-center">
             <ImageUrl
               image={testimonial?.image}
               className={
-                "rounded-full w-11 h-11 object-cover object-center aspect-auto"
+                "rounded-full w-16  object-cover object-center aspect-auto"
               }
             />
           </div>

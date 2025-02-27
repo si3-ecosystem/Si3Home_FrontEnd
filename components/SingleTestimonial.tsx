@@ -48,15 +48,16 @@ export default function SingleTestimonial(props: TestimonialProps) {
                   src="/images/url-icon.svg"
                   alt="Url Icon"
                   preview={false}
+                  className={
+                    "rounded-full w-16 h-16 object-cover object-center aspect-auto"
+                  }
                 />
               </button>
             ) : (
-              <div className="w-11 h-11  rounded-full flex items-center justify-center overflow-hidden">
+              <div className="w-16  rounded-full flex items-center justify-center overflow-hidden">
                 <ImageUrl
                   image={testimonial?.companyLogo}
-                  className={
-                    "rounded-full w-11 h-11 object-cover object-center aspect-auto"
-                  }
+                  className={" w-full object-cover object-center aspect-auto"}
                 />
               </div>
             )}

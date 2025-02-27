@@ -36,7 +36,7 @@ export function DropdownButton({
   }, []);
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative flex-shrink-0 " ref={dropdownRef}>
       <Button
         active={active}
         onClick={() => setIsOpen(!isOpen)}
@@ -59,7 +59,7 @@ export function DropdownButton({
       </Button>
 
       {isOpen && (
-        <div className="absolute z-30 mt-2 w-56 text-black rounded-md shadow-lg bg-white overflow-hidden ">
+        <div className="absolute z-[888] mt-2 w-56 text-black rounded-md shadow-lg bg-white overflow-hidden ">
           <div
             className="py-1 !overflow-hidden rounded-md"
             role="menu"

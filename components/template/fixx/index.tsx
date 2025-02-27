@@ -118,13 +118,13 @@ export function FixxTemplate() {
               activeCategory === "Upcoming Sessions") && (
               <section
                 className={cn(
-                  "max-w-[1440px] mx-auto w-full px-4 py-8",
+                  "max-w-[1251.136px] mx-auto w-full px-4 py-8",
                   activeCategory === "Upcoming Sessions" && "py-10 lg:py-[80px]"
                 )}
               >
                 <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6 py-8">
                   <div className="flex flex-col gap-2">
-                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase">
+                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
                       UPCOMING Sessions
                     </h2>
                     <p className="text-lg leading-8">
@@ -150,9 +150,9 @@ export function FixxTemplate() {
             {(activeCategory === null ||
               activeCategory === "FiXX Intelligence") && (
               <section className=" bg-[url('/sheherfixxbg.svg')] bg-no-repeat bg-center bg-cover w-full h-full py-10 lg:py-[80px]">
-                <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6  max-w-[1440px] mx-auto w-full px-4 py-8">
+                <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6  max-w-[1251.136px] mx-auto w-full px-4 py-8">
                   <div className="flex flex-col gap-2">
-                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase">
+                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
                       FiXX Intelligence
                     </h2>
                     <p className="text-lg leading-8">
@@ -165,7 +165,7 @@ export function FixxTemplate() {
                     Explore All Replays
                   </button>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10  max-w-[1440px] mx-auto w-full px-4 py-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10  max-w-[1251.136px] mx-auto w-full px-4 py-8">
                   {fixx_intelligence
                     ?.slice(0, 3)
                     .map((event: any, index: number) => (
@@ -179,13 +179,13 @@ export function FixxTemplate() {
               activeCategory === "Program REPLAYS") && (
               <section
                 className={cn(
-                  "max-w-[1440px] mx-auto w-full px-4 pb-8 -mt-12 lg:pb-20",
+                  "max-w-[1251.136px] mx-auto w-full px-4 pb-8 -mt-12 lg:pb-20",
                   activeCategory === "Program REPLAYS" && "py-10 lg:py-[80px]"
                 )}
               >
                 <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6 py-8">
                   <div className="flex flex-col gap-2">
-                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase">
+                    <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
                       Program REPLAYS
                     </h2>
                     <p className="text-lg leading-8">
