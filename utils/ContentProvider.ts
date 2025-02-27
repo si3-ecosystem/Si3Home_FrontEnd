@@ -75,6 +75,7 @@ class ContentProviderService {
       testimonials,
       register,
       sherExplorer,
+      sheherBuildingweb3,
       partners,
       partnerTestimonials,
       joinBuildersTab,
@@ -99,6 +100,7 @@ class ContentProviderService {
       this.getTestimonials(),
       this.getRegister(),
       this.getSherExplorer(),
+      this.getSheherBuildingweb3(),
       this.getPartners(),
       this.getPartnerTestimonials(),
       this.getJoinTab("joinBuilders"),
@@ -125,6 +127,7 @@ class ContentProviderService {
       testimonials,
       register,
       sherExplorer,
+      sheherBuildingweb3,
       partners,
       partnerTestimonials,
       joinBuildersTab,
@@ -351,6 +354,11 @@ class ContentProviderService {
   }
   private async getSherExplorer() {
     const query = groq`*[_type == 'sihercoexplorer'][0]`;
+    const data = await client.fetch(query);
+    return data || {};
+  }
+  private async getSheherBuildingweb3() {
+    const query = groq`*[_type == 'sheherBuildingweb3'][0]`;
     const data = await client.fetch(query);
     return data || {};
   }

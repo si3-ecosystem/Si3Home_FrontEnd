@@ -41,7 +41,7 @@ export default function SherCoActive({
       //   ease: "easeInOut",
       // }}
       id="siherCoActive"
-      className="g lg:mt-[60px] px-4 lg:px-10 border-y border-gray-400"
+      className=" lg:mt-[60px] px-4 lg:px-10 border-y border-gray-400"
     >
       <div className="max-w-[1196px] mx-auto w-full grid lg:grid-cols-2">
         <div className="lg:border-r text-center lg:text-left lg:border-gray-400 py-8 lg:py-32 lg:pr-24">

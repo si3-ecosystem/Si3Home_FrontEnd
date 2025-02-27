@@ -41,6 +41,7 @@ type TabsProps = {
   granting: any;
   pricing: any;
   sherexplorer: any;
+  sheherBuildingweb3: any;
   register: any;
   partnerTabData: {
     header: any;
@@ -93,6 +94,7 @@ export default function Tabs({
   granting,
   pricing,
   sherexplorer,
+  sheherBuildingweb3,
   partnerTabData,
   register,
   partnerTestimonials,
@@ -214,7 +216,7 @@ export default function Tabs({
               </div>
             )}
             {activeTab === "brands" && (
-              <div className="mx-auto">
+              <div className="mx-auto lg:mt-[60px]">
                 {/* <Granting granting={granting} register={register} />
               <Educational educationalProgramming={educationalProgramming} /> */}
                 {/* <SingleTestimonial testimonial={testimonials[1]}/> */}
@@ -222,14 +224,14 @@ export default function Tabs({
                   <div className="max-w-[1196px] px-4 lg:grid grid-cols-2 mx-auto">
                     <div className="py-8 lg:py-[120px] text-center lg:text-left lg:border-r border-[#B0B0B0]">
                       <p className=" text-base text-[#B668E4]  uppercase">
-                        PERSONAL BRAND. PUBLIC SPEAKING. LEADERSHIP.
+                        {sheherBuildingweb3?.subtitle}
                       </p>
 
                       <h1 className="text-xl font-clesmont sm:text-2xl uppercase md:text-[44px] my-4 text-black font-black lg:leading-[110%]">
-                        {partnerTabData.header.subtitle}
+                        {sheherBuildingweb3?.title}
                       </h1>
                       <p className="text-sm md:text-lg lg:max-w-[509px]">
-                        {partnerTabData.header.title}
+                        {sheherBuildingweb3?.description}
                       </p>
                     </div>
 

@@ -80,7 +80,7 @@ export function TextAreaField(props: InputFieldProps) {
     <div className="my-2">
       <label
         htmlFor=""
-        className={`block text-sm sm:text-lg capitalize font-mono ${props.className}`}
+        className={`block text-base sm:text-lg capitalize  ${props.className}`}
       >
         {props.label}
         {props.required && <span className="text-[#FF2727]">*</span>}

@@ -25,6 +25,7 @@ export default async function Home() {
     testimonials,
     register,
     sherExplorer,
+    sheherBuildingweb3,
     partners,
     partnerTestimonials,
     joinBuildersTab,
@@ -59,6 +60,7 @@ export default async function Home() {
           ecosystemSpotlight={ecosystemSpotlight}
           testimonials={testimonials}
           onboard={onboard}
+          sheherBuildingweb3={sheherBuildingweb3}
           community={community}
           memberSpotlight={memberSpotlight}
           sheHerLive={sheHerLive}

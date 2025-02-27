@@ -13,7 +13,7 @@ async function sharedMetaData() {
   const settings = await getSeoData();
 
   const seoLogoUrl = settings?.seoLogo
-    ? urlFor(settings?.seoLogo).url()
+    ? urlFor(settings?.seoLogo).width(1200).height(630).fit("crop").url()
     : "/icons/logo.webp";
 
   return {
@@ -61,6 +61,9 @@ async function sharedMetaData() {
       images: [
         {
           url: seoLogoUrl,
+          width: 1200,
+          height: 630,
+          alt: settings?.seoTitle || "si3 Banner",
         },
       ],
     },
@@ -70,7 +73,14 @@ async function sharedMetaData() {
       description:
         settings?.overview ||
         "Creating Pathways For Diverse Voices Of the New Economy",
-      images: [seoLogoUrl],
+      images: [
+        {
+          url: seoLogoUrl,
+          width: 1200,
+          height: 630,
+          alt: settings?.seoTitle || "si3 Banner",
+        },
+      ],
     },
     robots: {
       index: true,

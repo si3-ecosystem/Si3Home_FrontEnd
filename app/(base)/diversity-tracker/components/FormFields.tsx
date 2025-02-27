@@ -121,9 +121,9 @@ export function EthnicityField(props: FormFieldProps) {
 
   return (
     <div className="my-8">
-      <p className="text-sm sm:text-lg mb-4">
+      <p className="text-base sm:text-lg mb-4">
         Which of the following ethnic or racial categories best describes how
-        you self-identify? ? Select all that apply .
+        you self-identify? Select all that apply .
       </p>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 my-8">
         {options.map((option) => (
@@ -131,7 +131,9 @@ export function EthnicityField(props: FormFieldProps) {
             checked={selected.includes(option)}
             handleCheck={() => selectOption(option)}
             key={option}
-            label={<p className="capitalize">{option.toLowerCase()}</p>}
+            label={
+              <p className="capitalize text-base">{option.toLowerCase()}</p>
+            }
           />
         ))}
       </div>
@@ -170,7 +172,7 @@ export function DisabalityField(props: FormFieldProps) {
 
   return (
     <div className="my-8">
-      <p className="text-sm sm:text-lg mb-4">
+      <p className="text-base sm:text-lg mb-4">
         Do you have any of the following disabilities or chronic conditions?
         Select all that apply.
       </p>
@@ -180,7 +182,9 @@ export function DisabalityField(props: FormFieldProps) {
             checked={selected.includes(option)}
             key={option}
             handleCheck={() => selectOption(option)}
-            label={<p className="capitalize">{option.toLowerCase()}</p>}
+            label={
+              <p className="capitalize text-base">{option.toLowerCase()}</p>
+            }
           />
         ))}
       </div>
@@ -192,7 +196,7 @@ export function AgeRangeField(props: FormFieldProps) {
   const ranges = ["Under 18", "25-34", "45-54", "55-64", "64 and older"];
   return (
     <div className="my-8">
-      <p className="text-sm sm:text-lg">What is your age range ?</p>
+      <p className="text-base sm:text-lg">What is your age range ?</p>
       <div className="my-3 flex flex-wrap gap-4 justify-between max-w-4xl">
         {ranges.map((range) => (
           <RadioInputField
@@ -200,6 +204,7 @@ export function AgeRangeField(props: FormFieldProps) {
             checked={range == props.value}
             handleCheck={() => props.setValue!(range)}
             label={range}
+            className="text-base"
           />
         ))}
       </div>
@@ -222,7 +227,7 @@ export function SexualOrientationField(props: FormFieldProps) {
         placeholder="Select"
         options={options}
         label={
-          <p className="text-sm sm:text-lg capitalize">
+          <p className="text-base sm:text-lg capitalize">
             Which of the following best describes your sexual orientation??
           </p>
         }
@@ -237,7 +242,7 @@ export function GrantField(props: GrantFormFieldsProps) {
   return (
     <div>
       <div className="my-8">
-        <p className="text-sm sm:text-lg">
+        <p className="text-base sm:text-lg">
           Are you currently participating in any of these active grant rounds?
         </p>
         <div className="my-3 flex gap-x-12 max-w-4xl">
@@ -274,7 +279,7 @@ export function GrantField(props: GrantFormFieldsProps) {
 export function EqualityScaleField(props: FormFieldProps) {
   return (
     <div className="my-8 -z-10">
-      <p className="text-sm sm::text-lg">
+      <p className="text-base sm:text-lg">
         On a scale from 1-10, how inclusive and equitable do you feel the Web3
         industry is?
       </p>
@@ -341,7 +346,7 @@ export function SuggestionsField(props: {
         name="suggestions"
         onChange={(e) => props.onChange(e.target.value)}
         label={
-          <p className="text-sm sm:text-lg">
+          <p className="text-base sm:text-lg">
             Please share your thoughts on how the Web3 industry can improve on
             the topics of Diversity, Equity, Accessibility, and Inclusion.
           </p>
