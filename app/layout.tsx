@@ -30,27 +30,27 @@ async function sharedMetaData() {
       icon: [
         {
           rel: "icon",
-          url: settings?.favicon || "/icons/favicon.png",
+          url: settings?.favicon || "/icons/fav.png",
           sizes: "16x16",
         },
         {
           rel: "icon",
-          url: settings?.favicon || "/icons/favicon.png",
+          url: settings?.favicon || "/icons/fav.png",
           sizes: "16x16",
         },
         {
           rel: "apple-touch-icon",
-          url: settings?.favicon || "/icons/favicon.png",
+          url: settings?.favicon || "/icons/fav.png",
           sizes: "16x16",
         },
         {
           rel: "mask-icon",
-          url: settings?.favicon || "/icons/favicon.png",
+          url: settings?.favicon || "/icons/fav.png",
           color: "#5bbad5",
         },
         {
           rel: "icon",
-          url: settings?.favicon || "/icons/favicon.png",
+          url: settings?.favicon || "/icons/fav.png",
           sizes: "16x16",
         },
       ],
