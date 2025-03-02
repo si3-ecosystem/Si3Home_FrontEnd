@@ -34,6 +34,9 @@ const SubscriptionWidget = () => {
           .md-form-group-label {
             border-color: #000 !important;
           }
+            .ethermail-md-subscribe-button{
+             width: 84% !important;
+            }
         `;
                 element.shadowRoot.appendChild(style);
             }
