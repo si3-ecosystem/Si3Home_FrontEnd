@@ -42,6 +42,12 @@ interface SheHerFixx {
   upcoming_sessions?: any[];
   fixx_intelligence?: any[];
   program_replays?: any[];
+  upcoming_title?: string;
+  upcoming_description?: string;
+  fixx_intelligence_title?: string;
+  fixx_intelligence_description?: string;
+  program_replays_title?: string;
+  program_replays_description?: string;
 }
 
 export function Banner() {
@@ -125,10 +131,10 @@ export function FixxTemplate() {
                 <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6 py-8">
                   <div className="flex flex-col gap-2">
                     <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
-                      UPCOMING Sessions
+                      {sheHerFixx?.upcoming_title}
                     </h2>
                     <p className="text-lg leading-8">
-                      Presentations and workshops from leading organizations
+                      {sheHerFixx?.upcoming_description}
                     </p>
                   </div>
                   <button
@@ -153,10 +159,10 @@ export function FixxTemplate() {
                 <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6  max-w-[1251.136px] mx-auto w-full px-4 py-8">
                   <div className="flex flex-col gap-2">
                     <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
-                      FiXX Intelligence
+                      {sheHerFixx?.fixx_intelligence_title}
                     </h2>
                     <p className="text-lg leading-8">
-                      Presentations and workshops from leading organizations
+                      {sheHerFixx?.fixx_intelligence_description}
                     </p>
                   </div>
                   <button
@@ -186,10 +192,10 @@ export function FixxTemplate() {
                 <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6 py-8">
                   <div className="flex flex-col gap-2">
                     <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
-                      Program REPLAYS
+                      {sheHerFixx?.program_replays_title}
                     </h2>
                     <p className="text-lg leading-8">
-                      Presentations and workshops from leading organizations
+                      {sheHerFixx?.program_replays_description}
                     </p>
                   </div>
                   <button

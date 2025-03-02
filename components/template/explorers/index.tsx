@@ -44,6 +44,7 @@ export interface PostItem {
 
 export function ExplorerPageTemplate() {
   const [activeCategory, setActiveCategory] = useState("All Videos");
+  const [pageContent, setPageContent] = useState(null);
   const [activeSubCategory, setActiveSubCategory] = useState<string | null>(
     null
   );
@@ -96,6 +97,15 @@ export function ExplorerPageTemplate() {
     fetchData();
   }, [activeCategory, activeSubCategory]);
 
+  useEffect(() => {
+    async function getPageContent() {
+      const data = await ContentProvider.explorersPageContent();
+      setPageContent(data);
+    }
+
+    getPageContent();
+  }, []);
+
   // Calculate pagination
   const totalItems =
     activeCategory === "All Posts"
@@ -127,44 +137,46 @@ export function ExplorerPageTemplate() {
 
   return (
     <div className="">
-      <div className="min-h-screen flex flex-col gap-8 lg:gap-16 relative overflow-hidden ">
-        <ExplorerBanner />
-        <div className="lg:max-w-[1270px] max-sm:pl-5 lg:mx-auto md:px-5 lg:px-16 lg:pb-16 lg:flex lg:flex-col lg:items-center lg:justify-center">
-          <div className="flex gap-4 lg:gap-2 w-auto lg:mb-8 items-center max-lg:pb-3 lg:justify-center z-20  overflow-auto">
-            {categories.map((category) => {
-              if (category === "Web3 Education") {
+      <div className="min-h-screen flex flex-col gap-8 lg:gap-16 relative  overflow-hidden">
+        <ExplorerBanner pageContent={pageContent} />
+        <div className="lg:max-w-[1270px] max-sm:pl-5 lg:mx-auto md:px-5 h-full lg:px-16 lg:flex lg:flex-col lg:items-center lg:justify-center">
+          <div className="w-full relative h-full">
+            <div className="flex gap-4 lg:gap-2 w-auto overflow-x-auto overflow-y-visible max-lg:pb-3 lg:justify-center">
+              {categories.map((category) => {
+                if (category === "Web3 Education") {
+                  return (
+                    <DropdownButton
+                      key={category}
+                      label={category}
+                      options={web3SubCategories}
+                      active={activeCategory === category}
+                      selectedOption={
+                        activeCategory === category ? activeSubCategory : null
+                      }
+                      onSelect={(subcategory) => {
+                        setActiveCategory(category);
+                        setActiveSubCategory(subcategory);
+                        setCurrentPage(1);
+                      }}
+                    />
+                  );
+                }
                 return (
-                  <DropdownButton
+                  <Button
                     key={category}
-                    label={category}
-                    options={web3SubCategories}
+                    className="!rounded-full flex-shrink-0 hover:text-white hover:!bg-black transition-all duration-300 ease-in-out"
                     active={activeCategory === category}
-                    selectedOption={
-                      activeCategory === category ? activeSubCategory : null
-                    }
-                    onSelect={(subcategory) => {
+                    onClick={() => {
                       setActiveCategory(category);
-                      setActiveSubCategory(subcategory);
+                      setActiveSubCategory(null);
                       setCurrentPage(1);
                     }}
-                  />
+                  >
+                    {category}
+                  </Button>
                 );
-              }
-              return (
-                <Button
-                  key={category}
-                  className="!rounded-full flex-shrink-0 hover:text-white hover:!bg-black transition-all duration-300 ease-in-out"
-                  active={activeCategory === category}
-                  onClick={() => {
-                    setActiveCategory(category);
-                    setActiveSubCategory(null);
-                    setCurrentPage(1);
-                  }}
-                >
-                  {category}
-                </Button>
-              );
-            })}
+              })}
+            </div>
           </div>
         </div>
         {loading ? (
@@ -174,7 +186,7 @@ export function ExplorerPageTemplate() {
         ) : (
           <>
             {/* Content Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 w-full md:grid-cols-3 gap-6 lg:gap-10 z-10 max-w-[1270px] mx-auto px-4 lg:px-16">
+            <div className="grid z-0 grid-cols-1 sm:grid-cols-2 w-full md:grid-cols-3 gap-6 lg:gap-10  max-w-[1270px] mx-auto px-4 lg:px-16">
               {activeCategory === "All Posts"
                 ? currentItems?.map((post: PostItem, index: number) => (
                     <EventCard key={index} {...post} showBgOnHostedBy={false} />

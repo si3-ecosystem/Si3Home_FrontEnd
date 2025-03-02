@@ -1,3 +1,4 @@
+// DropdownButton.tsx
 "use client";
 
 import { Button } from "@/components/atoms/button/Button";
@@ -36,7 +37,7 @@ export function DropdownButton({
   }, []);
 
   return (
-    <div className="relative flex-shrink-0 " ref={dropdownRef}>
+    <div className="relative flex-shrink-0 z-[99999999]" ref={dropdownRef}>
       <Button
         active={active}
         onClick={() => setIsOpen(!isOpen)}
@@ -59,9 +60,9 @@ export function DropdownButton({
       </Button>
 
       {isOpen && (
-        <div className="absolute z-[888] mt-2 w-56 text-black rounded-md shadow-lg bg-white overflow-hidden ">
+        <div className="absolute z-50 mt-2 w-56 text-black rounded-md shadow-lg bg-white left-0">
           <div
-            className="py-1 !overflow-hidden rounded-md"
+            className="py-1 rounded-md"
             role="menu"
             aria-orientation="vertical"
           >

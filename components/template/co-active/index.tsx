@@ -21,6 +21,12 @@ interface CoActiveData {
   educational_replays: any[];
   title?: string;
   description?: string;
+  upcoming_title: string;
+  upcoming_description: string;
+  latest_posts_title: string;
+  latest_posts_description: string;
+  educational_replays_title: string;
+  educational_replays_description: string;
 }
 
 export function Banner() {
@@ -45,6 +51,12 @@ export function Banner() {
 export function CoActiveTemplate() {
   const [coActiveData, setCoActiveData] = useState<CoActiveData>({
     title: "",
+    upcoming_title: "",
+    upcoming_description: "",
+    latest_posts_title: "",
+    latest_posts_description: "",
+    educational_replays_title: "",
+    educational_replays_description: "",
     description: "",
     upcoming_events: [],
     latest_posts: [],
@@ -65,6 +77,8 @@ export function CoActiveTemplate() {
   const upcoming_events = coActiveData?.upcoming_events || [];
   const latest_posts = coActiveData?.latest_posts || [];
   const educational_replays = coActiveData?.educational_replays || [];
+
+  console.log("coActiveData", coActiveData);
 
   return (
     <div>
@@ -110,10 +124,10 @@ export function CoActiveTemplate() {
                 <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6 py-8">
                   <div className="flex flex-col gap-2">
                     <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
-                      UPCOMING EVENTS
+                      {coActiveData?.upcoming_title}
                     </h2>
                     <p className="text-lg leading-8">
-                      Presentations and workshops from leading organizations
+                      {coActiveData?.upcoming_description}
                     </p>
                   </div>
                   <button
@@ -137,10 +151,10 @@ export function CoActiveTemplate() {
                 <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6  max-w-[1251.136px] mx-auto w-full px-4  py-8">
                   <div className="flex flex-col gap-2">
                     <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
-                      Latest Posts
+                      {coActiveData?.latest_posts_title}
                     </h2>
                     <p className="text-lg leading-8">
-                      Presentations and workshops from leading organizations
+                      {coActiveData?.latest_posts_description}
                     </p>
                   </div>
                   <button
@@ -171,10 +185,10 @@ export function CoActiveTemplate() {
                 <div className="flex flex-col lg:flex-row justify-between max-lg:gap-4 lg:items-center mb-6 py-8">
                   <div className="flex flex-col gap-2">
                     <h2 className="text-[#6B46C1] font-medium text-[32px] lg:text-[40px] lg:leading-[68px] uppercase font-clesmont">
-                      Educational Replays
+                      {coActiveData?.educational_replays_title}
                     </h2>
                     <p className="text-lg leading-8">
-                      Presentations and workshops from leading organizations
+                      {coActiveData?.educational_replays_description}
                     </p>
                   </div>
                   <button

@@ -84,6 +84,7 @@ class ContentProviderService {
       sheHerFixx,
       sheHerCoActive,
       sheHerGrowthNetworkContent,
+      explorersPageContent,
     ] = await Promise.all([
       this.getBanner(),
       this.getSherLive(),
@@ -109,6 +110,7 @@ class ContentProviderService {
       this.getSherHerFixx(),
       this.getSheHerCoActive(),
       this.getSheHerGrowthNetworkContent(),
+      this.getExplorersPageDetails(),
     ]);
 
     return {
@@ -136,6 +138,7 @@ class ContentProviderService {
       sheHerFixx,
       sheHerCoActive,
       sheHerGrowthNetworkContent,
+      explorersPageContent,
     };
   }
 
@@ -204,65 +207,127 @@ class ContentProviderService {
 
     return { events, post, replays };
   }
-  async getWeb3EducationContent(subcategory?: string) {
+
+  private async getExplorersPage(): Promise<any | null> {
     try {
-      let query;
-      if (subcategory) {
-        // Filter by subcategory if provided
-        query = groq`*[_type == 'programReplayVideos' && subcategory == '${subcategory}']`;
-      } else {
-        // Get all Web3 Education content
-        query = groq`*[_type == 'programReplayVideos' && "Web3 Education" in category]`;
-      }
+      const query = groq`*[_type == "siHerExplorerspage"][0] {
+        _id,
+        title,
+        description,
+        "replays": replays[]->{
+          _id,
+          title,
+          category,
+          subcategory,
+         ...
+        },
+        "all_posts": all_posts[]->{
+          _id,
+          title,
+          ...
+        }
+      }`;
       const data = await client.fetch(query);
-      return data || [];
+      return data || null;
+    } catch (error) {
+      console.error("Error fetching SI Her Explorers page:", error);
+      return null;
+    }
+  }
+  async getWeb3EducationContent(subcategory?: string): Promise<any[]> {
+    try {
+      const page = await this.getExplorersPage();
+      if (!page || !page.replays) return [];
+
+      let replays = page.replays.filter(
+        (video: any) =>
+          Array.isArray(video.category) &&
+          video.category.includes("Web3 Education")
+      );
+
+      if (subcategory) {
+        replays = replays.filter(
+          (video: any) => video.subcategory === subcategory
+        );
+      }
+
+      return replays;
     } catch (error) {
       console.error("Error fetching Web3 Education content:", error);
       return [];
     }
   }
 
-  async getGrantFundingContent() {
+  async getGrantFundingContent(): Promise<any[]> {
     try {
-      const query = groq`*[_type == 'programReplayVideos' && "Grant Funding" in category]`;
-      const data = await client.fetch(query);
-      return data || [];
+      const page = await this.getExplorersPage();
+      if (!page || !page.replays) return [];
+
+      const replays = page.replays.filter(
+        (video: any) =>
+          Array.isArray(video.category) &&
+          video.category.includes("Grant Funding")
+      );
+
+      return replays;
     } catch (error) {
       console.error("Error fetching Grant Funding content:", error);
       return [];
     }
   }
-  async getSheHerGrowthNetworkContent() {
-    try {
-      const query = groq`*[_type == 'programReplayVideos' && "SI Her Growth Network" in category]`;
-      const data = await client.fetch(query);
 
-      return data || [];
+  async getSheHerGrowthNetworkContent(): Promise<any[]> {
+    try {
+      const page = await this.getExplorersPage();
+      if (!page || !page.replays) return [];
+
+      const replays = page.replays.filter(
+        (video: any) =>
+          Array.isArray(video.category) &&
+          video.category.includes("SI Her Growth Network")
+      );
+
+      return replays;
     } catch (error) {
-      console.error("Error fetching Grant Funding content:", error);
+      console.error("Error fetching SI Her Growth Network content:", error);
       return [];
     }
   }
 
-  async getAllVideos() {
+  async getAllVideos(): Promise<any[]> {
     try {
-      const programReplays = await this.getListData("programReplayVideos");
-
-      return [...(programReplays || [])];
+      const page = await this.getExplorersPage();
+      return page?.replays || [];
     } catch (error) {
       console.error("Error fetching all videos:", error);
       return [];
     }
   }
 
-  async getAllPosts() {
+  async getAllPosts(): Promise<any[]> {
     try {
-      const fixxIntelligence = await this.getListData("fixxIntelligence");
-
-      return [...(fixxIntelligence || [])];
+      const page = await this.getExplorersPage();
+      return page?.all_posts || [];
     } catch (error) {
       console.error("Error fetching all posts:", error);
       return [];
+    }
+  }
+
+  async getExplorersPageDetails(): Promise<{
+    title: string;
+    description: string;
+  } | null> {
+    try {
+      const page = await this.getExplorersPage();
+      if (!page) return null;
+      return {
+        title: page.title || "",
+        description: page.description || "",
+      };
+    } catch (error) {
+      console.error("Error fetching SI Her Explorers page details:", error);
+      return null;
     }
   }
 
