@@ -227,8 +227,9 @@ export function SexualOrientationField(props: FormFieldProps) {
         placeholder="Select"
         options={options}
         label={
-          <p className="text-base sm:text-lg capitalize">
-            Which of the following best describes your sexual orientation??
+          <p className="text-base sm:text-lg lowercase ">
+            <span className="capitalize">Which</span> of the following best
+            describes your sexual orientation?
           </p>
         }
         value={props.value}
@@ -346,9 +347,10 @@ export function SuggestionsField(props: {
         name="suggestions"
         onChange={(e) => props.onChange(e.target.value)}
         label={
-          <p className="text-base sm:text-lg">
-            Please share your thoughts on how the Web3 industry can improve on
-            the topics of Diversity, Equity, Accessibility, and Inclusion.
+          <p className="text-base sm:text-lg lowercase ">
+            <span className="capitalize">Please</span> share your thoughts on
+            how the Web3 industry can improve on the topics of Diversity,
+            Equity, Accessibility, and Inclusion.
           </p>
         }
       />
