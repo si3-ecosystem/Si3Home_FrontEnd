@@ -11,7 +11,7 @@ interface Notification {
 const Notifications = () => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const channelAddress = "eip155:1:0x0D54bD457AF5b5691d1D9790746d4C95f7885CFF"; // Replace with actual channel
+  const channelAddress = "eip155:1:0x0D54bD457AF5b5691d1D9790746d4C95f7885CFF";
 
   useEffect(() => {
     const fetchNotifications = async () => {
@@ -20,7 +20,7 @@ const Notifications = () => {
         if (user) {
           const inbox = await user.notification.list("INBOX");
           
-          // Ensure correct format for notifications
+          
           const formattedNotifications = inbox.map((notif: any) => ({
             title: notif.title || "New Notification",
             message: notif.message || "No message content",
@@ -42,10 +42,10 @@ const Notifications = () => {
       setIsSubscribed(true);
       console.log("Subscribed to channel:", channelAddress);
 
-      // Start listening for real-time notifications
+      
       await listenForNotifications();
 
-      // Simulate notification updates in UI
+      
       setTimeout(() => {
         setNotifications((prev) => [
           ...prev,
@@ -59,10 +59,10 @@ const Notifications = () => {
 
   return (
     <div>
-      <button onClick={handleSubscribeAndListen} disabled={isSubscribed}>
+      {/* <button onClick={handleSubscribeAndListen} disabled={isSubscribed}>
         {isSubscribed ? "Subscribed" : "Subscribe"}
-      </button>
-
+      </button> */}
+{/* 
       <ul>
         {notifications.length > 0 ? (
           notifications.map((notif, index) => (
@@ -71,9 +71,9 @@ const Notifications = () => {
             </li>
           ))
         ) : (
-          <p>No notifications yet.</p>
+          <p></p>
         )}
-      </ul>
+      </ul> */}
     </div>
   );
 };
