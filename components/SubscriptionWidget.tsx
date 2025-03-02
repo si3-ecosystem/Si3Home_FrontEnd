@@ -26,15 +26,13 @@ const SubscriptionWidget = () => {
             padding: 12px 24px !important;
             font-weight: bold !important;
             transition: background 0.3s ease-in-out !important;
+            width: 84% !important;
           }
           button.subscribe:hover, .ethermail-md-subscribe-button:hover, .ethermail-cw-connect-button:hover {
             background-color: #3C1FEF !important;
           }
           .md-form-group-label {
             border-color: #000 !important;
-          }
-          .md-subscribe-button{
-          width: 84% !important;
           }
         `;
                 element.shadowRoot.appendChild(style);
