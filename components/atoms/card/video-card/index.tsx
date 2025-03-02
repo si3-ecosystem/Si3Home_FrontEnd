@@ -1,53 +1,54 @@
+import urlFor from "@/utils/urlFor";
 import Image from "next/image";
+import { Button } from "../../button/Button";
 
 interface VideoCardProps {
-  video: any;
+  data: any;
 }
 
-export function VideoCard({ video }: VideoCardProps) {
+export function VideoCard({ data }: VideoCardProps) {
   return (
-    <div className="group relative bg-white rounded-xl px-3 pt-2 pb-4 overflow-hidden shadow-sm hover:shadow-md transition-shadow border-2 border-[#FAB7D0]">
-      <div className="aspect-video relative">
+    <div className="group relative bg-white rounded-xl px-3 pt-3 pb-4 overflow-hidden shadow-sm hover:shadow-md transition-shadow border-2 border-black border-opacity-30">
+      <div className="aspect-video relative mb-5">
         <Image
-          src={video.thumbnail}
-          alt={video.title}
+          src={urlFor(data?.image).url()}
+          alt={data.title}
           fill
           className="object-cover rounded-lg"
         />
       </div>
-      <div className="flex flex-col gap-3">
-        <h3 className=" line-clamp-2 text-2xl font-semibold uppercase text-[#404040]">
-          {video.title}
-        </h3>
-        <div className="flex flex-col">
-          <span className="text-lg font-medium leading-7 text-black">
-            Elena Sinelnikova
-          </span>
-          <span className="text-[#333] text-sm leading-5">
-            Co-Founder & DC, Metis
-          </span>
+      <div className="flex flex-col justify-between gap-8">
+        <div className="flex flex-col gap-4">
+          <p className="text-2xl font-semibold uppercase">{data?.title}</p>
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex flex-col">
+              <p className="text-xs font-normal leading-4">Hosted by</p>
+              <p className="text-sm font-medium leading-5">{data?.host}</p>
+            </div>
+          </div>
+          {data?.partners?.length > 0 && (
+            <div className="flex flex-col gap-1">
+              <p>In Partnership with</p>
+              <div className="flex items-center justify-start gap-3.5 w-full">
+                {data?.partners?.map((partner: any, index: number) => (
+                  <Image
+                    key={index}
+                    src={urlFor(partner.logo).url()}
+                    alt={partner.name}
+                    width={100}
+                    height={100}
+                    className="max-w-[100px] w-full max-h-[30px]"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
-        <div className="flex items-center justify-end gap-3.5 w-full">
-          <Image
-            src={"/images/uniswaf.png"}
-            alt="uniswap"
-            width={100}
-            height={100}
-            className="w-[81px] h-auto"
-          />
-          <Image
-            src={"/images/coinbase.png"}
-            alt="uniswap"
-            width={100}
-            height={100}
-            className="w-[76px] h-auto"
-          />
+        <div>
+          <button className="border-black border bg-white text-black hover:bg-black hover:text-white w-full rounded-full py-3">
+            Get Started
+          </button>
         </div>
-        <button className=" w-full mt-1.5 relative bg-white text-black py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors">
-          <span className="absolute inset-0 rounded bg-gradient-to-r from-[#3C1FEF] via-[#C51FEF] to-[#EF9C1F]"></span>
-          <span className="absolute inset-[1px] bg-white rounded"></span>
-          <span className="relative z-10">Watch Now</span>
-        </button>
       </div>
     </div>
   );

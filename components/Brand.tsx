@@ -75,7 +75,7 @@ export default function Brand({ brand }: any) {
               Activate Your Web3 Brand
             </h1>
 
-            <p className="font-mono text-center md:text-left md:font-medium text-sm md:text-lg">
+            <p className=" text-center md:text-left md:font-medium text-sm md:text-lg">
               {brand.description}
             </p>
             {brand?.gallery?.length > 0 &&

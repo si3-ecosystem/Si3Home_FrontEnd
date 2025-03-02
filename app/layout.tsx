@@ -5,16 +5,17 @@ import urlFor from "@/utils/urlFor";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Script from "next/script";
 import { getSeoData } from "@/utils/seo";
+import { Toaster } from "react-hot-toast";
 
 export const revalidate = 3600;
-
 
 async function sharedMetaData() {
   const settings = await getSeoData();
 
   const seoLogoUrl = settings?.seoLogo
-    ? urlFor(settings?.seoLogo).url()
+    ? urlFor(settings?.seoLogo).width(1200).height(630).fit("crop").url()
     : "/icons/logo.webp";
+
   return {
     // enable this for resolving opengraph image
     metadataBase: new URL("https://www.si3.space/"),
@@ -22,31 +23,39 @@ async function sharedMetaData() {
       default: settings?.seoTitle || "si3",
       template: "%s",
     },
-
+    description:
+      settings?.overview ||
+      "Co-activating growth and financial inclusion opportunities for women and non-binary web3 leaders through personal brand development, public speaking, partnerships, and DeFi.",
     icons: {
       icon: [
-        { rel: "icon", url: "/icons/favicon-16x16.png", sizes: "16x16" },
         {
           rel: "icon",
-          url: "/icons/favicon-16x16.png",
+          url: settings?.favicon || "/icons/fav.png",
+          sizes: "16x16",
+        },
+        {
+          rel: "icon",
+          url: settings?.favicon || "/icons/fav.png",
           sizes: "16x16",
         },
         {
           rel: "apple-touch-icon",
-          url: "/icons/favicon-16x16.png",
+          url: settings?.favicon || "/icons/fav.png",
           sizes: "16x16",
         },
         {
           rel: "mask-icon",
-          url: "/icons/safari-pinned-tab.svg",
+          url: settings?.favicon || "/icons/fav.png",
           color: "#5bbad5",
         },
-        { rel: "icon", url: "/icons/favicon-16x16.png", sizes: "16x16" },
+        {
+          rel: "icon",
+          url: settings?.favicon || "/icons/fav.png",
+          sizes: "16x16",
+        },
       ],
     },
-    description:
-      settings?.overview ||
-      "Creating Pathways For Diverse Voices Of the New Economy",
+
     keywords: ["si3", "si/her", "web3"],
     authors: [{ name: "Asraful" }],
     canonical: "https://www.si3.space",
@@ -59,10 +68,10 @@ async function sharedMetaData() {
         "Creating Pathways For Diverse Voices Of the New Economy",
       images: [
         {
-          url: "/icons/logo.webp",
-        },
-        {
-          url: image.src,
+          url: seoLogoUrl,
+          width: 1200,
+          height: 170,
+          alt: settings?.seoTitle || "si3 Banner",
         },
       ],
     },
@@ -72,7 +81,14 @@ async function sharedMetaData() {
       description:
         settings?.overview ||
         "Creating Pathways For Diverse Voices Of the New Economy",
-      images: ["https://www.si3.space/icons/logo.webp"],
+      images: [
+        {
+          url: seoLogoUrl,
+          width: 1200,
+          height: 170,
+          alt: settings?.seoTitle || "si3 Banner",
+        },
+      ],
     },
     robots: {
       index: true,
@@ -82,14 +98,14 @@ async function sharedMetaData() {
 }
 
 export async function generateMetadata() {
-  return await sharedMetaData();
+  const metadata = await sharedMetaData();
+  return metadata;
 }
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>)
-{
+}>) {
   return (
     <html lang="en">
       <head>
@@ -127,6 +143,7 @@ export default async function RootLayout({
           src="//js.hs-scripts.com/45396312.js"
         ></script>
         {children}
+        <Toaster position="top-center" reverseOrder={false} gutter={8} />
       </body>
     </html>
   );

@@ -101,14 +101,14 @@ export default function DiversityTrackerForm() {
           }
         />
 
-        <ActiveGrantsField
+        {/* <ActiveGrantsField
           value={formData.active_grants_participated}
           onChange={(newValue) =>
             handleUpdate({
               active_grants_participated: newValue,
             })
           }
-        />
+        /> */}
 
         {/* <ImprovementField
           value={formData.improvement_suggesstions}
