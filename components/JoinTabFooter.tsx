@@ -15,7 +15,7 @@ export default function JoinTabFooter(props: Props) {
   const { footerData, video, hideCTA = false } = props;
   return (
     <div className="bg-[url('/images/join.png')] px-4 py-16 bg-cover">
-      <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4  rounded-2xl overflow-hidden sm:min-h-[575px] relative">
+      <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4  rounded-2xl overflow-hidden sm:min-h-[675px] relative">
         <video
           src={video || "/home.mp4"}
           className="h-full w-full absolute  object-cover object-center rounded-2xl z-[33]"
@@ -53,7 +53,7 @@ export function PartnerFooterInfo(props: Props) {
 
   return (
     <section className="bg-[url('/images/partners.png')] px-4 py-16 bg-cover ">
-      <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4 sm:min-h-[576px] relative  rounded-2xl overflow-hidden">
+      <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4 sm:min-h-[676px] relative  rounded-2xl overflow-hidden">
         <Image
           src="/images/partner-subtract.png"
           alt="Background image mobile"
