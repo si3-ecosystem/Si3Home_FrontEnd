@@ -53,7 +53,7 @@ export function PartnerFooterInfo(props: Props) {
 
   return (
     <section className="bg-[url('/images/partners.png')] px-4 py-16 bg-cover ">
-      <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4 sm:min-h-[476px] relative  rounded-2xl overflow-hidden">
+      <div className="max-w-6xl mx-auto flex items-center justify-center min-h-[300px] px-4 sm:min-h-[576px] relative  rounded-2xl overflow-hidden">
         <Image
           src="/images/partner-subtract.png"
           alt="Background image mobile"
@@ -62,7 +62,7 @@ export function PartnerFooterInfo(props: Props) {
         />
         <video
           // style={{clipPath:"polygon(100%)"}}
-          src={video || "/si3footervideo.mp4"}
+          src={video || "/home.mp4"}
           className="h-full w-full absolute top-0 object-cover rounded-2xl z-[33]"
           autoPlay
           muted
