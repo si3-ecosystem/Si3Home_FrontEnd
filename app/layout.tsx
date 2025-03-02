@@ -5,7 +5,7 @@ import urlFor from "@/utils/urlFor";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Script from "next/script";
 import { getSeoData } from "@/utils/seo";
-import { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 export const revalidate = 3600;
 
